@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner_8Ni6nL": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/Product-list-banner-3.webp",
+        "image_1_visibility": "always-display",
+        "image_2_visibility": "always-display",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "url": "",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "transparent_container_color": "white",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_GV9Jrk": {
+      "type": "rich-text",
+      "blocks": {
+        "text_4RrBnG": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>OZDESIGN SOFA</p>"
+          }
+        },
+        "heading_Hp7Q7U": {
+          "type": "heading",
+          "settings": {
+            "title": "Modern sofas, made easy",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_WhqXqM": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Mid-Year Sale, Save Up To 40% </strong><br/><br/>Limited-time offers on selected sofas, sofa beds, and modular designs.<br/><br/><br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_4RrBnG",
+        "heading_Hp7Q7U",
+        "text_WhqXqM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "collection_list_EhYBpW": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_8eHhyX": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "loop-collection",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_iMapKW": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pebble-collections",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_6kkJMU": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "togo-custom",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_3NbgPy": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "rest-sofa-collection",
+            "custom_image": "shopify://shop_images/Rest-001-double-chaise-Thyme_ce3f221a-579e-4699-bec1-66a0886bda19.webp",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_6Nrknx": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "coccon",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_YRWyEr": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "in-stock",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_HVhkWP": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "swatches",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_4BqCii": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "final-sale",
+            "custom_title": ""
+          }
+        },
+        "featured_collection_KURT3P": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "accessories",
+            "custom_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_8eHhyX",
+        "featured_collection_iMapKW",
+        "featured_collection_6kkJMU",
+        "featured_collection_3NbgPy",
+        "featured_collection_6Nrknx",
+        "featured_collection_YRWyEr",
+        "featured_collection_HVhkWP",
+        "featured_collection_4BqCii",
+        "featured_collection_KURT3P"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "title": "Subscribe to our emails",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Join our email list for exclusive offers and the latest news. </p>"
+          }
+        },
+        "email-form": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading",
+        "paragraph",
+        "email-form"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "button_type": "solid",
+        "button_label": "Sign up",
+        "button_style_secondary": false,
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 68,
+        "padding_bottom": 52,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_banner_8Ni6nL",
+    "rich_text_GV9Jrk",
+    "collection_list_EhYBpW",
+    "newsletter"
+  ]
+}

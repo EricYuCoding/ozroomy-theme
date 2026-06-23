@@ -1,0 +1,164 @@
+<div class="certification-section-wrapper page-width">
+  <div class="cert-flex-container">
+    
+    <div class="cert-image-box">
+      {% comment %} 
+        逻辑判断：
+        1. 优先检查是否有视频 (main_video)
+        2. 如果没有视频，检查是否有图片 (main_image)
+        3. 如果都没有，显示默认占位符 
+      {% endcomment %}
+      
+      {% if section.settings.main_video != blank %}
+        {{ section.settings.main_video | video_tag: autoplay: true, loop: true, muted: true, controls: false, image_size: '1000x', class: 'cert-media' }}
+      {% elsif section.settings.main_image != blank %}
+        {{ section.settings.main_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'cert-media' }}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+
+    <div class="cert-content-box">
+      <h2 class="cert-title">{{ section.settings.title }}</h2>
+      <div class="cert-text">{{ section.settings.content }}</div>
+
+      <div class="cert-grid cert-grid-{{ section.blocks.size }}">
+        {% for block in section.blocks %}
+          <div class="cert-item" {{ block.shopify_attributes }}>
+            {% if block.settings.icon != blank %}
+              <img src="{{ block.settings.icon | image_url: width: 100 }}" alt="{{ block.settings.label | escape }}" width="100" height="100" loading="lazy">
+            {% endif %}
+            <span>{{ block.settings.label }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<style>
+  .certification-section-wrapper { margin: 40px auto; padding: 0 20px; }
+  .cert-flex-container { 
+    display: flex; 
+    flex-wrap: wrap; 
+    background-color: #f9fbf9; 
+    border-radius: 16px; 
+    overflow: hidden; 
+  }
+  .cert-image-box, .cert-content-box { flex: 1; min-width: 350px; }
+  
+  /* 修改了这里：统一管理 image 和 video 的样式 */
+  .cert-image-box { position: relative; line-height: 0; }
+  .cert-media { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+    min-height: 300px; /* 确保在没有内容时也有高度 */
+  }
+  
+  .cert-content-box { padding: 50px; display: flex; flex-direction: column; justify-content: center; }
+  .cert-title { font-family: serif; font-size: 2.5rem; color: #1a302e; margin-bottom: 20px; }
+  .cert-title em, .cert-title i { font-style: italic; }
+  .cert-text { font-size: 1.1rem; line-height: 1.6; color: #4a4a4a; margin-bottom: 30px; }
+
+  /* 图标栅格逻辑 */
+  .cert-grid { display: grid; gap: 15px; }
+  .cert-grid-1 { grid-template-columns: 1fr; }
+  .cert-grid-2 { grid-template-columns: 1fr 1fr; }
+  .cert-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .cert-grid-4 { grid-template-columns: 1fr 1fr; }
+
+  .cert-item { 
+    background: white; 
+    padding: 20px; 
+    border-radius: 12px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  }
+  .cert-item img { width: 45px; height: 45px; margin-bottom: 10px; object-fit: contain; }
+  .cert-item span { font-size: 0.95rem; font-weight: 600; color: #1a302e; }
+
+  @media (max-width: 768px) {
+    .cert-flex-container { flex-direction: column; }
+    .cert-image-box, .cert-content-box { min-width: 100%; }
+    .cert-content-box { padding: 30px 20px; }
+    .cert-title { font-size: 1.8rem; }
+    .cert-media { height: auto; aspect-ratio: 16/9; } /* 移动端保持比例 */
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Rest Certification",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Media Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Image",
+      "info": "Used if no video is selected."
+    },
+    {
+      "type": "video",
+      "id": "main_video",
+      "label": "Video (MP4)",
+      "info": "Upload a video file here. If set, this overrides the image."
+    },
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Certified for Peace of Mind"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Description",
+      "default": "<p>Our fabrics are OEKO-TEX® Standard 100 certified, ensuring they're safe for your home.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_block",
+      "name": "Icon Item",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Standard 100 Certified"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rest Certification",
+      "blocks": [
+        { "type": "icon_block" },
+        { "type": "icon_block" }
+      ]
+    }
+  ]
+}
+{% endschema %}

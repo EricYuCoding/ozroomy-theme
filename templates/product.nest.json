@@ -1,0 +1,956 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "blocks_CcVxg8": {
+      "type": "_blocks",
+      "name": "Inventory status",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "loox_reviews_loox_rating_DjfQPw": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "disabled": true,
+          "settings": {
+            "contentSize": 16,
+            "pattern": "",
+            "hideText": false,
+            "alignment": "",
+            "layout": "",
+            "textColor": "",
+            "starColor": "",
+            "showAllReviews": false,
+            "looxOpenFloatingWidget": false,
+            "emptyRatingWidget": false
+          }
+        },
+        "rating_stars_MH7fQX": {
+          "type": "rating_stars",
+          "settings": {
+            "rating": 4.8,
+            "star_color": "#ffcc00",
+            "bg_stars_style": "full",
+            "bg_star_color": "#ececec",
+            "label": "(23 Ratings)",
+            "size": 16,
+            "alignment": "flex-start",
+            "scroll_id": "",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "text_size": "h1",
+            "title_alignment": "left",
+            "uppercase_title": false,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "inventory_6t3CAL": {
+          "type": "inventory",
+          "disabled": true,
+          "settings": {
+            "text_style": "subtitle",
+            "inventory_threshold": 5,
+            "show_inventory_quantity": true,
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "layout": "price_first",
+            "price_color": "accent-1",
+            "compare_price_color": "text",
+            "hide_sale_badge": false,
+            "show_freeshipping": false,
+            "margin_top": 9,
+            "margin_bottom": 15
+          }
+        },
+        "5fcc0428-e768-4cb7-bea3-eb0274198dd1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_types": "swatches, dropdown, dropdown",
+            "custom_labels": "[name] - [selected]",
+            "swatches_size": "small",
+            "swatches_border_radius": 52,
+            "swatches_custom_colors": "custom",
+            "swatches_custom_colors_list": "#747861, #63645d, #262422, #2f3d4f",
+            "full_width_dropdowns": false,
+            "breaks_style": "normal",
+            "breaks_headline": "BUNDLE & SAVE",
+            "breaks_color_scheme": "accent-1",
+            "breaks_badges": "[empty], Most popular, [empty]",
+            "breaks_displayed_images": "variant_images",
+            "breaks_custom_images": "",
+            "breaks_image_width": 70,
+            "breaks_space_images": true,
+            "breaks_labels": "[name], [name], [name]",
+            "breaks_benefits": "[empty], Free Shipping, Free Shipping",
+            "breaks_captions": "Variant 1 caption, Variant 2 caption, Variant 3 caption",
+            "breaks_price_texts": "[price], [price], [price]",
+            "breaks_compare_price_texts": "[compare_price], [compare_price], [compare_price]",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "04ba004e-2f54-4936-8b1c-8bcadf6573f6": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {
+            "full_width_classic": false,
+            "enable_quantity_discounts": false,
+            "style": "normal",
+            "headline": "BUNDLE & SAVE",
+            "preselected": "option_2",
+            "update_prices": true,
+            "enable_variant_selectors": true,
+            "enable_variant_selectors_on_quantity_of_1": true,
+            "hide_pickers_overlay": true,
+            "pickers_label": "",
+            "image_width": 70,
+            "space_images": true,
+            "color_scheme": "accent-1",
+            "option_1_quantity": 0,
+            "option_1_badge": "",
+            "option_1_label": "Buy [quantity]",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount_saved]",
+            "option_1_percentage_off_text": "0",
+            "option_1_fixed_amount_off": "0",
+            "option_1_price_text": "[price]",
+            "option_1_compare_price": "compare_price",
+            "option_1_compare_price_text": "[compare_price]",
+            "option_2_quantity": 0,
+            "option_2_badge": "",
+            "option_2_label": "Buy [quantity]",
+            "option_2_benefit": "",
+            "option_2_caption": "You save [amount_saved]",
+            "option_2_percentage_off_text": "0",
+            "option_2_fixed_amount_off": "0",
+            "option_2_price_text": "[price]",
+            "option_2_compare_price": "compare_price",
+            "option_2_compare_price_text": "[compare_price]",
+            "option_3_quantity": 0,
+            "option_3_badge": "",
+            "option_3_label": "Buy [quantity]",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount_saved]",
+            "option_3_percentage_off_text": "0",
+            "option_3_fixed_amount_off": "0",
+            "option_3_price_text": "[price]",
+            "option_3_compare_price": "compare_price",
+            "option_3_compare_price_text": "[compare_price]",
+            "option_4_quantity": 0,
+            "option_4_badge": "",
+            "option_4_label": "Buy [quantity]",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount_saved]",
+            "option_4_percentage_off_text": "0",
+            "option_4_fixed_amount_off": "0",
+            "option_4_price_text": "[price]",
+            "option_4_compare_price": "compare_price",
+            "option_4_compare_price_text": "[compare_price]",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "complementary_x9MDMU": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "Can't Decide? Try:",
+            "make_collapsible_row": true,
+            "icon": "price_tag",
+            "product_list_limit": 10,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "square",
+            "enable_quick_add": true,
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "urgency_hwmErQ": {
+          "type": "urgency",
+          "disabled": true,
+          "settings": {
+            "urgency": "Enter XMAS200 to get $200 OFF for any order over $1000",
+            "color_scheme": "accent-1",
+            "margin_top": 0,
+            "margin_bottom": 15
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "skip_cart": false,
+            "uppercase_text": false,
+            "icon_scale": 120,
+            "icon_spacing": 10,
+            "show_main_button": true,
+            "display_price": false,
+            "custom_atc_text": "Pre-order Now",
+            "enable_custom_color": false,
+            "custom_color": "#53af01",
+            "enable_secondary_btn": false,
+            "secondary_btn_label": "Pre-Order Now",
+            "secondary_btn_enable_custom_color": false,
+            "secondary_btn_custom_color": "#dd1d1d",
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "custom_liquid_HHyGXn": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"oz-preorder-benefits\">\n  <details class=\"oz-preorder-accordion\" open>\n    <summary class=\"oz-preorder-summary\">\n      <span class=\"oz-preorder-title\">Pre-order Benefits</span>\n      <span class=\"oz-preorder-toggle\" aria-hidden=\"true\"></span>\n    </summary>\n\n    <div class=\"oz-preorder-content\">\n      <div class=\"oz-preorder-card\">\n        <div class=\"oz-preorder-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <circle cx=\"9\" cy=\"20\" r=\"1.5\"></circle>\n            <circle cx=\"18\" cy=\"20\" r=\"1.5\"></circle>\n            <path d=\"M3 4h2l2.2 9.2a1 1 0 0 0 1 .8h8.8a1 1 0 0 0 1-.8L20 8H7.2\"></path>\n            <path d=\"M7 8h13\"></path>\n          </svg>\n        </div>\n        <div class=\"oz-preorder-text\">\n          <h4>First In, Best Dressed</h4>\n          <p>\n            Our newest sofa bed, made in limited batches. The Nest features premium pocket springs for real comfort, from sofa to sleep.\n          </p>\n        </div>\n      </div>\n\n      <div class=\"oz-preorder-card\">\n        <div class=\"oz-preorder-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <path d=\"M12 3l2.4 2.1 3.1-.2.8 3 2.7 1.6-1.3 2.8 1.3 2.8-2.7 1.6-.8 3-3.1-.2L12 21l-2.4-2.1-3.1.2-.8-3-2.7-1.6 1.3-2.8-1.3-2.8L6.5 7.9l.8-3 3.1.2L12 3z\"></path>\n            <path d=\"M9 12h6\"></path>\n            <path d=\"M12 9v6\"></path>\n          </svg>\n        </div>\n        <div class=\"oz-preorder-text\">\n          <h4>Shop Now and Save</h4>\n          <p>\n            Pre-order pricing is available for a limited time. Once in stock, the product returns to full price.\n          </p>\n        </div>\n      </div>\n\n      <div class=\"oz-preorder-card\">\n        <div class=\"oz-preorder-icon\">\n          <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n            <rect x=\"1.5\" y=\"7\" width=\"15\" height=\"10\" rx=\"1.5\"></rect>\n            <path d=\"M16.5 10h3l2 2.5V17h-5\"></path>\n            <circle cx=\"6\" cy=\"18.5\" r=\"1.5\"></circle>\n            <circle cx=\"18\" cy=\"18.5\" r=\"1.5\"></circle>\n            <path d=\"M6 11h5\"></path>\n          </svg>\n        </div>\n        <div class=\"oz-preorder-text\">\n          <h4>Prioritised Delivery</h4>\n          <p>\n            Pre-orders are queued first, so your order is prepared for dispatch as soon as the incoming batch reaches our warehouse.\n          </p>\n        </div>\n      </div>\n    </div>\n  </details>\n</div>\n\n<style>\n  .oz-preorder-benefits {\n    margin: 18px 0;\n    border-bottom: 1px solid rgba(0,0,0,0.15);\n    padding-bottom: 14px;\n  }\n\n  .oz-preorder-accordion {\n    display: block;\n  }\n\n  .oz-preorder-accordion summary {\n    list-style: none;\n  }\n\n  .oz-preorder-accordion summary::-webkit-details-marker {\n    display: none;\n  }\n\n  .oz-preorder-summary {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    cursor: pointer;\n    padding: 4px 0 14px;\n  }\n\n  .oz-preorder-title {\n    font-size: 22px;\n    line-height: 1.1;\n    font-weight: 600;\n    letter-spacing: -0.02em;\n    color: #1f2a24;\n  }\n\n  .oz-preorder-toggle {\n    position: relative;\n    width: 24px;\n    height: 24px;\n    flex: 0 0 24px;\n  }\n\n  .oz-preorder-toggle::before,\n  .oz-preorder-toggle::after {\n    content: \"\";\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    width: 20px;\n    height: 2px;\n    background: #1f2a24;\n    border-radius: 2px;\n    transform: translate(-50%, -50%);\n    transition: transform 0.2s ease, opacity 0.2s ease;\n  }\n\n  .oz-preorder-toggle::after {\n    transform: translate(-50%, -50%) rotate(90deg);\n  }\n\n  .oz-preorder-accordion[open] .oz-preorder-toggle::after {\n    opacity: 0;\n    transform: translate(-50%, -50%) rotate(90deg) scaleX(0);\n  }\n\n  .oz-preorder-content {\n    display: grid;\n    gap: 16px;\n    padding-bottom: 12px;\n  }\n\n  .oz-preorder-card {\n    display: grid;\n    grid-template-columns: 64px 1fr;\n    gap: 18px;\n    align-items: center;\n    background: #f2f3ee;\n    border-radius: 10px;\n    padding: 22px 22px 22px 18px;\n  }\n\n  .oz-preorder-icon {\n    width: 44px;\n    height: 44px;\n    color: #1f2a24;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n\n  .oz-preorder-icon svg {\n    width: 100%;\n    height: 100%;\n  }\n\n  .oz-preorder-text h4 {\n    margin: 0 0 6px;\n    font-size: 12px;\n    line-height: 1.2;\n    font-weight: 600;\n    color: #1f2a24;\n  }\n\n  .oz-preorder-text p {\n    margin: 0;\n    font-size: 10px;\n    line-height: 1.4;\n    color: #1f2a24;\n    opacity: 0.9;\n    font-weight: 500;\n  }\n\n  @media screen and (max-width: 749px) {\n    .oz-preorder-title {\n      font-size: 20px;\n    }\n\n    .oz-preorder-card {\n      grid-template-columns: 48px 1fr;\n      gap: 14px;\n      padding: 16px;\n    }\n\n    .oz-preorder-icon {\n      width: 34px;\n      height: 34px;\n    }\n\n    .oz-preorder-text h4 {\n      font-size: 14px;\n    }\n\n    .oz-preorder-text p {\n      font-size: 10px;\n    }\n  }\n</style>"
+          }
+        },
+        "e0a0b690-50df-4ca4-acfd-ce2980696cce": {
+          "type": "shipping_checkpoints",
+          "settings": {
+            "icon_1": "add_shopping_cart",
+            "filled_icon_1": false,
+            "top_text_1": "<strong>[start_date]</strong>",
+            "bottom_text_1": "Pre-order Confirmed",
+            "min_days_1": 0,
+            "max_days_1": 0,
+            "icon_2": "design_services",
+            "filled_icon_2": false,
+            "top_text_2": "<strong>[start_date] - [end_date]</strong>",
+            "bottom_text_2": "Batch Arrives",
+            "min_days_2": 35,
+            "max_days_2": 40,
+            "icon_3": "local_shipping",
+            "filled_icon_3": false,
+            "top_text_3": "<strong>[start_date] - [end_date]</strong>",
+            "bottom_text_3": "Priority Dispatch",
+            "min_days_3": 41,
+            "max_days_3": 42,
+            "icon_4": "",
+            "filled_icon_4": false,
+            "top_text_4": "",
+            "bottom_text_4": "",
+            "date_format": "mm_dd",
+            "days_labels": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+            "months_labels": "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec",
+            "color_scheme": "inverse",
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5": {
+          "type": "sticky_atc",
+          "settings": {
+            "function": "add_to_cart",
+            "display_when": "after_scroll",
+            "button_label": "Add to cart",
+            "enable_custom_btn_color": false,
+            "custom_btn_color": "#dd1d1d",
+            "color_scheme": "background-1",
+            "star_color": "#ffcc00",
+            "stars_label": "(xxxx Reviews)",
+            "picker_type": "combined",
+            "desktop_show_image": true,
+            "desktop_show_title": true,
+            "desktop_rating_stars": false,
+            "desktop_show_price": true,
+            "desktop_show_sale_badge": true,
+            "desktop_variant_picker": true,
+            "desktop_full_button_width": false,
+            "desktop_show_price_in_button": false,
+            "desktop_transparent_bg": false,
+            "mobile_show_image": false,
+            "mobile_show_title": true,
+            "mobile_rating_stars": false,
+            "mobile_show_price": true,
+            "mobile_show_sale_badge": false,
+            "mobile_variant_picker": false,
+            "mobile_full_button_width": false,
+            "mobile_show_price_in_button": false,
+            "mobile_transparent_bg": false
+          }
+        },
+        "product_upsell_LrKWrk": {
+          "type": "product_upsell",
+          "disabled": true,
+          "settings": {
+            "style": "add_button",
+            "btn_position": "right",
+            "toggle_element": "button",
+            "add_btn_label": "<strong>+</strong>",
+            "stacking": "row",
+            "accent_color": "accent-1",
+            "color_scheme": "background-1",
+            "product_list": [
+              "plush-chenille",
+              "ozdesign-base"
+            ],
+            "prdouct_1_preselected": false,
+            "product_1_desc": "Not sure? Order a swatch first!",
+            "product_1_percentage_discount": "0",
+            "product_1_fixed_amount_discount": "0",
+            "prdouct_2_preselected": false,
+            "product_2_desc": "Worried about mold? Add a base.",
+            "product_2_percentage_discount": "0",
+            "product_2_fixed_amount_discount": "0",
+            "prdouct_3_preselected": false,
+            "product_3_desc": "",
+            "product_3_percentage_discount": "0",
+            "product_3_fixed_amount_discount": "0",
+            "show_images": true,
+            "images_size": "5",
+            "images_corner_radius": 14,
+            "title_size": "1.4",
+            "title_link": true,
+            "desc_size": "1.2",
+            "price_position": "next_to_title",
+            "price_size": "1.4",
+            "update_prices": false,
+            "hide_compare_price": false,
+            "show_variant_picker": true,
+            "corner_radius": 0,
+            "show_box_shadow": false,
+            "show_border": true,
+            "regular_border_color": "#e6e6e6",
+            "selected_border_color": "#6d388b",
+            "border_width": "0.2",
+            "show_custom_bg": false,
+            "regular_bg_color": "#f2f2f2",
+            "selected_bg_color": "#f2f2f2",
+            "margin_top": 21,
+            "margin_bottom": 21
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_rating_DjfQPw",
+        "rating_stars_MH7fQX",
+        "title",
+        "inventory_6t3CAL",
+        "price",
+        "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
+        "04ba004e-2f54-4936-8b1c-8bcadf6573f6",
+        "complementary_x9MDMU",
+        "urgency_hwmErQ",
+        "buy_buttons",
+        "custom_liquid_HHyGXn",
+        "e0a0b690-50df-4ca4-acfd-ce2980696cce",
+        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
+        "product_upsell_LrKWrk"
+      ],
+      "custom_css": [],
+      "settings": {
+        "display_id": false,
+        "enable_sticky_info": false,
+        "display_variant_image_first": false,
+        "disable_prepend": true,
+        "hide_variants": false,
+        "variant_image_filtering": "none",
+        "image_zoom": "none",
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "video_player": "play_btn",
+        "enable_video_looping": false,
+        "autoplay_videos_pause_btn": false,
+        "video_sound_btn": false,
+        "video_timeline": false,
+        "play_btn_color_scheme": "accent-1",
+        "sound_btn_color_scheme": "inverse",
+        "timeline_color": "accent-1",
+        "media_size": "medium",
+        "media_position": "left",
+        "gallery_layout": "thumbnail_slider",
+        "desktop_thumbnails_count": 4,
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "desktop_arrows_position": "sides",
+        "mobile_media_corner_radius": 0,
+        "mobile_spacing_pixels": 0,
+        "mobile_arrows_position": "pagination",
+        "mobile_pagination": "numeric",
+        "mobile_thumbnails": "show",
+        "mobile_thumbnails_count": 4,
+        "mobile_scroll_padding_percentage": 0,
+        "mobile_scroll_padding_pixels": 0,
+        "enable_mobile_outher_spacing": false,
+        "mobile_slides_container_width": 100,
+        "mobile_slides_inner_width": 100,
+        "trust_badge_position": "top-right",
+        "trust_badge_size": "medium",
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36
+      }
+    },
+    "collapsible_content_TKej8f": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_T9Enmg": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "30-Day Nest Sofa Trial",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p><strong>Try the Nest Sofa at home, risk-free.</strong></p><p>We understand that choosing a sofa online can feel uncertain. That’s why we offer a <strong>30-Day Trial exclusively for the Nest Sofa</strong>.</p><p>If, within 30 days of delivery, you feel the Nest Sofa Bed isn’t the right fit for your space or lifestyle, simply let us know. We’ll arrange a collection from your address and issue a full refund once the sofa is returned in acceptable condition.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_HnYzNa": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Description",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "{{ product.description }}",
+            "page": ""
+          }
+        },
+        "collapsible_row_TDxtHP": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Specifications & Dimensions",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_row_7a8ry7": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Customization",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "{{ product.metafields.custom.customization | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_row_r6KYac": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Shipping Information",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<h4><strong>Delivery Time</strong></h4><p>Nest Sofa is part of our <strong>In Stock Collection</strong>, designed for faster dispatch and delivery.</p><p>• If the product page shows <strong>In Stock</strong>, delivery is typically estimated within 3–8 days.<br/><br/>• If the product shows <strong>Out of Stock</strong>, you can still place your order. Your sofa will be dispatched as soon as restocking arrives, with estimated delivery within 8–15 days.</p><p>All orders are shipped through professional furniture logistics partners to ensure safe and reliable delivery.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_ViWdFp": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Materials",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "{{ product.metafields.custom.materials | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "collapsible_row_d4MDcV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Care Instructions",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_T9Enmg",
+        "collapsible_row_HnYzNa",
+        "collapsible_row_TDxtHP",
+        "collapsible_row_7a8ry7",
+        "collapsible_row_r6KYac",
+        "collapsible_row_ViWdFp",
+        "collapsible_row_d4MDcV"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "caption": "",
+        "title": "Product Information",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "row_heading_size": "medium",
+        "collapse_icon": "carret",
+        "display_top_border": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_contaner_colors_background": "#ffffff",
+        "custom_container_gradient_background": "",
+        "custom_contaner_colors_text": "#2e2a39"
+      }
+    },
+    "1764309817f86f8b97": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "title": "You may also like",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "multicolumn_ACwx4U": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_Unb9fC": {
+          "type": "column",
+          "settings": {
+            "image": "{{ product.metafields.custom.dimension_image1.value }}",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eneU7A": {
+          "type": "column",
+          "settings": {
+            "image": "{{ product.metafields.custom.dimension_image2.value }}",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_bacA8H": {
+          "type": "column",
+          "settings": {
+            "image": "{{ product.metafields.custom.dimension_image3.value }}",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_nR7RLe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/nest-sofa-smaller-2.webp",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_Unb9fC",
+        "column_eneU7A",
+        "column_bacA8H",
+        "column_nR7RLe"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "{{ section.settings.atc_product.metafields.custom.size_variants.value }}",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "button_label": "",
+        "button_link": "",
+        "atc_button_label": "",
+        "atc_product": "{{ product }}",
+        "atc_skip_cart": false,
+        "color_scheme": "background-1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "cards_color_scheme": "bg-overlay",
+        "type": "slide",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": true,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "columns_desktop": 3,
+        "slider_desktop": true,
+        "per_move_desktop": 1,
+        "desktop_spacing": 0,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "hidden",
+        "desktop_arrows_position": "sides",
+        "columns_mobile": "1",
+        "slider_mobile": true,
+        "enable_mobile_preview": false,
+        "mobile_adaptive_height": false,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "under",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_cards_colors_background": "#f3f3f3",
+        "custom_cards_gradient_background": "",
+        "custom_cards_colors_text": "#2e2a39"
+      }
+    },
+    "featured_collection_pR9D3Q": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "You may also like",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "color_scheme": "background-1",
+        "collection": "pebble-collections",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "stretch_cards": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "cards_color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "badges": "regular",
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff"
+      }
+    },
+    "custom_liquid_GH3JgR": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "custom_liquid": "<style>\n  /* 外部容器：控制白色背景和上下间距 */\n  .custom-video-section {\n    background-color: #ffffff;\n    padding: 60px 20px;\n    text-align: center;\n    font-family: inherit; /* 自动继承你Shopify主题的字体 */\n  }\n\n  /* 主标题样式 */\n  .custom-video-heading {\n    font-size: 36px;\n    font-weight: 400;\n    color: #333333;\n    margin-bottom: 15px;\n    line-height: 1.2;\n  }\n\n  /* 副标题/链接样式 */\n  .custom-video-subheading {\n    font-size: 14px;\n    font-weight: 600;\n    color: #000000;\n    margin-bottom: 40px;\n    text-decoration: none;\n    display: inline-block;\n    cursor: pointer;\n  }\n\n  .custom-video-subheading:hover {\n    text-decoration: underline;\n  }\n\n  /* 视频外层容器：控制最大宽度、居中和圆角 */\n  .custom-video-wrapper {\n    max-width: 900px; /* 控制视频最大宽度，数值可根据你的UI偏好微调 */\n    margin: 0 auto;\n    width: 100%;\n    border-radius: 12px; /* 视频圆角效果 */\n    overflow: hidden; /* 确保视频内容不超出圆角 */\n    aspect-ratio: 16 / 9; /* 保持16:9的视频比例，高度会自动计算 */\n    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* 可选：加一点极淡的阴影提升质感 */\n  }\n\n  /* 视频播放器设置 */\n  .custom-video-wrapper video,\n  .custom-video-wrapper iframe {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n    border: none;\n    display: block;\n  }\n\n  /* 移动端专属优化 (屏幕宽度小于 768px 时触发) */\n  @media screen and (max-width: 768px) {\n    .custom-video-section {\n      padding: 40px 15px; /* 减小移动端的上下边距 */\n    }\n    .custom-video-heading {\n      font-size: 26px; /* 缩小主标题字体 */\n    }\n    .custom-video-subheading {\n      margin-bottom: 25px; /* 减小视频上方的间距 */\n    }\n    .custom-video-wrapper {\n      border-radius: 8px; /* 移动端稍微减小圆角弧度 */\n    }\n  }\n</style>\n\n<div class=\"custom-video-section\">\n  <h2 class=\"custom-video-heading\">Lightweight, Flexible, and Customisable</h2>\n  <a href=\"#your-link-here\" class=\"custom-video-subheading\">Watch here to see how.</a>\n  \n  <div class=\"custom-video-wrapper\">\n    <video autoplay loop muted playsinline>\n      <source src=\"https://cdn.shopify.com/videos/c/o/v/56e82d9115684f368d38329ea2d416aa.mp4\" type=\"video/mp4\">\n      Your browser does not support the video tag.\n    </video>\n    \n    </div>\n</div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "rich_text_E3jmeW": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_wBKcxY": {
+          "type": "heading",
+          "settings": {
+            "title": "Built Like a Real Mattress",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h2"
+          }
+        },
+        "text_KLNQLk": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>Pocket spring support inside for sofa comfort that actually sleeps well.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_wBKcxY",
+        "text_KLNQLk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "image_with_text_eTgN4Y": {
+      "type": "image-with-text",
+      "blocks": {
+        "text_hnK6KT": {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li><strong>Pocket Spring Core</strong><br/>Individually wrapped springs for balanced support.</li><li><strong>Memory Foam Layer</strong><br/>Contours to your body for enhanced comfort and pressure relief.</li><li><strong>Structured Comfort Padding</strong><br/>Soft on top, stable underneath.</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "text_hnK6KT"
+      ],
+      "settings": {
+        "display_id": false,
+        "show_media_only": false,
+        "media_max_width": 3456,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/FEATURE_-_POCKET_SPRING_c8a17c43-d6b7-4192-8e19-d5b2db6f6203.webp",
+        "video": "{{ product.metafields.custom.animation.value }}",
+        "height": "small",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_image_quanlity": "2",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "multirow_DNeDPd": {
+      "type": "multirow",
+      "blocks": {
+        "row_GYrKUh": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/box-pebble-ozdesign-no-gemini.webp",
+            "caption": "Packaging Made for Small Spaces",
+            "title": "Fits Through Any Doorway",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>• Easier to handle — ideal for solo living or limited mobility</p><p><br/>• Vacuum-compressed for compact delivery through narrow spaces</p><p><br/>• Box size: 95 × 44 × 44 cm, approx. 22 kg each</p><p><br/>• Unpack and relax — no tools, no assembly<br/></p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_9Vd46i": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/nest-video-sofa-to-bed.mp4",
+            "caption": "",
+            "title": "Designed for Real Sleep",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Switch from lounging to lying down in one simple move. With a built-in mattress core, Nest delivers quiet comfort without metal frames or complicated setups.</p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_w66BqA": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/10601726909961_.pic.webp",
+            "caption": "",
+            "title": "Premium Quality Materials",
+            "title_highlight_color": "#6d388b",
+            "text": "{{ block.settings.atc_product.metafields.custom.materials | metafield_tag }}",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "{{ product }}",
+            "atc_skip_cart": false
+          }
+        },
+        "row_MbxHYF": {
+          "type": "row",
+          "settings": {
+            "video": "{{ block.settings.atc_product.metafields.custom.product_finished_image_video.value }}",
+            "caption": "",
+            "title": "A Fully Removable Design",
+            "title_highlight_color": "#6d388b",
+            "text": "<p><strong>All covers and cushions are fully removable for easy cleaning.</strong></p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "{{ product }}",
+            "atc_skip_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "row_GYrKUh",
+        "row_9Vd46i",
+        "row_w66BqA",
+        "row_MbxHYF"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "row_color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "173381352079f37fbd": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_trust_badge_AmFegi": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-trust-badge/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "layout": "horizontal",
+            "alignment": "left",
+            "scheme-type": "default",
+            "review-title": "reviews",
+            "rating-icon": true,
+            "average-rating": true,
+            "loox-branding": true,
+            "review-count": true,
+            "open-reviews": true,
+            "show-border": true,
+            "border-radius": 8,
+            "font-size": 20,
+            "background-color": "",
+            "secondary-background-color": "",
+            "text-color": "",
+            "rating-icon-color": "",
+            "border-color": ""
+          }
+        },
+        "loox_reviews_loox_dynamic_section_dtQ6tx": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "aggregated": true,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_trust_badge_AmFegi",
+        "loox_reviews_loox_dynamic_section_dtQ6tx"
+      ],
+      "settings": {
+        "display_id": false,
+        "include_margins": true
+      }
+    },
+    "b321ab88-2b59-4dba-bade-54885c874ca5": {
+      "type": "section-divider",
+      "settings": {
+        "visibility": "always-display",
+        "shape": "waves_3",
+        "flip_horizontal": false,
+        "flip_vertical": false,
+        "shape_color": "accent-1",
+        "custom_shape_color": "#dd1d1d",
+        "background_color": "background-1",
+        "custom_background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "blocks_CcVxg8",
+    "main",
+    "collapsible_content_TKej8f",
+    "1764309817f86f8b97",
+    "related-products",
+    "multicolumn_ACwx4U",
+    "featured_collection_pR9D3Q",
+    "custom_liquid_GH3JgR",
+    "rich_text_E3jmeW",
+    "image_with_text_eTgN4Y",
+    "multirow_DNeDPd",
+    "173381352079f37fbd",
+    "b321ab88-2b59-4dba-bade-54885c874ca5"
+  ]
+}

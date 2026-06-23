@@ -1,0 +1,169 @@
+<!-- quote-section.liquid -->
+<div class="quote-section">
+    <blockquote class="quote-container">
+        <span class="quote-mark">“</span>
+        <span class="quote-text">{{ section.settings.quote_text }}</span>
+    </blockquote>
+</div>
+
+<style>
+/* Quote Section Styles */
+.quote-section {
+    margin-top: {{ section.settings.margin_top }};
+    margin-bottom: {{ section.settings.margin_bottom }};
+    padding: {{ section.settings.padding }};
+}
+
+.quote-container {
+    position: relative;
+    font-style: italic;
+    font-size: {{ section.settings.font_size }};
+    font-family: {{ section.settings.font_family }};
+    color: {{ section.settings.text_color }};
+    border: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: {{ section.settings.text_alignment }};
+    margin: 0;
+}
+
+.quote-mark {
+    font-size: {{ section.settings.quote_mark_size }};
+    line-height: 0.8;
+    margin-right: {{ section.settings.quote_mark_spacing }};
+}
+
+.quote-text {
+    max-width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+    .quote-section {
+        margin-top: {{ section.settings.mobile_margin_top }} !important;
+        margin-bottom: {{ section.settings.mobile_margin_bottom }} !important;
+        padding: {{ section.settings.mobile_padding }} !important;
+    }
+
+    .quote-container {
+        font-size: {{ section.settings.mobile_font_size }};
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+    }
+
+    .quote-mark {
+        margin-right: {{ section.settings.quote_mark_spacing }};
+    }
+    .quote-text {
+        max-width: 95%;
+    }
+}
+@media screen and (max-width: 1336px) {
+    .quote-text {
+        max-width: 85%;
+    }
+}
+</style>
+
+{% schema %}
+{
+    "name": "Quote Section",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "quote_text",
+            "label": "Quote Text",
+            "default": "<p>Your quote here.</p>"
+        },
+        {
+            "type": "select",
+            "id": "text_alignment",
+            "label": "Text Alignment",
+            "default": "flex-start",
+            "options": [
+                { "value": "flex-start", "label": "Left" },
+                { "value": "center", "label": "Center" },
+                { "value": "flex-end", "label": "Right" }
+            ]
+        },
+        {
+            "type": "text",
+            "id": "quote_mark_size",
+            "label": "Quote Mark Size",
+            "default": "50px"
+        },
+        {
+            "type": "text",
+            "id": "quote_mark_spacing",
+            "label": "Quote Mark Spacing",
+            "default": "15px"
+        },
+        {
+            "type": "text",
+            "id": "margin_top",
+            "label": "Margin Top (Desktop)",
+            "default": "15px"
+        },
+        {
+            "type": "text",
+            "id": "margin_bottom",
+            "label": "Margin Bottom (Desktop)",
+            "default": "20px"
+        },
+        {
+            "type": "text",
+            "id": "padding",
+            "label": "Padding (Desktop)",
+            "default": "30px 25px 30px 25px"
+        },
+        {
+            "type": "text",
+            "id": "mobile_margin_top",
+            "label": "Margin Top (Mobile)",
+            "default": "0"
+        },
+        {
+            "type": "text",
+            "id": "mobile_margin_bottom",
+            "label": "Margin Bottom (Mobile)",
+            "default": "0"
+        },
+        {
+            "type": "text",
+            "id": "mobile_padding",
+            "label": "Padding (Mobile)",
+            "default": "0"
+        },
+        {
+            "type": "text",
+            "id": "font_size",
+            "label": "Font Size (Desktop)",
+            "default": "16px"
+        },
+        {
+            "type": "text",
+            "id": "mobile_font_size",
+            "label": "Font Size (Mobile)",
+            "default": "14px"
+        },
+        {
+            "type": "text",
+            "id": "font_family",
+            "label": "Font Family",
+            "default": "Arial, sans-serif"
+        },
+        {
+            "type": "color",
+            "id": "text_color",
+            "label": "Text Color",
+            "default": "#000000"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Quote Section",
+            "category": "Text"
+        }
+    ]
+}
+{% endschema %}

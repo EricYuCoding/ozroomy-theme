@@ -1,0 +1,344 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "slideshow_t8WWRV": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_UyKGA8": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/packaging2.webp",
+            "image_overlay_opacity": 0,
+            "heading": "The Journey of Your Sofa",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h0",
+            "subheading": "",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "color_scheme": "custom",
+            "transparent_container_color": "white",
+            "text_alignment_mobile": "center",
+            "custom_colors_background": "rgba(0,0,0,0)",
+            "custom_gradient_background": "",
+            "custom_colors_text": "#f3f3f3",
+            "custom_colors_solid_button_background": "rgba(0,0,0,0)",
+            "custom_colors_solid_button_text": "#ffffff",
+            "custom_colors_outline_button": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "slide_UyKGA8"
+      ],
+      "settings": {
+        "visibility": "always-display",
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "desktop_pagination_position": "over",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_text_below": false,
+        "mobile_pagination_position": "under",
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "image_with_text_j8mFVm": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_h7z7JB": {
+          "type": "heading",
+          "settings": {
+            "title": "Shipping Timeline Guide",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_RgAwrc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>From order to delivery, here’s what to expect:</p><h3>Express Shipping</h3><p>Express Shipping is the simpler option. Your order is usually dispatched within <strong>2–3 business days</strong>, and we’ll send your shipping details as soon as it’s on the way.</p><h3>Standard Shipping</h3><ul><li><strong>1–2 weeks:</strong> Order processing, production & dispatch<br/></li><li><strong>4–5 weeks after dispatch:</strong> Reminder email with ETA & delivery instructions<br/></li><li><strong>5–10 weeks depending on country:</strong> Local delivery, kerbside only. The driver will contact you via phone or email before delivery.<br/></li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_h7z7JB",
+        "text_RgAwrc"
+      ],
+      "settings": {
+        "display_id": false,
+        "show_media_only": false,
+        "media_max_width": 1024,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/shipping-process-5.webp",
+        "height": "medium",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_image_quanlity": "2",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "image_with_text_bzax8g": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_UcwPx7": {
+          "type": "heading",
+          "settings": {
+            "title": "Production Phase",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_FKhFtM": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Express Shipping</h3><p>Express items are usually already made and in stock, and are dispatched within <strong>2–3 business days</strong> after your order is confirmed.</p><h3>Standard Shipping</h3><p>For Standard Shipping, your sofa is crafted after your order is confirmed. Production usually takes <strong>1–3 weeks</strong>, depending on the model and customisation.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UcwPx7",
+        "text_FKhFtM"
+      ],
+      "settings": {
+        "display_id": false,
+        "show_media_only": false,
+        "media_max_width": 1024,
+        "visibility": "always-display",
+        "video": "shopify://files/videos/Loopa-Website-finsihed-product-2026.mp4",
+        "height": "medium",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_image_quanlity": "2",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "image_with_text_j4mbw7": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_aM3APW": {
+          "type": "heading",
+          "settings": {
+            "title": "Shipping & Transit",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_VArVLy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>After production, we arrange international shipping based on your delivery address.</p><p><strong>Estimated delivery times range from 3 to 9 weeks</strong>, depending on your location.</p><p>Please refer to the timeline below to estimate the shipping time to your region.</p><ul><li><strong>Americas(4-8 weeks): </strong>United States, Canada, Mexico</li><li><strong>Asia(2-3 weeks): </strong>Japan, South Korea, Singapore </li><li><strong>Europe(6-8 weeks): </strong>Austria,<strong> </strong>Belgium, France, Germany, Italy, Netherlands, Poland, Spain, Sweden, United Kingdom</li><li><strong>Middle East(6-8 weeks)</strong>: Saudi Arabia, United Arab Emirates</li><li><strong>Oceania(8-10 weeks): </strong>New Zealand</li></ul>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_aM3APW",
+        "text_VArVLy"
+      ],
+      "settings": {
+        "display_id": false,
+        "show_media_only": false,
+        "media_max_width": 1024,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/shipping_8a10d9f9-3597-4e02-ac96-e49e5b57645e.jpg",
+        "height": "adapt",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_image_quanlity": "2",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "image_with_text_qFQxbP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_JWJ3Nk": {
+          "type": "heading",
+          "settings": {
+            "title": "Local Delivery",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_iQdCYg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Delivery method depends on the size and specification of your sofa.</p><p>Larger furniture orders may be delivered by a specialist furniture delivery partner, who will contact you by email or phone to arrange a delivery time.</p><p>Carton-packed orders may be sent with a courier such as DPD, DHL, or a similar service. Tracking details will be shared once your order is on the way.</p><p>Delivery is <strong>kerbside only</strong>. Our default delivery option is kerbside only and does not include in-home delivery, assembly, or packaging removal. For any additional delivery requests, please contact us in advance at support@ozdesignsofa.com.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_JWJ3Nk",
+        "text_iQdCYg"
+      ],
+      "settings": {
+        "display_id": false,
+        "show_media_only": false,
+        "media_max_width": 1024,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/pallet-packaging.webp",
+        "height": "adapt",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_image_quanlity": "2",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "image_with_text_BcYehP": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_UeQMKH": {
+          "type": "heading",
+          "settings": {
+            "title": "Optional Upgrade: Premium Packaging",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h2"
+          }
+        },
+        "text_cYF8ee": {
+          "type": "text",
+          "settings": {
+            "text": "<p>For customers living in apartments or places where handling crates is difficult, we offer a paid upgrade to more convenient packaging.<br/><br/>The exact service and cost vary depending on your country.<br/><br/>Please contact us via our <a href=\"/pages/contact\" target=\"_blank\" title=\"Contact\">Contact Us</a> page or email us at <a><strong>support@ozdesignsofa.com</strong></a> for details.</p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "heading_UeQMKH",
+        "text_cYF8ee"
+      ],
+      "settings": {
+        "display_id": false,
+        "show_media_only": false,
+        "media_max_width": 1024,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/parcel-upgrade-2.webp",
+        "height": "adapt",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_image_quanlity": "2",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_t8WWRV",
+    "image_with_text_j8mFVm",
+    "image_with_text_bzax8g",
+    "image_with_text_j4mbw7",
+    "image_with_text_qFQxbP",
+    "image_with_text_BcYehP"
+  ]
+}

@@ -1,0 +1,1069 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "a6eb81db-40e4-43e0-972f-32db010a4a56": {
+          "type": "rating_stars",
+          "settings": {
+            "rating": 4.7,
+            "star_color": "#ffcc00",
+            "bg_stars_style": "full",
+            "bg_star_color": "#ececec",
+            "label": "(18 Reviews)",
+            "size": 16,
+            "alignment": "flex-start",
+            "scroll_id": "",
+            "margin_top": 0,
+            "margin_bottom": 9
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "text_size": "h1",
+            "title_alignment": "left",
+            "uppercase_title": false,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "layout": "price_first",
+            "price_color": "accent-1",
+            "compare_price_color": "text",
+            "hide_sale_badge": false,
+            "show_freeshipping": false,
+            "margin_top": 9,
+            "margin_bottom": 15
+          }
+        },
+        "5fcc0428-e768-4cb7-bea3-eb0274198dd1": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_types": "swatches, dropdown",
+            "custom_labels": "[name] - [selected]",
+            "swatches_size": "small",
+            "swatches_border_radius": 52,
+            "swatches_custom_colors": "custom",
+            "swatches_custom_colors_list": "#b7a594, #8a8a8a, #395667, #7c666e, #532712, #5e8294, #56563b, #715935",
+            "full_width_dropdowns": false,
+            "breaks_style": "normal",
+            "breaks_headline": "BUNDLE & SAVE",
+            "breaks_color_scheme": "accent-1",
+            "breaks_badges": "[empty], Most popular, [empty]",
+            "breaks_displayed_images": "variant_images",
+            "breaks_custom_images": "",
+            "breaks_image_width": 70,
+            "breaks_space_images": true,
+            "breaks_labels": "[name], [name], [name]",
+            "breaks_benefits": "[empty], Free Shipping, Free Shipping",
+            "breaks_captions": "Variant 1 caption, Variant 2 caption, Variant 3 caption",
+            "breaks_price_texts": "[price], [price], [price]",
+            "breaks_compare_price_texts": "[compare_price], [compare_price], [compare_price]",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "04ba004e-2f54-4936-8b1c-8bcadf6573f6": {
+          "type": "quantity_selector",
+          "settings": {
+            "full_width_classic": false,
+            "enable_quantity_discounts": false,
+            "style": "normal",
+            "headline": "BUNDLE & SAVE",
+            "preselected": "option_2",
+            "update_prices": true,
+            "enable_variant_selectors": true,
+            "enable_variant_selectors_on_quantity_of_1": true,
+            "hide_pickers_overlay": true,
+            "pickers_label": "",
+            "image_width": 70,
+            "space_images": true,
+            "color_scheme": "accent-1",
+            "option_1_quantity": 1,
+            "option_1_badge": "",
+            "option_1_label": "Buy [quantity]",
+            "option_1_benefit": "",
+            "option_1_caption": "You save [amount_saved]",
+            "option_1_percentage_off_text": "0",
+            "option_1_fixed_amount_off": "0",
+            "option_1_price_text": "[price]",
+            "option_1_compare_price": "compare_price",
+            "option_1_compare_price_text": "[compare_price]",
+            "option_2_quantity": 0,
+            "option_2_badge": "",
+            "option_2_label": "Buy [quantity]",
+            "option_2_benefit": "",
+            "option_2_caption": "You save [amount_saved]",
+            "option_2_percentage_off_text": "0",
+            "option_2_fixed_amount_off": "0",
+            "option_2_price_text": "[price]",
+            "option_2_compare_price": "compare_price",
+            "option_2_compare_price_text": "[compare_price]",
+            "option_3_quantity": 0,
+            "option_3_badge": "",
+            "option_3_label": "Buy [quantity]",
+            "option_3_benefit": "",
+            "option_3_caption": "You save [amount_saved]",
+            "option_3_percentage_off_text": "0",
+            "option_3_fixed_amount_off": "0",
+            "option_3_price_text": "[price]",
+            "option_3_compare_price": "compare_price",
+            "option_3_compare_price_text": "[compare_price]",
+            "option_4_quantity": 0,
+            "option_4_badge": "",
+            "option_4_label": "Buy [quantity]",
+            "option_4_benefit": "",
+            "option_4_caption": "You save [amount_saved]",
+            "option_4_percentage_off_text": "0",
+            "option_4_fixed_amount_off": "0",
+            "option_4_price_text": "[price]",
+            "option_4_compare_price": "compare_price",
+            "option_4_compare_price_text": "[compare_price]",
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "inventory_hcyWH4": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": false,
+            "margin_top": 15,
+            "margin_bottom": 15
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "skip_cart": false,
+            "uppercase_text": true,
+            "icon_scale": 120,
+            "icon_spacing": 10,
+            "display_price": false,
+            "enable_custom_color": false,
+            "custom_color": "#53af01",
+            "enable_secondary_btn": false,
+            "secondary_btn_label": "Buy It Now",
+            "secondary_btn_enable_custom_color": false,
+            "secondary_btn_custom_color": "#dd1d1d",
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "e0a0b690-50df-4ca4-acfd-ce2980696cce": {
+          "type": "shipping_checkpoints",
+          "settings": {
+            "icon_1": "add_shopping_cart",
+            "filled_icon_1": false,
+            "top_text_1": "<strong>[start_date]</strong>",
+            "bottom_text_1": "Ordered",
+            "min_days_1": 0,
+            "max_days_1": 0,
+            "icon_2": "local_shipping",
+            "filled_icon_2": false,
+            "top_text_2": "<strong>[start_date] - [end_date]</strong>",
+            "bottom_text_2": "Order Ready",
+            "min_days_2": 2,
+            "max_days_2": 2,
+            "icon_3": "redeem",
+            "filled_icon_3": false,
+            "top_text_3": "<strong>[start_date] - [end_date]</strong>",
+            "bottom_text_3": "Delivered",
+            "min_days_3": 6,
+            "max_days_3": 11,
+            "icon_4": "",
+            "filled_icon_4": false,
+            "top_text_4": "",
+            "bottom_text_4": "",
+            "date_format": "mm_dd",
+            "days_labels": "Mon, Tue, Wed, Thu, Fri, Sat, Sun",
+            "months_labels": "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec",
+            "color_scheme": "inverse",
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5": {
+          "type": "sticky_atc",
+          "settings": {
+            "function": "add_to_cart",
+            "display_when": "after_scroll",
+            "button_label": "Add to cart",
+            "enable_custom_btn_color": false,
+            "custom_btn_color": "#dd1d1d",
+            "color_scheme": "background-1",
+            "star_color": "#ffcc00",
+            "stars_label": "(xxxx Reviews)",
+            "picker_type": "combined",
+            "desktop_show_image": true,
+            "desktop_show_title": true,
+            "desktop_rating_stars": false,
+            "desktop_show_price": true,
+            "desktop_show_sale_badge": true,
+            "desktop_variant_picker": true,
+            "desktop_full_button_width": false,
+            "desktop_show_price_in_button": false,
+            "desktop_transparent_bg": false,
+            "mobile_show_image": false,
+            "mobile_show_title": true,
+            "mobile_rating_stars": false,
+            "mobile_show_price": true,
+            "mobile_show_sale_badge": false,
+            "mobile_variant_picker": false,
+            "mobile_full_button_width": false,
+            "mobile_show_price_in_button": false,
+            "mobile_transparent_bg": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "margin_top": 24,
+            "margin_bottom": 24
+          }
+        },
+        "collapsible_tab_PkaCeL": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Specifications & Dimensions",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "page": "",
+            "margin_top": 24,
+            "margin_bottom": 0
+          }
+        },
+        "de158e68-5d0d-4819-a625-e2dabdff87d1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Material & Care Instructions",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "page": "",
+            "margin_top": 24,
+            "margin_bottom": 0
+          }
+        },
+        "collapsible_tab_U9XXKV": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping Information",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "{{ product.metafields.custom.shipping_information | metafield_tag }}",
+            "page": "",
+            "margin_top": 24,
+            "margin_bottom": 0
+          }
+        },
+        "collapsible_tab_rxwQ6p": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Custom colour available",
+            "heading_size": "medium",
+            "icon": "check_box",
+            "filled_icon": false,
+            "collapse_icon": "carret",
+            "display_top_border": true,
+            "open": false,
+            "content": "{{ product.metafields.custom.feature4 | metafield_tag }}",
+            "page": "",
+            "margin_top": 24,
+            "margin_bottom": 0
+          }
+        },
+        "product_upsell_tKFcM7": {
+          "type": "product_upsell",
+          "settings": {
+            "style": "add_button",
+            "btn_position": "right",
+            "toggle_element": "button",
+            "add_btn_label": "<strong>+</strong>",
+            "stacking": "row",
+            "accent_color": "accent-1",
+            "color_scheme": "background-1",
+            "product_list": [
+              "swatches",
+              "plush-chenille"
+            ],
+            "prdouct_1_preselected": false,
+            "product_1_desc": "Not sure? Order a swatch first!",
+            "product_1_percentage_discount": "0",
+            "product_1_fixed_amount_discount": "0",
+            "prdouct_2_preselected": false,
+            "product_2_desc": "",
+            "product_2_percentage_discount": "0",
+            "product_2_fixed_amount_discount": "0",
+            "prdouct_3_preselected": false,
+            "product_3_desc": "",
+            "product_3_percentage_discount": "0",
+            "product_3_fixed_amount_discount": "0",
+            "show_images": true,
+            "images_size": "5",
+            "images_corner_radius": 0,
+            "title_size": "1.4",
+            "title_link": false,
+            "desc_size": "1.2",
+            "price_position": "next_to_title",
+            "price_size": "1.4",
+            "update_prices": false,
+            "hide_compare_price": false,
+            "show_variant_picker": true,
+            "corner_radius": 0,
+            "show_box_shadow": false,
+            "show_border": false,
+            "regular_border_color": "#e6e6e6",
+            "selected_border_color": "#6d388b",
+            "border_width": "0.2",
+            "show_custom_bg": false,
+            "regular_bg_color": "#f2f2f2",
+            "selected_bg_color": "#f2f2f2",
+            "margin_top": 21,
+            "margin_bottom": 21
+          }
+        }
+      },
+      "block_order": [
+        "a6eb81db-40e4-43e0-972f-32db010a4a56",
+        "title",
+        "price",
+        "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
+        "04ba004e-2f54-4936-8b1c-8bcadf6573f6",
+        "inventory_hcyWH4",
+        "buy_buttons",
+        "e0a0b690-50df-4ca4-acfd-ce2980696cce",
+        "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
+        "description",
+        "collapsible_tab_PkaCeL",
+        "de158e68-5d0d-4819-a625-e2dabdff87d1",
+        "collapsible_tab_U9XXKV",
+        "collapsible_tab_rxwQ6p",
+        "product_upsell_tKFcM7"
+      ],
+      "custom_css": [],
+      "settings": {
+        "display_id": false,
+        "enable_sticky_info": true,
+        "display_variant_image_first": false,
+        "disable_prepend": true,
+        "hide_variants": false,
+        "variant_image_filtering": "none",
+        "image_zoom": "none",
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "video_player": "play_btn",
+        "enable_video_looping": false,
+        "autoplay_videos_pause_btn": false,
+        "video_sound_btn": false,
+        "video_timeline": false,
+        "play_btn_color_scheme": "accent-1",
+        "sound_btn_color_scheme": "inverse",
+        "timeline_color": "accent-1",
+        "media_size": "medium",
+        "media_position": "left",
+        "gallery_layout": "thumbnail_slider",
+        "desktop_thumbnails_count": 4,
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "desktop_arrows_position": "hidden",
+        "mobile_media_corner_radius": 0,
+        "mobile_spacing_pixels": 0,
+        "mobile_arrows_position": "pagination",
+        "mobile_pagination": "numeric",
+        "mobile_thumbnails": "show",
+        "mobile_thumbnails_count": 4,
+        "mobile_scroll_padding_percentage": 0,
+        "mobile_scroll_padding_pixels": 0,
+        "enable_mobile_outher_spacing": false,
+        "mobile_slides_container_width": 100,
+        "mobile_slides_inner_width": 100,
+        "trust_badge_position": "top-right",
+        "trust_badge_size": "medium",
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 16,
+        "desktop_padding_top": 36,
+        "desktop_padding_bottom": 36
+      }
+    },
+    "rich_text_P4tMmq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_GK9Yq9": {
+          "type": "heading",
+          "settings": {
+            "title": "30 Day Free Trial",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_6aKgkh": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy our risk-free 30 Day Free Trial.<br/>If you’re not completely in love, send it back for a full refund.<br/><br/></p>"
+          }
+        },
+        "button_iCYVb4": {
+          "type": "button",
+          "settings": {
+            "button_label": "",
+            "button_link": "",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GK9Yq9",
+        "text_6aKgkh",
+        "button_iCYVb4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "image_with_text_xKdt7K": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_R4pjfH": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Image with text",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_QExejn": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_VmiiB9": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "heading_R4pjfH",
+        "text_QExejn",
+        "button_VmiiB9"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "display_id": false,
+        "show_media_only": true,
+        "media_max_width": 768,
+        "visibility": "always-display",
+        "video": "{{ product.metafields.custom.animation.value }}",
+        "height": "adapt",
+        "content_layout": "no-overlap",
+        "color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_image_quanlity": "2",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "title": "You may also like",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 24
+      }
+    },
+    "custom_liquid_9zVJfU": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "custom_liquid": "<div class=\"custom-features-wrapper\">\n  <div class=\"feature-item\">\n    <div class=\"feature-icon\">\n      <span class=\"badge\">1</span>\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M4 18v3h16v-3M4 11l-1 5v2h18v-2l-1-5M6 11V5a2 2 0 012-2h8a2 2 0 012 2v6M4 11h16\" /></svg>\n    </div>\n    <div class=\"feature-content-rich\">\n      {{ product.metafields.custom.feature1 | metafield_tag }}\n    </div>\n  </div>\n\n  <div class=\"divider\"></div>\n\n  <div class=\"feature-item\">\n    <div class=\"feature-icon\">\n      <span class=\"badge\">2</span>\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M5 18h14M17 18l1-4h3v-4h-5.5L13 6H4v8h2M8 18h2\" /></svg>\n    </div>\n    <div class=\"feature-content-rich\">\n      {{ product.metafields.custom.feature2 | metafield_tag }}\n    </div>\n  </div>\n\n  <div class=\"divider\"></div>\n\n  <div class=\"feature-item\">\n    <div class=\"feature-icon\">\n      <span class=\"badge\">3</span>\n      <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><path d=\"M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z\" /></svg>\n    </div>\n    <div class=\"feature-content-rich\">\n      {{ product.metafields.custom.feature3 | metafield_tag }}\n    </div>\n  </div>\n</div>\n\n<style>\n  /* PC端全局样式 */\n  .custom-features-wrapper {\n    display: flex;\n    justify-content: space-around;\n    align-items: flex-start;\n    padding: 40px 20px;\n    background-color: #f1f3f0;\n    text-align: center;\n  }\n  .feature-item {\n    flex: 1;\n    padding: 0 20px;\n    max-width: 350px;\n    display: flex;\n    flex-direction: column; /* PC端保持上下排列 */\n    align-items: center;\n  }\n  .feature-icon {\n    position: relative;\n    display: inline-block;\n    margin-bottom: 15px;\n    flex-shrink: 0; /* 防止图标被压缩 */\n  }\n  .feature-icon svg {\n    width: 50px;\n    height: 50px;\n    color: #2c3e50;\n  }\n  .badge {\n    position: absolute;\n    top: -8px;\n    right: -8px;\n    background: #2c3e50;\n    color: white;\n    border-radius: 50%;\n    width: 20px;\n    height: 20px;\n    font-size: 11px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n  }\n  .feature-content-rich h3 {\n    font-size: 1.2rem;\n    font-weight: bold;\n    color: #1a302e;\n    margin: 0 0 8px 0;\n  }\n  .feature-content-rich p {\n    font-size: 0.95rem;\n    line-height: 1.4;\n    color: #4a4a4a;\n    margin: 0;\n  }\n  .divider {\n    width: 1px;\n    height: 80px;\n    background-color: #ccc;\n    align-self: center;\n  }\n\n  /* 移动端适配 (重点修改部分) */\n  @media (max-width: 768px) {\n.badge {\n    top: 10px !important;   /* 向上移动，!important 确保覆盖 PC 端样式 */\n    right: -12px !important; /* 向右移动 */\n    width: 18px !important;  /* 移动端如果觉得数字太大可以稍微缩小 */\n    height: 18px !important;\n    font-size: 10px !important;\n  }\n    .custom-features-wrapper {\n      flex-direction: column;\n      align-items: center;\n      padding: 30px 15px;\n    }\n    .feature-item {\n      flex-direction: row; /* 图标文字水平排列 */\n      align-items: flex-start; /* 顶部对齐 */\n      text-align: left; /* 文字左对齐 */\n      padding: 0;\n      margin-bottom: -10px;\n      max-width: 100%;\n      width: 100%;\n    }\n    .feature-icon {\n      margin-bottom: 1;\n      margin-right: 20px; /* 图标与文字的间距 */\n    }\n    .feature-icon svg {\n      width: 45px; /* 移动端图标稍微缩小 */\n      height: 45px;\n      margin-top: 15px;\n    }\n    .feature-content-rich h3 {\n      font-size: 1.1rem;\n      margin-bottom: 5px;\n    }\n    .feature-content-rich p {\n      font-size: 0.9rem;\n    }\n    .divider {\n      display: none; /* 隐藏分割线 */\n    }\n    .feature-item:last-child {\n      margin-bottom: 0;\n    }\n  }\n</style>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "image_slider_ztKYEb": {
+      "type": "image-slider",
+      "blocks": {
+        "image_slide_JCD7N3": {
+          "type": "image_slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.dimension_image1.value }}",
+            "link": "",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_eH4dPt": {
+          "type": "image_slide",
+          "settings": {
+            "image": "{{ product.metafields.custom.dimension_image2.value }}",
+            "link": "",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_JCD7N3",
+        "image_slide_eH4dPt"
+      ],
+      "name": "Image/Video Slider",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Dimensions",
+        "title_highlight_color": "#6D388B",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "type": "slide",
+        "drag": "enabled",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "center_mode": false,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "desktop_border_radius": 0,
+        "slides_desktop": 2,
+        "per_move_desktop": 1,
+        "desktop_spacing": 28,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "mobile_full_page": false,
+        "mobile_border_radius": 0,
+        "slides_mobile": 2,
+        "per_move_mobile": 1,
+        "mobile_spacing": 12,
+        "mobile_side_padding": 0,
+        "mobile_padding_calc": true,
+        "mobile_adaptive_height": false,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "sides",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#FFFFFF",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#121212"
+      }
+    },
+    "multicolumn_K9DeBi": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_QBQBB3": {
+          "type": "column",
+          "settings": {
+            "image": "{{ section.settings.atc_product.metafields.custom.dimension_image1.value }}",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_EgtrbH": {
+          "type": "column",
+          "settings": {
+            "muted_autoplay": true,
+            "title": "Choose your seat height",
+            "text": "<p>We offer two leg styles so you can choose the seat height that suits your space and how you like to relax.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_GFHTJg": {
+          "type": "column",
+          "settings": {
+            "image": "{{ product.metafields.custom.dimension_image2.value }}",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_QBQBB3",
+        "column_EgtrbH",
+        "column_GFHTJg"
+      ],
+      "disabled": true,
+      "custom_css": [],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Dimensions",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "button_label": "",
+        "button_link": "",
+        "atc_button_label": "",
+        "atc_product": "{{ product }}",
+        "atc_skip_cart": false,
+        "color_scheme": "background-1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "column_alignment": "center",
+        "cards_color_scheme": "bg-overlay",
+        "type": "slide",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": true,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "columns_desktop": 3,
+        "slider_desktop": false,
+        "per_move_desktop": 1,
+        "desktop_spacing": 40,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "columns_mobile": "1",
+        "slider_mobile": true,
+        "enable_mobile_preview": false,
+        "mobile_adaptive_height": false,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "under",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_cards_colors_background": "#f3f3f3",
+        "custom_cards_gradient_background": "",
+        "custom_cards_colors_text": "#2e2a39"
+      }
+    },
+    "rich_text_wqBy6g": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_EUtXqj": {
+          "type": "heading",
+          "settings": {
+            "title": "Rest Your Way",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "heading_EUtXqj"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "multirow_DqjTXr": {
+      "type": "multirow",
+      "blocks": {
+        "row_DibF88": {
+          "type": "row",
+          "settings": {
+            "video": "{{ block.settings.atc_product.metafields.custom.structure_image_video.value }}",
+            "caption": "",
+            "title": "Modular by Nature",
+            "title_highlight_color": "#6d388b",
+            "text": "<p><br/>Rearrange it. Expand it. Refresh it with new covers. Rest adapts as your home evolves.<br/><br/></p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "{{ product }}",
+            "atc_skip_cart": false
+          }
+        },
+        "row_UiwECb": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/box-pebble-ozdesign-no-gemini.webp",
+            "caption": "",
+            "title": "Fits Any Doorway",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Flat-packed for easy delivery. Designed to move through narrow hallways, staircases and tight spaces without the struggle.</p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_LjJKCq": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/rest-product-video-no-tools-720p.mp4",
+            "caption": "",
+            "title": "Tool-Free. Stress-Free.",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>No screws. No hex keys. Just unpack, slide together, and you’re done. Rest is built to assemble in minutes — not hours.</p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_TYAT8K": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/rest-product-video-pet-friendly.mp4",
+            "caption": "",
+            "title": "<strong>Claw-Resistant Fabric</strong>",
+            "title_highlight_color": "#121212",
+            "text": "<p><br/>Built for homes with furry friends. Our high-density weave significantly enhances resistance to scratches and snags, standing up to daily stretches and playful paws without sacrificing style.<br/><br/></p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_ARgrxw": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/rest-product-video-waterproof.mp4",
+            "caption": "",
+            "title": "Kid, Pet & Party-Proof",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>From muddy paws to red wine spills, our <strong>water-repellent shield</strong> has you covered. Liquids simply bead up for a quick wipe-clean, making everyday \"oopsies\" a thing of the past.</p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_h69KPq": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/jimeng-2026-02-15-6480-基于我上传的首帧图和尾帧图生成一段完整的压力测试视频。  重要要求：  一、镜头....mp4",
+            "caption": "",
+            "title": "Built for a Lifetime of Lounging",
+            "title_highlight_color": "#121212",
+            "text": "<p>Most cushions flatten in months, but ours are engineered for the long haul. Tested to simulate 10 years of heavy daily use, our high-resilience cores defy sagging—ensuring your sofa stays as supportive and beautiful as the day it arrived.</p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "row_DibF88",
+        "row_UiwECb",
+        "row_LjJKCq",
+        "row_TYAT8K",
+        "row_ARgrxw",
+        "row_h69KPq"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "row_color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "rich_text_tp73NH": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_8GjWzi": {
+          "type": "heading",
+          "settings": {
+            "title": "Family-Friendly & OEKO-TEX® Certified",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_rmANbV": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>At Rest Sofa, we prioritise your home’s safety. Our fabrics are OEKO-TEX® Standard 100 certified, rigorously tested to be free from harmful substances. From toddlers to pets, enjoy peace of mind with a sofa that’s as safe as it is stylish.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_8GjWzi",
+        "text_rmANbV"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "sofa_certification_hNAiHd": {
+      "type": "sofa-certification",
+      "blocks": {
+        "icon_block_mAnFXk": {
+          "type": "icon_block",
+          "settings": {
+            "icon": "shopify://shop_images/OEKO-TEX_6a6b3b42-0da7-476d-9fb8-e75d5193a909.webp",
+            "label": "Standard 100 Certified"
+          }
+        },
+        "icon_block_W4FJ3f": {
+          "type": "icon_block",
+          "settings": {
+            "icon": "shopify://shop_images/family-friendly.webp",
+            "label": "Family Friendly"
+          }
+        }
+      },
+      "block_order": [
+        "icon_block_mAnFXk",
+        "icon_block_W4FJ3f"
+      ],
+      "name": "Rest Certification",
+      "settings": {
+        "main_video": "shopify://files/videos/rest-sofa-OEKO-3(1).mp4",
+        "title": "Designed & Certified for Families",
+        "content": "<p><br/>At Rest Sofa, we prioritise your home’s safety. Our fabrics are OEKO-TEX® Standard 100 certified, rigorously tested to be free from harmful substances. From toddlers to pets, enjoy peace of mind with a sofa that’s as safe as it is stylish.<br/><br/></p>"
+      }
+    },
+    "image_banner_rNiUeU": {
+      "type": "image-banner",
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/life_warranty.webp",
+        "image_1_visibility": "always-display",
+        "image_2_visibility": "always-display",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "url": "",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "transparent_container_color": "white",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "173381352079f37fbd": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_trust_badge_c3aWHM": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-trust-badge/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "layout": "horizontal",
+            "alignment": "left",
+            "scheme-type": "default",
+            "review-title": "reviews",
+            "rating-icon": true,
+            "average-rating": true,
+            "loox-branding": true,
+            "review-count": true,
+            "open-reviews": true,
+            "show-border": true,
+            "border-radius": 8,
+            "font-size": 20,
+            "background-color": "",
+            "secondary-background-color": "",
+            "text-color": "",
+            "rating-icon-color": "",
+            "border-color": ""
+          }
+        },
+        "loox_reviews_loox_dynamic_section_dtQ6tx": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "aggregated": true,
+            "limit": 20,
+            "hide_thumbnails": false,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_trust_badge_c3aWHM",
+        "loox_reviews_loox_dynamic_section_dtQ6tx"
+      ],
+      "settings": {
+        "display_id": false,
+        "include_margins": true
+      }
+    },
+    "b321ab88-2b59-4dba-bade-54885c874ca5": {
+      "type": "section-divider",
+      "settings": {
+        "visibility": "always-display",
+        "shape": "waves_3",
+        "flip_horizontal": false,
+        "flip_vertical": false,
+        "shape_color": "accent-1",
+        "custom_shape_color": "#dd1d1d",
+        "background_color": "background-1",
+        "custom_background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_P4tMmq",
+    "image_with_text_xKdt7K",
+    "related-products",
+    "custom_liquid_9zVJfU",
+    "image_slider_ztKYEb",
+    "multicolumn_K9DeBi",
+    "rich_text_wqBy6g",
+    "multirow_DqjTXr",
+    "rich_text_tp73NH",
+    "sofa_certification_hNAiHd",
+    "image_banner_rNiUeU",
+    "173381352079f37fbd",
+    "b321ab88-2b59-4dba-bade-54885c874ca5"
+  ]
+}

@@ -1,0 +1,1331 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_BCazAc": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_hezjkf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/pebble-AI-banner-PC-Light_675c7765-c82a-42a0-8028-be51f67e7499.webp",
+            "mobile_image": "shopify://shop_images/pebble-AI-banner-PC-Light.webp",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "title_highlight_color": "#f2f8f0",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "Shop Now",
+            "link": "shopify://pages/products",
+            "button_style_secondary": true,
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "color_scheme": "custom",
+            "transparent_container_color": "white",
+            "text_alignment_mobile": "center",
+            "custom_colors_background": "rgba(0,0,0,0)",
+            "custom_gradient_background": "",
+            "custom_colors_text": "#ffffff",
+            "custom_colors_solid_button_background": "#f3f3f3",
+            "custom_colors_solid_button_text": "#ffffff",
+            "custom_colors_outline_button": "#ffffff"
+          }
+        },
+        "slide_RpFDxj": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/pebble-AI-banner-20260430C.webp",
+            "image_overlay_opacity": 20,
+            "heading": "<strong>Pebble Collections</strong>",
+            "title_highlight_color": "#f2f8f0",
+            "heading_size": "h2",
+            "subheading": "Up to 35% off - limited time only",
+            "button_label": "View All",
+            "link": "shopify://pages/products",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "color_scheme": "custom",
+            "transparent_container_color": "white",
+            "text_alignment_mobile": "center",
+            "custom_colors_background": "rgba(0,0,0,0)",
+            "custom_gradient_background": "linear-gradient(0deg, rgba(NaN, NaN, NaN, 1) 100%)",
+            "custom_colors_text": "#ffffff",
+            "custom_colors_solid_button_background": "#f3f3f3",
+            "custom_colors_solid_button_text": "#121212",
+            "custom_colors_outline_button": "rgba(0,0,0,0)"
+          }
+        },
+        "slide_JDVmxU": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "image_overlay_opacity": 0,
+            "heading": "Banner Title",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h2",
+            "subheading": "Banner Text",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "color_scheme": "background-1",
+            "transparent_container_color": "white",
+            "text_alignment_mobile": "center",
+            "custom_colors_background": "#ffffff",
+            "custom_gradient_background": "",
+            "custom_colors_text": "#2e2a39",
+            "custom_colors_solid_button_background": "#dd1d1d",
+            "custom_colors_solid_button_text": "#ffffff",
+            "custom_colors_outline_button": "#dd1d1d"
+          }
+        }
+      },
+      "block_order": [
+        "slide_hezjkf",
+        "slide_RpFDxj",
+        "slide_JDVmxU"
+      ],
+      "settings": {
+        "visibility": "always-display",
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "desktop_pagination_position": "over",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "show_text_below": false,
+        "mobile_pagination_position": "under",
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "content_tabs_D3ge9d": {
+      "type": "content-tabs",
+      "blocks": {
+        "tab_XBkJPp": {
+          "type": "tab",
+          "settings": {
+            "btn_label": "Pebble Sofa",
+            "btn_icon": "",
+            "filled_btn_icon": false,
+            "image": "shopify://shop_images/OzCozy125996_BLUE-5772_2000x2000px_0a896a6e-ae7a-4925-846c-bccf5b9bb60c.webp",
+            "loop": false,
+            "muted_autoplay": false,
+            "btn_color_scheme": "accent-1",
+            "btn_animation": false,
+            "title": "Pebble Sofa Bed",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "text": "<p>The Pebble Sofa is not just for sitting; it's perfect for lounging, playing with kids, hosting movie nights, or creating a cozy atmosphere for gatherings with friends.</p>",
+            "button_label": "Shop Now",
+            "link": "shopify://products/pebble-sofa-bed",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_skip_cart": false,
+            "product": "",
+            "desktop_media_width": "half",
+            "desktop_media_position": "media_first",
+            "desktop_text_alignment": "center",
+            "mobile_media_position": "media_first",
+            "mobile_text_alignment": "mobile-center"
+          }
+        },
+        "tab_3iEHPt": {
+          "type": "tab",
+          "settings": {
+            "btn_label": "Ottoman",
+            "btn_icon": "",
+            "filled_btn_icon": false,
+            "image": "shopify://shop_images/ottoman_DG.webp",
+            "loop": false,
+            "muted_autoplay": false,
+            "btn_color_scheme": "accent-1",
+            "btn_animation": false,
+            "title": "Pebble Ottoman",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "text": "<p>The Pebble Ottoman is the perfect companion to your Pebble Sofa—ideal for resting your feet, providing extra seating, or serving as a stylish accent piece for any cozy gathering.</p>",
+            "button_label": "Shop Now",
+            "link": "shopify://products/pebble-ottoman",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_skip_cart": false,
+            "product": "",
+            "desktop_media_width": "half",
+            "desktop_media_position": "media_first",
+            "desktop_text_alignment": "center",
+            "mobile_media_position": "media_first",
+            "mobile_text_alignment": "mobile-center"
+          }
+        },
+        "tab_iMrtiG": {
+          "type": "tab",
+          "settings": {
+            "btn_label": "Pillow",
+            "btn_icon": "",
+            "filled_btn_icon": false,
+            "image": "shopify://shop_images/OzDesign126020_CREAM_WHITE_-_5769.webp",
+            "loop": false,
+            "muted_autoplay": false,
+            "btn_color_scheme": "accent-1",
+            "btn_animation": false,
+            "title": "Pebble Pillow",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "text": "<p>The Pebble Pillow adds an extra layer of comfort and style to your Pebble Sofa, making lounging, movie nights, and relaxation even more enjoyable.</p>",
+            "button_label": "Shop Now",
+            "link": "shopify://products/pillow",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_skip_cart": false,
+            "product": "",
+            "desktop_media_width": "half",
+            "desktop_media_position": "media_first",
+            "desktop_text_alignment": "center",
+            "mobile_media_position": "media_first",
+            "mobile_text_alignment": "mobile-center"
+          }
+        }
+      },
+      "block_order": [
+        "tab_XBkJPp",
+        "tab_3iEHPt",
+        "tab_iMrtiG"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "New Arrivals",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "text": "",
+        "color_scheme": "background-1",
+        "container_width": "100",
+        "buttons_color_scheme": "accent-1",
+        "button_border_radius": 6,
+        "buttons_style": "outlined",
+        "active_button_animation": "moving",
+        "header_layout": "horizontal",
+        "buttons_desktop_font_size": 15,
+        "desktop_full_size_buttons": false,
+        "buttons_mobile_font_size": 13,
+        "mobile_full_size_buttons": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_tabs_color": "#000000",
+        "custom_tabs_color_label": "#ffffff"
+      }
+    },
+    "multirow_w3c4Rh": {
+      "type": "multirow",
+      "blocks": {
+        "row_ifqNbC": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pebble-banner-20251216-2.webp",
+            "caption": "Pebble, Ready to Ship",
+            "title": "IN STOCK NOW",
+            "title_highlight_color": "#6d388b",
+            "text": "<p><br/>In-stock colours leave our warehouse in 1–2 days.<br/><br/></p>",
+            "button_label": "Shop Pebble",
+            "button_link": "shopify://collections/pebble-collections",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "row_ifqNbC"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "image_layout": "alternate-left",
+        "row_color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_full_media_width": false,
+        "mobile_direction": "reverse",
+        "mobile_content_alignment": "center",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "image_slider_FkWBeP": {
+      "type": "image-slider",
+      "blocks": {
+        "image_slide_NfDrpY": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/Loopa-_-webp.webp",
+            "link": "shopify://collections/loop-collection",
+            "description": "<p>Loopa Collection</p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_ccggd8": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/pebble-banner-20251216-2.webp",
+            "link": "shopify://collections/pebble-collections",
+            "description": "<p>Pebble Collection</p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_CWcJ4q": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/2S_Modular_60_Green_1_1.webp",
+            "link": "shopify://products/nest-sofa",
+            "description": "<p>Nest Sofa Bed</p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_GxfkWW": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/cloud-banner-1_1.webp",
+            "link": "shopify://products/cloud-couchboneless-version",
+            "description": "<p>Cloud sofa</p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_BMJHrN": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/coccon_asdfwrqe_1_1.webp",
+            "link": "shopify://collections/coccon",
+            "description": "<p>Chairs</p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_diDziX": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/erase_words.webp",
+            "link": "shopify://products/castle-sofa",
+            "description": "<p>Castle Sofa</p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_NfDrpY",
+        "image_slide_ccggd8",
+        "image_slide_CWcJ4q",
+        "image_slide_GxfkWW",
+        "image_slide_BMJHrN",
+        "image_slide_diDziX"
+      ],
+      "name": "Image/Video Slider",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Shop by Collection",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "type": "slide",
+        "drag": "enabled",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "center_mode": false,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "desktop_border_radius": 4,
+        "slides_desktop": 5,
+        "per_move_desktop": 1,
+        "desktop_spacing": 28,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "mobile_full_page": false,
+        "mobile_border_radius": 0,
+        "slides_mobile": 2,
+        "per_move_mobile": 1,
+        "mobile_spacing": 12,
+        "mobile_side_padding": 0,
+        "mobile_padding_calc": true,
+        "mobile_adaptive_height": false,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "sides",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#121212"
+      }
+    },
+    "content_tabs_pgRjWb": {
+      "type": "content-tabs",
+      "blocks": {
+        "tab_W8JTeh": {
+          "type": "tab",
+          "settings": {
+            "btn_label": "Nest Sofa Bed",
+            "btn_icon": "Sleep",
+            "filled_btn_icon": false,
+            "video": "shopify://files/videos/nest-video-sofa-to-bed.mp4",
+            "loop": true,
+            "muted_autoplay": true,
+            "btn_color_scheme": "accent-1",
+            "btn_animation": false,
+            "title": "Nest Sofa Bed",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "text": "<p>A Real Premium Mattress.<br/>Now Built Into a Sofa.<br/>Pocket Spring. Memory Foam. True Support.</p>",
+            "button_label": "Shop Now",
+            "link": "shopify://products/nest-sofa",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_skip_cart": false,
+            "product": "",
+            "desktop_media_width": "half",
+            "desktop_media_position": "media_first",
+            "desktop_text_alignment": "center",
+            "mobile_media_position": "media_first",
+            "mobile_text_alignment": "mobile-center"
+          }
+        },
+        "tab_jayPkL": {
+          "type": "tab",
+          "settings": {
+            "btn_label": "Cloud Sofa",
+            "btn_icon": "Cloud",
+            "filled_btn_icon": false,
+            "video": "shopify://files/videos/cloud-sofa-video2.mp4",
+            "loop": true,
+            "muted_autoplay": true,
+            "btn_color_scheme": "accent-1",
+            "btn_animation": false,
+            "title": "Cloud Chair",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "text": "<p>Sink into soft, relaxed comfort.</p>",
+            "button_label": "Shop Now",
+            "link": "shopify://products/cloud-chair",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_skip_cart": false,
+            "product": "",
+            "desktop_media_width": "half",
+            "desktop_media_position": "media_first",
+            "desktop_text_alignment": "center",
+            "mobile_media_position": "media_first",
+            "mobile_text_alignment": "mobile-center"
+          }
+        },
+        "tab_kLJ6LG": {
+          "type": "tab",
+          "settings": {
+            "btn_label": "Pebble Sofa",
+            "btn_icon": "",
+            "filled_btn_icon": false,
+            "image": "shopify://shop_images/pebble-sky-5.webp",
+            "loop": false,
+            "muted_autoplay": false,
+            "btn_color_scheme": "accent-1",
+            "btn_animation": false,
+            "title": "<strong>Soft Armrests, Softer Living</strong>",
+            "title_highlight_color": "#000000",
+            "heading_size": "h1",
+            "text": "<p>Padded armrests and rounded cushions give Pebble its signature cosy feel — ideal for relaxed living in any space.</p>",
+            "button_label": "Shop Now",
+            "link": "shopify://collections/pebble-collections",
+            "button_style_secondary": false,
+            "atc_button_label": "",
+            "atc_skip_cart": false,
+            "product": "",
+            "desktop_media_width": "half",
+            "desktop_media_position": "media_first",
+            "desktop_text_alignment": "center",
+            "mobile_media_position": "media_first",
+            "mobile_text_alignment": "mobile-center"
+          }
+        }
+      },
+      "block_order": [
+        "tab_W8JTeh",
+        "tab_jayPkL",
+        "tab_kLJ6LG"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "New Arrivals",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "text": "",
+        "color_scheme": "background-1",
+        "container_width": "100",
+        "buttons_color_scheme": "accent-1",
+        "button_border_radius": 6,
+        "buttons_style": "outlined",
+        "active_button_animation": "moving",
+        "header_layout": "horizontal",
+        "buttons_desktop_font_size": 15,
+        "desktop_full_size_buttons": false,
+        "buttons_mobile_font_size": 13,
+        "mobile_full_size_buttons": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_tabs_color": "#000000",
+        "custom_tabs_color_label": "#ffffff"
+      }
+    },
+    "multirow_LjbLYn": {
+      "type": "multirow",
+      "blocks": {
+        "row_g8dGBz": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/ozbase-video.mp4",
+            "caption": "Loopa Sofa bED",
+            "title": "Comfort Without Worry",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>The Loopa Sofa Bed is designed for everyday living.For homes in more humid climates, an optional base is also available to allow airflow underneath.</p>",
+            "button_label": "EXPLORE LOOPA",
+            "button_link": "shopify://collections/loop-collection",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_nBbUE6": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/LOOPA-LANDING.webp",
+            "caption": "DESIGNED FOR REAL LIFE",
+            "title": "Comfort That Fits Your Life",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Loopa is made for daily living — sitting, lounging, hosting, and unwinding.<br/>Its modular design, breathable structure, and soft-touch fabric are carefully balanced<br/>to deliver comfort that feels effortless, day after day.<br/></p>",
+            "button_label": "SHOP NOW",
+            "button_link": "shopify://products/loopa-sofa",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "row_g8dGBz",
+        "row_nBbUE6"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "image_layout": "alternate-right",
+        "row_color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_full_media_width": false,
+        "mobile_direction": "reverse",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "image_slider_KTCwWd": {
+      "type": "image-slider",
+      "blocks": {
+        "image_slide_nmdjGG": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/ins-1.webp",
+            "link": "https://www.instagram.com/p/DXMMenNkwPM/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_ThqFp3": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/ins-3.webp",
+            "link": "https://www.instagram.com/p/DWsGc6QD1rv/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_Hyh3xP": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/ins-4.webp",
+            "link": "https://www.instagram.com/p/DWOU-fbCvy4/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_UenAEG": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/ins-2.webp",
+            "link": "https://www.instagram.com/p/DRzAy2ZigRR/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_NmRHRc": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/ins-5.webp",
+            "link": "https://www.instagram.com/p/DVkUjFFigVF/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_nmdjGG",
+        "image_slide_ThqFp3",
+        "image_slide_Hyh3xP",
+        "image_slide_UenAEG",
+        "image_slide_NmRHRc"
+      ],
+      "name": "Image/Video Slider",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "@OZDESIGN",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "type": "slide",
+        "drag": "enabled",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "center_mode": false,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "desktop_border_radius": 12,
+        "slides_desktop": 3,
+        "per_move_desktop": 1,
+        "desktop_spacing": 28,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "mobile_full_page": false,
+        "mobile_border_radius": 12,
+        "slides_mobile": 2,
+        "per_move_mobile": 1,
+        "mobile_spacing": 12,
+        "mobile_side_padding": 0,
+        "mobile_padding_calc": true,
+        "mobile_adaptive_height": false,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "sides",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#121212"
+      }
+    },
+    "multirow_CN9UaG": {
+      "type": "multirow",
+      "blocks": {
+        "row_7aN3yB": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/pebble-landing-page-1-1-20251216.mp4",
+            "caption": "Easy to install. Easy to remove",
+            "title": "Pebble Sofa Bed",
+            "title_highlight_color": "#6d388b",
+            "text": "<p><br/>Extra Padding. Extra Comfort.<br/><br/></p>",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/pebble-sofabed",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_cydLkU": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/rest-sofa-landing-page-1-1.mp4",
+            "caption": "New Arrival",
+            "title": "Rest Sofa",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Meet Rest.<br/><br/>Modular. Adaptable. Effortless.</p><p>Start with one seat or build the full layout.<br/><br/>Rest grows with your space.</p>",
+            "button_label": "Explore",
+            "button_link": "shopify://collections/rest-sofa-collection",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "row_7aN3yB",
+        "row_cydLkU"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "row_color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_full_media_width": false,
+        "mobile_direction": "reverse",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "slideshow_hero_cBWiTn": {
+      "type": "slideshow-hero",
+      "blocks": {
+        "slide_XPnhRj": {
+          "type": "slide",
+          "settings": {
+            "desktop_bg_video": "shopify://files/videos/rest-sofa-landing-page-16-9.mp4",
+            "desktop_overlay_color": "#000000",
+            "desktop_overlay_opacity": 0,
+            "mobile_overlay_color": "#000000",
+            "mobile_overlay_opacity": 0,
+            "display_sound_btn": false,
+            "sound_btn_color_scheme": "inverse",
+            "heading_prefix": "",
+            "heading": "",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "heading_suffix": "",
+            "heading_prefix_size": "h4",
+            "text": "",
+            "button_label_1": "Explore",
+            "button_link_1": "shopify://products/nest-sofa",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false,
+            "color_scheme": "custom",
+            "full_page_width": false,
+            "content_max_width": "unlimited",
+            "content_pixels_max_width": 500,
+            "content_percentage_max_width": 50,
+            "content_vertical_position": "center",
+            "content_horizontal_position": "center",
+            "content_text_alignment": "center",
+            "mobile_content_vertical_position": "center",
+            "mobile_content_text_alignment": "center",
+            "custom_colors_text": "#ffffff",
+            "custom_colors_solid_button_background": "#697861",
+            "custom_colors_solid_button_text": "#ffffff",
+            "custom_colors_outline_button": "#727272"
+          }
+        }
+      },
+      "block_order": [
+        "slide_XPnhRj"
+      ],
+      "disabled": true,
+      "name": "Slideshow hero",
+      "settings": {
+        "visibility": "always-display",
+        "min_desktop_height_type": "pixels",
+        "desktop_pixels_height": 600,
+        "min_mobile_height_type": "pixels",
+        "mobile_pixels_height": 400,
+        "transparent_header": false,
+        "transparent_header_text_color": "text",
+        "transparent_header_highlighted_link_color": "background-1",
+        "transparent_header_hover_link_color": "accent-1",
+        "transparent_header_logo": "main",
+        "hide_announcement_bars": false,
+        "slider_type": "loop",
+        "drag": false,
+        "autoplay": false,
+        "autoplay_speed": 10,
+        "enable_dots": true,
+        "dots_color_scheme": "background-1",
+        "padding_top": 50,
+        "padding_bottom": 50
+      }
+    },
+    "multicolumn_qyL48n": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_jwaURd": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/LOOPA-LANDING5.webp",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "<p>Lounge</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_9MHRgt": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/LOOPA-LANDING1.webp",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "<p>Conversation Pit</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_eKyPCr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/LOOPA-LANDING2.webp",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "<p>Movie</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_thUbtA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/LOOPA-LANDING4.webp",
+            "muted_autoplay": true,
+            "title": "",
+            "text": "<p>Sleep</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_jwaURd",
+        "column_9MHRgt",
+        "column_eKyPCr",
+        "column_thUbtA"
+      ],
+      "disabled": true,
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "One Sofa, Four Settings",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h2",
+        "button_label": "",
+        "button_link": "",
+        "atc_button_label": "",
+        "atc_product": "",
+        "atc_skip_cart": false,
+        "color_scheme": "background-1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "column_alignment": "left",
+        "cards_color_scheme": "bg-overlay",
+        "type": "slide",
+        "autoplay": false,
+        "autoplay_speed": 5,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": true,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "columns_desktop": 4,
+        "slider_desktop": false,
+        "per_move_desktop": 1,
+        "desktop_spacing": 40,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "columns_mobile": "1",
+        "slider_mobile": true,
+        "enable_mobile_preview": false,
+        "mobile_adaptive_height": true,
+        "mobile_dots_position": "under",
+        "mobile_arrows_position": "under",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_cards_colors_background": "#f3f3f3",
+        "custom_cards_gradient_background": "",
+        "custom_cards_colors_text": "#2e2a39"
+      }
+    },
+    "multirow_pxFApi": {
+      "type": "multirow",
+      "blocks": {
+        "row_9A3bNT": {
+          "type": "row",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/Contact-Us.webp",
+            "caption": "",
+            "title": "",
+            "title_highlight_color": "#6d388b",
+            "text": "<p><strong>Buying a sofa is a big decision.</strong><br/><br/>If you have any questions, feel free to contact us via <a><strong>support@ozdesignsofa.com</strong></a> or our <strong>Contact Us</strong> page.<br/><br/>Our customer care team replies within <strong>24 hours</strong>.</p><p>Want a different size or fabric? <strong>Just let us know — we offer customisation.</strong></p>",
+            "button_label": "Contact us",
+            "button_link": "shopify://pages/contact",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "row_9A3bNT"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "primary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-right",
+        "row_color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_full_media_width": false,
+        "mobile_direction": "reverse",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "comparison_slider_PMqXJD": {
+      "type": "comparison-slider",
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Noka Sofa",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "text": "<p><br/>The Noka Sofa offers enveloping comfort with plush high-density foam, integrated armrests, and a supportive headrest. Soft yet durable, it’s designed for everyday relaxation.<br/><br/></p>",
+        "button_label": "Shop Now",
+        "link": "shopify://products/kashima-sofa",
+        "button_style_secondary": false,
+        "atc_button_label": "",
+        "atc_product": "",
+        "atc_skip_cart": false,
+        "color_scheme": "background-1",
+        "layout": "slider_second",
+        "before_label": "Green",
+        "after_label": "Blue",
+        "labels_color_scheme": "accent-1",
+        "line_color": "background-1",
+        "arrows_style": "circle",
+        "before_image": "shopify://shop_images/green_kashima_2.webp",
+        "after_image": "shopify://shop_images/kashima_blue_002_2.webp",
+        "padding_top": 24,
+        "padding_bottom": 12,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "image_banner_EjeTib": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_RftNtG": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Image banner",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_Qmdj3z": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_9HbekX": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_RftNtG",
+        "text_Qmdj3z",
+        "buttons_9HbekX"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/dimension2.webp",
+        "image_1_visibility": "always-display",
+        "image_2_visibility": "always-display",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "url": "",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "transparent_container_color": "white",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "image_slider_wVThxg": {
+      "type": "image-slider",
+      "blocks": {
+        "image_slide_DPecaj": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/dimension2.webp",
+            "link": "",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "video_slide_RJKxEn": {
+          "type": "video_slide",
+          "disabled": true,
+          "settings": {
+            "video": "shopify://files/videos/daaead75768649b28386904f9a8019e8.mp4",
+            "loop": true,
+            "muted_autoplay": true,
+            "display_play_btn": false,
+            "btn_animation": false,
+            "btn_color_scheme": "accent-1",
+            "display_sound_btn": false,
+            "sound_btn_color_scheme": "inverse",
+            "display_timeline": false,
+            "timeline_color": "accent-1",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "image_slide_DPecaj",
+        "video_slide_RJKxEn"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "type": "slide",
+        "drag": "enabled",
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "center_mode": true,
+        "arrows_color_scheme": "accent-1",
+        "transparent_arrows": true,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": true,
+        "desktop_border_radius": 0,
+        "slides_desktop": 1,
+        "per_move_desktop": 1,
+        "desktop_spacing": 28,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": true,
+        "desktop_dots_position": "under",
+        "desktop_arrows_position": "sides",
+        "mobile_full_page": false,
+        "mobile_border_radius": 0,
+        "slides_mobile": 1,
+        "per_move_mobile": 1,
+        "mobile_spacing": 12,
+        "mobile_side_padding": 0,
+        "mobile_padding_calc": true,
+        "mobile_adaptive_height": true,
+        "mobile_dots_position": "hidden",
+        "mobile_arrows_position": "hidden",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#121212"
+      }
+    },
+    "image_banner_DP7iCk": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_GYLTeE": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "title": "Image banner",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_mz3ANq": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_BeNXQ9": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_GYLTeE",
+        "text_mz3ANq",
+        "buttons_BeNXQ9"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image": "shopify://shop_images/ozsofa_human_dog_bed_pink2_31fb87dc-a15e-4111-9080-dc38d2cd61ae.webp",
+        "image_1_visibility": "always-display",
+        "image_2_visibility": "always-display",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "url": "",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "transparent_container_color": "white",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "rich_text_hRbgex": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Ayhhzw": {
+          "type": "heading",
+          "settings": {
+            "title": "Inspiring Comfort, Redefining Home",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "text_pidgQX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover the perfect blend of flexibility, comfort, and style with<strong> </strong>OzDesign Sofa—crafted to transform your home and enhance your lifestyle effortlessly.</p>"
+          }
+        },
+        "button_68b4Ah": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "View All",
+            "button_link": "shopify://collections/all",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Ayhhzw",
+        "text_pidgQX",
+        "button_68b4Ah"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "173585945899c78b61": {
+      "type": "apps",
+      "blocks": {
+        "loox_reviews_loox_agg_section_Q8TdeE": {
+          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
+          "settings": {
+            "reviews_to_display": "",
+            "default_tab": "automatic",
+            "only_photos": false,
+            "hide_thumbnails": false,
+            "product_handle": "",
+            "aggregated": true,
+            "data-limit": 20,
+            "maxwidth": 1080,
+            "is_sample": true
+          }
+        }
+      },
+      "block_order": [
+        "loox_reviews_loox_agg_section_Q8TdeE"
+      ],
+      "settings": {
+        "display_id": false,
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "slideshow_BCazAc",
+    "content_tabs_D3ge9d",
+    "multirow_w3c4Rh",
+    "image_slider_FkWBeP",
+    "content_tabs_pgRjWb",
+    "multirow_LjbLYn",
+    "image_slider_KTCwWd",
+    "multirow_CN9UaG",
+    "slideshow_hero_cBWiTn",
+    "multicolumn_qyL48n",
+    "multirow_pxFApi",
+    "comparison_slider_PMqXJD",
+    "image_banner_EjeTib",
+    "image_slider_wVThxg",
+    "image_banner_DP7iCk",
+    "rich_text_hRbgex",
+    "173585945899c78b61"
+  ]
+}

@@ -1,0 +1,24 @@
+# Shopify CLI cache and local files
+.shopify-cli/
+.shopify-cli.yml
+.shopify/
+.shopifyignore.tmp
+
+# Dependencies
+node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment files
+.env
+.env.local

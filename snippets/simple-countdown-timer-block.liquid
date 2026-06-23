@@ -1,0 +1,92 @@
+{% comment %}
+  simple-countdown-timer-block.liquid
+  A simplified countdown timer displaying hours remaining until a specified end date.
+{% endcomment %}
+
+{% assign countdown_message = block.settings.simple_countdown_message %}
+{% assign countdown_date = block.settings.simple_countdown_date %}
+{% assign interval_day = block.settings.simple_interval_day %}
+{% assign highlight_color = block.settings.simple_highlight_color %}
+{% assign font_size = block.settings.simple_font_size %}
+{% assign alignment = block.settings.simple_alignment %}
+{% assign margin_top = block.settings.simple_margin_top %}
+{% assign margin_bottom = block.settings.simple_margin_bottom %}
+
+<div class="simple-countdown-timer-block" style="margin-top: {{ margin_top }}px; margin-bottom: {{ margin_bottom }}px; text-align: {{ alignment }};">
+  <p class="simple-countdown-message" style="font-size: {{ font_size }}px;margin:0px;">
+    {{ countdown_message }} <span id="simple-hours-{{ block.id }}" class="highlight-hours" style="color: {{ highlight_color }};">00</span> <span id="simple-hours-text-{{ block.id }}">Hours</span>
+  </p>
+  
+  <script>
+    (function() {
+      // Get the end date and interval day from Liquid variables
+      var endDateStr = "{{ countdown_date }}";
+      var intervalDay = parseInt("{{ interval_day }}", 10);
+
+      // Parse the end date string into a Date object (assume end time is 23:59:59)
+      var endDate = new Date(endDateStr + 'T23:59:59');
+
+      // Validate the end date
+      if (isNaN(endDate.getTime())) {
+        console.error('Invalid end date format. Please use YYYY-MM-DD.');
+        document.getElementById('simple-hours-{{ block.id }}').innerHTML = '00';
+        document.getElementById('simple-hours-text-{{ block.id }}').innerHTML = 'Hours';
+        return;
+      }
+
+      // Function to calculate the next end date based on interval
+      function calculateNextEndDate(currentEndDate, intervalDays) {
+        var nextEndDate = new Date(currentEndDate);
+        nextEndDate.setDate(nextEndDate.getDate() + intervalDays);
+        return nextEndDate;
+      }
+
+      // Function to get the current valid end date
+      function getCurrentEndDate(initialEndDate, intervalDays) {
+        var now = new Date();
+        var updatedEndDate = new Date(initialEndDate);
+
+        // Loop to find the next end date in the future
+        while (now > updatedEndDate && intervalDays > 0) {
+          updatedEndDate = calculateNextEndDate(updatedEndDate, intervalDays);
+        }
+
+        return updatedEndDate;
+      }
+
+      // Function to update the hours display
+      function updateHours() {
+        var now = new Date();
+        var currentEndDate = getCurrentEndDate(endDate, intervalDay);
+        var distance = currentEndDate - now;
+
+        // Calculate remaining hours
+        var hours = Math.floor(distance / (1000 * 60 * 60));
+
+        // If less than one hour remains but distance > 0, set hours to 1
+        if (distance > 0 && hours === 0) {
+          hours = 1;
+        }
+
+        // If the sale has ended and interval day is 0, set hours to 0
+        if (distance < 0) {
+          hours = 0;
+        }
+
+        // Update the hours display with leading zero if necessary
+        var hoursDisplay = hours < 10 ? '0' + hours : hours;
+        document.getElementById('simple-hours-{{ block.id }}').innerHTML = hoursDisplay;
+
+        // Update the "Hour"/"Hours" text based on the hours value
+        var hoursText = (hours === 1) ? 'Hour' : 'Hours';
+        document.getElementById('simple-hours-text-{{ block.id }}').innerHTML = hoursText;
+      }
+
+      // Initial call to display hours immediately
+      updateHours();
+
+      // Update the hours every minute to ensure accuracy
+      setInterval(updateHours, 60 * 1000);
+    })();
+  </script>
+</div>

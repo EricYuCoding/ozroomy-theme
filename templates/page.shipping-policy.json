@@ -1,0 +1,146 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "9c121ec4-42cd-4c8e-82a2-935e073db7d7": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_X8Ae7c": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What Happens After You Place an Order?",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>We’ve created a visual guide to help you understand what happens after your order is confirmed — from sofa production, international shipping, to final delivery at your door.<br/><br/>👉 <a href=\"/pages/shipping-process\" title=\"Shipping Process\">Click here to view the full process</a></p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_RMY4Rr": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Delivery Areas",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "{{ metaobjects.shipping_policy[\"shipping-policy-lkb5fn5b\"].content | metafield_tag }}",
+            "page": ""
+          }
+        },
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Delivery Timeline",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>Delivery times vary depending on the product, your selected country or region, and whether the item is in stock or made to order.</p><p>Please make sure the correct country or region is selected when browsing our website, as delivery availability, shipping cost, and estimated delivery time may vary by location.</p><p>You can check the estimated delivery time directly on each product page. The final delivery option and shipping cost will always be shown at checkout before you place your order.</p><p>Some items are available for faster delivery if they are currently in stock. Made-to-order pieces usually take around <strong>7–9 weeks</strong>, as they are produced and prepared before shipping.</p><p>Depending on the size of your order, your sofa may be delivered by parcel courier or specialist furniture freight. Larger orders may be shipped on a pallet or in multiple cartons to help keep everything protected during transit.</p><p>If your order is shipped in multiple cartons, packages may occasionally arrive on different days, even if they are dispatched together. This is normal with furniture deliveries, and any remaining packages usually follow shortly after.</p><p>Please note that delivery is curbside only unless otherwise stated.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Cc3RMT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Track Order",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p><br/>For products with an Express Delivery option, we’ll send your order and delivery information once your order has been dispatched. This usually takes around <strong>2–3 business days</strong>.</p><p>For made-to-order pieces, the delivery journey is a little longer. Once your order has been dispatched, we’ll usually send a reminder email around <strong>5–6 weeks later</strong> with delivery tips and the latest estimated arrival timeframe.</p><p>When your order reaches the local delivery stage, our furniture delivery partner may contact you by email, SMS, or phone to arrange the final delivery time.</p><p>We understand that ordering furniture online can feel like a long wait, especially for made-to-order pieces. If you have any questions at any point, you’re always welcome to contact us at <a><strong>support@ozdesignsofa.com</strong></a> or through our <a href=\"/pages/contact\" title=\"Contact\"><strong>Contact Us</strong></a> page. Our support team usually replies within <strong>24 hours</strong>.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_N7hFQN": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Unexpected Delivery Delays",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>We always do our best to keep deliveries on schedule. However, in some situations, delivery times may be affected by circumstances outside our control.</p><p>This may include severe weather, transport disruptions, carrier delays, strikes, customs delays, road closures, or other unexpected events that affect the delivery route.</p><p>If your delivery is delayed or needs to be rescheduled, we’ll do our best to let you know as soon as possible and work with our delivery partner to arrange the next available delivery date.</p>",
+            "page": ""
+          }
+        },
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Preparing for Delivery",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>Please make sure your phone number and email address are correct, as our delivery partner may contact you before delivery.</p><p>If you need to change or cancel a scheduled delivery, please contact us as early as possible. Changes may need to be requested at least <strong>24 hours in advance</strong>, depending on the delivery partner’s schedule.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3wUmGT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Shipping Inquiries",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p><br/>If you have any questions about shipping, please contact us at <a>support@ozdesignsofa.com</a> or through our <a href=\"/pages/contact\" title=\"Contact\">Contact Us</a> page. Our support team usually replies within 24 hours.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_qhRXQ6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "💼 Import Duties & Taxes",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>For most countries we ship to, import duties, customs clearance fees, and applicable taxes are included in the price shown at checkout.</p><p>This means the checkout price is usually the final amount for your order, with no additional import duty or customs tax to pay when your sofa arrives.</p><p>For <strong>Norway and Switzerland</strong>, local VAT is payable on delivery and is not included in the checkout price.</p><p>Please make sure the correct country or region is selected when browsing our website, as tax treatment, delivery options, and estimated delivery times may vary by location.</p><p>Additional charges may still apply for special delivery requests, failed delivery attempts, remote locations, or address changes after dispatch.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_X8Ae7c",
+        "collapsible_row_RMY4Rr",
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-0",
+        "collapsible_row_Cc3RMT",
+        "collapsible_row_N7hFQN",
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-1",
+        "collapsible_row_3wUmGT",
+        "collapsible_row_qhRXQ6"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "caption": "",
+        "title": "Shipping Policy",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "row_heading_size": "medium",
+        "collapse_icon": "carret",
+        "display_top_border": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_contaner_colors_background": "#ffffff",
+        "custom_container_gradient_background": "",
+        "custom_contaner_colors_text": "#2e2a39"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "9c121ec4-42cd-4c8e-82a2-935e073db7d7"
+  ]
+}

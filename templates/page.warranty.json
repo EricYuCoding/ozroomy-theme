@@ -1,0 +1,399 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_columns_af6Ri9": {
+      "type": "custom-columns",
+      "blocks": {
+        "heading_EmdmtQ": {
+          "type": "heading",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "heading": "Warranty Policy",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "richtext_ntAmhH": {
+          "type": "richtext",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "text": "<p>We understand that seating furniture endures the rigors of daily home life. That’s why our sofas are built to meet rigorous quality and durability standards. We are confident in the craftsmanship of our products and offer a <strong>3-year limited warranty</strong> covering defects in materials and workmanship for the frames, as well as seat and back cushions.</p>",
+            "text_style": "body",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_EmdmtQ",
+        "richtext_ntAmhH"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "columns_count": 4,
+        "column_gap_desktop": 40,
+        "row_gap_desktop": 40,
+        "desktop_vertical_alignment": "center",
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 30,
+        "mobile_vertical_alignment": "flex-start",
+        "col_1_desktop_width": 12,
+        "col_1_mobile_width": 4,
+        "col_1_visibility": "always-display",
+        "col_2_desktop_width": 4,
+        "col_2_mobile_width": 4,
+        "col_2_visibility": "always-display",
+        "col_3_desktop_width": 4,
+        "col_3_mobile_width": 4,
+        "col_3_visibility": "always-display",
+        "col_4_desktop_width": 4,
+        "col_4_mobile_width": 4,
+        "col_4_visibility": "always-display",
+        "col_5_desktop_width": 3,
+        "col_5_mobile_width": 4,
+        "col_5_visibility": "always-display",
+        "col_6_desktop_width": 3,
+        "col_6_mobile_width": 4,
+        "col_6_visibility": "always-display",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "custom_columns_EFxYqd": {
+      "type": "custom-columns",
+      "blocks": {
+        "heading_N7aqwC": {
+          "type": "heading",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "heading": "What is covered under this warranty?",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "richtext_MpjpWP": {
+          "type": "richtext",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "text": "<p>This warranty applies exclusively to residential use. It covers:</p><ul><li>Defects in materials and craftsmanship affecting the sofa frames.</li><li>Seat and back cushions when used with their intended frames.</li></ul>",
+            "text_style": "body",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_N7aqwC",
+        "richtext_MpjpWP"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "columns_count": 4,
+        "column_gap_desktop": 40,
+        "row_gap_desktop": 40,
+        "desktop_vertical_alignment": "center",
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 24,
+        "mobile_vertical_alignment": "flex-start",
+        "col_1_desktop_width": 12,
+        "col_1_mobile_width": 4,
+        "col_1_visibility": "always-display",
+        "col_2_desktop_width": 4,
+        "col_2_mobile_width": 4,
+        "col_2_visibility": "always-display",
+        "col_3_desktop_width": 4,
+        "col_3_mobile_width": 4,
+        "col_3_visibility": "always-display",
+        "col_4_desktop_width": 4,
+        "col_4_mobile_width": 4,
+        "col_4_visibility": "always-display",
+        "col_5_desktop_width": 3,
+        "col_5_mobile_width": 4,
+        "col_5_visibility": "always-display",
+        "col_6_desktop_width": 3,
+        "col_6_mobile_width": 4,
+        "col_6_visibility": "always-display",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "custom_columns_FDVAHb": {
+      "type": "custom-columns",
+      "blocks": {
+        "heading_nRQUh9": {
+          "type": "heading",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "heading": "What is not covered under this warranty?",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "richtext_RiPXcD": {
+          "type": "richtext",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "text": "<p>Our warranty <strong>does not cover</strong>:</p><ul><li>Damage caused by improper storage, assembly, installation, misuse, abuse, or unauthorized alterations.</li><li>Issues arising from incorrect cleaning methods or unsuitable cleaning products.</li><li>Normal wear and tear, including cuts, scratches, or damage from impacts or accidents.</li><li>Products placed outdoors or in damp/humid environments.</li><li>Any incidental or consequential damages.</li></ul>",
+            "text_style": "body",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_nRQUh9",
+        "richtext_RiPXcD"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "columns_count": 4,
+        "column_gap_desktop": 40,
+        "row_gap_desktop": 40,
+        "desktop_vertical_alignment": "center",
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 24,
+        "mobile_vertical_alignment": "flex-start",
+        "col_1_desktop_width": 12,
+        "col_1_mobile_width": 4,
+        "col_1_visibility": "always-display",
+        "col_2_desktop_width": 4,
+        "col_2_mobile_width": 4,
+        "col_2_visibility": "always-display",
+        "col_3_desktop_width": 4,
+        "col_3_mobile_width": 4,
+        "col_3_visibility": "always-display",
+        "col_4_desktop_width": 4,
+        "col_4_mobile_width": 4,
+        "col_4_visibility": "always-display",
+        "col_5_desktop_width": 3,
+        "col_5_mobile_width": 4,
+        "col_5_visibility": "always-display",
+        "col_6_desktop_width": 3,
+        "col_6_mobile_width": 4,
+        "col_6_visibility": "always-display",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "custom_columns_aCRVe4": {
+      "type": "custom-columns",
+      "blocks": {
+        "heading_NeUyGt": {
+          "type": "heading",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "heading": "How to Request Service",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "richtext_qg4Ybj": {
+          "type": "richtext",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "text": "<p>If you experience an issue, reach out to us via <strong>Facebook </strong>or <strong>email </strong>at<strong> support@ozdesignsofa.com</strong> To help us resolve the matter efficiently, please include photos or videos of the product along with your order details.</p>",
+            "text_style": "body",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_NeUyGt",
+        "richtext_qg4Ybj"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "columns_count": 4,
+        "column_gap_desktop": 40,
+        "row_gap_desktop": 40,
+        "desktop_vertical_alignment": "center",
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 24,
+        "mobile_vertical_alignment": "flex-start",
+        "col_1_desktop_width": 12,
+        "col_1_mobile_width": 4,
+        "col_1_visibility": "always-display",
+        "col_2_desktop_width": 4,
+        "col_2_mobile_width": 4,
+        "col_2_visibility": "always-display",
+        "col_3_desktop_width": 4,
+        "col_3_mobile_width": 4,
+        "col_3_visibility": "always-display",
+        "col_4_desktop_width": 4,
+        "col_4_mobile_width": 4,
+        "col_4_visibility": "always-display",
+        "col_5_desktop_width": 3,
+        "col_5_mobile_width": 4,
+        "col_5_visibility": "always-display",
+        "col_6_desktop_width": 3,
+        "col_6_mobile_width": 4,
+        "col_6_visibility": "always-display",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "custom_columns_8B9Hy4": {
+      "type": "custom-columns",
+      "blocks": {
+        "heading_4XkEpG": {
+          "type": "heading",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "heading": "Important Information",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "richtext_TRPJEt": {
+          "type": "richtext",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "text": "<p>Your warranty coverage begins on the date of purchase.</p><p>Claims require the <strong>original receipt</strong> as proof of purchase.</p>",
+            "text_style": "body",
+            "alignment": "left",
+            "mobile_alignment": "mobile-left",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_4XkEpG",
+        "richtext_TRPJEt"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "columns_count": 4,
+        "column_gap_desktop": 40,
+        "row_gap_desktop": 40,
+        "desktop_vertical_alignment": "center",
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 24,
+        "mobile_vertical_alignment": "flex-start",
+        "col_1_desktop_width": 12,
+        "col_1_mobile_width": 4,
+        "col_1_visibility": "always-display",
+        "col_2_desktop_width": 4,
+        "col_2_mobile_width": 4,
+        "col_2_visibility": "always-display",
+        "col_3_desktop_width": 4,
+        "col_3_mobile_width": 4,
+        "col_3_visibility": "always-display",
+        "col_4_desktop_width": 4,
+        "col_4_mobile_width": 4,
+        "col_4_visibility": "always-display",
+        "col_5_desktop_width": 3,
+        "col_5_mobile_width": 4,
+        "col_5_visibility": "always-display",
+        "col_6_desktop_width": 3,
+        "col_6_mobile_width": 4,
+        "col_6_visibility": "always-display",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_columns_af6Ri9",
+    "custom_columns_EFxYqd",
+    "custom_columns_FDVAHb",
+    "custom_columns_aCRVe4",
+    "custom_columns_8B9Hy4"
+  ]
+}

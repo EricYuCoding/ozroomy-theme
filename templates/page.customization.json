@@ -1,0 +1,334 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_slider_RWyLpe": {
+      "type": "image-slider",
+      "blocks": {
+        "video_slide_Ygw6fK": {
+          "type": "video_slide",
+          "settings": {
+            "video": "shopify://files/videos/boston_Lincoln-03-662x662-1.mp4",
+            "loop": true,
+            "muted_autoplay": true,
+            "display_play_btn": false,
+            "btn_animation": false,
+            "btn_color_scheme": "accent-1",
+            "display_sound_btn": false,
+            "sound_btn_color_scheme": "inverse",
+            "display_timeline": false,
+            "timeline_color": "accent-1",
+            "description": "<p><a href=\"/pages/ozcord-classic\" title=\"OzCord Classic\">Corduroy</a></p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "video_slide_6fTLeP": {
+          "type": "video_slide",
+          "settings": {
+            "video": "shopify://files/videos/OzPremium.mp4",
+            "loop": true,
+            "muted_autoplay": true,
+            "display_play_btn": false,
+            "btn_animation": false,
+            "btn_color_scheme": "accent-1",
+            "display_sound_btn": false,
+            "sound_btn_color_scheme": "inverse",
+            "display_timeline": false,
+            "timeline_color": "accent-1",
+            "description": "<p><a href=\"/pages/ozweave-premium\" title=\"OzWeave Premium\">Chenille</a></p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "video_slide_HqTTNP": {
+          "type": "video_slide",
+          "settings": {
+            "video": "shopify://files/videos/castel_Castel-61-NW-662x662-1.mp4",
+            "loop": true,
+            "muted_autoplay": true,
+            "display_play_btn": false,
+            "btn_animation": false,
+            "btn_color_scheme": "accent-1",
+            "display_sound_btn": false,
+            "sound_btn_color_scheme": "inverse",
+            "display_timeline": false,
+            "timeline_color": "accent-1",
+            "description": "<p><a href=\"/pages/velvet\" title=\"Velvet\">Velvet</a></p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_Ygw6fK",
+        "video_slide_6fTLeP",
+        "video_slide_HqTTNP"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "type": "slide",
+        "drag": "enabled",
+        "autoplay": true,
+        "autoplay_speed": 1,
+        "center_mode": false,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "desktop_border_radius": 0,
+        "slides_desktop": 3,
+        "per_move_desktop": 1,
+        "desktop_spacing": 0,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "hidden",
+        "desktop_arrows_position": "hidden",
+        "mobile_full_page": false,
+        "mobile_border_radius": 0,
+        "slides_mobile": 3,
+        "per_move_mobile": 1,
+        "mobile_spacing": 12,
+        "mobile_side_padding": 0,
+        "mobile_padding_calc": true,
+        "mobile_adaptive_height": true,
+        "mobile_dots_position": "hidden",
+        "mobile_arrows_position": "hidden",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#121212"
+      }
+    },
+    "image_slider_FxXxKb": {
+      "type": "image-slider",
+      "blocks": {
+        "video_slide_yQw4qR": {
+          "type": "video_slide",
+          "settings": {
+            "video": "shopify://files/videos/quelle_Quelle-05-360x360-1.mp4",
+            "loop": true,
+            "muted_autoplay": true,
+            "display_play_btn": false,
+            "btn_animation": false,
+            "btn_color_scheme": "accent-1",
+            "display_sound_btn": false,
+            "sound_btn_color_scheme": "inverse",
+            "display_timeline": false,
+            "timeline_color": "accent-1",
+            "description": "<p><a href=\"/pages/boucle\" title=\"Bouclé\">Bouclé</a></p>",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        }
+      },
+      "block_order": [
+        "video_slide_yQw4qR"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "color_scheme": "background-1",
+        "type": "slide",
+        "drag": "enabled",
+        "autoplay": true,
+        "autoplay_speed": 1,
+        "center_mode": false,
+        "arrows_color_scheme": "inverse",
+        "transparent_arrows": false,
+        "dots_color_scheme": "inverse",
+        "desktop_full_page": false,
+        "desktop_border_radius": 0,
+        "slides_desktop": 3,
+        "per_move_desktop": 1,
+        "desktop_spacing": 0,
+        "desktop_side_padding": 0,
+        "desktop_padding_calc": true,
+        "desktop_adaptive_height": false,
+        "desktop_dots_position": "hidden",
+        "desktop_arrows_position": "hidden",
+        "mobile_full_page": false,
+        "mobile_border_radius": 0,
+        "slides_mobile": 3,
+        "per_move_mobile": 1,
+        "mobile_spacing": 12,
+        "mobile_side_padding": 0,
+        "mobile_padding_calc": true,
+        "mobile_adaptive_height": true,
+        "mobile_dots_position": "hidden",
+        "mobile_arrows_position": "hidden",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#121212"
+      }
+    },
+    "60910267-55e8-4e0d-a9f9-79b26b3533dc": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-0": {
+          "type": "heading",
+          "settings": {
+            "title": "Talk about your brand",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>At [Your company], your satisfaction is our top priority. We encourage you to reach out with any questions, concerns, or feedback, as our dedicated team is always eager to assist you. Whether you need help with product inquiries or simply want to share your experience with us, we're just a message away. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-0",
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 12,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "custom_columns_NWa7k3": {
+      "type": "custom-columns",
+      "blocks": {
+        "heading_7rbqRc": {
+          "type": "heading",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "heading": "How to Customize Your Perfect Sofa?",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1",
+            "alignment": "center",
+            "mobile_alignment": "mobile-center",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        },
+        "richtext_6KkwPy": {
+          "type": "richtext",
+          "settings": {
+            "column": "col_1",
+            "visibility": "always-display",
+            "text": "<p></p><p><strong>Customize Your Sofa!</strong><br/>For the Pebble Sofa, customization can be ordered directly by selecting the \"<a href=\"/collections/customization\" title=\"Customization\">Customization</a>\" option on our website. For other sofas, feel free to contact us via the form below or reach out to us on Facebook to inquire about the customization process.</p><p><strong>Order Your Swatches Today</strong><br/>Looking for the perfect fabric and color for your sofa? Visit our <a href=\"/products/swatches\" title=\"Swatches\">Swatches Product Page</a> to order fabric samples and customize with confidence!</p><p><strong>Need Help Finding Your Fabric?</strong><br/>Don't see the fabric you’re looking for? Reach out to us through the <strong>Contact Us</strong> form, and we’ll assist you in finding the perfect match!</p><p>We will get back to you via email within 2 days. For a quicker response, feel free to contact us on Facebook. Our team is available 7 days a week, from 9:00 AM to 5:00 PM Melbourne time (AEDT).</p><p>We are constantly working to include more fabric options in our products. If you have specific fabric preferences not currently listed, let us know—we’re always here to help!</p>",
+            "text_style": "body",
+            "alignment": "left",
+            "mobile_alignment": "mobile-center",
+            "margin_top": 20,
+            "margin_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "heading_7rbqRc",
+        "richtext_6KkwPy"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "columns_count": 4,
+        "column_gap_desktop": 0,
+        "row_gap_desktop": 0,
+        "desktop_vertical_alignment": "center",
+        "column_gap_mobile": 20,
+        "row_gap_mobile": 20,
+        "mobile_vertical_alignment": "flex-start",
+        "col_1_desktop_width": 12,
+        "col_1_mobile_width": 4,
+        "col_1_visibility": "always-display",
+        "col_2_desktop_width": 4,
+        "col_2_mobile_width": 4,
+        "col_2_visibility": "always-display",
+        "col_3_desktop_width": 4,
+        "col_3_mobile_width": 4,
+        "col_3_visibility": "always-display",
+        "col_4_desktop_width": 4,
+        "col_4_mobile_width": 4,
+        "col_4_visibility": "always-display",
+        "col_5_desktop_width": 3,
+        "col_5_mobile_width": 4,
+        "col_5_visibility": "always-display",
+        "col_6_desktop_width": 3,
+        "col_6_mobile_width": 4,
+        "col_6_visibility": "always-display",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Request Your Custom Sofa Design Here!",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h2",
+        "button_full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_slider_RWyLpe",
+    "image_slider_FxXxKb",
+    "60910267-55e8-4e0d-a9f9-79b26b3533dc",
+    "custom_columns_NWa7k3",
+    "form"
+  ]
+}

@@ -1,0 +1,84 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "60910267-55e8-4e0d-a9f9-79b26b3533dc": {
+      "type": "rich-text",
+      "blocks": {
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-0": {
+          "type": "heading",
+          "settings": {
+            "title": "Order Wholesale From Us Today!",
+            "title_highlight_color": "#6d388b",
+            "heading_size": "h1"
+          }
+        },
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Order wholesale from us today with a minimum purchase of 5 items! The more you buy, the bigger the savings, with discounts of up to 30%. Please use the form below to specify the types and quantities of sofas you would like, along with the delivery address and preferred fabric options.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-0",
+        "template--18407212810569__60910267-55e8-4e0d-a9f9-79b26b3533dc-16795881913b1fb5f3-1"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 12,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "title": "Request Your Wholesale Quote",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h1",
+        "button_full_width": true,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "60910267-55e8-4e0d-a9f9-79b26b3533dc",
+    "form"
+  ]
+}

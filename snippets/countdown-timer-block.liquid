@@ -1,0 +1,169 @@
+{% comment %}
+  countdown-timer-block.liquid
+{% endcomment %}
+
+{% assign countdown_message = block.settings.countdown_message %}
+{% assign countdown_date = block.settings.countdown_date %}
+{% assign reset_interval = block.settings.reset_interval %}
+{% assign timer_alignment = block.settings.timer_alignment %}
+{% assign timer_elements_alignment = block.settings.timer_elements_alignment %}
+{% assign message_font_size = block.settings.message_font_size %}
+{% assign timer_font_size = block.settings.timer_font_size %}
+{% assign margin_top = block.settings.margin_top %}
+{% assign margin_bottom = block.settings.margin_bottom %}
+{% assign spacing_between_elements = block.settings.spacing_between_elements %}
+
+<div class="countdown-timer-block" style="margin-top: {{ margin_top }}px; margin-bottom: {{ margin_bottom }}px;">
+  <p class="countdown-message" style="text-align: {{ timer_alignment }}; font-size: {{ message_font_size }}px;">{{ countdown_message }}</p>
+  <div class="countdown countdown-align-{{ timer_elements_alignment }}">
+    <div class="time-section">
+      <span class="time" id="days-{{ block.id }}">00</span>
+      <span class="label">Days</span>
+    </div>
+    <div class="time-section">
+      <span class="time" id="hours-{{ block.id }}">00</span>
+      <span class="label">Hours</span>
+    </div>
+    <div class="time-section">
+      <span class="time" id="minutes-{{ block.id }}">00</span>
+      <span class="label">Minutes</span>
+    </div>
+    <div class="time-section">
+      <span class="time" id="seconds-{{ block.id }}">00</span>
+      <span class="label">Seconds</span>
+    </div>
+  </div>
+  <style>
+    /* Inline CSS */
+    .countdown-timer-block {
+      font-weight: 600;
+    }
+
+    .countdown-timer-block .countdown-message {
+      margin: 0px;
+      font-weight: 600;
+    }
+
+    .countdown-timer-block .countdown {
+      display: flex;
+      flex-wrap: nowrap;
+      max-width: 100%;
+      white-space: nowrap;
+    }
+
+    /* Alignment Classes */
+    .countdown-align-left {
+      justify-content: flex-start;
+    }
+
+    .countdown-align-center {
+      justify-content: center;
+    }
+
+    .countdown-align-right {
+      justify-content: flex-end;
+    }
+
+    .countdown-timer-block .time-section {
+      text-align: center;
+      margin: 0 {{ spacing_between_elements }}px;
+      flex-shrink: 0;
+    }
+
+    .countdown-timer-block .time {
+      font-size: {{ timer_font_size }}px;
+      font-weight: bold;
+      display: block;
+      width: 40px;
+      font-family: Poppins, sans-serif;
+      margin: 0 auto;
+    }
+
+    .countdown-timer-block .label {
+      font-size: 12px;
+      display: block;
+    }
+
+    /* Adjustments for mobile devices */
+    @media (max-width: 767px) {
+      .countdown-timer-block .time {
+        font-size: {{ timer_font_size | divided_by: 1.2 }}px;
+        width: 30px;
+      }
+
+      .countdown-timer-block .label {
+        font-size: 10px;
+      }
+
+      .countdown-timer-block .time-section {
+        margin: 0 {{ spacing_between_elements | divided_by: 2 }}px;
+      }
+    }
+  </style>
+  <script>
+    (function() {
+      // Get settings from Liquid variables
+      var initialDateStr = "{{ countdown_date }}";
+      var resetInterval = {{ reset_interval }};
+
+      // Parse the initial date string into components
+      var dateParts = initialDateStr.split('-');
+
+      if (dateParts.length !== 3) {
+        console.error('Invalid date format. Please use YYYY-MM-DD.');
+        document.getElementById('days-{{ block.id }}').innerHTML = '00';
+        document.getElementById('hours-{{ block.id }}').innerHTML = '00';
+        document.getElementById('minutes-{{ block.id }}').innerHTML = '00';
+        document.getElementById('seconds-{{ block.id }}').innerHTML = '00';
+        return;
+      }
+
+      var year = parseInt(dateParts[0], 10);
+      var month = parseInt(dateParts[1], 10) - 1; // Months are zero-based in JS
+      var day = parseInt(dateParts[2], 10);
+
+      var initialDate = new Date(year, month, day);
+
+      // Validate the initial date
+      if (isNaN(initialDate.getTime())) {
+        console.error('Invalid date components. Please check the date.');
+        document.getElementById('days-{{ block.id }}').innerHTML = '00';
+        document.getElementById('hours-{{ block.id }}').innerHTML = '00';
+        document.getElementById('minutes-{{ block.id }}').innerHTML = '00';
+        document.getElementById('seconds-{{ block.id }}').innerHTML = '00';
+        return;
+      }
+
+      function calculateNextCountdownDate() {
+        var now = new Date();
+        var timeDiff = now - initialDate;
+        var intervalsPassed = Math.floor(timeDiff / (resetInterval * 24 * 60 * 60 * 1000));
+        var nextCountdownDate = new Date(initialDate.getTime() + ((intervalsPassed + 1) * resetInterval * 24 * 60 * 60 * 1000));
+        return nextCountdownDate;
+      }
+
+      function updateCountdown() {
+        var countdownDate = calculateNextCountdownDate();
+
+        var now = new Date().getTime();
+        var distance = countdownDate - now;
+
+        // Time calculations
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result
+        document.getElementById('days-{{ block.id }}').innerHTML = days < 10 ? '0' + days : days;
+        document.getElementById('hours-{{ block.id }}').innerHTML = hours < 10 ? '0' + hours : hours;
+        document.getElementById('minutes-{{ block.id }}').innerHTML = minutes < 10 ? '0' + minutes : minutes;
+        document.getElementById('seconds-{{ block.id }}').innerHTML = seconds < 10 ? '0' + seconds : seconds;
+      }
+
+      // Update the countdown every 1 second
+      updateCountdown(); // Initial call
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
+</div>

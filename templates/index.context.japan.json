@@ -1,0 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "japan"
+  },
+  "parent": "index.json",
+  "sections": {
+    "multirow_w3c4Rh": {
+      "settings": {},
+      "blocks": {
+        "row_ifqNbC": {
+          "settings": {
+            "caption": "",
+            "title": "Pebble Collection",
+            "text": "<p><br/>Sofa-in-a-box, packed smaller for easier home setup, with extra padding for added comfort.<br/><br/></p>",
+            "button_label": "Explore Pebble",
+            "button_link": "shopify://collections/pebble-collection-copy"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "parent": "index.json",
+  "context": {
+    "market": "eu"
+  },
+  "sections": {
+    "multirow_w3c4Rh": {
+      "settings": {},
+      "blocks": {
+        "row_ifqNbC": {
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/pebble-AI-001.webp",
+            "caption": "EU STOCK · LOCAL DELIVERY",
+            "title": "EU Local Delivery",
+            "text": "<p><br/>In stock in the EU, delivered in days.<br/><br/></p>",
+            "button_label": "Browse EU Stock"
+          }
+        }
+      }
+    },
+    "multirow_LjbLYn": {
+      "settings": {},
+      "blocks": {
+        "row_g8dGBz": {
+          "disabled": true,
+          "settings": {}
+        },
+        "row_nBbUE6": {
+          "settings": {
+            "image": null,
+            "video": "shopify://files/videos/vantopia_004.mp4",
+            "button_link": "shopify://products/vantopiasofabed"
+          }
+        }
+      }
+    }
+  }
+}

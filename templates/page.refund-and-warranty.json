@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "9c121ec4-42cd-4c8e-82a2-935e073db7d7": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Returns & 30 Day Trial",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<h2>What if it’s not right for my home?</h2><p>We want you to feel completely confident when choosing your sofa.</p><p>We’re proud to share that our return rate is currently below <strong>0.5%</strong>, far lower than the average online sofa return rate of around <strong>10%–18%</strong>.</p><p>Most of our customers keep and love their sofas, but we understand that a sofa is a big decision. Sometimes, you only know if it truly works once it is in your home.</p><p>That’s why we offer a <strong>30 Day Trial</strong> across our store.</p><h2>30 Day Trial</h2><p>Our 30 Day Trial applies storewide to all products purchased from OZDESIGN SOFA.</p><p>If your product is not the right fit for your home, you can contact us within <strong>30 days of receiving your order</strong>.</p><p>As long as the product is in good condition, with no damage, stains, heavy wear, misuse, odours, or missing parts, we will accept the return and provide a full refund.</p><p>To help us continue improving our products, service, and customer experience, we may ask for brief feedback on why the product was not the right fit.</p><p>Whether the size, colour, comfort, style, or overall feel is not quite right for your space, we’re happy to help.</p><h2>Collection & Product Recovery</h2><p>Once your return is accepted, we will help arrange collection from your address.</p><p>All returned sofas and furniture items are <strong>never resold</strong>.</p><p><br/>After collection, we’ll take care of the next steps. We work with local charity partners, donation networks, recycling services, and responsible recovery partners to make sure returned items are reused, donated, recycled, or responsibly recovered wherever possible. This helps support local communities and reduce unnecessary waste.</p><p>This helps us avoid unnecessary landfill while giving returned products the best possible second life.</p><h2>Refunds</h2><p>Refunds are processed once the returned product has been collected and checked.</p><p>If the product is returned in good condition, we will issue a full refund to your original payment method.</p><p>We may not be able to offer a full refund if the item is returned damaged, stained, heavily used, affected by odours, missing parts, or in a condition that is not consistent with normal home trial use.</p><h2>How to Start a Return</h2><p>To start a return, please contact us at <a><strong>support@ozdesignsofa.com</strong></a> or through our <strong>Contact Us</strong> page with:</p><ul><li>your order number</li><li>a few clear photos of the product</li><li>a short note letting us know you would like to return it</li></ul><p>Our team will review your request and confirm the next steps.</p><h2>Faulty or Damaged Products</h2><p>The 30 Day Trial applies to change-of-mind returns.</p><p>It does not limit or replace any rights you may have if your product arrives faulty, damaged, incorrect, or not as described. If there is an issue with your order, please contact us as soon as possible and we will help resolve it.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_Cc3RMT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Damages and Issues",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>Please check your order when it arrives and contact us as soon as possible if anything looks damaged, faulty, or different from what you ordered.</p><p>To help us review the issue quickly, please include:</p><p>Your order number<br/><br/>Clear photos of the product<br/><br/>Photos of the packaging, especially if the box was damaged in transit<br/><br/>A short description of the issue</p><p>Once we receive the details, our team will review the case and help with the next steps. Depending on the situation, this may include replacement parts, a repair solution, an exchange, or another suitable resolution.</p><p>Please contact us at <a><strong>support@ozdesignsofa.com</strong></a> or through our <a href=\"/pages/contact\" title=\"Contact\"><strong>Contact Us</strong></a> page.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_N7hFQN": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Refunds before shipping",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>If you need to cancel your order before it has been dispatched, please contact us as soon as possible.</p><p>For in-stock items, we process orders quickly, so cancellation may not always be possible once the order has entered the dispatch process.</p><p>For made-to-order items, cancellation may depend on the production stage. If production has already started or your order has been prepared for shipping, cancellation may not be possible or certain costs may be deducted from your refund.</p><p>If your cancellation is approved, your refund will be issued back to your original payment method. Refunds may take a few business days to appear, depending on your payment provider.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_r6Apjc": {
+          "type": "collapsible_row",
+          "disabled": true,
+          "settings": {
+            "heading": "Non-returnable items",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>Due to the nature of our vacuum-compressed packaging, returned items must remain in their <strong>original, unopened packaging</strong> to be eligible for return.</p><ul><li><strong>Unopened & original packaging</strong><br/>If the item is returned in its original, unopened packaging, a <strong>10% pickup and handling fee</strong> will be deducted to cover collection and logistics costs.</li><li><strong>Opened packaging</strong><br/>Once the vacuum packaging has been opened, the product can no longer be repacked or resold. In this case, a <strong>20% handling and processing fee</strong> will apply.<br/>Opened items will <strong>not be resold</strong> and will be <strong>disposed of responsibly or donated to charity</strong>, where appropriate.<br/></li></ul><p>Please note that we do not accept returns for:</p><ul><li>Customized or made-to-order products</li><li>Items that are damaged due to misuse or partial damage after delivery</li></ul><p>If you receive a damaged or defective item upon delivery, please contact us immediately. We will assess the issue and arrange an appropriate resolution.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_fwfgeb": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Color Variation",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>We do our best to show product colours as accurately as possible. However, colours may look slightly different depending on lighting, screen settings, fabric direction, and the natural texture of the material.</p><p>For fabrics such as corduroy, chenille, or suede-style materials, the colour may also appear lighter or darker depending on the angle of the fabric pile.</p><p>Minor colour variation is normal and is not usually considered a product fault.</p><p>If you are unsure about a colour, we recommend ordering fabric samples where available before placing your sofa order.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_bWND4W": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "European Union 14-day cooling off period",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>For customers in the European Union, you may have the right to cancel your online order within <strong>14 days of receiving your goods</strong>, without giving a reason. This is commonly known as the cooling-off period. </p><p>To use this right, please contact us at <a><strong>support@ozdesignsofa.com</strong></a> or through our <a href=\"/pages/contact\" title=\"Contact\"><strong>Contact Us</strong></a> page within 14 days of receiving your order.</p><p>Please note that made-to-order or clearly personalised products may be treated differently under consumer rules, and return eligibility may depend on the product and the specific order details. EU guidance lists “goods made to order or clearly personalised” as one of the exceptions to the cooling-off period. </p><p>Where a return is accepted under the cooling-off period, the product must be returned in a reasonable condition. Return costs may be the customer’s responsibility unless otherwise required by law or agreed by us. EU guidance states that customers are generally responsible for return postage and packaging costs if they return goods during the cooling-off period, unless the seller offers to cover them or failed to inform the customer in advance. </p>",
+            "page": ""
+          }
+        },
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Need help?",
+            "icon": "check_box",
+            "filled_icon": false,
+            "row_content": "<p>If you have any questions about returns, refunds, damages, or delivery issues, please contact us at <a><strong>support@ozdesignsofa.com</strong></a> or through our <a href=\"/pages/contact\" title=\"Contact\"><strong>Contact Us</strong></a> page.</p><p>Our support team usually replies within <strong>24 hours</strong>.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-0",
+        "collapsible_row_Cc3RMT",
+        "collapsible_row_N7hFQN",
+        "collapsible_row_r6Apjc",
+        "collapsible_row_fwfgeb",
+        "collapsible_row_bWND4W",
+        "template--19742927749415__9c121ec4-42cd-4c8e-82a2-935e073db7d7-16889993318614e07a-1"
+      ],
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "caption": "",
+        "title": "Returns & Refunds",
+        "title_highlight_color": "#6d388b",
+        "heading_size": "h0",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "row_heading_size": "medium",
+        "collapse_icon": "carret",
+        "display_top_border": true,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_contaner_colors_background": "#ffffff",
+        "custom_container_gradient_background": "",
+        "custom_contaner_colors_text": "#2e2a39"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "9c121ec4-42cd-4c8e-82a2-935e073db7d7"
+  ]
+}

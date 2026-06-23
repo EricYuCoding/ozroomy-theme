@@ -1,0 +1,27 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "context": {
+    "market": "eu"
+  },
+  "parent": "product.pebble.json",
+  "sections": {
+    "featured_collection_ky7e7q": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    },
+    "rich_text_E3jmeW": {
+      "disabled": true,
+      "settings": {},
+      "blocks": {}
+    }
+  }
+}

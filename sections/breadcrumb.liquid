@@ -1,0 +1,243 @@
+{% schema %}
+{
+  "name": "Breadcrumb",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Padding Left",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Padding Right",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin Bottom",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "color",
+      "id": "font_color",
+      "label": "Font Color",
+      "default": "#333333"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Breadcrumb"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %}
+Apply settings with default values
+{% endcomment %}
+{% assign padding_left = settings.padding_left | default: 15 %}
+{% assign padding_right = settings.padding_right | default: 15 %}
+{% assign margin_top = settings.margin_top | default: 15 %}
+{% assign margin_bottom = settings.margin_bottom | default: 15 %}
+{% assign font_size = settings.font_size | default: 12 %}
+{% assign font_color = settings.font_color | default: '#333333' %}
+
+<div class="breadcrumb-wrapper hide-on-tablet hide-on-mobile" style="max-width: 1440px; margin: 0 auto; padding-left: {{ padding_left }}px; padding-right: {{ padding_right }}px; margin-top: {{ margin_top }}px; margin-bottom: {{ margin_bottom }}px;">
+  <nav class="breadcrumb" aria-label="breadcrumbs">
+    <div class="breadcrumb-container" style="padding-left: 20px;">
+      <ul class="breadcrumb-list">
+        <li><a href="{{ shop.url }}" style="font-size: {{ font_size }}px; color: {{ font_color }};">Home</a></li>
+    
+        {% comment %}
+        Determine current product and collection
+        {% endcomment %}
+        {% if template.name == 'product' %}
+          {% assign current_product = product %}
+          {% assign current_collection = collection %}
+        {% elsif template.name == 'collection' %}
+          {% assign current_collection = collection %}
+        {% endif %}
+    
+        {% if current_collection %}
+          <li>
+            <a href="{{ current_collection.url }}" style="font-size: {{ font_size }}px; color: {{ font_color }};">{{ current_collection.title }}</a>
+          </li>
+        {% endif %}
+    
+        {% if current_product %}
+          {% if current_product.collections.first %}
+            <li>
+              <a href="{{ current_product.collections.first.url }}" style="font-size: {{ font_size }}px; color: {{ font_color }};">{{ current_product.collections.first.title }}</a>
+            </li>
+          {% endif %}
+          <li class="is-active">
+            <span style="font-size: {{ font_size }}px; color: {{ font_color }};">{{ current_product.title }}</span>
+          </li>
+        {% elsif current_collection %}
+          <li class="is-active">
+            <span style="font-size: {{ font_size }}px; color: {{ font_color }};">{{ current_collection.title }}</span>
+          </li>
+        {% elsif template.name == 'index' %}
+          <!-- No breadcrumbs on the homepage -->
+        {% else %}
+          <li class="is-active">
+            <span style="font-size: {{ font_size }}px; color: {{ font_color }};">{{ page.title }}</span>
+          </li>
+        {% endif %}
+      </ul>
+    
+      {% comment %}
+      Previous and Next links, shown only on desktop
+      {% endcomment %}
+      {% if template.name == 'product' %}
+        <div class="prev-next-links">
+          {% comment %}
+          Get the collection handle
+          {% endcomment %}
+          {% if collection %}
+            {% assign collection_handle = collection.handle %}
+          {% elsif current_product.collections.first %}
+            {% assign collection_handle = current_product.collections.first.handle %}
+          {% else %}
+            {% assign collection_handle = '' %}
+          {% endif %}
+    
+          {% if collection_handle != '' %}
+            {% assign products_in_collection = collections[collection_handle].products %}
+    
+            {% comment %}
+            Initialize variables
+            {% endcomment %}
+            {% assign previous_product = null %}
+            {% assign next_product = null %}
+            {% assign found_current_product = false %}
+    
+            {% for item in products_in_collection %}
+              {% if found_current_product %}
+                {% assign next_product = item %}
+                {% break %}
+              {% endif %}
+    
+              {% if item.id == current_product.id %}
+                {% assign found_current_product = true %}
+              {% else %}
+                {% assign previous_product = item %}
+              {% endif %}
+            {% endfor %}
+    
+            {% comment %}
+            Display previous product link with icon only
+            {% endcomment %}
+            {% if previous_product %}
+              <a class="prev-link" href="{{ previous_product.url }}" aria-label="Previous Product" style="font-size: {{ font_size }}px; color: {{ font_color }};">&#8592;</a>
+            {% endif %}
+    
+            {% comment %}
+            Display next product link with icon only
+            {% endcomment %}
+            {% if next_product %}
+              <a class="next-link" href="{{ next_product.url }}" aria-label="Next Product" style="font-size: {{ font_size }}px; color: {{ font_color }};">&#8594;</a>
+            {% endif %}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </nav>
+</div>
+
+<style>
+/* Breadcrumb Styling */
+.breadcrumb {
+  display: block;
+}
+
+.breadcrumb-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-list li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-list li + li:before {
+  content: ">";
+  margin: 0 8px;
+  color: #999;
+}
+
+.breadcrumb-list a {
+  text-decoration: none;
+}
+
+.breadcrumb-list a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-list .is-active span {
+  text-decoration: none;
+}
+
+.breadcrumb-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prev-next-links a {
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.prev-next-links a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Display */
+@media screen and (max-width: 1023px) {
+  .hide-on-tablet,
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+</style>

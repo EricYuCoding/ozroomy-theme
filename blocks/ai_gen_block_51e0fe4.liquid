@@ -1,0 +1,456 @@
+{% doc %}
+  @prompt
+    Create an inventory status block that displays stock information with customizable text messages for different inventory levels. The block should show the current stock count when in stock, display a low stock warning when below a threshold, and most importantly, allow merchants to add a custom message (like "estimated next batch: May 5th") when the stock level is 0 or below. Include settings for: text style options, low inventory threshold, toggle for showing inventory count, and a text field for the out-of-stock custom message.
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-inventory-status-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+  }
+
+  .ai-inventory-status__container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: {{ block.settings.padding_vertical }}px {{ block.settings.padding_horizontal }}px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    {% if block.settings.show_border %}
+      border: {{ block.settings.border_thickness }}px solid {{ block.settings.border_color }};
+    {% endif %}
+  }
+
+  .ai-inventory-status__icon-{{ ai_gen_id }} {
+    width: {{ block.settings.icon_size }}px;
+    height: {{ block.settings.icon_size }}px;
+    flex-shrink: 0;
+  }
+
+  .ai-inventory-status__icon-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ai-inventory-status__text-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    font-weight: {{ block.settings.text_weight }};
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  .ai-inventory-status__text-{{ ai_gen_id }}--in-stock {
+    color: {{ block.settings.in_stock_color }};
+  }
+
+  .ai-inventory-status__text-{{ ai_gen_id }}--low-stock {
+    color: {{ block.settings.low_stock_color }};
+  }
+
+  .ai-inventory-status__text-{{ ai_gen_id }}--out-of-stock {
+    color: {{ block.settings.out_of_stock_color }};
+  }
+
+  .ai-inventory-status__count-{{ ai_gen_id }} {
+    {% if block.settings.bold_count %}
+      font-weight: 700;
+    {% endif %}
+  }
+{% endstyle %}
+
+<inventory-status-{{ ai_gen_id }}
+  class="ai-inventory-status-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  {% if product %}
+    {% assign current_variant = product.selected_or_first_available_variant %}
+    {% assign inventory = current_variant.inventory_quantity %}
+    {% assign inventory_policy = current_variant.inventory_policy %}
+    {% assign inventory_management = current_variant.inventory_management %}
+
+    {% if inventory_management == 'shopify' %}
+      {% if inventory > 0 %}
+        {% if inventory <= block.settings.low_stock_threshold %}
+          <div class="ai-inventory-status__container-{{ ai_gen_id }}">
+            {% if block.settings.show_icon %}
+              <div class="ai-inventory-status__icon-{{ ai_gen_id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.low_stock_color }}">
+                  <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                </svg>
+              </div>
+            {% endif %}
+            <p class="ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--low-stock">
+              {% if block.settings.show_count %}
+                {{ block.settings.low_stock_text | replace: '[count]', inventory }}
+              {% else %}
+                {{ block.settings.low_stock_text | remove: '[count]' | strip }}
+              {% endif %}
+            </p>
+          </div>
+        {% else %}
+          <div class="ai-inventory-status__container-{{ ai_gen_id }}">
+            {% if block.settings.show_icon %}
+              <div class="ai-inventory-status__icon-{{ ai_gen_id }}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.in_stock_color }}">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+            {% endif %}
+            <p class="ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--in-stock">
+              {% if block.settings.show_count %}
+                {{ block.settings.in_stock_text | replace: '[count]', inventory }}
+              {% else %}
+                {{ block.settings.in_stock_text | remove: '[count]' | strip }}
+              {% endif %}
+            </p>
+          </div>
+        {% endif %}
+      {% else %}
+        <div class="ai-inventory-status__container-{{ ai_gen_id }}">
+          {% if block.settings.show_icon %}
+            <div class="ai-inventory-status__icon-{{ ai_gen_id }}">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.out_of_stock_color }}">
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+              </svg>
+            </div>
+          {% endif %}
+          <p class="ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--out-of-stock">
+            {% if block.settings.out_of_stock_custom_message != blank %}
+              {{ block.settings.out_of_stock_custom_message }}
+            {% else %}
+              {{ block.settings.out_of_stock_text }}
+            {% endif %}
+          </p>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="ai-inventory-status__container-{{ ai_gen_id }}">
+        {% if block.settings.show_icon %}
+          <div class="ai-inventory-status__icon-{{ ai_gen_id }}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.in_stock_color }}">
+              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+            </svg>
+          </div>
+        {% endif %}
+        <p class="ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--in-stock">
+          {{ block.settings.in_stock_text | remove: '[count]' | strip }}
+        </p>
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="ai-inventory-status__container-{{ ai_gen_id }}">
+      {% if block.settings.show_icon %}
+        <div class="ai-inventory-status__icon-{{ ai_gen_id }}">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="{{ block.settings.in_stock_color }}">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+        </div>
+      {% endif %}
+      <p class="ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--in-stock">
+        In stock
+      </p>
+    </div>
+  {% endif %}
+</inventory-status-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class InventoryStatus{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.setupVariantListener();
+      }
+
+      setupVariantListener() {
+        const productForm = document.querySelector('product-form');
+        if (!productForm) return;
+
+        productForm.addEventListener('variant-change', (event) => {
+          this.updateInventoryStatus(event.detail.variant);
+        });
+      }
+
+      updateInventoryStatus(variant) {
+        if (!variant) return;
+
+        const container = this.querySelector('.ai-inventory-status__container-{{ ai_gen_id }}');
+        const icon = this.querySelector('.ai-inventory-status__icon-{{ ai_gen_id }} svg');
+        const text = this.querySelector('.ai-inventory-status__text-{{ ai_gen_id }}');
+
+        if (!container || !text) return;
+
+        const inventory = variant.inventory_quantity;
+        const inventoryManagement = variant.inventory_management;
+        const lowStockThreshold = {{ block.settings.low_stock_threshold }};
+        const showCount = {{ block.settings.show_count }};
+        const showIcon = {{ block.settings.show_icon }};
+
+        if (inventoryManagement === 'shopify') {
+          if (inventory > 0) {
+            if (inventory <= lowStockThreshold) {
+              text.className = 'ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--low-stock';
+              let lowStockText = '{{ block.settings.low_stock_text | escape }}';
+              if (showCount) {
+                text.textContent = lowStockText.replace('[count]', inventory);
+              } else {
+                text.textContent = lowStockText.replace('[count]', '').trim();
+              }
+              if (showIcon && icon) {
+                icon.setAttribute('fill', '{{ block.settings.low_stock_color }}');
+                icon.innerHTML = '<path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>';
+              }
+            } else {
+              text.className = 'ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--in-stock';
+              let inStockText = '{{ block.settings.in_stock_text | escape }}';
+              if (showCount) {
+                text.textContent = inStockText.replace('[count]', inventory);
+              } else {
+                text.textContent = inStockText.replace('[count]', '').trim();
+              }
+              if (showIcon && icon) {
+                icon.setAttribute('fill', '{{ block.settings.in_stock_color }}');
+                icon.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>';
+              }
+            }
+          } else {
+            text.className = 'ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--out-of-stock';
+            const customMessage = '{{ block.settings.out_of_stock_custom_message | escape }}';
+            if (customMessage) {
+              text.textContent = customMessage;
+            } else {
+              text.textContent = '{{ block.settings.out_of_stock_text | escape }}';
+            }
+            if (showIcon && icon) {
+              icon.setAttribute('fill', '{{ block.settings.out_of_stock_color }}');
+              icon.innerHTML = '<path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>';
+            }
+          }
+        } else {
+          text.className = 'ai-inventory-status__text-{{ ai_gen_id }} ai-inventory-status__text-{{ ai_gen_id }}--in-stock';
+          let inStockText = '{{ block.settings.in_stock_text | escape }}';
+          text.textContent = inStockText.replace('[count]', '').trim();
+          if (showIcon && icon) {
+            icon.setAttribute('fill', '{{ block.settings.in_stock_color }}');
+            icon.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>';
+          }
+        }
+      }
+    }
+
+    customElements.define('inventory-status-{{ ai_gen_id }}', InventoryStatus{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Inventory status",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Desktop width",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "checkbox",
+      "id": "show_icon",
+      "label": "Show status icon",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon size",
+      "min": 16,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Show inventory count",
+      "default": true,
+      "info": "Use [count] in text messages to display the count"
+    },
+    {
+      "type": "checkbox",
+      "id": "bold_count",
+      "label": "Bold inventory count",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "low_stock_threshold",
+      "label": "Low stock threshold",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 5,
+      "info": "Show low stock warning when inventory is at or below this number"
+    },
+    {
+      "type": "header",
+      "content": "Text style"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "text_weight",
+      "label": "Text weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "header",
+      "content": "In stock"
+    },
+    {
+      "type": "text",
+      "id": "in_stock_text",
+      "label": "In stock message",
+      "default": "In stock - [count] available"
+    },
+    {
+      "type": "color",
+      "id": "in_stock_color",
+      "label": "In stock color",
+      "default": "#008060"
+    },
+    {
+      "type": "header",
+      "content": "Low stock"
+    },
+    {
+      "type": "text",
+      "id": "low_stock_text",
+      "label": "Low stock message",
+      "default": "Only [count] left in stock!"
+    },
+    {
+      "type": "color",
+      "id": "low_stock_color",
+      "label": "Low stock color",
+      "default": "#FFA500"
+    },
+    {
+      "type": "header",
+      "content": "Out of stock"
+    },
+    {
+      "type": "text",
+      "id": "out_of_stock_text",
+      "label": "Out of stock message",
+      "default": "Out of stock"
+    },
+    {
+      "type": "text",
+      "id": "out_of_stock_custom_message",
+      "label": "Custom out of stock message",
+      "info": "Optional custom message when stock is 0 or below (e.g., 'Estimated next batch: May 5th'). Leave empty to use default message."
+    },
+    {
+      "type": "color",
+      "id": "out_of_stock_color",
+      "label": "Out of stock color",
+      "default": "#D82C0D"
+    },
+    {
+      "type": "header",
+      "content": "Container style"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#f3f3f3"
+    },
+    {
+      "type": "range",
+      "id": "padding_vertical",
+      "label": "Vertical padding",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "padding_horizontal",
+      "label": "Horizontal padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border_thickness",
+      "label": "Border thickness",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#cccccc"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inventory status"
+    }
+  ]
+}
+{% endschema %}
