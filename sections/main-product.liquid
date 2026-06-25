@@ -258,6 +258,70 @@
                   {%- endif -%}
                 {%- endif -%}
               </p>
+            {%- when 'inventory_advanced' -%}
+              {%- assign current_variant = product.selected_or_first_available_variant -%}
+              <p
+                class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                {{ block.shopify_attributes }}
+                id="Inventory-{{ section.id }}"
+                role="status"
+                style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem;--margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;"
+              >
+                {%- if current_variant.inventory_management == 'shopify' -%}
+                  {%- comment -%} 场景 A：Shopify 负责追踪库存 {%- endcomment -%}
+
+                  {%- if current_variant.inventory_quantity > 0 -%}
+                    {%- if current_variant.inventory_quantity <= block.settings.inventory_threshold -%}
+                      <svg width="15" height="15" aria-hidden="true">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
+                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
+                      </svg>
+                      {{ block.settings.low_stock_text }}
+                      {%- if block.settings.show_inventory_quantity -%}
+                      &nbsp;- only {{ current_variant.inventory_quantity }} left
+                      {%- endif -%}
+                    {%- else -%}
+                      <svg width="15" height="15" aria-hidden="true">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                      </svg>
+                      {{ block.settings.in_stock_text }}
+                      {%- if block.settings.show_inventory_quantity -%}
+                      &nbsp;({{ current_variant.inventory_quantity }} in stock)
+                      {%- endif -%}
+                    {%- endif -%}
+
+                  {%- else -%}
+                    {%- comment -%} 此时库存数量 <= 0 {%- endcomment -%}
+                    
+                    {%- if current_variant.inventory_policy == 'continue' -%}
+                      <svg width="15" height="15" aria-hidden="true">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                      </svg>
+                      {{ block.settings.pre_order_text }}
+                    {%- else -%}
+                      <svg width="15" height="15" aria-hidden="true">
+                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
+                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
+                      </svg>
+                      {%- if block.settings.enable_custom_out_of_stock -%}
+                        {{ block.settings.custom_out_of_stock_text }}
+                      {%- else -%}
+                        {{ 'products.product.inventory_out_of_stock' | t }}
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endif -%}
+
+                {%- else -%}
+                  {%- comment -%} 场景 B：Inventory not tracked (不追踪库存，默认当做有货) {%- endcomment -%}
+                  <svg width="15" height="15" aria-hidden="true">
+                    <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                    <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                  </svg>
+                  {{ block.settings.in_stock_text }}
+                {%- endif -%}
+              </p>
             {%- when 'description' -%}
               {%- if product.description != blank -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }} style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem;--margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;">
@@ -2522,6 +2586,107 @@
           "unit": "px",
           "label": "Bottom margin",
           "default": 15
+        }
+      ]
+    },
+    {
+      "type": "inventory_advanced",
+      "name": "Inventory (Advanced)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__1.label"
+            },
+            {
+              "value": "subtitle",
+              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__2.label"
+            },
+            {
+              "value": "uppercase",
+              "label": "t:sections.main-product.blocks.inventory.settings.text_style.options__3.label"
+            }
+          ],
+          "default": "body",
+          "label": "t:sections.main-product.blocks.inventory.settings.text_style.label"
+        },
+        {
+          "type": "range",
+          "id": "inventory_threshold",
+          "label": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.label",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "info": "t:sections.main-product.blocks.inventory.settings.inventory_threshold.info",
+          "default": 10
+        },
+        {
+          "type": "checkbox",
+          "id": "show_inventory_quantity",
+          "label": "t:sections.main-product.blocks.inventory.settings.show_inventory_quantity.label",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Block margin"
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 30,
+          "step": 3,
+          "unit": "px",
+          "label": "Top margin",
+          "default": 15
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 30,
+          "step": 3,
+          "unit": "px",
+          "label": "Bottom margin",
+          "default": 15
+        },
+        {
+          "type": "header",
+          "content": "Advanced Text Settings"
+        },
+        {
+          "type": "text",
+          "id": "in_stock_text",
+          "label": "In-stock text",
+          "default": "In stock, leaves our warehouse in 1-2 days"
+        },
+        {
+          "type": "text",
+          "id": "low_stock_text",
+          "label": "Low-stock text",
+          "default": "Limited stock, ready to ship in 1-2 days"
+        },
+        {
+          "type": "text",
+          "id": "pre_order_text",
+          "label": "Pre-order text",
+          "default": "Pre-order now, secure yours from the next batch"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_out_of_stock",
+          "label": "Enable custom out-of-stock text",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "custom_out_of_stock_text",
+          "label": "Custom out-of-stock text",
+          "default": "Contact us for restock dates"
         }
       ]
     },
