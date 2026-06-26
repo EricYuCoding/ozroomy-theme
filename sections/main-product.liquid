@@ -260,7 +260,7 @@
               </p>
             {%- when 'inventory_advanced' -%}
               {%- assign current_variant = product.selected_or_first_available_variant -%}
-              <p
+              <div
                 class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                 {{ block.shopify_attributes }}
                 id="Inventory-{{ section.id }}"
@@ -321,7 +321,7 @@
                   </svg>
                   {{ block.settings.in_stock_text }}
                 {%- endif -%}
-              </p>
+              </div>
             {%- when 'description' -%}
               {%- if product.description != blank -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }} style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem;--margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;">
@@ -2659,22 +2659,22 @@
           "content": "Advanced Text Settings"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "in_stock_text",
           "label": "In-stock text",
-          "default": "In stock, leaves our warehouse in 1-2 days"
+          "default": "<p>In stock, leaves our warehouse in 1-2 days</p>"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "low_stock_text",
           "label": "Low-stock text",
-          "default": "Limited stock, ready to ship in 1-2 days"
+          "default": "<p>Limited stock, ready to ship in 1-2 days</p>"
         },
         {
-          "type": "text",
+          "type": "richtext",
           "id": "pre_order_text",
           "label": "Pre-order text",
-          "default": "Pre-order now, secure yours from the next batch"
+          "default": "<p>Pre-order now, secure yours from the next batch</p>"
         },
         {
           "type": "checkbox",
