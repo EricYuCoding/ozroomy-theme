@@ -261,65 +261,79 @@
             {%- when 'inventory_advanced' -%}
               {%- assign current_variant = product.selected_or_first_available_variant -%}
               <div
-                class="product__inventory no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
+                class="product__inventory-adv no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                 {{ block.shopify_attributes }}
                 id="Inventory-{{ section.id }}"
                 role="status"
-                style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem;--margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;"
+                style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem; --margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;"
               >
                 {%- if current_variant.inventory_management == 'shopify' -%}
                   {%- comment -%} 场景 A：Shopify 负责追踪库存 {%- endcomment -%}
 
                   {%- if current_variant.inventory_quantity > 0 -%}
                     {%- if current_variant.inventory_quantity <= block.settings.inventory_threshold -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
-                      </svg>
-                      {{ block.settings.low_stock_text }}
-                      {%- if block.settings.show_inventory_quantity -%}
-                      &nbsp;- only {{ current_variant.inventory_quantity }} left
-                      {%- endif -%}
+                      {%- comment -%} 低库存状态 {%- endcomment -%}
+                      <span class="inventory-advanced__badge inventory-advanced__badge--low">
+                        <svg width="15" height="15" aria-hidden="true">
+                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
+                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
+                        </svg>
+                        {{ block.settings.low_stock_text }}
+                        {%- if block.settings.show_inventory_quantity -%}
+                        &nbsp;- only {{ current_variant.inventory_quantity }} left
+                        {%- endif -%}
+                      </span>
                     {%- else -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                      </svg>
-                      {{ block.settings.in_stock_text }}
-                      {%- if block.settings.show_inventory_quantity -%}
-                      &nbsp;({{ current_variant.inventory_quantity }} in stock)
-                      {%- endif -%}
+                      {%- comment -%} 正常库存状态 {%- endcomment -%}
+                      <span class="inventory-advanced__badge inventory-advanced__badge--in-stock">
+                        <svg width="15" height="15" aria-hidden="true">
+                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                        </svg>
+                        {{ block.settings.in_stock_text }}
+                        {%- if block.settings.show_inventory_quantity -%}
+                        &nbsp;({{ current_variant.inventory_quantity }} in stock)
+                        {%- endif -%}
+                      </span>
                     {%- endif -%}
 
                   {%- else -%}
                     {%- comment -%} 此时库存数量 <= 0 {%- endcomment -%}
                     
                     {%- if current_variant.inventory_policy == 'continue' -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                      </svg>
-                      {{ block.settings.pre_order_text }}
+                      {%- comment -%} 可继续销售（视同有货） {%- endcomment -%}
+                      <span class="inventory-advanced__badge inventory-advanced__badge--in-stock">
+                        <svg width="15" height="15" aria-hidden="true">
+                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                        </svg>
+                        {{ block.settings.pre_order_text }}
+                      </span>
                     {%- else -%}
-                      <svg width="15" height="15" aria-hidden="true">
-                        <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
-                        <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
-                      </svg>
-                      {%- if block.settings.enable_custom_out_of_stock -%}
-                        {{ block.settings.custom_out_of_stock_text }}
-                      {%- else -%}
-                        {{ 'products.product.inventory_out_of_stock' | t }}
-                      {%- endif -%}
+                      {%- comment -%} 真正断货状态 {%- endcomment -%}
+                      <span class="inventory-advanced__badge inventory-advanced__badge--out-of-stock">
+                        <svg width="15" height="15" aria-hidden="true">
+                          <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
+                          <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
+                        </svg>
+                        {%- if block.settings.enable_custom_out_of_stock -%}
+                          {{ block.settings.custom_out_of_stock_text }}
+                        {%- else -%}
+                          {{ 'products.product.inventory_out_of_stock' | t }}
+                        {%- endif -%}
+                      </span>
                     {%- endif -%}
                   {%- endif -%}
 
                 {%- else -%}
                   {%- comment -%} 场景 B：Inventory not tracked (不追踪库存，默认当做有货) {%- endcomment -%}
-                  <svg width="15" height="15" aria-hidden="true">
-                    <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-                    <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
-                  </svg>
-                  {{ block.settings.in_stock_text }}
+                  <span class="inventory-advanced__badge inventory-advanced__badge--in-stock">
+                    <svg width="15" height="15" aria-hidden="true">
+                      <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
+                      <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+                    </svg>
+                    {{ block.settings.in_stock_text }}
+                  </span>
                 {%- endif -%}
               </div>
             {%- when 'description' -%}

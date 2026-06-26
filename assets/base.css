@@ -9405,6 +9405,69 @@ a.product__text {
 .product__inventory.visibility-hidden:empty::after {
   content: "#";
 }
+
+/* =========================================================
+   高级库存模块独立样式 (避免影响主题默认的 .product__inventory)
+   ========================================================= */
+
+/* 1. 外层容器基础布局 (继承原生的基础设定并加上 margin 控制) */
+.product__inventory-adv {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--margin-top, 0);
+  margin-bottom: var(--margin-bottom, 0);
+}
+
+.product--no-media .product__inventory-adv {
+  justify-content: center;
+}
+
+.product__inventory-adv.visibility-hidden:empty {
+  display: block;
+}
+
+.product__inventory-adv.visibility-hidden:empty::after {
+  content: "#";
+}
+
+/* 2. 内层圆角背景 Wrapper 的基础样式 */
+.inventory-advanced__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 1.3rem;
+  line-height: 1.2;
+  transition: background-color 0.3s ease;
+}
+
+/* 确保 SVG 居中对齐且不被压缩 */
+.inventory-advanced__badge svg {
+  flex-shrink: 0;
+}
+
+/* 3. 状态配色（低调现代） */
+
+/* 浅绿色 (In stock / Not tracked / Continue selling) */
+.inventory-advanced__badge--in-stock {
+  background-color: rgba(62, 214, 96, 0.1);
+  color: #2e7d32;
+}
+
+/* 浅橙色 (Low inventory) */
+.inventory-advanced__badge--low {
+  background-color: rgba(238, 148, 65, 0.12);
+  color: #b35900;
+}
+
+/* 浅灰色 (Out of stock) */
+.inventory-advanced__badge--out-of-stock {
+  background-color: rgba(200, 200, 200, 0.2);
+  color: #555555;
+}
+
 .icon-with-text {
   --icon-size: var(--desktop-icon-size);
   --icon-spacing: var(--desktop-spacing);
