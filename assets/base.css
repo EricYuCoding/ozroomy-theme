@@ -9456,6 +9456,12 @@ a.product__text {
   color: #2e7d32;
 }
 
+/* 浅橙色 / 预售 / Continue selling */
+.inventory-advanced__badge--pre-order {
+  background-color: rgba(238, 148, 65, 0.12);
+  color: #b35900;
+}
+
 /* 浅橙色 (Low inventory) */
 .inventory-advanced__badge--low {
   background-color: rgba(238, 148, 65, 0.12);
