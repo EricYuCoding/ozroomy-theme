@@ -185,6 +185,7 @@
         },
         "e0a0b690-50df-4ca4-acfd-ce2980696cce": {
           "type": "shipping_checkpoints",
+          "disabled": true,
           "settings": {
             "icon_1": "add_shopping_cart",
             "filled_icon_1": false,
@@ -214,6 +215,21 @@
             "color_scheme": "inverse",
             "margin_top": 24,
             "margin_bottom": 24
+          }
+        },
+        "inventory_advanced_Q8QWVf": {
+          "type": "inventory_advanced",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true,
+            "margin_top": 15,
+            "margin_bottom": 15,
+            "in_stock_text": "<p><strong>In stock</strong>, leaves our warehouse in business 1-2 days</p>",
+            "low_stock_text": "<p>Limited stock, ready to ship in 1-2 business days</p>",
+            "pre_order_text": "<p><strong>Pre-order Now</strong>| Estimated arrival:7-9 weeks</p>",
+            "enable_custom_out_of_stock": false,
+            "custom_out_of_stock_text": "Contact us for restock dates"
           }
         },
         "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5": {
@@ -309,6 +325,7 @@
         "urgency_hwmErQ",
         "buy_buttons",
         "e0a0b690-50df-4ca4-acfd-ce2980696cce",
+        "inventory_advanced_Q8QWVf",
         "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
         "product_upsell_LrKWrk"
       ],
