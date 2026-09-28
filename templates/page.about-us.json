@@ -189,7 +189,7 @@
         "show_media_only": false,
         "media_max_width": 1536,
         "visibility": "always-display",
-        "video": "shopify://files/videos/edition.mp4",
+        "video": "",
         "height": "medium",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -220,7 +220,7 @@
         "row_BnQWBx": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/green-pebble-model-4.mp4",
+            "video": "",
             "caption": "",
             "title": "About Us",
             "title_highlight_color": "#6D388B",
@@ -280,7 +280,7 @@
         "row_QdYLY9": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/pebble-video-02-square.mp4",
+            "video": "",
             "caption": "",
             "title": "Designed for Real Life",
             "title_highlight_color": "#6D388B",

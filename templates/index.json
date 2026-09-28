@@ -418,7 +418,7 @@
             "btn_label": "Nest Sofa Bed",
             "btn_icon": "Sleep",
             "filled_btn_icon": false,
-            "video": "shopify://files/videos/nest-video-sofa-to-bed.mp4",
+            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "btn_color_scheme": "accent-1",
@@ -446,7 +446,7 @@
             "btn_label": "Cloud Sofa",
             "btn_icon": "Cloud",
             "filled_btn_icon": false,
-            "video": "shopify://files/videos/cloud-sofa-video2.mp4",
+            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "btn_color_scheme": "accent-1",
@@ -539,7 +539,7 @@
         "row_g8dGBz": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/ozbase-video.mp4",
+            "video": "",
             "caption": "Loopa Sofa bED",
             "title": "Comfort Without Worry",
             "title_highlight_color": "#6d388b",
@@ -710,7 +710,7 @@
         "row_7aN3yB": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/pebble-landing-page-1-1-20251216.mp4",
+            "video": "",
             "caption": "Easy to install. Easy to remove",
             "title": "Pebble Sofa Bed",
             "title_highlight_color": "#6d388b",
@@ -726,7 +726,7 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "video": "shopify://files/videos/rest-sofa-landing-page-1-1.mp4",
+            "video": "",
             "caption": "New Arrival",
             "title": "Rest Sofa",
             "title_highlight_color": "#6d388b",
@@ -777,7 +777,7 @@
         "slide_XPnhRj": {
           "type": "slide",
           "settings": {
-            "desktop_bg_video": "shopify://files/videos/rest-sofa-landing-page-16-9.mp4",
+            "desktop_bg_video": "",
             "desktop_overlay_color": "#000000",
             "desktop_overlay_opacity": 0,
             "mobile_overlay_color": "#000000",
@@ -1109,7 +1109,7 @@
           "type": "video_slide",
           "disabled": true,
           "settings": {
-            "video": "shopify://files/videos/daaead75768649b28386904f9a8019e8.mp4",
+            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,

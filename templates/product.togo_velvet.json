@@ -156,7 +156,7 @@
             "stacking": "row",
             "accent_color": "accent-1",
             "color_scheme": "background-1",
-            "product_list": "{{ product.metafields.custom.fabric_listsofproducts.value }}",
+            "product_list": [],
             "prdouct_1_preselected": false,
             "product_1_desc": "Not sure? Order a swatch first.",
             "product_1_percentage_discount": "0",
@@ -355,7 +355,7 @@
             "heading": "Specifications & Dimensions",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -365,7 +365,7 @@
             "heading": "Customization",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.customization | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -375,7 +375,7 @@
             "heading": "Shipping Information",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ metaobjects.shipping_policy[\"shipping-policy-lkb5fn5b\"].content | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -385,7 +385,7 @@
             "heading": "Materials",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.materials | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -395,7 +395,7 @@
             "heading": "Care Instructions",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         }
@@ -441,7 +441,7 @@
         "column_Unb9fC": {
           "type": "column",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image1.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -452,7 +452,7 @@
         "column_eneU7A": {
           "type": "column",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image2.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -463,7 +463,7 @@
         "column_bacA8H": {
           "type": "column",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image3.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -547,8 +547,8 @@
         "show_media_only": false,
         "media_max_width": 2048,
         "visibility": "always-display",
-        "image": "{{ product.metafields.custom.animation.value }}",
-        "video": "{{ product.metafields.custom.animation.value }}",
+        "image": "",
+        "video": "",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -598,7 +598,7 @@
             "caption": "",
             "title": "",
             "title_highlight_color": "#6d388b",
-            "text": "{{ block.settings.atc_product.metafields.custom.materials | metafield_tag }}",
+            "text": "",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -609,7 +609,7 @@
         "row_MbxHYF": {
           "type": "row",
           "settings": {
-            "video": "{{ block.settings.atc_product.metafields.custom.product_finished_image_video.value }}",
+            "video": "",
             "caption": "",
             "title": "A Peace of Mind Process",
             "title_highlight_color": "#6d388b",

@@ -544,24 +544,24 @@
     "blocks": {
       "11532412952436166569": {
         "type": "shopify://apps/loox-reviews/blocks/loox-inject/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       },
       "18228966181090706294": {
         "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
-        "disabled": false,
+        "disabled": true,
         "settings": {
-          "storefrontAccessToken": "410542381f1e8cf16493b2978c55ab66"
+          "storefrontAccessToken": ""
         }
       },
       "855628211100114053": {
         "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       },
       "17676059084223943535": {
         "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
       }
     }

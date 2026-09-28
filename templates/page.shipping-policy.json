@@ -36,7 +36,7 @@
             "heading": "Delivery Areas",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ metaobjects.shipping_policy[\"shipping-policy-lkb5fn5b\"].content | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
