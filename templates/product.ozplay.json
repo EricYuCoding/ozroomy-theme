@@ -340,7 +340,7 @@
             "heading": "Specifications & Dimensions",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -350,7 +350,7 @@
             "heading": "Customization",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.customization | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -360,7 +360,7 @@
             "heading": "Shipping Information",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ metaobjects.shipping_policy[\"shipping-policy-lkb5fn5b\"].content | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -370,7 +370,7 @@
             "heading": "Materials",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.materials | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -380,7 +380,7 @@
             "heading": "Care Instructions",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         }
@@ -446,7 +446,7 @@
         "column_Unb9fC": {
           "type": "column",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image1.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "Two supportive pillows",
             "text": "<p>They say there's two sides to every story, but if the story is about our pillows, it has three. Use them for the columns of a coliseum, the hull of a ship, or just a backrest when you need a break in between.</p>",
@@ -457,7 +457,7 @@
         "column_eneU7A": {
           "type": "column",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image2.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "One soft cushion",
             "text": "<p>The cushion may be the thinnest piece, but without it, wall-climbers and cannonballers would be in for a rough landing. It's squishy and strong, so playroom superheroes can bounce back after big falls.</p>",
@@ -468,7 +468,7 @@
         "column_bacA8H": {
           "type": "column",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image3.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "One sturdy base",
             "text": "<p>No one likes to be on the bottom of the pile. Well, except for the base, that is. Down there it gets to provide stable, reassuring structure to the pieces above.</p>",
@@ -621,8 +621,8 @@
         "show_media_only": true,
         "media_max_width": 3456,
         "visibility": "always-display",
-        "image": "{{ product.metafields.custom.animation.value }}",
-        "video": "{{ product.metafields.custom.animation.value }}",
+        "image": "",
+        "video": "",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -668,11 +668,11 @@
         "row_w66BqA": {
           "type": "row",
           "settings": {
-            "image": "{{ block.settings.atc_product.metafields.custom.structure_image_video.value }}",
+            "image": "",
             "caption": "",
             "title": "An elevated design",
             "title_highlight_color": "#6d388b",
-            "text": "{{ product.metafields.custom.structure_description | metafield_tag }}",
+            "text": "",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -684,7 +684,7 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "video": "shopify://files/videos/1210_58a91b3b-2d5f-4ee9-bec3-3a71344565c8.mp4",
+            "video": "",
             "caption": "",
             "title": "A Peace of Mind Process",
             "title_highlight_color": "#6d388b",
@@ -736,11 +736,11 @@
         "row_hXfnPh": {
           "type": "row",
           "settings": {
-            "image": "{{ block.settings.atc_product.metafields.custom.product_finished_image_video.value }}",
+            "image": "",
             "caption": "",
             "title": "Functional and stylish",
             "title_highlight_color": "#6d388b",
-            "text": "{{ block.settings.atc_product.metafields.custom.feature2 | metafield_tag }}",
+            "text": "",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",

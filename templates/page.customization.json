@@ -23,7 +23,7 @@
         "video_slide_Ygw6fK": {
           "type": "video_slide",
           "settings": {
-            "video": "shopify://files/videos/boston_Lincoln-03-662x662-1.mp4",
+            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -41,7 +41,7 @@
         "video_slide_6fTLeP": {
           "type": "video_slide",
           "settings": {
-            "video": "shopify://files/videos/OzPremium.mp4",
+            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -59,7 +59,7 @@
         "video_slide_HqTTNP": {
           "type": "video_slide",
           "settings": {
-            "video": "shopify://files/videos/castel_Castel-61-NW-662x662-1.mp4",
+            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -128,7 +128,7 @@
         "video_slide_yQw4qR": {
           "type": "video_slide",
           "settings": {
-            "video": "shopify://files/videos/quelle_Quelle-05-360x360-1.mp4",
+            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,

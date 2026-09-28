@@ -247,7 +247,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -263,7 +263,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -279,7 +279,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.shipping_information | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -295,7 +295,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.feature4 | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -508,7 +508,7 @@
         "show_media_only": true,
         "media_max_width": 768,
         "visibility": "always-display",
-        "video": "{{ product.metafields.custom.animation.value }}",
+        "video": "",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -571,7 +571,7 @@
         "image_slide_JCD7N3": {
           "type": "image_slide",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image1.value }}",
+            "image": "",
             "link": "",
             "description": "",
             "desc_alignment": "center",
@@ -581,7 +581,7 @@
         "image_slide_eH4dPt": {
           "type": "image_slide",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image2.value }}",
+            "image": "",
             "link": "",
             "description": "",
             "desc_alignment": "center",
@@ -642,7 +642,7 @@
         "column_QBQBB3": {
           "type": "column",
           "settings": {
-            "image": "{{ section.settings.atc_product.metafields.custom.dimension_image1.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -663,7 +663,7 @@
         "column_GFHTJg": {
           "type": "column",
           "settings": {
-            "image": "{{ product.metafields.custom.dimension_image2.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -770,7 +770,7 @@
         "row_DibF88": {
           "type": "row",
           "settings": {
-            "video": "{{ block.settings.atc_product.metafields.custom.structure_image_video.value }}",
+            "video": "",
             "caption": "",
             "title": "Modular by Nature",
             "title_highlight_color": "#6d388b",
@@ -800,7 +800,7 @@
         "row_LjJKCq": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/rest-product-video-no-tools-720p.mp4",
+            "video": "",
             "caption": "",
             "title": "Tool-Free. Stress-Free.",
             "title_highlight_color": "#6d388b",
@@ -815,7 +815,7 @@
         "row_TYAT8K": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/rest-product-video-pet-friendly.mp4",
+            "video": "",
             "caption": "",
             "title": "<strong>Claw-Resistant Fabric</strong>",
             "title_highlight_color": "#121212",
@@ -830,7 +830,7 @@
         "row_ARgrxw": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/rest-product-video-waterproof.mp4",
+            "video": "",
             "caption": "",
             "title": "Kid, Pet & Party-Proof",
             "title_highlight_color": "#6d388b",
@@ -845,7 +845,7 @@
         "row_h69KPq": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/jimeng-2026-02-15-6480-基于我上传的首帧图和尾帧图生成一段完整的压力测试视频。  重要要求：  一、镜头....mp4",
+            "video": "",
             "caption": "",
             "title": "Built for a Lifetime of Lounging",
             "title_highlight_color": "#121212",
@@ -959,7 +959,7 @@
       ],
       "name": "Rest Certification",
       "settings": {
-        "main_video": "shopify://files/videos/rest-sofa-OEKO-3(1).mp4",
+        "main_video": "",
         "title": "Designed & Certified for Families",
         "content": "<p><br/>At Rest Sofa, we prioritise your home’s safety. Our fabrics are OEKO-TEX® Standard 100 certified, rigorously tested to be free from harmful substances. From toddlers to pets, enjoy peace of mind with a sofa that’s as safe as it is stylish.<br/><br/></p>"
       }

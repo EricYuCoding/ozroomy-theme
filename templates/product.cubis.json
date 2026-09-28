@@ -307,7 +307,7 @@
             "heading": "Specifications & Dimensions",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -317,7 +317,7 @@
             "heading": "Customization",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.customization | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -327,7 +327,7 @@
             "heading": "Shipping Information",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ metaobjects.shipping_policy[\"shipping-policy-lkb5fn5b\"].content | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -337,7 +337,7 @@
             "heading": "Materials",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.materials | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         },
@@ -347,7 +347,7 @@
             "heading": "Care Instructions",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "row_content": "",
             "page": ""
           }
         }
@@ -443,7 +443,7 @@
         "row_MbxHYF": {
           "type": "row",
           "settings": {
-            "video": "shopify://files/videos/togo_pink1_shopify产品落地页视频.mp4",
+            "video": "",
             "caption": "",
             "title": "A Peace of Mind Process",
             "title_highlight_color": "#6d388b",

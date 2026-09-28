@@ -250,7 +250,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -267,7 +267,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.shipping_information | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -284,7 +284,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.materials | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -301,7 +301,7 @@
             "collapse_icon": "carret",
             "display_top_border": true,
             "open": false,
-            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "content": "",
             "page": "",
             "margin_top": 24,
             "margin_bottom": 0
@@ -396,7 +396,7 @@
         "column_kLddPM": {
           "type": "column",
           "settings": {
-            "image": "{{ section.settings.atc_product.metafields.custom.dimension_image1.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -407,7 +407,7 @@
         "column_PRCDmR": {
           "type": "column",
           "settings": {
-            "image": "{{ section.settings.atc_product.metafields.custom.dimension_image2.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -418,7 +418,7 @@
         "column_znMzq9": {
           "type": "column",
           "settings": {
-            "image": "{{ section.settings.atc_product.metafields.custom.dimension_image3.value }}",
+            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -492,7 +492,7 @@
         "show_media_only": false,
         "media_max_width": 3456,
         "visibility": "always-display",
-        "image": "{{ product.metafields.custom.image1.value }}",
+        "image": "",
         "height": "medium",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -524,12 +524,12 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "image": "{{ block.settings.atc_product.metafields.custom.image1.value }}",
-            "video": "{{ block.settings.atc_product.metafields.custom.structure_image_video.value }}",
+            "image": "",
+            "video": "",
             "caption": "",
             "title": "",
             "title_highlight_color": "#6d388b",
-            "text": "{{ product.metafields.custom.feature1 | metafield_tag }}",
+            "text": "",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -570,7 +570,7 @@
         "row_MbxHYF": {
           "type": "row",
           "settings": {
-            "video": "{{ block.settings.atc_product.metafields.custom.product_finished_image_video.value }}",
+            "video": "",
             "caption": "",
             "title": "A Peace of Mind Process",
             "title_highlight_color": "#6d388b",

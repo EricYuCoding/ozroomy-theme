@@ -39,11 +39,7 @@
     {% endif %}
   </p>
 
-  {% if block.settings.show_progressbar == "Yes" %}
-    <div class="cart-progress__bar">
-  {% else %}
-    <div class="cart-progress__bar" style="display:none;padding-bottom:0px;">
-  {% endif %}
+  <div class="cart-progress__bar"{% unless block.settings.show_progressbar == "Yes" %} style="display:none;padding-bottom:0px;"{% endunless %}>
     <div class="cart-progress__bar__progress" style="width: {{ goal_progress }}%;">
       <div class="cart-progress__bar__badge">
         {%- if block.settings.custom_icon != blank -%}

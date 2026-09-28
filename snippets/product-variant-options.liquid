@@ -238,7 +238,27 @@
             {% assign variant_option_val = variant[variant_option_key] %}
 
             {% if variant_option_val == value %}
-              {% if block.settings.swatches_custom_colors == 'disabled' %}
+              {% if block.settings.swatches_custom_colors == 'native' %}
+                {% if value.swatch.color != blank %}
+                  <div class="color-swatch__custom-color" style="--bg-color: {{ value.swatch.color }}">&nbsp</div>
+                {% elsif value.swatch.image != blank %}
+                  <img
+                    src="{{ value.swatch.image | image_url: width: 200 }}"
+                    alt="{{ variant_option_val }}"
+                    width="auto"
+                    height="auto"
+                    loading="lazy"
+                  >
+                {% elsif variant.image %}
+                  <img
+                    src="{{ variant.image | image_url: width: 200 }}"
+                    alt="{{ variant_option_val }}"
+                    width="auto"
+                    height="auto"
+                    loading="lazy"
+                  >
+                {% endif %}
+              {% elsif block.settings.swatches_custom_colors == 'disabled' %}
                 {% if variant.image %}
                   <img
                     src="{{ variant.image | image_url: width: 200 }}"
