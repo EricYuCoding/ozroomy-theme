@@ -1,0 +1,138 @@
+{%- liquid
+  assign has_heading = false
+  assign has_body_content = false
+
+  if block.settings.heading != blank
+    assign has_heading = true
+  endif
+
+  if block.settings.content != blank or block.settings.image != blank
+    assign has_body_content = true
+  endif
+-%}
+
+{%- if has_heading or has_body_content -%}
+  {%- liquid
+    assign component_context = context | default: 'standalone'
+    assign heading_id = 'AdvancedCollapsibleSummary-' | append: section.id | append: '-' | append: block.id
+    assign content_id = 'AdvancedCollapsibleContent-' | append: section.id | append: '-' | append: block.id
+    assign display_heading = block.settings.heading
+    assign image_width = block.settings.image_width | default: 100
+    assign margin_top = block.settings.margin_top | default: 0
+    assign margin_bottom = block.settings.margin_bottom | default: 0
+
+    if display_heading == blank
+      assign display_heading = 'Advanced collapsible row'
+    endif
+
+    assign maximum_image_width = 734
+    if component_context == 'product-information'
+      assign maximum_image_width = 650
+    endif
+    assign rendered_image_width = maximum_image_width | times: image_width | divided_by: 100
+
+    capture image_sizes
+      echo '(min-width: 990px) '
+      echo rendered_image_width
+      echo 'px, '
+      echo image_width
+      echo 'vw'
+    endcapture
+
+    capture image_markup
+      if block.settings.image != blank
+        echo '<div class="advanced-collapsible__image advanced-collapsible__image--'
+        echo block.settings.image_alignment
+        echo '">'
+        echo block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: image_sizes, widths: '180, 240, 360, 480, 600, 750, 900, 1200', class: 'advanced-collapsible__image-element'
+        echo '</div>'
+      endif
+    endcapture
+  -%}
+
+  {%- capture heading_markup -%}
+    <span class="advanced-collapsible__summary-title">
+      {%- if block.settings.custom_icon != blank -%}
+        <span class="advanced-collapsible__heading-icon" aria-hidden="true">
+          {{-
+            block.settings.custom_icon
+            | image_url: width: 96
+            | image_tag:
+              loading: 'lazy',
+              sizes: '24px',
+              widths: '32, 48, 64, 96',
+              class: 'advanced-collapsible__custom-icon'
+          -}}
+        </span>
+      {%- elsif block.settings.icon != blank -%}
+        <span class="advanced-collapsible__heading-icon" aria-hidden="true">
+          {% render 'material-icon', icon: block.settings.icon, filled: block.settings.filled_icon %}
+        </span>
+      {%- endif -%}
+
+      <span class="advanced-collapsible__title">
+        {{ display_heading | escape }}
+      </span>
+    </span>
+  {%- endcapture -%}
+
+  <div
+    class="advanced-collapsible advanced-collapsible--{{ component_context }} advanced-collapsible--image-{{ block.settings.image_position }}{% if block.settings.display_top_border %} advanced-collapsible--top-border{% endif %}{% if component_context == 'product-information' %} quick-add-hidden{% endif %}"
+    style="
+      --advanced-collapsible-heading-size: {{ block.settings.heading_size }}px;
+      --advanced-collapsible-heading-weight: {{ block.settings.heading_weight }};
+      --advanced-collapsible-image-width: {{ image_width }}%;
+      --advanced-collapsible-margin-top: {{ margin_top | divided_by: 10.0 }}rem;
+      --advanced-collapsible-margin-bottom: {{ margin_bottom | divided_by: 10.0 }}rem;
+      {% if block.settings.heading_color != blank %}--advanced-collapsible-heading-color: {{ block.settings.heading_color }};{% endif %}
+    "
+    {{ block.shopify_attributes }}
+  >
+    {%- if has_body_content -%}
+      <details class="advanced-collapsible__details"{% if block.settings.open %} open{% endif %}>
+        <summary
+          id="{{ heading_id }}"
+          class="advanced-collapsible__summary"
+          aria-controls="{{ content_id }}"
+        >
+          {{ heading_markup }}
+
+          <span class="advanced-collapsible__toggle" aria-hidden="true">
+            {%- if block.settings.collapse_icon == 'plus' -%}
+              {% render 'icon-plus' %}
+            {%- else -%}
+              {% render 'icon-caret' %}
+            {%- endif -%}
+          </span>
+        </summary>
+
+        <div
+          id="{{ content_id }}"
+          class="advanced-collapsible__content-wrapper"
+          role="region"
+          aria-labelledby="{{ heading_id }}"
+        >
+          <div class="advanced-collapsible__content">
+            {%- if block.settings.image_position == 'above' -%}
+              {{ image_markup }}
+            {%- endif -%}
+
+            {%- if block.settings.content != blank -%}
+              <div class="advanced-collapsible__rich-text rte">
+                {{ block.settings.content }}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.image_position == 'below' -%}
+              {{ image_markup }}
+            {%- endif -%}
+          </div>
+        </div>
+      </details>
+    {%- else -%}
+      <div class="advanced-collapsible__summary advanced-collapsible__summary--static">
+        {{ heading_markup }}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
