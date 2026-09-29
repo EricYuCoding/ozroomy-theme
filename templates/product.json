@@ -12,21 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "loox_reviews_loox_rating_DjfQPw": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "contentSize": 16,
-            "pattern": "",
-            "hideText": false,
-            "alignment": "",
-            "layout": "",
-            "textColor": "",
-            "starColor": "",
-            "showAllReviews": false,
-            "looxOpenFloatingWidget": false,
-            "emptyRatingWidget": false
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -163,16 +148,6 @@
             "secondary_btn_custom_color": "#dd1d1d",
             "margin_top": 24,
             "margin_bottom": 24
-          }
-        },
-        "klarna_on_site_messaging_app_block_zTp7PR": {
-          "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
-          "settings": {
-            "data_key": "credit-promotion-auto-size",
-            "theme": "default",
-            "topPadding": "0",
-            "bottomPadding": "0",
-            "messagePrefix": ""
           }
         },
         "e0a0b690-50df-4ca4-acfd-ce2980696cce": {
@@ -313,14 +288,12 @@
         }
       },
       "block_order": [
-        "loox_reviews_loox_rating_DjfQPw",
         "title",
         "price",
         "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
         "04ba004e-2f54-4936-8b1c-8bcadf6573f6",
         "urgency_hwmErQ",
         "buy_buttons",
-        "klarna_on_site_messaging_app_block_zTp7PR",
         "e0a0b690-50df-4ca4-acfd-ce2980696cce",
         "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
         "description",
@@ -496,7 +469,6 @@
         "show_media_only": true,
         "media_max_width": 3456,
         "visibility": "always-display",
-        "video": "",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -557,7 +529,6 @@
         "row_MbxHYF": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "A Peace of Mind Process",
             "title_highlight_color": "#6d388b",
@@ -605,22 +576,6 @@
     },
     "173381352079f37fbd": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_dynamic_section_dtQ6tx": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "only_photos": false,
-            "aggregated": true,
-            "limit": 20,
-            "hide_thumbnails": false,
-            "maxwidth": 1080,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_dynamic_section_dtQ6tx"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true

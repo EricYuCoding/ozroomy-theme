@@ -39,21 +39,6 @@
             "margin_bottom": 24
           }
         },
-        "loox_reviews_loox_rating_DjfQPw": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "contentSize": 16,
-            "pattern": "",
-            "hideText": false,
-            "alignment": "",
-            "layout": "",
-            "textColor": "",
-            "starColor": "",
-            "showAllReviews": false,
-            "looxOpenFloatingWidget": false,
-            "emptyRatingWidget": false
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -328,7 +313,6 @@
       "block_order": [
         "inventory_DYPMEr",
         "estimated_shipping_iawbYT",
-        "loox_reviews_loox_rating_DjfQPw",
         "title",
         "price",
         "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
@@ -506,7 +490,6 @@
         "video_slide_hpbwem": {
           "type": "video_slide",
           "settings": {
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": true,
@@ -534,7 +517,6 @@
         "video_slide_rpyH7E": {
           "type": "video_slide",
           "settings": {
-            "video": "",
             "loop": false,
             "muted_autoplay": true,
             "display_play_btn": true,
@@ -873,7 +855,6 @@
         "media_max_width": 3456,
         "visibility": "always-display",
         "image": "shopify://shop_images/pebble-model.webp",
-        "video": "",
         "height": "medium",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -950,7 +931,6 @@
         "row_MbxHYF": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "A Fully Removable Design",
             "title_highlight_color": "#6d388b",
@@ -999,47 +979,6 @@
     },
     "173381352079f37fbd": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_trust_badge_AmFegi": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-trust-badge/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "layout": "horizontal",
-            "alignment": "left",
-            "scheme-type": "default",
-            "review-title": "reviews",
-            "rating-icon": true,
-            "average-rating": true,
-            "loox-branding": true,
-            "review-count": true,
-            "open-reviews": true,
-            "show-border": true,
-            "border-radius": 8,
-            "font-size": 20,
-            "background-color": "",
-            "secondary-background-color": "",
-            "text-color": "",
-            "rating-icon-color": "",
-            "border-color": ""
-          }
-        },
-        "loox_reviews_loox_dynamic_section_dtQ6tx": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "reviews_to_display": "",
-            "default_tab": "automatic",
-            "only_photos": false,
-            "aggregated": true,
-            "limit": 20,
-            "hide_thumbnails": false,
-            "maxwidth": 1080,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_trust_badge_AmFegi",
-        "loox_reviews_loox_dynamic_section_dtQ6tx"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true

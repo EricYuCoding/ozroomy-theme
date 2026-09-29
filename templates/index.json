@@ -418,7 +418,6 @@
             "btn_label": "Nest Sofa Bed",
             "btn_icon": "Sleep",
             "filled_btn_icon": false,
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "btn_color_scheme": "accent-1",
@@ -446,7 +445,6 @@
             "btn_label": "Cloud Sofa",
             "btn_icon": "Cloud",
             "filled_btn_icon": false,
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "btn_color_scheme": "accent-1",
@@ -539,7 +537,6 @@
         "row_g8dGBz": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "Loopa Sofa bED",
             "title": "Comfort Without Worry",
             "title_highlight_color": "#6d388b",
@@ -710,7 +707,6 @@
         "row_7aN3yB": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "Easy to install. Easy to remove",
             "title": "Pebble Sofa Bed",
             "title_highlight_color": "#6d388b",
@@ -726,7 +722,6 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "video": "",
             "caption": "New Arrival",
             "title": "Rest Sofa",
             "title_highlight_color": "#6d388b",
@@ -777,7 +772,6 @@
         "slide_XPnhRj": {
           "type": "slide",
           "settings": {
-            "desktop_bg_video": "",
             "desktop_overlay_color": "#000000",
             "desktop_overlay_opacity": 0,
             "mobile_overlay_color": "#000000",
@@ -1109,7 +1103,6 @@
           "type": "video_slide",
           "disabled": true,
           "settings": {
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -1284,25 +1277,6 @@
     },
     "173585945899c78b61": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_agg_section_Q8TdeE": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "reviews_to_display": "",
-            "default_tab": "automatic",
-            "only_photos": false,
-            "hide_thumbnails": false,
-            "product_handle": "",
-            "aggregated": true,
-            "data-limit": 20,
-            "maxwidth": 1080,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_agg_section_Q8TdeE"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true
