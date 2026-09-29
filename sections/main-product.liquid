@@ -1,3 +1,8 @@
+{%- assign advanced_collapsible_rows = section.blocks | where: 'type', 'advanced_collapsible_row' -%}
+{%- if advanced_collapsible_rows.size > 0 -%}
+  {{ 'component-advanced-collapsible.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
 <section
   id="MainProduct-{{ section.id }}"
   class="page-width section-{{ section.id }}-padding"
@@ -392,6 +397,8 @@
                   </div>
                 </div>
               </div>
+            {%- when 'advanced_collapsible_row' -%}
+              {% render 'advanced-collapsible-row', block: block, section: section, context: 'product-information' %}
             {%- when 'quantity_selector' -%}
               {%- if block.settings.enable_quantity_discounts -%}
                 {% render 'quantity-breaks', block: block, product: product, product_form_id: product_form_id %}
@@ -4570,6 +4577,198 @@
           "type": "page",
           "id": "page",
           "label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+        },
+        {
+          "type": "header",
+          "content": "Block margin"
+        },
+        {
+          "type": "range",
+          "id": "margin_top",
+          "min": 0,
+          "max": 45,
+          "step": 3,
+          "unit": "px",
+          "label": "Top margin",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "margin_bottom",
+          "min": 0,
+          "max": 45,
+          "step": 3,
+          "unit": "px",
+          "label": "Bottom margin",
+          "default": 0
+        }
+      ]
+    },
+    {
+      "type": "advanced_collapsible_row",
+      "name": "Advanced collapsible row",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Advanced collapsible row",
+          "label": "Heading"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "Heading size",
+          "default": 16
+        },
+        {
+          "type": "select",
+          "id": "heading_weight",
+          "label": "Heading weight",
+          "options": [
+            {
+              "value": "400",
+              "label": "Regular"
+            },
+            {
+              "value": "500",
+              "label": "Medium"
+            },
+            {
+              "value": "600",
+              "label": "Semi-bold"
+            },
+            {
+              "value": "700",
+              "label": "Bold"
+            }
+          ],
+          "default": "600"
+        },
+        {
+          "type": "header",
+          "content": "Icon"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Material icon",
+          "info": "Optional. Enter a Material Symbols icon name."
+        },
+        {
+          "type": "checkbox",
+          "id": "filled_icon",
+          "default": false,
+          "label": "Filled icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom icon"
+        },
+        {
+          "type": "header",
+          "content": "Disclosure"
+        },
+        {
+          "type": "checkbox",
+          "id": "open",
+          "default": false,
+          "label": "Open row by default"
+        },
+        {
+          "type": "select",
+          "id": "collapse_icon",
+          "label": "Collapse icon",
+          "options": [
+            {
+              "value": "caret",
+              "label": "Caret"
+            },
+            {
+              "value": "plus",
+              "label": "Plus"
+            }
+          ],
+          "default": "caret"
+        },
+        {
+          "type": "checkbox",
+          "id": "display_top_border",
+          "default": true,
+          "label": "Display top border"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Row content"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Image position",
+          "options": [
+            {
+              "value": "above",
+              "label": "Above content"
+            },
+            {
+              "value": "below",
+              "label": "Below content"
+            }
+          ],
+          "default": "above"
+        },
+        {
+          "type": "select",
+          "id": "image_alignment",
+          "label": "Image alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "center",
+              "label": "Center"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "range",
+          "id": "image_width",
+          "min": 20,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "label": "Image width",
+          "default": 100
         },
         {
           "type": "header",
