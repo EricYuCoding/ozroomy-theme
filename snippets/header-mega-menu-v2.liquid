@@ -80,12 +80,6 @@
               </div>
             {%- endif -%}
 
-            {%- if link.url != blank and link.url != '#' -%}
-              <a class="mega-menu-v2__view-all mega-menu-v2__text-link link" href="{{ link.url }}">
-                View all {{ link.title | escape }}
-              </a>
-            {%- endif -%}
-
             {%- if block != blank and block.settings.cta_label != blank and block.settings.cta_link != blank -%}
               <a
                 class="mega-menu-v2__cta mega-menu-v2__cta--{{ block.settings.cta_style }}{% if block.settings.cta_style == 'text' %} mega-menu-v2__text-link{% endif %} link"

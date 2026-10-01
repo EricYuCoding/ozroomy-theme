@@ -7395,8 +7395,7 @@ header-drawer .menu-drawer__inner-container {
 .mega-menu-v2__column-links {
   margin: 0;
 }
-.mega-menu-v2__cta,
-.mega-menu-v2__view-all {
+.mega-menu-v2__cta {
   display: inline-flex;
   align-items: center;
   color: rgb(var(--color-foreground));
@@ -7405,9 +7404,6 @@ header-drawer .menu-drawer__inner-container {
   text-decoration: none;
 }
 .mega-menu-v2__cta {
-  margin-top: 2.4rem;
-}
-.mega-menu-v2__view-all {
   margin-top: 2.4rem;
 }
 .mega-menu-v2__text-link {
