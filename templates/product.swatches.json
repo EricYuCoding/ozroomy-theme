@@ -12,21 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "loox_reviews_loox_rating_DjfQPw": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "contentSize": 16,
-            "pattern": "",
-            "hideText": false,
-            "alignment": "",
-            "layout": "",
-            "textColor": "",
-            "starColor": "",
-            "showAllReviews": false,
-            "looxOpenFloatingWidget": false,
-            "emptyRatingWidget": false
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -167,8 +152,64 @@
             "margin_bottom": 24
           }
         },
+        "inventory_advanced_kW7DXX": {
+          "type": "inventory_advanced",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 0,
+            "show_inventory_quantity": true,
+            "margin_top": 15,
+            "margin_bottom": 15,
+            "in_stock_text": "<p>In stock, leaves our warehouse in 1-2 days</p>",
+            "low_stock_text": "<p>Limited stock, ready to ship in 1-2 days</p>",
+            "pre_order_text": "<p>Made to order for you, with delivery in 1–2 weeks.</p>",
+            "enable_custom_out_of_stock": false,
+            "custom_out_of_stock_text": "Contact us for restock dates"
+          }
+        },
+        "advanced_collapsible_row_wMknWk": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Specifications & Dimensions",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100,
+            "margin_top": 24,
+            "margin_bottom": 0
+          }
+        },
+        "advanced_collapsible_row_mULa8q": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Product Care",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100,
+            "margin_top": 0,
+            "margin_bottom": 0
+          }
+        },
         "e0a0b690-50df-4ca4-acfd-ce2980696cce": {
           "type": "shipping_checkpoints",
+          "disabled": true,
           "settings": {
             "icon_1": "add_shopping_cart",
             "filled_icon_1": false,
@@ -234,6 +275,7 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "margin_top": 24,
             "margin_bottom": 24
@@ -309,13 +351,15 @@
         }
       },
       "block_order": [
-        "loox_reviews_loox_rating_DjfQPw",
         "title",
         "price",
         "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
         "04ba004e-2f54-4936-8b1c-8bcadf6573f6",
         "urgency_hwmErQ",
         "buy_buttons",
+        "inventory_advanced_kW7DXX",
+        "advanced_collapsible_row_wMknWk",
+        "advanced_collapsible_row_mULa8q",
         "e0a0b690-50df-4ca4-acfd-ce2980696cce",
         "e7a28cbe-03cb-4c9d-a2c4-0e3e76ffb3e5",
         "description",
@@ -396,7 +440,6 @@
         "column_kLddPM": {
           "type": "column",
           "settings": {
-            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -407,7 +450,6 @@
         "column_PRCDmR": {
           "type": "column",
           "settings": {
-            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -418,7 +460,6 @@
         "column_znMzq9": {
           "type": "column",
           "settings": {
-            "image": "",
             "muted_autoplay": true,
             "title": "",
             "text": "",
@@ -492,7 +533,6 @@
         "show_media_only": false,
         "media_max_width": 3456,
         "visibility": "always-display",
-        "image": "",
         "height": "medium",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -524,8 +564,6 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "image": "",
-            "video": "",
             "caption": "",
             "title": "",
             "title_highlight_color": "#6d388b",
@@ -540,22 +578,22 @@
         "row_MXxrKK": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/OZDESIGN_LOGO.webp",
+            "video": "{{ block.settings.atc_product.metafields.custom.product_page_video1.value }}",
             "caption": "",
-            "title": "About Us",
+            "title": "",
             "title_highlight_color": "#6d388b",
-            "text": "<p>At <strong>OZDESIGN SOFA</strong>, we create furniture that keeps pace with busy, ever-changing lives. By pairing contemporary design with everyday practicality and a respect for the planet, we turn living rooms into adaptable spaces. Our story began with a simple goal: build sofas that grow with you—flexible, stylish, and fully modular.</p>",
+            "text": "{{ block.settings.atc_product.metafields.custom.feature1 | metafield_tag }}",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
-            "atc_product": "",
+            "atc_product": "roomy-pillows",
             "atc_skip_cart": false
           }
         },
         "row_w66BqA": {
           "type": "row",
+          "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/10601726909961_.pic.webp",
             "caption": "",
             "title": "Premium Quality Materials",
             "title_highlight_color": "#6d388b",
@@ -569,8 +607,8 @@
         },
         "row_MbxHYF": {
           "type": "row",
+          "disabled": true,
           "settings": {
-            "video": "",
             "caption": "",
             "title": "A Peace of Mind Process",
             "title_highlight_color": "#6d388b",
@@ -619,24 +657,6 @@
     },
     "173381352079f37fbd": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_dynamic_section_dtQ6tx": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "reviews_to_display": "",
-            "default_tab": "automatic",
-            "only_photos": false,
-            "aggregated": true,
-            "limit": 20,
-            "hide_thumbnails": false,
-            "maxwidth": 1080,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_dynamic_section_dtQ6tx"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true
