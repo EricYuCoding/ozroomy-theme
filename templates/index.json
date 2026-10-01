@@ -15,9 +15,8 @@
         "slide_hezjkf": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/pebble-AI-banner-PC-Light_675c7765-c82a-42a0-8028-be51f67e7499.webp",
-            "mobile_image": "shopify://shop_images/pebble-AI-banner-PC-Light.webp",
-            "image_overlay_opacity": 0,
+            "image": "shopify://shop_images/ozroomy-banner-1.webp",
+            "image_overlay_opacity": 20,
             "heading": "",
             "title_highlight_color": "#f2f8f0",
             "heading_size": "h2",
@@ -46,7 +45,6 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/pebble-AI-banner-20260430C.webp",
             "image_overlay_opacity": 20,
             "heading": "<strong>Pebble Collections</strong>",
             "title_highlight_color": "#f2f8f0",
@@ -129,7 +127,6 @@
             "btn_label": "Pebble Sofa",
             "btn_icon": "",
             "filled_btn_icon": false,
-            "image": "shopify://shop_images/OzCozy125996_BLUE-5772_2000x2000px_0a896a6e-ae7a-4925-846c-bccf5b9bb60c.webp",
             "loop": false,
             "muted_autoplay": false,
             "btn_color_scheme": "accent-1",
@@ -157,7 +154,6 @@
             "btn_label": "Ottoman",
             "btn_icon": "",
             "filled_btn_icon": false,
-            "image": "shopify://shop_images/ottoman_DG.webp",
             "loop": false,
             "muted_autoplay": false,
             "btn_color_scheme": "accent-1",
@@ -185,7 +181,6 @@
             "btn_label": "Pillow",
             "btn_icon": "",
             "filled_btn_icon": false,
-            "image": "shopify://shop_images/OzDesign126020_CREAM_WHITE_-_5769.webp",
             "loop": false,
             "muted_autoplay": false,
             "btn_color_scheme": "accent-1",
@@ -250,7 +245,6 @@
         "row_ifqNbC": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/pebble-banner-20251216-2.webp",
             "caption": "Pebble, Ready to Ship",
             "title": "IN STOCK NOW",
             "title_highlight_color": "#6d388b",
@@ -300,7 +294,6 @@
         "image_slide_NfDrpY": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/Loopa-_-webp.webp",
             "link": "shopify://collections/loop-collection",
             "description": "<p>Loopa Collection</p>",
             "desc_alignment": "center",
@@ -310,7 +303,6 @@
         "image_slide_ccggd8": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/pebble-banner-20251216-2.webp",
             "link": "shopify://collections/pebble-collections",
             "description": "<p>Pebble Collection</p>",
             "desc_alignment": "center",
@@ -320,7 +312,6 @@
         "image_slide_CWcJ4q": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/2S_Modular_60_Green_1_1.webp",
             "link": "shopify://products/nest-sofa",
             "description": "<p>Nest Sofa Bed</p>",
             "desc_alignment": "center",
@@ -330,7 +321,6 @@
         "image_slide_GxfkWW": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/cloud-banner-1_1.webp",
             "link": "shopify://products/cloud-couchboneless-version",
             "description": "<p>Cloud sofa</p>",
             "desc_alignment": "center",
@@ -340,7 +330,6 @@
         "image_slide_BMJHrN": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/coccon_asdfwrqe_1_1.webp",
             "link": "shopify://collections/coccon",
             "description": "<p>Chairs</p>",
             "desc_alignment": "center",
@@ -350,7 +339,6 @@
         "image_slide_diDziX": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/erase_words.webp",
             "link": "shopify://products/castle-sofa",
             "description": "<p>Castle Sofa</p>",
             "desc_alignment": "center",
@@ -418,7 +406,6 @@
             "btn_label": "Nest Sofa Bed",
             "btn_icon": "Sleep",
             "filled_btn_icon": false,
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "btn_color_scheme": "accent-1",
@@ -446,7 +433,6 @@
             "btn_label": "Cloud Sofa",
             "btn_icon": "Cloud",
             "filled_btn_icon": false,
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "btn_color_scheme": "accent-1",
@@ -539,7 +525,6 @@
         "row_g8dGBz": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "Loopa Sofa bED",
             "title": "Comfort Without Worry",
             "title_highlight_color": "#6d388b",
@@ -555,7 +540,6 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/LOOPA-LANDING.webp",
             "caption": "DESIGNED FOR REAL LIFE",
             "title": "Comfort That Fits Your Life",
             "title_highlight_color": "#6d388b",
@@ -606,7 +590,6 @@
         "image_slide_nmdjGG": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/ins-1.webp",
             "link": "https://www.instagram.com/p/DXMMenNkwPM/",
             "description": "",
             "desc_alignment": "center",
@@ -616,7 +599,6 @@
         "image_slide_ThqFp3": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/ins-3.webp",
             "link": "https://www.instagram.com/p/DWsGc6QD1rv/",
             "description": "",
             "desc_alignment": "center",
@@ -626,7 +608,6 @@
         "image_slide_Hyh3xP": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/ins-4.webp",
             "link": "https://www.instagram.com/p/DWOU-fbCvy4/",
             "description": "",
             "desc_alignment": "center",
@@ -636,7 +617,6 @@
         "image_slide_UenAEG": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/ins-2.webp",
             "link": "https://www.instagram.com/p/DRzAy2ZigRR/",
             "description": "",
             "desc_alignment": "center",
@@ -646,7 +626,6 @@
         "image_slide_NmRHRc": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/ins-5.webp",
             "link": "https://www.instagram.com/p/DVkUjFFigVF/",
             "description": "",
             "desc_alignment": "center",
@@ -710,7 +689,6 @@
         "row_7aN3yB": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "Easy to install. Easy to remove",
             "title": "Pebble Sofa Bed",
             "title_highlight_color": "#6d388b",
@@ -726,7 +704,6 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "video": "",
             "caption": "New Arrival",
             "title": "Rest Sofa",
             "title_highlight_color": "#6d388b",
@@ -777,7 +754,6 @@
         "slide_XPnhRj": {
           "type": "slide",
           "settings": {
-            "desktop_bg_video": "",
             "desktop_overlay_color": "#000000",
             "desktop_overlay_opacity": 0,
             "mobile_overlay_color": "#000000",
@@ -847,7 +823,6 @@
         "column_jwaURd": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/LOOPA-LANDING5.webp",
             "muted_autoplay": true,
             "title": "",
             "text": "<p>Lounge</p>",
@@ -858,7 +833,6 @@
         "column_9MHRgt": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/LOOPA-LANDING1.webp",
             "muted_autoplay": true,
             "title": "",
             "text": "<p>Conversation Pit</p>",
@@ -869,7 +843,6 @@
         "column_eKyPCr": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/LOOPA-LANDING2.webp",
             "muted_autoplay": true,
             "title": "",
             "text": "<p>Movie</p>",
@@ -880,7 +853,6 @@
         "column_thUbtA": {
           "type": "column",
           "settings": {
-            "image": "shopify://shop_images/LOOPA-LANDING4.webp",
             "muted_autoplay": true,
             "title": "",
             "text": "<p>Sleep</p>",
@@ -955,7 +927,6 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "image": "shopify://shop_images/Contact-Us.webp",
             "caption": "",
             "title": "",
             "title_highlight_color": "#6d388b",
@@ -1022,8 +993,6 @@
         "labels_color_scheme": "accent-1",
         "line_color": "background-1",
         "arrows_style": "circle",
-        "before_image": "shopify://shop_images/green_kashima_2.webp",
-        "after_image": "shopify://shop_images/kashima_blue_002_2.webp",
         "padding_top": 24,
         "padding_bottom": 12,
         "custom_colors_background": "#ffffff",
@@ -1076,7 +1045,6 @@
       "settings": {
         "display_id": false,
         "visibility": "always-display",
-        "image": "shopify://shop_images/dimension2.webp",
         "image_1_visibility": "always-display",
         "image_2_visibility": "always-display",
         "image_overlay_opacity": 0,
@@ -1098,7 +1066,6 @@
         "image_slide_DPecaj": {
           "type": "image_slide",
           "settings": {
-            "image": "shopify://shop_images/dimension2.webp",
             "link": "",
             "description": "",
             "desc_alignment": "center",
@@ -1109,7 +1076,6 @@
           "type": "video_slide",
           "disabled": true,
           "settings": {
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -1214,7 +1180,6 @@
       "settings": {
         "display_id": false,
         "visibility": "always-display",
-        "image": "shopify://shop_images/ozsofa_human_dog_bed_pink2_31fb87dc-a15e-4111-9080-dc38d2cd61ae.webp",
         "image_1_visibility": "always-display",
         "image_2_visibility": "always-display",
         "image_overlay_opacity": 0,
@@ -1284,25 +1249,6 @@
     },
     "173585945899c78b61": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_agg_section_Q8TdeE": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-agg-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "reviews_to_display": "",
-            "default_tab": "automatic",
-            "only_photos": false,
-            "hide_thumbnails": false,
-            "product_handle": "",
-            "aggregated": true,
-            "data-limit": 20,
-            "maxwidth": 1080,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_agg_section_Q8TdeE"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true

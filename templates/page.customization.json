@@ -23,7 +23,6 @@
         "video_slide_Ygw6fK": {
           "type": "video_slide",
           "settings": {
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -41,7 +40,6 @@
         "video_slide_6fTLeP": {
           "type": "video_slide",
           "settings": {
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -59,7 +57,6 @@
         "video_slide_HqTTNP": {
           "type": "video_slide",
           "settings": {
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,
@@ -128,7 +125,6 @@
         "video_slide_yQw4qR": {
           "type": "video_slide",
           "settings": {
-            "video": "",
             "loop": true,
             "muted_autoplay": true,
             "display_play_btn": false,

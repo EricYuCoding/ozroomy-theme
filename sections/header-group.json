@@ -168,7 +168,7 @@
         "mobile_padding_bottom": 12,
         "desktop_padding_top": 16,
         "desktop_padding_bottom": 16,
-        "custom_colors_background": "#697861",
+        "custom_colors_background": "#191919",
         "custom_gradient_background": "",
         "custom_colors_text": "#ffffff"
       }
@@ -234,8 +234,8 @@
         "color_scheme": "background-1",
         "logo_link": "/",
         "logo_position": "middle-left",
-        "menu": "header-menu",
-        "menu_type_desktop": "dropdown",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
         "highlight_active_link": false,
         "highlighted_link_color_scheme": "background-2",
         "products_mega_menu_links": "",

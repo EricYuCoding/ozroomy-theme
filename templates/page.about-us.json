@@ -189,7 +189,6 @@
         "show_media_only": false,
         "media_max_width": 1536,
         "visibility": "always-display",
-        "video": "",
         "height": "medium",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -220,7 +219,6 @@
         "row_BnQWBx": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "About Us",
             "title_highlight_color": "#6D388B",
@@ -280,7 +278,6 @@
         "row_QdYLY9": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "Designed for Real Life",
             "title_highlight_color": "#6D388B",

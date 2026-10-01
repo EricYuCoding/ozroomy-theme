@@ -508,7 +508,6 @@
         "show_media_only": true,
         "media_max_width": 768,
         "visibility": "always-display",
-        "video": "",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -770,7 +769,6 @@
         "row_DibF88": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "Modular by Nature",
             "title_highlight_color": "#6d388b",
@@ -800,7 +798,6 @@
         "row_LjJKCq": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "Tool-Free. Stress-Free.",
             "title_highlight_color": "#6d388b",
@@ -815,7 +812,6 @@
         "row_TYAT8K": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "<strong>Claw-Resistant Fabric</strong>",
             "title_highlight_color": "#121212",
@@ -830,7 +826,6 @@
         "row_ARgrxw": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "Kid, Pet & Party-Proof",
             "title_highlight_color": "#6d388b",
@@ -845,7 +840,6 @@
         "row_h69KPq": {
           "type": "row",
           "settings": {
-            "video": "",
             "caption": "",
             "title": "Built for a Lifetime of Lounging",
             "title_highlight_color": "#121212",
@@ -959,7 +953,6 @@
       ],
       "name": "Rest Certification",
       "settings": {
-        "main_video": "",
         "title": "Designed & Certified for Families",
         "content": "<p><br/>At Rest Sofa, we prioritise your home’s safety. Our fabrics are OEKO-TEX® Standard 100 certified, rigorously tested to be free from harmful substances. From toddlers to pets, enjoy peace of mind with a sofa that’s as safe as it is stylish.<br/><br/></p>"
       }
@@ -988,47 +981,6 @@
     },
     "173381352079f37fbd": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_trust_badge_c3aWHM": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-trust-badge/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "layout": "horizontal",
-            "alignment": "left",
-            "scheme-type": "default",
-            "review-title": "reviews",
-            "rating-icon": true,
-            "average-rating": true,
-            "loox-branding": true,
-            "review-count": true,
-            "open-reviews": true,
-            "show-border": true,
-            "border-radius": 8,
-            "font-size": 20,
-            "background-color": "",
-            "secondary-background-color": "",
-            "text-color": "",
-            "rating-icon-color": "",
-            "border-color": ""
-          }
-        },
-        "loox_reviews_loox_dynamic_section_dtQ6tx": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "reviews_to_display": "",
-            "default_tab": "automatic",
-            "only_photos": false,
-            "aggregated": true,
-            "limit": 20,
-            "hide_thumbnails": false,
-            "maxwidth": 1080,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_trust_badge_c3aWHM",
-        "loox_reviews_loox_dynamic_section_dtQ6tx"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true

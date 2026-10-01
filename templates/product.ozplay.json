@@ -12,21 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "loox_reviews_loox_rating_DjfQPw": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-rating/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "contentSize": 16,
-            "pattern": "",
-            "hideText": false,
-            "alignment": "",
-            "layout": "",
-            "textColor": "",
-            "starColor": "",
-            "showAllReviews": false,
-            "looxOpenFloatingWidget": false,
-            "emptyRatingWidget": false
-          }
-        },
         "title": {
           "type": "title",
           "settings": {
@@ -263,7 +248,6 @@
         }
       },
       "block_order": [
-        "loox_reviews_loox_rating_DjfQPw",
         "title",
         "price",
         "5fcc0428-e768-4cb7-bea3-eb0274198dd1",
@@ -622,7 +606,6 @@
         "media_max_width": 3456,
         "visibility": "always-display",
         "image": "",
-        "video": "",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -684,7 +667,6 @@
           "type": "row",
           "disabled": true,
           "settings": {
-            "video": "",
             "caption": "",
             "title": "A Peace of Mind Process",
             "title_highlight_color": "#6d388b",
@@ -782,22 +764,6 @@
     },
     "173381352079f37fbd": {
       "type": "apps",
-      "blocks": {
-        "loox_reviews_loox_dynamic_section_dtQ6tx": {
-          "type": "shopify://apps/loox-reviews/blocks/loox-dynamic-section/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-          "settings": {
-            "only_photos": false,
-            "aggregated": false,
-            "limit": 20,
-            "hide_thumbnails": false,
-            "maxwidth": 1080,
-            "is_sample": true
-          }
-        }
-      },
-      "block_order": [
-        "loox_reviews_loox_dynamic_section_dtQ6tx"
-      ],
       "settings": {
         "display_id": false,
         "include_margins": true
