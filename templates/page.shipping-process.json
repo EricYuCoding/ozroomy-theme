@@ -147,7 +147,6 @@
         "show_media_only": false,
         "media_max_width": 1024,
         "visibility": "always-display",
-        "video": "",
         "height": "medium",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
