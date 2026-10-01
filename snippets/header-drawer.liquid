@@ -179,19 +179,18 @@
                           </ul>
                           {%- if mobile_mega_menu_block != nil and mobile_mega_menu_block.settings.show_mobile_feature -%}
                             <div class="menu-drawer__featured-card">
-                              {%- case mobile_mega_menu_block.settings.layout -%}
-                                {%- when 'collection' -%}
-                                  {% render 'header-mega-menu-card', collection: mobile_mega_menu_block.settings.featured_collection_1, compact: true %}
-                                {%- else -%}
-                                  {% render 'header-mega-menu-card',
-                                    image: mobile_mega_menu_block.settings.promo_image_1,
-                                    heading: mobile_mega_menu_block.settings.promo_heading_1,
-                                    url: mobile_mega_menu_block.settings.promo_link_1,
-                                    collection: mobile_mega_menu_block.settings.featured_collection_1,
-                                    product: mobile_mega_menu_block.settings.featured_product_1,
-                                    compact: true
-                                  %}
-                              {%- endcase -%}
+                              {% render 'header-mega-menu-card',
+                                card_type: mobile_mega_menu_block.settings.feature_card_1_type,
+                                image: mobile_mega_menu_block.settings.feature_card_1_image,
+                                collection: mobile_mega_menu_block.settings.feature_card_1_collection,
+                                product: mobile_mega_menu_block.settings.feature_card_1_product,
+                                heading: mobile_mega_menu_block.settings.feature_card_1_title,
+                                description: mobile_mega_menu_block.settings.feature_card_1_text,
+                                url: mobile_mega_menu_block.settings.feature_card_1_link,
+                                show_arrow: mobile_mega_menu_block.settings.show_card_arrows,
+                                feature_count: 1,
+                                compact: true
+                              %}
                             </div>
                           {%- endif -%}
                         </div>

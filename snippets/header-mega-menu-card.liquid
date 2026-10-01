@@ -3,21 +3,29 @@
   assign card_title = heading
   assign card_url = url
   assign card_meta = meta
-  assign card_kind = 'image'
+  assign card_description = description
+  assign card_kind = card_type
+  if card_kind == blank
+    if product != blank
+      assign card_kind = 'product'
+    elsif collection != blank
+      assign card_kind = 'collection'
+    else
+      assign card_kind = 'image'
+    endif
+  endif
 
-  if collection != blank
+  if card_kind == 'collection' and collection != blank
     assign card_image = card_image | default: collection.featured_image
     assign card_title = card_title | default: collection.title
     assign card_url = card_url | default: collection.url
-    assign card_kind = 'collection'
-  elsif product != blank
+  elsif card_kind == 'product' and product != blank
     assign card_image = card_image | default: product.featured_image
     assign card_title = card_title | default: product.title
     assign card_url = card_url | default: product.url
     if card_meta == blank
       assign card_meta = product.price | money
     endif
-    assign card_kind = 'product'
   endif
 
   assign card_alt = card_image.alt | default: card_title
@@ -38,7 +46,7 @@
           src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
           data-mega-menu-src="{{ card_image | image_url: width: 800 }}"
           data-mega-menu-srcset="{{ card_image | image_url: width: 240 }} 240w, {{ card_image | image_url: width: 360 }} 360w, {{ card_image | image_url: width: 480 }} 480w, {{ card_image | image_url: width: 640 }} 640w, {{ card_image | image_url: width: 800 }} 800w"
-          sizes="{% if compact %}(max-width: 749px) 72vw, 240px{% else %}(max-width: 1200px) 24vw, 320px{% endif %}"
+          sizes="{% if compact %}(max-width: 749px) 72vw, 240px{% elsif feature_count == 1 %}(max-width: 1200px) 40vw, 520px{% elsif feature_count == 2 %}(max-width: 1200px) 32vw, 420px{% else %}(max-width: 1200px) 25vw, 340px{% endif %}"
           width="{{ card_image.width }}"
           height="{{ card_image.height }}"
           alt="{{ card_alt | escape }}"
@@ -48,15 +56,20 @@
       </div>
     {%- endif -%}
 
-    {%- if card_title != blank or card_meta != blank -%}
+    {%- if card_title != blank or card_description != blank or card_meta != blank -%}
       <span class="header-mega-card__content">
         {%- if card_title != blank -%}
           <span class="header-mega-card__title">{{ card_title | escape }}</span>
         {%- endif -%}
+        {%- if card_description != blank -%}
+          <span class="header-mega-card__description">{{ card_description | escape | newline_to_br }}</span>
+        {%- endif -%}
         {%- if card_meta != blank -%}
           <span class="header-mega-card__meta">{{ card_meta }}</span>
         {%- endif -%}
-        <span class="header-mega-card__arrow" aria-hidden="true">&rarr;</span>
+        {%- if show_arrow and card_url != blank -%}
+          <span class="header-mega-card__arrow" aria-hidden="true">&rarr;</span>
+        {%- endif -%}
       </span>
     {%- endif -%}
   </{{ card_tag }}>

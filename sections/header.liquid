@@ -1317,34 +1317,283 @@
           "info": "Enter the exact Level 1 Main Menu label, for example Shop."
         },
         {
+          "type": "checkbox",
+          "id": "show_panel_title",
+          "label": "Show panel title",
+          "default": true
+        },
+        {
           "type": "select",
-          "id": "layout",
-          "label": "Layout",
+          "id": "content_distribution",
+          "label": "Content distribution",
           "options": [
             {
-              "value": "collection",
-              "label": "Collection showcase"
+              "value": "balanced",
+              "label": "Balanced"
             },
             {
-              "value": "editorial",
-              "label": "Editorial"
+              "value": "links_wide",
+              "label": "Link columns wider"
             },
             {
-              "value": "navigation",
-              "label": "Navigation columns"
+              "value": "features_wide",
+              "label": "Feature cards wider"
             }
           ],
-          "default": "collection"
+          "default": "balanced"
+        },
+        {
+          "type": "header",
+          "content": "Link columns"
+        },
+        {
+          "type": "select",
+          "id": "text_columns_count",
+          "label": "Number of link columns",
+          "options": [
+            {
+              "value": "0",
+              "label": "None"
+            },
+            {
+              "value": "1",
+              "label": "1 column"
+            },
+            {
+              "value": "2",
+              "label": "2 columns"
+            },
+            {
+              "value": "3",
+              "label": "3 columns"
+            }
+          ],
+          "default": "1",
+          "info": "Column 1 uses the trigger's nested links when no menu is selected."
         },
         {
           "type": "text",
-          "id": "heading",
-          "label": "Heading"
+          "id": "text_column_1_heading",
+          "label": "Column 1 heading"
         },
         {
-          "type": "richtext",
-          "id": "text",
-          "label": "Text"
+          "type": "link_list",
+          "id": "text_column_1_menu",
+          "label": "Column 1 menu"
+        },
+        {
+          "type": "text",
+          "id": "text_column_2_heading",
+          "label": "Column 2 heading"
+        },
+        {
+          "type": "link_list",
+          "id": "text_column_2_menu",
+          "label": "Column 2 menu"
+        },
+        {
+          "type": "text",
+          "id": "text_column_3_heading",
+          "label": "Column 3 heading"
+        },
+        {
+          "type": "link_list",
+          "id": "text_column_3_menu",
+          "label": "Column 3 menu"
+        },
+        {
+          "type": "header",
+          "content": "Feature cards"
+        },
+        {
+          "type": "select",
+          "id": "feature_card_count",
+          "label": "Number of feature cards",
+          "options": [
+            {
+              "value": "0",
+              "label": "None"
+            },
+            {
+              "value": "1",
+              "label": "1 card"
+            },
+            {
+              "value": "2",
+              "label": "2 cards"
+            },
+            {
+              "value": "3",
+              "label": "3 cards"
+            }
+          ],
+          "default": "0"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_card_arrows",
+          "label": "Show arrows on feature cards",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_mobile_feature",
+          "label": "Show first feature card on mobile",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "feature_card_1_type",
+          "label": "Card 1 type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "collection",
+              "label": "Collection"
+            },
+            {
+              "value": "product",
+              "label": "Product"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_card_1_image",
+          "label": "Card 1 image"
+        },
+        {
+          "type": "collection",
+          "id": "feature_card_1_collection",
+          "label": "Card 1 collection"
+        },
+        {
+          "type": "product",
+          "id": "feature_card_1_product",
+          "label": "Card 1 product"
+        },
+        {
+          "type": "text",
+          "id": "feature_card_1_title",
+          "label": "Card 1 title"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_card_1_text",
+          "label": "Card 1 description (leave blank to hide)"
+        },
+        {
+          "type": "url",
+          "id": "feature_card_1_link",
+          "label": "Card 1 link"
+        },
+        {
+          "type": "select",
+          "id": "feature_card_2_type",
+          "label": "Card 2 type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "collection",
+              "label": "Collection"
+            },
+            {
+              "value": "product",
+              "label": "Product"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_card_2_image",
+          "label": "Card 2 image"
+        },
+        {
+          "type": "collection",
+          "id": "feature_card_2_collection",
+          "label": "Card 2 collection"
+        },
+        {
+          "type": "product",
+          "id": "feature_card_2_product",
+          "label": "Card 2 product"
+        },
+        {
+          "type": "text",
+          "id": "feature_card_2_title",
+          "label": "Card 2 title"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_card_2_text",
+          "label": "Card 2 description (leave blank to hide)"
+        },
+        {
+          "type": "url",
+          "id": "feature_card_2_link",
+          "label": "Card 2 link"
+        },
+        {
+          "type": "select",
+          "id": "feature_card_3_type",
+          "label": "Card 3 type",
+          "options": [
+            {
+              "value": "image",
+              "label": "Image"
+            },
+            {
+              "value": "collection",
+              "label": "Collection"
+            },
+            {
+              "value": "product",
+              "label": "Product"
+            }
+          ],
+          "default": "image"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_card_3_image",
+          "label": "Card 3 image"
+        },
+        {
+          "type": "collection",
+          "id": "feature_card_3_collection",
+          "label": "Card 3 collection"
+        },
+        {
+          "type": "product",
+          "id": "feature_card_3_product",
+          "label": "Card 3 product"
+        },
+        {
+          "type": "text",
+          "id": "feature_card_3_title",
+          "label": "Card 3 title"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_card_3_text",
+          "label": "Card 3 description (leave blank to hide)"
+        },
+        {
+          "type": "url",
+          "id": "feature_card_3_link",
+          "label": "Card 3 link"
+        },
+        {
+          "type": "header",
+          "content": "Call to action"
         },
         {
           "type": "text",
@@ -1357,78 +1606,46 @@
           "label": "CTA link"
         },
         {
-          "type": "header",
-          "content": "Featured resources"
+          "type": "select",
+          "id": "cta_style",
+          "label": "CTA style",
+          "options": [
+            {
+              "value": "text",
+              "label": "Text link"
+            },
+            {
+              "value": "boxed",
+              "label": "Boxed outline"
+            }
+          ],
+          "default": "boxed"
         },
         {
-          "type": "collection",
-          "id": "featured_collection_1",
-          "label": "Collection 1"
+          "type": "range",
+          "id": "cta_border_radius",
+          "min": 0,
+          "max": 40,
+          "step": 2,
+          "unit": "px",
+          "label": "CTA corner radius",
+          "default": 0
         },
         {
-          "type": "collection",
-          "id": "featured_collection_2",
-          "label": "Collection 2"
+          "type": "range",
+          "id": "cta_border_width",
+          "min": 0,
+          "max": 4,
+          "step": 1,
+          "unit": "px",
+          "label": "CTA border width",
+          "default": 1
         },
         {
-          "type": "collection",
-          "id": "featured_collection_3",
-          "label": "Collection 3"
-        },
-        {
-          "type": "collection",
-          "id": "featured_collection_4",
-          "label": "Collection 4"
-        },
-        {
-          "type": "product",
-          "id": "featured_product_1",
-          "label": "Product 1"
-        },
-        {
-          "type": "product",
-          "id": "featured_product_2",
-          "label": "Product 2"
-        },
-        {
-          "type": "header",
-          "content": "Promotional images"
-        },
-        {
-          "type": "image_picker",
-          "id": "promo_image_1",
-          "label": "Image 1"
-        },
-        {
-          "type": "text",
-          "id": "promo_heading_1",
-          "label": "Image 1 heading"
-        },
-        {
-          "type": "url",
-          "id": "promo_link_1",
-          "label": "Image 1 link"
-        },
-        {
-          "type": "image_picker",
-          "id": "promo_image_2",
-          "label": "Image 2"
-        },
-        {
-          "type": "text",
-          "id": "promo_heading_2",
-          "label": "Image 2 heading"
-        },
-        {
-          "type": "url",
-          "id": "promo_link_2",
-          "label": "Image 2 link"
-        },
-        {
-          "type": "checkbox",
-          "id": "show_mobile_feature",
-          "label": "Show first featured card on mobile",
-          "default": false
+          "type": "color",
+          "id": "cta_border_color",
+          "label": "CTA border color",
+          "default": "#191919"
         }
       ]
     }
