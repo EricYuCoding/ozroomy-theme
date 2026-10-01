@@ -1,0 +1,140 @@
+{%- liquid
+  assign text_column_count = 1
+  assign feature_card_count = 0
+  assign content_distribution = 'balanced'
+  assign show_panel_title = false
+  assign has_text_module = true
+
+  if block != blank
+    assign text_column_count = block.settings.text_columns_count | plus: 0
+    assign feature_card_count = block.settings.feature_card_count | plus: 0
+    assign content_distribution = block.settings.content_distribution
+    assign show_panel_title = block.settings.show_panel_title
+
+    assign has_text_module = false
+    if show_panel_title
+      assign has_text_module = true
+    elsif text_column_count > 0
+      assign has_text_module = true
+    elsif block.settings.cta_label != blank and block.settings.cta_link != blank
+      assign has_text_module = true
+    endif
+  endif
+-%}
+
+<header-mega-menu-v2
+  class="header-mega-menu-v2"
+  data-open-delay="150"
+  data-close-delay="220"
+  {% if block != blank %}{{ block.shopify_attributes }}{% endif %}
+>
+  <details id="Details-HeaderMenu-{{ index }}" class="mega-menu mega-menu--v2" data-mega-menu-details>
+    <summary
+      id="HeaderMenu-{{ link.handle }}"
+      class="header__menu-item header__menu-item--main list-menu__item link focus-inset"
+      aria-expanded="false"
+      aria-controls="MegaMenu-Content-{{ index }}"
+    >
+      <span{% if link.child_active %} class="header__active-menu-item"{% endif %}>{{ link.title | escape }}</span>
+    </summary>
+
+    <div
+      id="MegaMenu-Content-{{ index }}"
+      class="mega-menu__content mega-menu-v2__panel color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+      tabindex="-1"
+    >
+      <div
+        class="mega-menu-v2__inner mega-menu-v2__inner--{{ content_distribution }}{% unless has_text_module %} mega-menu-v2__inner--features-only{% endunless %}{% if feature_card_count == 0 %} mega-menu-v2__inner--links-only{% endif %}{% if block == blank %} mega-menu-v2__inner--fallback{% endif %} page-width"
+      >
+        {%- if has_text_module -%}
+          <div class="mega-menu-v2__navigation">
+            {%- if show_panel_title -%}
+              <p class="mega-menu-v2__heading">{{ link.title | escape }}</p>
+            {%- endif -%}
+
+            {%- if text_column_count > 0 -%}
+              <div class="mega-menu-v2__columns mega-menu-v2__columns--count-{{ text_column_count }}">
+                {%- for column_index in (1..3) -%}
+                  {%- if column_index <= text_column_count -%}
+                    {%- liquid
+                      capture column_menu_id
+                        echo 'text_column_' | append: column_index | append: '_menu'
+                      endcapture
+                      capture column_heading_id
+                        echo 'text_column_' | append: column_index | append: '_heading'
+                      endcapture
+                      assign column_menu = block.settings[column_menu_id]
+                      assign column_heading = block.settings[column_heading_id]
+                      assign fallback_links = nil
+                      if column_index == 1 and column_menu == blank
+                        assign fallback_links = link.links
+                      endif
+                    -%}
+                    {% render 'header-mega-menu-column',
+                      menu: column_menu,
+                      heading: column_heading,
+                      fallback_links: fallback_links
+                    %}
+                  {%- endif -%}
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            {%- if block != blank and block.settings.cta_label != blank and block.settings.cta_link != blank -%}
+              <a
+                class="mega-menu-v2__cta mega-menu-v2__cta--{{ block.settings.cta_style }}{% if block.settings.cta_style == 'text' %} mega-menu-v2__text-link{% endif %} link"
+                href="{{ block.settings.cta_link }}"
+                style="--mega-menu-cta-radius: {{ block.settings.cta_border_radius }}px; --mega-menu-cta-border-width: {{ block.settings.cta_border_width }}px; --mega-menu-cta-border-color: {{ block.settings.cta_border_color }};"
+              >
+                {{ block.settings.cta_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- if block != blank and feature_card_count > 0 -%}
+          <div class="mega-menu-v2__features mega-menu-v2__features--count-{{ feature_card_count }}">
+            {%- for card_index in (1..3) -%}
+              {%- if card_index <= feature_card_count -%}
+                {%- liquid
+                  capture card_type_id
+                    echo 'feature_card_' | append: card_index | append: '_type'
+                  endcapture
+                  capture card_image_id
+                    echo 'feature_card_' | append: card_index | append: '_image'
+                  endcapture
+                  capture card_collection_id
+                    echo 'feature_card_' | append: card_index | append: '_collection'
+                  endcapture
+                  capture card_product_id
+                    echo 'feature_card_' | append: card_index | append: '_product'
+                  endcapture
+                  capture card_title_id
+                    echo 'feature_card_' | append: card_index | append: '_title'
+                  endcapture
+                  capture card_text_id
+                    echo 'feature_card_' | append: card_index | append: '_text'
+                  endcapture
+                  capture card_link_id
+                    echo 'feature_card_' | append: card_index | append: '_link'
+                  endcapture
+                -%}
+                {% render 'header-mega-menu-card',
+                  card_type: block.settings[card_type_id],
+                  image: block.settings[card_image_id],
+                  collection: block.settings[card_collection_id],
+                  product: block.settings[card_product_id],
+                  heading: block.settings[card_title_id],
+                  description: block.settings[card_text_id],
+                  url: block.settings[card_link_id],
+                  show_arrow: block.settings.show_card_arrows,
+                  feature_count: feature_card_count
+                %}
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </details>
+</header-mega-menu-v2>

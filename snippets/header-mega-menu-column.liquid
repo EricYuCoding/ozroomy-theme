@@ -1,0 +1,51 @@
+{%- liquid
+  assign column_heading = heading
+  assign column_links = nil
+
+  if menu != blank
+    assign column_links = menu.links
+    assign column_heading = column_heading | default: menu.title
+  elsif fallback_links != blank
+    assign column_links = fallback_links
+  endif
+-%}
+
+{%- if column_heading != blank or column_links != blank -%}
+  <div class="mega-menu-v2__link-column">
+    {%- if column_heading != blank -%}
+      <p class="mega-menu-v2__column-heading">{{ column_heading | escape }}</p>
+    {%- endif -%}
+
+    {%- if column_links != blank -%}
+      <ul class="mega-menu-v2__column-links list-unstyled" role="list">
+        {%- for column_link in column_links -%}
+          <li>
+            <a
+              href="{{ column_link.url }}"
+              class="mega-menu-v2__link link{% if section.settings.highlight_active_link and column_link.current %} mega-menu-v2__link--active{% endif %}"
+              {% if column_link.current %}aria-current="page"{% endif %}
+            >
+              {{ column_link.title | escape }}
+            </a>
+
+            {%- if column_link.links != blank -%}
+              <ul class="mega-menu-v2__sublinks list-unstyled" role="list">
+                {%- for nested_link in column_link.links -%}
+                  <li>
+                    <a
+                      href="{{ nested_link.url }}"
+                      class="mega-menu-v2__link mega-menu-v2__link--nested link{% if section.settings.highlight_active_link and nested_link.current %} mega-menu-v2__link--active{% endif %}"
+                      {% if nested_link.current %}aria-current="page"{% endif %}
+                    >
+                      {{ nested_link.title | escape }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+{%- endif -%}
