@@ -2,10 +2,11 @@
 
 ## Status
 
-Ready for human visual review. Production deployment has not started.
+Ready for second human visual review after the Paire-style presentation revision. Production deployment has not started.
 
 - Feature branch: `feature/header-mega-menu-v2`
 - Feature commit: `13409b8bf272fef96aa5ac2b149c2ea08d916bfd`
+- Presentation revision commit: `537b164493e1b76e09557c7be5162bc439329c55`
 - Validation theme: `Mega Menu v2 validation - 2026-10-01`
 - Validation theme ID: `145456267498`
 - Preview: `https://zjna5j-hn.myshopify.com?preview_theme_id=145456267498`
@@ -15,7 +16,7 @@ The validation theme is unpublished. The live theme was not modified.
 
 ## Objective
 
-Upgrade the existing Shopify header instead of replacing it. The Shopify Menu remains the canonical navigation tree, while Header blocks control a small set of presentation layouts. The result supports deterministic desktop mega menus, the existing three-level mobile hierarchy, optional lightweight feature cards, and backwards compatibility with the specialised products mega menu.
+Upgrade the existing Shopify header instead of replacing it. Shopify menus remain the navigation source, while Header blocks independently control zero to three link columns and zero to three feature cards. The result supports deterministic desktop mega menus, the existing three-level mobile hierarchy, optional lightweight feature cards, and backwards compatibility with the specialised products mega menu.
 
 ## Initial production state
 
@@ -56,23 +57,29 @@ Decisions applied:
 
 The Header section supports up to eight `Mega menu` blocks. A block is associated with a Level 1 item by trimmed, case-insensitive exact label matching. The legacy `products_mega_menu_links` setting now uses comma-separated exact matches as well, so `Shop` cannot match `Workshop`.
 
-Supported layouts:
+Each block independently controls:
 
-- `Collection showcase`: navigation plus up to four collection resource cards.
-- `Editorial`: navigation, heading, rich text, CTA, and up to two image/resource cards.
-- `Navigation columns`: the nested Shopify Menu plus one optional image, collection, or product feature card.
+- zero to three link columns, each sourced from a selected Shopify menu;
+- zero to three image, collection, or product feature cards;
+- balanced, link-columns-wider, or feature-cards-wider distribution;
+- whether the interior panel title is visible;
+- whether the first feature card appears in the mobile drawer;
+- text-link or boxed CTA presentation.
+
+When Column 1 has no selected menu, it falls back to the matched trigger's nested links. This preserves the Main Menu as the default navigation source while allowing reusable Shopify menus to create Paire-style multi-column compositions.
 
 If no block matches, the same upgraded renderer falls back to the Shopify Menu hierarchy without presentation content. The specialised products mega menu remains available as a backwards-compatible fallback when its legacy setting is configured.
 
 ### Lightweight card rendering
 
-`snippets/header-mega-menu-card.liquid` renders only image, title, optional product price, and link. Collection/product selectors supply canonical titles, prices, and URLs. A configured image or heading can override presentation while the selected resource continues to supply missing values.
+`snippets/header-mega-menu-card.liquid` renders only image, title, optional description, optional product price, link, and optional arrow. Collection/product selectors supply canonical titles, prices, images, and URLs. Configured image/title/link values can override presentation while the selected resource supplies missing values. Leaving a card description empty hides it.
 
 ## Files changed
 
 Added:
 
 - `snippets/header-mega-menu-card.liquid`
+- `snippets/header-mega-menu-column.liquid`
 - `snippets/header-mega-menu-v2.liquid`
 
 Modified:
@@ -90,15 +97,15 @@ The feature also removed the second of two identical 257-line mobile drawer CSS 
 1. Open the validation theme editor and select the Header section.
 2. Add or select a `Mega menu` block.
 3. Set `Trigger menu item` to the exact Level 1 label in the selected Shopify Menu. Matching ignores case and surrounding whitespace but does not use substrings.
-4. Choose `Collection showcase`, `Editorial`, or `Navigation columns`.
-5. Configure only the fields needed by that layout:
-   - heading, rich text, CTA label, and CTA link;
-   - collection and/or product resources;
-   - up to two Shopify images and optional image headings/links.
-6. Enable `Show first featured card on mobile` only when one compact card helps the mobile experience.
-7. Leave a presentation field empty to use its selected Shopify resource as a fallback. Leave the block absent to get navigation-only rendering.
+4. Choose whether to show the interior panel title. This never changes the top-level trigger label.
+5. Select the number of link columns. For each enabled column, add an optional heading and Shopify menu. Column 1 falls back to the trigger's nested links when its menu is empty.
+6. Select the number of feature cards. For each enabled card, choose image, collection, or product, then configure optional image/title/description/link overrides.
+7. Select balanced, link-columns-wider, or feature-cards-wider distribution.
+8. Configure the CTA as a text link or boxed outline. Boxed CTA controls include corner radius, border width, and border color.
+9. Enable card arrows and the single compact mobile feature card only when wanted.
+10. Leave the block absent to get navigation-only rendering.
 
-The validation theme includes an editorial `Shop` block using two existing Shopify images and the Loopa/Pebble collection resources. This configuration exists only in the unpublished theme source until approval and deployment.
+The final validation example uses hidden panel title, one fallback navigation column, feature-cards-wider distribution, three mixed cards (image, collection, product), a boxed square-corner CTA, card descriptions, card arrows, and the first card on mobile. This configuration exists only in the unpublished theme source until approval and deployment.
 
 ## Shopify Main Menu setup
 
@@ -131,6 +138,9 @@ Creating the unused menu is store-level, but it does not affect production unles
 - Escape closes and returns focus to the trigger.
 - Outside click and opening another disclosure close the active panel.
 - Hover, focus, and open state share the same underline treatment.
+- Desktop mega-menu triggers show labels and underlines without dropdown chevrons.
+- Internal CTA and View-all text links use underline interaction without inline arrows.
+- Boxed CTA style uses merchant-configured radius, border width, and border color.
 - Theme Editor block selection opens the associated panel for editing.
 
 ## Mobile behaviour
@@ -160,12 +170,12 @@ Real Tab/Shift+Tab/Enter/Space/Escape interaction still requires human browser r
 - `assets/main.js` delta: 0 bytes.
 - `assets/secondary.js` delta: 0 bytes.
 - Header compiled JavaScript delivered by Shopify: 5,179 → 12,402 bytes (`+7,223` bytes).
-- Normalized `assets/base.css` source: 397,147 → 397,590 bytes (`+443` bytes) after removing the duplicated drawer rules.
-- Current Shopify CDN CSS response: 330,370 → 336,024 bytes (`+5,654` bytes).
-- Rendered header for the current menu: `+5,390` bytes and `+38` elements compared with live.
+- Normalized `assets/base.css` source: 397,147 to 398,840 bytes (`+1,693` bytes) for the complete feature, including removal of the duplicated drawer rules. The second-review iteration added 1,250 normalized source bytes.
+- Current Shopify CDN CSS response: 330,370 to 337,098 bytes (`+6,728` bytes).
+- Rendered header for the current menu: `+7,563` bytes and `+55` elements compared with the current live render.
 - Script and stylesheet reference counts are unchanged (11 scripts and 3 styles on the tested homepage).
-- The validation configuration emits three menu image elements (two desktop and one repeated compact mobile card), all with transparent inline `src` placeholders. It emits zero external mega-menu image `src` values before opening.
-- Real Shopify image URLs and responsive `srcset` values are moved into data attributes and hydrated only when the associated desktop/mobile disclosure opens. The two unique CDN image URLs both return HTTP 200.
+- The validation configuration emits four menu image elements (three desktop and one repeated compact mobile card), all with transparent inline `src` placeholders. It emits zero external mega-menu image `src` values before opening.
+- Real Shopify image URLs and responsive `srcset` values are moved into data attributes and hydrated only when the associated desktop/mobile disclosure opens. All three unique CDN image URLs return HTTP 200.
 - Intrinsic dimensions plus fixed media aspect ratios reduce CLS risk.
 
 ## Validation completed
@@ -173,13 +183,17 @@ Real Tab/Shift+Tab/Enter/Space/Escape interaction still requires human browser r
 - Header group JSON parsed successfully after removing Shopify's standard leading comment.
 - Header JavaScript passed `node --check` locally.
 - Shopify's generated `compiled_assets/scripts.js` returned HTTP 200 and passed `node --check`.
-- Theme Check result: 83 errors / 172 warnings. The 83 errors are the audited repository baseline. The two additional warnings are `OrphanedSnippet` warnings for the two new snippets; both are directly rendered and present in Shopify's compiled output, so these are checker graph false positives.
+- Theme Check result after revision: 83 errors / 173 warnings. The 83 errors are the audited repository baseline. The three warnings added by the complete feature are `OrphanedSnippet` warnings for the three new snippets; all are directly rendered in Shopify output, so these are checker graph false positives.
 - `git diff --check` passed (only the repository's expected CRLF conversion notices were printed).
 - No `console.log`, `debugger`, TODO, or FIXME markers remain in changed source.
-- All seven feature files pulled back from validation theme `145456267498` match the local source.
+- All eight implementation files pulled back from validation theme `145456267498` match the local source.
 - Shopify accepted and rendered the feature on homepage, Pebble product, Loopa product, and Pebble collection URLs with HTTP 200, the expected theme ID, upgraded header, and no rendered Liquid errors.
-- Validation markup contains three correctly deferred images, no `#` card links, no duplicate relevant IDs, and no missing relevant ARIA targets.
-- Both deferred CDN image resources return HTTP 200.
+- Final validation markup contains one link column, three mixed card types, a hidden panel title, correctly styled boxed CTA, four correctly deferred image elements, no `#` card links, no duplicate menu IDs, and no missing menu ARIA targets.
+- A temporary three-column/one-image configuration rendered three independent columns, one card, visible panel title, link-columns-wider distribution, and CTA values of 12 px radius, 2 px border, and `#9c6037`.
+- A temporary text-CTA/card-arrow-off configuration rendered the underline CTA class with zero CTA or card arrows. The final boxed/card-arrow-on example was restored afterward.
+- The Header schema has exactly 40 settings with IDs and introduces no `ExcessiveSettingsCount` finding.
+- Both `Shop` and fallback `About us` desktop mega triggers render without chevrons.
+- All three deferred CDN image resources return HTTP 200.
 - Live theme `145433886954` remains live; validation theme `145456267498` remains unpublished.
 
 ## Human QA remaining
@@ -191,13 +205,13 @@ The in-app browser was unavailable in this workspace, so visual and true interac
 - Hover tolerance, trigger-to-panel movement, underline/open state, links/cards/CTA, outside click, Escape, and keyboard traversal.
 - Drawer open/close, body lock, drill-down, Back, Close, long scrolling, reopening, focus return, and resize in both directions.
 - Logo, announcement/ticker, search/predictive search, account, cart, homepage, product, and collection regressions.
-- Collection showcase, editorial, navigation columns, product-card fallback, image-card fallback, empty-field fallback, and the temporary three-level QA Menu.
+- One-column/three-card and three-column/one-card visual layout at practical widths, plus zero-column/zero-card empty-module states and the temporary three-level QA Menu.
 - Default, EU, and Japan market presentation in a signed-in Shopify preview session.
 
 ## Known issues and limitations
 
 - The current Main Menu has no Level 3 item, so Level 3 output is implemented but not rendered by current production data. Use the temporary QA Menu steps above.
-- EU and Japan context files explicitly provide empty Header blocks, so those contexts inherit the upgraded navigation renderer but not the default editorial presentation block unless configured separately.
+- EU and Japan context files explicitly provide empty Header blocks, so those contexts inherit the upgraded navigation renderer but not the default mixed-card presentation block unless configured separately.
 - Japan still maps to `header-menu-eu`; this predates the feature and was intentionally left unchanged.
 - Browser console, visual layout, pointer behavior, and real keyboard focus behavior remain part of the human review checkpoint because no interactive browser was connected.
 - Duplicate Mega menu blocks with the same trigger are not useful; the first exact match in block order wins.
@@ -226,4 +240,3 @@ The in-app browser was unavailable in this workspace, so visual and true interac
 - Production smoke test: pending
 - Production snapshot SHA: pending
 - Release tag: pending (`v1.1.0` proposed)
-
