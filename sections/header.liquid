@@ -271,9 +271,22 @@
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
             {%- for link in section.settings.menu.links -%}
+              {%- liquid
+                assign legacy_product_mega_menu = false
+                assign normalized_link_title = link.title | strip | downcase
+                assign legacy_mega_menu_triggers = section.settings.products_mega_menu_links | split: ','
+
+                for legacy_trigger in legacy_mega_menu_triggers
+                  assign normalized_legacy_trigger = legacy_trigger | strip | downcase
+                  if normalized_legacy_trigger != blank and normalized_legacy_trigger == normalized_link_title
+                    assign legacy_product_mega_menu = true
+                    break
+                  endif
+                endfor
+              -%}
               <li>
                 {%- if link.links != blank -%}
-                  {% if section.settings.products_mega_menu_links contains link.title %}
+                  {% if legacy_product_mega_menu %}
                     {% render 'products-mega-menu', link: link %}
                   {% else %}
                     <header-menu>
@@ -325,71 +338,38 @@
         <nav class="header__inline-menu">
           <ul class="list-menu list-menu--inline" role="list">
             {%- for link in section.settings.menu.links -%}
+              {%- liquid
+                assign mega_menu_block = nil
+                assign legacy_product_mega_menu = false
+                assign normalized_link_title = link.title | strip | downcase
+                assign legacy_mega_menu_triggers = section.settings.products_mega_menu_links | split: ','
+
+                for menu_block in section.blocks
+                  assign normalized_block_trigger = menu_block.settings.trigger | strip | downcase
+                  if menu_block.type == 'mega_menu' and normalized_block_trigger != blank and normalized_block_trigger == normalized_link_title
+                    assign mega_menu_block = menu_block
+                    break
+                  endif
+                endfor
+
+                if mega_menu_block == nil
+                  for legacy_trigger in legacy_mega_menu_triggers
+                    assign normalized_legacy_trigger = legacy_trigger | strip | downcase
+                    if normalized_legacy_trigger != blank and normalized_legacy_trigger == normalized_link_title
+                      assign legacy_product_mega_menu = true
+                      break
+                    endif
+                  endfor
+                endif
+              -%}
               <li>
                 {%- if link.links != blank -%}
-                  {% if section.settings.products_mega_menu_links contains link.title %}
+                  {% if mega_menu_block != nil %}
+                    {% render 'header-mega-menu-v2', link: link, block: mega_menu_block, index: forloop.index %}
+                  {% elsif legacy_product_mega_menu %}
                     {% render 'products-mega-menu', link: link %}
                   {% else %}
-                    <header-menu>
-                      <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
-                        <summary
-                          id="HeaderMenu-{{ link.handle }}"
-                          class="header__menu-item list-menu__item link focus-inset"
-                        >
-                          <span
-                            {%- if link.child_active %}
-                              class="header__active-menu-item"
-                            {% endif %}
-                          >
-                            {{- link.title | escape -}}
-                          </span>
-                          {% render 'icon-caret' %}
-                        </summary>
-                        <div
-                          id="MegaMenu-Content-{{ forloop.index }}"
-                          class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
-                          tabindex="-1"
-                        >
-                          <ul
-                            class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                            role="list"
-                          >
-                            {%- for childlink in link.links -%}
-                              <li>
-                                <a
-                                  id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                                  href="{{ childlink.url }}"
-                                  class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                                  {% if childlink.current %}
-                                    aria-current="page"
-                                  {% endif %}
-                                >
-                                  {{ childlink.title | escape }}
-                                </a>
-                                {%- if childlink.links != blank -%}
-                                  <ul class="list-unstyled" role="list">
-                                    {%- for grandchildlink in childlink.links -%}
-                                      <li>
-                                        <a
-                                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                          href="{{ grandchildlink.url }}"
-                                          class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
-                                          {% if grandchildlink.current %}
-                                            aria-current="page"
-                                          {% endif %}
-                                        >
-                                          {{ grandchildlink.title | escape }}
-                                        </a>
-                                      </li>
-                                    {%- endfor -%}
-                                  </ul>
-                                {%- endif -%}
-                              </li>
-                            {%- endfor -%}
-                          </ul>
-                        </div>
-                      </details>
-                    </header-menu>
+                    {% render 'header-mega-menu-v2', link: link, index: forloop.index %}
                   {% endif %}
                 {%- else -%}
                   <a
@@ -587,6 +567,252 @@
 {%- endif -%}
 
 {% javascript %}
+  class HeaderMegaMenuV2 extends HTMLElement {
+    constructor() {
+      super();
+      this.details = this.querySelector('[data-mega-menu-details]');
+      this.summary = this.details?.querySelector('summary');
+      this.panel = this.details?.querySelector('.mega-menu-v2__panel');
+      this.openDelay = Number(this.dataset.openDelay) || 150;
+      this.closeDelay = Number(this.dataset.closeDelay) || 220;
+      this.canHover = window.matchMedia('(hover: hover) and (pointer: fine)');
+      this.onPointerEnterHandler = this.onPointerEnter.bind(this);
+      this.onPointerLeaveHandler = this.onPointerLeave.bind(this);
+      this.onFocusInHandler = this.onFocusIn.bind(this);
+      this.onFocusOutHandler = this.onFocusOut.bind(this);
+      this.onKeyUpHandler = this.onKeyUp.bind(this);
+      this.onToggleHandler = this.onToggle.bind(this);
+      this.onDocumentClickHandler = this.onDocumentClick.bind(this);
+      this.onBlockSelectHandler = this.onBlockSelect.bind(this);
+      this.onBlockDeselectHandler = this.onBlockDeselect.bind(this);
+    }
+
+    connectedCallback() {
+      if (!this.details || !this.summary || !this.panel) return;
+
+      this.addEventListener('pointerenter', this.onPointerEnterHandler);
+      this.addEventListener('pointerleave', this.onPointerLeaveHandler);
+      this.addEventListener('focusin', this.onFocusInHandler);
+      this.addEventListener('focusout', this.onFocusOutHandler);
+      this.addEventListener('keyup', this.onKeyUpHandler);
+      this.details.addEventListener('toggle', this.onToggleHandler);
+      document.addEventListener('click', this.onDocumentClickHandler);
+      if (window.Shopify?.designMode) {
+        this.addEventListener('shopify:block:select', this.onBlockSelectHandler);
+        this.addEventListener('shopify:block:deselect', this.onBlockDeselectHandler);
+      }
+      this.syncExpandedState();
+    }
+
+    disconnectedCallback() {
+      window.clearTimeout(this.openTimer);
+      window.clearTimeout(this.closeTimer);
+      this.removeEventListener('pointerenter', this.onPointerEnterHandler);
+      this.removeEventListener('pointerleave', this.onPointerLeaveHandler);
+      this.removeEventListener('focusin', this.onFocusInHandler);
+      this.removeEventListener('focusout', this.onFocusOutHandler);
+      this.removeEventListener('keyup', this.onKeyUpHandler);
+      this.details?.removeEventListener('toggle', this.onToggleHandler);
+      document.removeEventListener('click', this.onDocumentClickHandler);
+      this.removeEventListener('shopify:block:select', this.onBlockSelectHandler);
+      this.removeEventListener('shopify:block:deselect', this.onBlockDeselectHandler);
+    }
+
+    onPointerEnter() {
+      if (!this.canHover.matches) return;
+
+      window.clearTimeout(this.closeTimer);
+      this.openTimer = window.setTimeout(() => this.open(), this.openDelay);
+    }
+
+    onPointerLeave() {
+      if (!this.canHover.matches) return;
+
+      window.clearTimeout(this.openTimer);
+      this.closeTimer = window.setTimeout(() => {
+        if (!this.contains(document.activeElement)) this.close();
+      }, this.closeDelay);
+    }
+
+    onFocusIn() {
+      window.clearTimeout(this.closeTimer);
+      this.open();
+    }
+
+    onFocusOut() {
+      window.setTimeout(() => {
+        if (!this.contains(document.activeElement)) this.close();
+      });
+    }
+
+    onKeyUp(event) {
+      if (event.code.toUpperCase() !== 'ESCAPE' || !this.details.open) return;
+
+      event.preventDefault();
+      this.close();
+      this.summary.focus();
+    }
+
+    onDocumentClick(event) {
+      if (this.details.open && !this.contains(event.target)) this.close();
+    }
+
+    onBlockSelect() {
+      this.open();
+    }
+
+    onBlockDeselect() {
+      this.close();
+    }
+
+    onToggle() {
+      this.syncExpandedState();
+
+      if (this.details.open) {
+        this.closeOtherMenus();
+        this.hydrateImages();
+      }
+    }
+
+    open() {
+      window.clearTimeout(this.closeTimer);
+      if (this.details.open) return;
+
+      this.details.open = true;
+    }
+
+    close() {
+      window.clearTimeout(this.openTimer);
+      if (!this.details.open) return;
+
+      this.details.open = false;
+    }
+
+    closeOtherMenus() {
+      document
+        .querySelectorAll('header-mega-menu-v2 details[open], header-menu details[open], products-mega-menu details[open]')
+        .forEach((details) => {
+          if (details === this.details) return;
+          details.open = false;
+          details.querySelector('summary')?.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    syncExpandedState() {
+      this.summary.setAttribute('aria-expanded', this.details.open ? 'true' : 'false');
+      this.toggleAttribute('data-open', this.details.open);
+    }
+
+    hydrateImages() {
+      this.querySelectorAll('img[data-mega-menu-src]').forEach((image) => {
+        if (image.dataset.megaMenuSrcset) image.srcset = image.dataset.megaMenuSrcset;
+        image.src = image.dataset.megaMenuSrc;
+        image.removeAttribute('data-mega-menu-src');
+        image.removeAttribute('data-mega-menu-srcset');
+      });
+    }
+  }
+
+  if (!customElements.get('header-mega-menu-v2')) {
+    customElements.define('header-mega-menu-v2', HeaderMegaMenuV2);
+  }
+
+  const setupHeaderDrawer = (host, setHeaderHeight) => {
+    const drawer = host.querySelector('header-drawer');
+    const rootDetails = drawer?.querySelector('#Details-menu-drawer-container');
+    const desktopMediaQuery = window.matchMedia('(min-width: 990px)');
+
+    if (!drawer || !rootDetails) return () => {};
+
+    const nestedDetails = Array.from(drawer.querySelectorAll('details')).filter((details) => details !== rootDetails);
+    const legacyMegaMenus = Array.from(host.querySelectorAll('products-mega-menu'));
+
+    const hydrateImages = (container) => {
+      container.querySelectorAll('img[data-mega-menu-src]').forEach((image) => {
+        if (image.dataset.megaMenuSrcset) image.srcset = image.dataset.megaMenuSrcset;
+        image.src = image.dataset.megaMenuSrc;
+        image.removeAttribute('data-mega-menu-src');
+        image.removeAttribute('data-mega-menu-srcset');
+      });
+    };
+
+    const hydratePanelImages = (event) => {
+      if (!event.currentTarget.open) return;
+      hydrateImages(event.currentTarget);
+    };
+
+    const legacyMegaMenuHandlers = legacyMegaMenus.map((menu) => {
+      const details = menu.querySelector('details');
+      const summary = details?.querySelector('summary');
+
+      if (!details || !summary) return null;
+
+      const handleToggle = () => {
+        summary.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+        if (details.open) hydrateImages(details);
+      };
+      const handleFocusIn = () => {
+        details.open = true;
+      };
+      const handleFocusOut = () => {
+        window.setTimeout(() => {
+          if (!menu.contains(document.activeElement)) details.open = false;
+        });
+      };
+      const handleKeyUp = (event) => {
+        if (event.code.toUpperCase() !== 'ESCAPE' || !details.open) return;
+        details.open = false;
+        summary.focus();
+      };
+
+      details.addEventListener('toggle', handleToggle);
+      menu.addEventListener('focusin', handleFocusIn);
+      menu.addEventListener('focusout', handleFocusOut);
+      menu.addEventListener('keyup', handleKeyUp);
+
+      return { details, menu, handleToggle, handleFocusIn, handleFocusOut, handleKeyUp };
+    });
+
+    const resetDrawer = () => {
+      if (rootDetails.open) return;
+
+      drawer.querySelectorAll('.menu-drawer, .menu-drawer__submenu').forEach((panel) => {
+        panel.scrollTop = 0;
+      });
+    };
+
+    const handleViewportChange = (event) => {
+      setHeaderHeight();
+      if (!event.matches || !rootDetails.open) return;
+
+      const opener = rootDetails.querySelector('summary');
+      if (typeof drawer.closeMenuDrawer === 'function') {
+        drawer.closeMenuDrawer(new Event('resize'), opener);
+      } else {
+        rootDetails.removeAttribute('open');
+        opener?.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('overflow-hidden-tablet', 'overflow-hidden-desktop');
+      }
+    };
+
+    rootDetails.addEventListener('toggle', resetDrawer);
+    nestedDetails.forEach((details) => details.addEventListener('toggle', hydratePanelImages));
+    desktopMediaQuery.addEventListener('change', handleViewportChange);
+
+    return () => {
+      rootDetails.removeEventListener('toggle', resetDrawer);
+      nestedDetails.forEach((details) => details.removeEventListener('toggle', hydratePanelImages));
+      desktopMediaQuery.removeEventListener('change', handleViewportChange);
+      legacyMegaMenuHandlers.forEach((handler) => {
+        if (!handler) return;
+        handler.details.removeEventListener('toggle', handler.handleToggle);
+        handler.menu.removeEventListener('focusin', handler.handleFocusIn);
+        handler.menu.removeEventListener('focusout', handler.handleFocusOut);
+        handler.menu.removeEventListener('keyup', handler.handleKeyUp);
+      });
+    };
+  };
+
   class StickyHeader extends HTMLElement {
     constructor() {
       super();
@@ -598,8 +824,7 @@
       this.headerBounds = {};
 
       this.setHeaderHeight();
-
-      window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+      this.cleanupHeaderDrawer = setupHeaderDrawer(this, this.setHeaderHeight.bind(this));
 
       if (this.headerIsAlwaysSticky) {
         this.header.classList.add('shopify-section-header-sticky');
@@ -625,6 +850,7 @@
     disconnectedCallback() {
       this.removeEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
       window.removeEventListener('scroll', this.onScrollHandler);
+      this.cleanupHeaderDrawer?.();
     }
 
     createObserver() {
@@ -685,8 +911,11 @@
     }
 
     closeMenuDisclosure() {
-      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
-      this.disclosures.forEach(disclosure => disclosure.close());
+      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu, header-mega-menu-v2, products-mega-menu');
+      this.disclosures.forEach((disclosure) => {
+        if (typeof disclosure.close === 'function') disclosure.close();
+        if (typeof disclosure.closeMenu === 'function') disclosure.closeMenu();
+      });
     }
 
     closeSearchModal() {
@@ -705,8 +934,11 @@
     connectedCallback() {
       this.header = document.querySelector('.section-header');
       this.setHeaderHeight();
+      this.cleanupHeaderDrawer = setupHeaderDrawer(this, this.setHeaderHeight.bind(this));
+    }
 
-      window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
+    disconnectedCallback() {
+      this.cleanupHeaderDrawer?.();
     }
 
     setHeaderHeight() {
@@ -1070,6 +1302,135 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "mega_menu",
+      "name": "Mega menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "trigger",
+          "label": "Trigger menu item",
+          "info": "Enter the exact Level 1 Main Menu label, for example Shop."
+        },
+        {
+          "type": "select",
+          "id": "layout",
+          "label": "Layout",
+          "options": [
+            {
+              "value": "collection",
+              "label": "Collection showcase"
+            },
+            {
+              "value": "editorial",
+              "label": "Editorial"
+            },
+            {
+              "value": "navigation",
+              "label": "Navigation columns"
+            }
+          ],
+          "default": "collection"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "text",
+          "id": "cta_label",
+          "label": "CTA label"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "CTA link"
+        },
+        {
+          "type": "header",
+          "content": "Featured resources"
+        },
+        {
+          "type": "collection",
+          "id": "featured_collection_1",
+          "label": "Collection 1"
+        },
+        {
+          "type": "collection",
+          "id": "featured_collection_2",
+          "label": "Collection 2"
+        },
+        {
+          "type": "collection",
+          "id": "featured_collection_3",
+          "label": "Collection 3"
+        },
+        {
+          "type": "collection",
+          "id": "featured_collection_4",
+          "label": "Collection 4"
+        },
+        {
+          "type": "product",
+          "id": "featured_product_1",
+          "label": "Product 1"
+        },
+        {
+          "type": "product",
+          "id": "featured_product_2",
+          "label": "Product 2"
+        },
+        {
+          "type": "header",
+          "content": "Promotional images"
+        },
+        {
+          "type": "image_picker",
+          "id": "promo_image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "text",
+          "id": "promo_heading_1",
+          "label": "Image 1 heading"
+        },
+        {
+          "type": "url",
+          "id": "promo_link_1",
+          "label": "Image 1 link"
+        },
+        {
+          "type": "image_picker",
+          "id": "promo_image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "text",
+          "id": "promo_heading_2",
+          "label": "Image 2 heading"
+        },
+        {
+          "type": "url",
+          "id": "promo_link_2",
+          "label": "Image 2 link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_mobile_feature",
+          "label": "Show first featured card on mobile",
+          "default": false
+        }
+      ]
     }
   ]
 }

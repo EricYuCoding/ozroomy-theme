@@ -1,6 +1,6 @@
 <products-mega-menu>
   <details id="ProductsMegaMenu-{{ forloop.index }}">
-    <summary class="header__menu-item header__menu-item--main list-menu__item link focus-inset products-mega-menu">
+    <summary class="header__menu-item header__menu-item--main list-menu__item link focus-inset products-mega-menu" aria-expanded="false" aria-controls="ProductsMegaMenu-Content-{{ forloop.index }}">
       <span
         {%- if link.child_active %}
           class="header__active-menu-item"
@@ -10,7 +10,7 @@
       </span>
       {% render 'icon-caret' %}
     </summary>
-    <div class="products-mega-menu__body color-background-1">
+    <div id="ProductsMegaMenu-Content-{{ forloop.index }}" class="products-mega-menu__body color-background-1">
       <div class="products-mega-menu__overlay">&nbsp</div>
       <div class="page-width">
         <div class="products-mega-menu__container">
@@ -39,10 +39,13 @@
                     {% if link_current_collection.featured_image != blank %}
                       <div class="header__menu-item__preview-image">
                         <img
-                          src="{{ link_current_collection.featured_image | image_url: width: 150 }}"
-                          alt=""
-                          width="auto"
-                          height="auto"
+                          src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                          data-mega-menu-src="{{ link_current_collection.featured_image | image_url: width: 150 }}"
+                          width="{{ link_current_collection.featured_image.width }}"
+                          height="{{ link_current_collection.featured_image.height }}"
+                          alt="{{ link_current_collection.featured_image.alt | default: childlink.title | escape }}"
+                          loading="lazy"
+                          decoding="async"
                         >
                       </div>
                     {% endif %}

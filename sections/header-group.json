@@ -228,6 +228,35 @@
         ".header__inline-menu li:last-child span {color: #9c6037;}",
         ".menu-drawer__menu li:last-child a {color: #9c6037 !important;}"
       ],
+      "blocks": {
+        "mega_menu_shop_v2": {
+          "type": "mega_menu",
+          "settings": {
+            "trigger": "Shop",
+            "layout": "editorial",
+            "heading": "Shop our collections",
+            "text": "<p>Explore modular furniture designed for flexible, comfortable living.</p>",
+            "cta_label": "View all products",
+            "cta_link": "shopify://collections/all",
+            "featured_collection_1": "loopa-modular-sofa-beds",
+            "featured_collection_2": "pebble-modular-sofa-beds",
+            "featured_collection_3": "",
+            "featured_collection_4": "",
+            "featured_product_1": "",
+            "featured_product_2": "",
+            "promo_image_1": "shopify://shop_images/ozroomy-banner-1.webp",
+            "promo_heading_1": "Loopa",
+            "promo_link_1": "",
+            "promo_image_2": "shopify://shop_images/pebble-sky-5.webp",
+            "promo_heading_2": "Pebble",
+            "promo_link_2": "",
+            "show_mobile_feature": true
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_shop_v2"
+      ],
       "settings": {
         "sticky_header_type": "none",
         "show_line_separator": false,

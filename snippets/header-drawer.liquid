@@ -1,6 +1,6 @@
 <header-drawer data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}" data-desktop-type="{{ section.settings.menu_type_desktop }}" data-drawer="{{ settings.animations_type }}">
   <details id="Details-menu-drawer-container" class="menu-drawer-container">
-    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}">
+    <summary class="header__icon header__icon--menu header__icon--summary link focus-inset" aria-label="{{ 'sections.header.menu' | t }}" aria-expanded="false" aria-controls="menu-drawer">
       <span>
         {% render 'icon-hamburger' %}
         {% render 'icon-close' %}
@@ -10,7 +10,7 @@
       <div class="menu-drawer__inner-container">
         <div class='menu-drawer__mobile-content menu-drawer__title-and-close-btn'>
           <h3 class='menu-drawer__title'>{{ section.settings.mobile_menu_title }}</h3>
-          <button class='menu-drawer__close-btn menu-drawer__close-menu-btn header__icon header__icon--menu header__icon--summary link focus-inset'>
+          <button type="button" class='menu-drawer__close-btn menu-drawer__close-menu-btn header__icon header__icon--menu header__icon--summary link focus-inset' aria-label="Close menu">
             {% render 'icon-close' %}
           </button>
         </div>
@@ -18,36 +18,75 @@
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
               {%- for link in section.settings.menu.links -%}
+                {%- liquid
+                  assign mobile_mega_menu_block = nil
+                  assign legacy_product_mega_menu = false
+                  assign parent_menu_index = forloop.index
+                  assign normalized_link_title = link.title | strip | downcase
+                  assign legacy_mega_menu_triggers = section.settings.products_mega_menu_links | split: ','
+
+                  for menu_block in section.blocks
+                    assign normalized_block_trigger = menu_block.settings.trigger | strip | downcase
+                    if menu_block.type == 'mega_menu' and normalized_block_trigger != blank and normalized_block_trigger == normalized_link_title
+                      assign mobile_mega_menu_block = menu_block
+                      break
+                    endif
+                  endfor
+
+                  for legacy_trigger in legacy_mega_menu_triggers
+                    assign normalized_legacy_trigger = legacy_trigger | strip | downcase
+                    if normalized_legacy_trigger != blank and normalized_legacy_trigger == normalized_link_title
+                      assign legacy_product_mega_menu = true
+                      break
+                    endif
+                  endfor
+                -%}
                 <li>
                   {%- if link.links != blank -%}
                     <details id="Details-menu-drawer-menu-item-{{ forloop.index }}">
-                      <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}">
+                      <summary class="menu-drawer__menu-item list-menu__item link link--text focus-inset{% if link.child_active %} menu-drawer__menu-item--active{% endif %}" aria-expanded="false" aria-controls="link-{{ link.handle | escape }}">
                         {{ link.title | escape }}
                         {% render 'icon-arrow' %}
                         {% render 'icon-caret' %}
                       </summary>
                       <div id="link-{{ link.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce" tabindex="-1">
                         <div class="menu-drawer__inner-submenu">
-                          <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                            {% render 'icon-arrow' %}
-                            {{ link.title | escape }}
-                          </button>
+                          <div class="menu-drawer__submenu-header">
+                            <button type="button" class="menu-drawer__close-button link link--text focus-inset" aria-label="Back to {{ section.settings.mobile_menu_title | escape }}">
+                              {% render 'icon-arrow' %}
+                              <span>Back</span>
+                            </button>
+                            <h3 class="menu-drawer__panel-title">{{ link.title | escape }}</h3>
+                            <button type="button" class="menu-drawer__close-btn menu-drawer__close-menu-btn header__icon link focus-inset" aria-label="Close menu">
+                              {% render 'icon-close' %}
+                            </button>
+                          </div>
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                            {%- if link.url != blank and link.url != '#' -%}
+                              <li>
+                                <a href="{{ link.url }}" class="menu-drawer__menu-item menu-drawer__view-all link link--text list-menu__item focus-inset">
+                                  View all {{ link.title | escape }}
+                                </a>
+                              </li>
+                            {%- endif -%}
                             {%- for childlink in link.links -%}
                               <li>
-                                {%- if childlink.links != blank or section.settings.products_mega_menu_links contains link.title and section.settings.products_mega_menu_display_collection_products -%}
-                                  <details id="Details-menu-drawer-submenu-{{ forloop.index }}">
-                                    <summary class="menu-drawer__menu-item link link--text list-menu__item focus-inset">
-                                      {% if section.settings.products_mega_menu_links contains link.title and childlink.url contains 'collections' and section.settings.products_mega_menu_display_collection_images_on_mobile %}
+                                {%- if childlink.links != blank or legacy_product_mega_menu and section.settings.products_mega_menu_display_collection_products -%}
+                                  <details id="Details-menu-drawer-submenu-{{ parent_menu_index }}-{{ forloop.index }}">
+                                    <summary class="menu-drawer__menu-item link link--text list-menu__item focus-inset" aria-expanded="false" aria-controls="childlink-{{ link.handle | escape }}-{{ childlink.handle | escape }}">
+                                      {% if legacy_product_mega_menu and childlink.url contains 'collections' and section.settings.products_mega_menu_display_collection_images_on_mobile %}
                                         {% assign link_collection_handle = childlink.url | remove: '/collections/' %}
                                         {% assign link_current_collection = collections[link_collection_handle] %}
                                         {% if link_current_collection.featured_image != blank %}
                                           <div class="header__menu-item__preview-image header__menu-item__preview-image--mobile">
                                             <img
-                                              src="{{ link_current_collection.featured_image | image_url: width: 150 }}"
-                                              alt=""
-                                              width="auto"
-                                              height="auto"
+                                              src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                                              data-mega-menu-src="{{ link_current_collection.featured_image | image_url: width: 150 }}"
+                                              width="{{ link_current_collection.featured_image.width }}"
+                                              height="{{ link_current_collection.featured_image.height }}"
+                                              alt="{{ link_current_collection.featured_image.alt | default: childlink.title | escape }}"
+                                              loading="lazy"
+                                              decoding="async"
                                             >
                                           </div>
                                         {% endif %}
@@ -56,12 +95,18 @@
                                       {% render 'icon-arrow' %}
                                       {% render 'icon-caret' %}
                                     </summary>
-                                    <div id="childlink-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
-                                      <button class="menu-drawer__close-button link link--text focus-inset" aria-expanded="true">
-                                        {% render 'icon-arrow' %}
-                                        {{ childlink.title | escape }}
-                                      </button>
-                                      {% if section.settings.products_mega_menu_links contains link.title %}
+                                    <div id="childlink-{{ link.handle | escape }}-{{ childlink.handle | escape }}" class="menu-drawer__submenu has-submenu gradient motion-reduce">
+                                      <div class="menu-drawer__submenu-header">
+                                        <button type="button" class="menu-drawer__close-button link link--text focus-inset" aria-label="Back to {{ link.title | escape }}">
+                                          {% render 'icon-arrow' %}
+                                          <span>Back</span>
+                                        </button>
+                                        <h3 class="menu-drawer__panel-title">{{ childlink.title | escape }}</h3>
+                                        <button type="button" class="menu-drawer__close-btn menu-drawer__close-menu-btn header__icon link focus-inset" aria-label="Close menu">
+                                          {% render 'icon-close' %}
+                                        </button>
+                                      </div>
+                                      {% if legacy_product_mega_menu %}
                                         <ul class="products-mega-menu__cards products-mega-menu__cards--mobile">
                                           {% if section.settings.products_mega_menu_display_collection_products %}
                                             {% assign link_collection_handle = childlink.url | remove: '/collections/' %}
@@ -106,6 +151,13 @@
                                         </ul>
                                       {% else %}
                                         <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
+                                          {%- if childlink.url != blank and childlink.url != '#' -%}
+                                            <li>
+                                              <a href="{{ childlink.url }}" class="menu-drawer__menu-item menu-drawer__view-all link link--text list-menu__item focus-inset">
+                                                View all {{ childlink.title | escape }}
+                                              </a>
+                                            </li>
+                                          {%- endif -%}
                                           {%- for grandchildlink in childlink.links -%}
                                             <li>
                                               <a href="{{ grandchildlink.url }}" class="menu-drawer__menu-item link link--text list-menu__item focus-inset{% if grandchildlink.current %} menu-drawer__menu-item--active{% endif %}"{% if grandchildlink.current %} aria-current="page"{% endif %}>
@@ -125,6 +177,23 @@
                               </li>
                             {%- endfor -%}
                           </ul>
+                          {%- if mobile_mega_menu_block != nil and mobile_mega_menu_block.settings.show_mobile_feature -%}
+                            <div class="menu-drawer__featured-card">
+                              {%- case mobile_mega_menu_block.settings.layout -%}
+                                {%- when 'collection' -%}
+                                  {% render 'header-mega-menu-card', collection: mobile_mega_menu_block.settings.featured_collection_1, compact: true %}
+                                {%- else -%}
+                                  {% render 'header-mega-menu-card',
+                                    image: mobile_mega_menu_block.settings.promo_image_1,
+                                    heading: mobile_mega_menu_block.settings.promo_heading_1,
+                                    url: mobile_mega_menu_block.settings.promo_link_1,
+                                    collection: mobile_mega_menu_block.settings.featured_collection_1,
+                                    product: mobile_mega_menu_block.settings.featured_product_1,
+                                    compact: true
+                                  %}
+                              {%- endcase -%}
+                            </div>
+                          {%- endif -%}
                         </div>
                       </div>
                     </details>
