@@ -2,7 +2,7 @@
 
 ## Status
 
-Final technical validation passed and release closeout was authorized. Production deployment has not started.
+Released to production, technically verified, archived, merged to the stable source branch, and tagged on 2026-10-01.
 
 - Feature branch: `feature/header-mega-menu-v2`
 - Initial feature commit: `13409b8bf272fef96aa5ac2b149c2ea08d916bfd`
@@ -10,12 +10,13 @@ Final technical validation passed and release closeout was authorized. Productio
 - Presentation revision commit: `537b164493e1b76e09557c7be5162bc439329c55`
 - Presentation revision documentation commit: `7f8f9eec9b20bcd6d110b32f976c41c60dfa65e5`
 - Final visual-fix commit: `6726760a282a71205613ebe9c52d8cf044c54d0e`
+- Final visual-revision documentation commit: `0da702c98e289e30ef11d6af6598582db0f7578e`
 - Validation theme: `Mega Menu v2 validation - 2026-10-01`
 - Validation theme ID: `145456267498`
 - Preview: `https://zjna5j-hn.myshopify.com?preview_theme_id=145456267498`
 - Theme editor: `https://zjna5j-hn.myshopify.com/admin/themes/145456267498/editor`
 
-The validation theme is unpublished. The live theme was not modified.
+The reviewed validation theme was promoted directly and is now the live theme. The previous live theme remains unpublished and available for rollback.
 
 ## Final visual revision
 
@@ -116,7 +117,7 @@ The feature also removed the second of two identical 257-line mobile drawer CSS 
 9. Enable card arrows only when explicitly wanted; they are disabled by default. Enable the single compact mobile feature card when wanted.
 10. Leave the block absent to get navigation-only rendering.
 
-The final validation example uses a hidden panel title, the `A better way to sofa bed` fallback-navigation heading, feature-cards-wider distribution, three mixed cards (image, collection, product), a boxed square-corner CTA, card descriptions, no card arrows, and the first card on mobile. This configuration exists only in the unpublished theme source until deployment.
+The released configuration uses a hidden panel title, the `A better way to sofa bed` fallback-navigation heading, feature-cards-wider distribution, three mixed cards (image, collection, product), a boxed square-corner CTA, card descriptions, no card arrows, and the first card on mobile.
 
 ## Shopify Main Menu setup
 
@@ -135,7 +136,7 @@ The production Main Menu has only two levels at review time. To validate Level 3
        - Pebble
        - Loopa
      - Accessories
-3. In the unpublished validation theme only, select `Mega Menu v2 QA` in Header → Menu.
+3. In a duplicate unpublished test theme only, select `Mega Menu v2 QA` in Header → Menu.
 4. Keep the Mega menu block trigger set to `Shop`.
 5. Test desktop columns and mobile drill-down, then switch the validation theme back to `Main Menu` if the QA menu should not remain selected.
 
@@ -206,7 +207,7 @@ Real Tab/Shift+Tab/Enter/Space/Escape interaction still requires human browser r
 - The Header schema has exactly 40 settings with IDs and introduces no `ExcessiveSettingsCount` finding.
 - Both `Shop` and fallback `About us` desktop mega triggers render without chevrons.
 - All three deferred CDN image resources return HTTP 200.
-- Live theme `145433886954` remains live; validation theme `145456267498` remains unpublished.
+- Before promotion, live theme `145433886954` had no meaningful drift from reconciliation commit `7222c7760f9e82b5147d76a64364b93a81d09611`. After promotion, theme `145456267498` rendered the same technically validated output as the reviewed candidate.
 
 ## Human QA remaining
 
@@ -228,27 +229,34 @@ The in-app browser was unavailable in this workspace, so visual and true interac
 - Browser console, visual layout, pointer behavior, and real keyboard focus behavior remain part of the human review checkpoint because no interactive browser was connected.
 - Duplicate Mega menu blocks with the same trigger are not useful; the first exact match in block order wins.
 
-## Production deployment procedure (after explicit approval only)
+## Release closeout
 
-1. Confirm this branch is clean and its remote commit matches the reviewed validation theme.
-2. Confirm live is still theme `145433886954` and validation is still unpublished theme `145456267498`.
-3. Pull current live into a new isolated directory and compare configuration with the reconciled baseline. Stop and reconcile if merchants changed production during review.
-4. Merge the approved feature branch to `dev` without squashing useful history and push `dev`.
-5. Promote the already-reviewed validation theme `145456267498` rather than rebuilding from an older theme.
-6. Retain the previous live theme as rollback.
-7. Smoke-test desktop/mobile navigation, search, cart, homepage, Pebble, another product, and a collection; inspect the production console.
-8. If a serious navigation or checkout regression appears, roll back to the previous live theme before attempting risky live debugging.
-9. Pull the new live theme into an isolated directory, reconcile any expected Shopify serialization, and verify source alignment.
-10. Create and push `snapshot/production-2026-10-01-mega-menu-v2`, then create and push annotated tag `v1.1.0` on the final intended source commit.
-11. Update this document with approval, merge/final `dev` SHAs, deployment time, new live theme, smoke results, snapshot SHA, tag, and validation-theme disposition.
+- Production reconciliation commit: `7222c7760f9e82b5147d76a64364b93a81d09611`.
+- Reconciled `dev`: `57469ebb432cef4e7024c80481b3f17acd3d44fe`.
+- Feature-to-`dev` merge and release-source `dev` SHA: `614181f1975b55f91d5f94bc7bbc90fad39bd608`.
+- `dev`-to-`main` release merge and stable release-source SHA: `f7358bbd0c4f3793a7addd2e16d7d153fab0ecfb`.
+- Annotated release tag: `v1.1.0`, message `OZROOMY v1.1.0 - Header Mega Menu v2`, targeting `f7358bbd0c4f3793a7addd2e16d7d153fab0ecfb`.
+- Reviewed validation and new live theme: `Mega Menu v2 validation - 2026-10-01` (`145456267498`).
+- Previous live and rollback theme: `Feature 1 validation - 2026-09-29` (`145433886954`); retained unpublished and not deleted.
+- Deployment: 2026-10-01 at approximately 21:42 AEST by direct promotion of the reviewed theme.
+- Production smoke test: passed all technically inspectable checks. Homepage, Pebble product, Loopa product, and Pebble collection returned HTTP 200 with live theme ID `145456267498` and no Liquid errors. Search, cart, card, collection, and CTA destinations returned HTTP 200. The account endpoint returned its expected initial Shopify HTTP 302; automated redirect following was rejected by Shopify with HTTP 406.
+- Production header output: Shop and About us triggers, brand/home link, search/account/cart utilities, desktop panel, boxed CTA, three clickable mixed card types, deferred images, and mobile drawer/child/Back/Close markup were present. Desktop `View all Shop`, feature-card arrows, panel title, and top-level trigger chevrons were absent. Mobile parent `View all` remained present.
+- Asset smoke test: all 11 rendered script/stylesheet URLs and all three deferred card images returned HTTP 200; Shopify's compiled JavaScript passed `node --check`.
+- Post-deployment live pull: every Shopify-returned source, template, and Header file matched final `dev` after line-ending normalization. The only differences were the known Shopify omission of repository-controlled `config/markets.json` and removal of disabled app-embed records from `config/settings_data.json`.
+- Production snapshot branch: `snapshot/production-2026-10-01-mega-menu-v2`.
+- Production snapshot commit: `f78ef56da609b832acace5ab052fc0f8adb86db3`.
+- Snapshot verification: 341 theme files and zero normalized differences from the isolated post-deployment live pull.
+- No Shopify themes or Git branches were deleted.
 
-## Post-approval records (pending)
+The release-source SHAs above identify the exact theme source promoted and tagged. Any later closeout documentation-only commits do not alter that source baseline.
 
-- Human approval: pending
-- Merge commit: pending
-- Final `dev` SHA: pending
-- New live theme/name: pending
-- Deployment time: pending
-- Production smoke test: pending
-- Production snapshot SHA: pending
-- Release tag: pending (`v1.1.0` proposed)
+## Starting the next development cycle
+
+Merchant Theme Editor work after this release is expected and may legitimately change `templates/*.json`, `sections/header-group.json`, `config/settings_data.json`, and other Shopify-generated configuration.
+
+1. Do not assume Git `dev` equals the then-current Shopify live configuration.
+2. Pull the then-current live theme into a new isolated directory; never pull it over the repository working tree.
+3. Compare that pull with both `dev` and `snapshot/production-2026-10-01-mega-menu-v2`.
+4. Identify and classify Theme Editor JSON/configuration drift separately from source-code drift.
+5. Reconcile intentional Theme Editor changes into Git before starting new code development.
+6. Never blindly overwrite live JSON/configuration with older Git versions.
