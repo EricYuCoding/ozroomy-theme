@@ -2,17 +2,28 @@
 
 ## Status
 
-Ready for second human visual review after the Paire-style presentation revision. Production deployment has not started.
+Final technical validation passed and release closeout was authorized. Production deployment has not started.
 
 - Feature branch: `feature/header-mega-menu-v2`
-- Feature commit: `13409b8bf272fef96aa5ac2b149c2ea08d916bfd`
+- Initial feature commit: `13409b8bf272fef96aa5ac2b149c2ea08d916bfd`
+- Initial documentation commit: `8b24c69fcbda6ccfee79b2b28f9eb88366c17c9a`
 - Presentation revision commit: `537b164493e1b76e09557c7be5162bc439329c55`
+- Presentation revision documentation commit: `7f8f9eec9b20bcd6d110b32f976c41c60dfa65e5`
+- Final visual-fix commit: `6726760a282a71205613ebe9c52d8cf044c54d0e`
 - Validation theme: `Mega Menu v2 validation - 2026-10-01`
 - Validation theme ID: `145456267498`
 - Preview: `https://zjna5j-hn.myshopify.com?preview_theme_id=145456267498`
 - Theme editor: `https://zjna5j-hn.myshopify.com/admin/themes/145456267498/editor`
 
 The validation theme is unpublished. The live theme was not modified.
+
+## Final visual revision
+
+- Removed the automatic desktop `View all {{ trigger }}` destination. The merchant-configured CTA is now the only desktop panel-wide destination beneath the navigation links.
+- Retained mobile drawer parent `View all` destinations for drill-down navigation.
+- Kept the feature-card arrow setting for saved-schema compatibility, changed its default to disabled, and disabled it in the reviewed Shop configuration.
+- Set the reviewed Shop navigation-column heading to `A better way to sofa bed`.
+- Confirmed in Shopify-rendered output that the Shop panel contains Loopa and Pebble navigation links, one boxed `View all products` CTA, three clickable image/collection/product cards, no desktop `View all Shop`, no card arrows, no interior panel title, and no top-level trigger chevron.
 
 ## Objective
 
@@ -102,10 +113,10 @@ The feature also removed the second of two identical 257-line mobile drawer CSS 
 6. Select the number of feature cards. For each enabled card, choose image, collection, or product, then configure optional image/title/description/link overrides.
 7. Select balanced, link-columns-wider, or feature-cards-wider distribution.
 8. Configure the CTA as a text link or boxed outline. Boxed CTA controls include corner radius, border width, and border color.
-9. Enable card arrows and the single compact mobile feature card only when wanted.
+9. Enable card arrows only when explicitly wanted; they are disabled by default. Enable the single compact mobile feature card when wanted.
 10. Leave the block absent to get navigation-only rendering.
 
-The final validation example uses hidden panel title, one fallback navigation column, feature-cards-wider distribution, three mixed cards (image, collection, product), a boxed square-corner CTA, card descriptions, card arrows, and the first card on mobile. This configuration exists only in the unpublished theme source until approval and deployment.
+The final validation example uses a hidden panel title, the `A better way to sofa bed` fallback-navigation heading, feature-cards-wider distribution, three mixed cards (image, collection, product), a boxed square-corner CTA, card descriptions, no card arrows, and the first card on mobile. This configuration exists only in the unpublished theme source until deployment.
 
 ## Shopify Main Menu setup
 
@@ -139,7 +150,7 @@ Creating the unused menu is store-level, but it does not affect production unles
 - Outside click and opening another disclosure close the active panel.
 - Hover, focus, and open state share the same underline treatment.
 - Desktop mega-menu triggers show labels and underlines without dropdown chevrons.
-- Internal CTA and View-all text links use underline interaction without inline arrows.
+- Configured text-style CTAs use underline interaction without inline arrows; the automatic desktop parent `View all` destination is not rendered.
 - Boxed CTA style uses merchant-configured radius, border width, and border color.
 - Theme Editor block selection opens the associated panel for editing.
 
@@ -190,7 +201,8 @@ Real Tab/Shift+Tab/Enter/Space/Escape interaction still requires human browser r
 - Shopify accepted and rendered the feature on homepage, Pebble product, Loopa product, and Pebble collection URLs with HTTP 200, the expected theme ID, upgraded header, and no rendered Liquid errors.
 - Final validation markup contains one link column, three mixed card types, a hidden panel title, correctly styled boxed CTA, four correctly deferred image elements, no `#` card links, no duplicate menu IDs, and no missing menu ARIA targets.
 - A temporary three-column/one-image configuration rendered three independent columns, one card, visible panel title, link-columns-wider distribution, and CTA values of 12 px radius, 2 px border, and `#9c6037`.
-- A temporary text-CTA/card-arrow-off configuration rendered the underline CTA class with zero CTA or card arrows. The final boxed/card-arrow-on example was restored afterward.
+- A temporary text-CTA/card-arrow-off configuration rendered the underline CTA class with zero CTA or card arrows. The final boxed/card-arrow-off example was restored afterward.
+- Final Shopify-rendered output contains zero desktop automatic parent-link classes and zero feature-card arrow elements. The single `View all Shop` string is confined to the mobile drawer.
 - The Header schema has exactly 40 settings with IDs and introduces no `ExcessiveSettingsCount` finding.
 - Both `Shop` and fallback `About us` desktop mega triggers render without chevrons.
 - All three deferred CDN image resources return HTTP 200.
