@@ -242,9 +242,25 @@
     "multirow_w3c4Rh": {
       "type": "multirow",
       "blocks": {
+        "row_qECFKD": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/landing-page-2.webp",
+            "caption": "Caption",
+            "title": "Row",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "Button label",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
         "row_ifqNbC": {
           "type": "row",
           "settings": {
+            "video": "shopify://files/videos/landing-page-loopa-base-filter.mp4",
             "caption": "Pebble, Ready to Ship",
             "title": "IN STOCK NOW",
             "title_highlight_color": "#6d388b",
@@ -258,6 +274,7 @@
         }
       },
       "block_order": [
+        "row_qECFKD",
         "row_ifqNbC"
       ],
       "settings": {
