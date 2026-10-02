@@ -14,6 +14,7 @@
       "blocks": {
         "slide_hezjkf": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/ozroomy-banner-1.webp",
             "image_overlay_opacity": 20,
@@ -237,6 +238,42 @@
         "custom_colors_outline_button": "#dd1d1d",
         "custom_tabs_color": "#000000",
         "custom_tabs_color_label": "#ffffff"
+      }
+    },
+    "flexible_hero_banner_PTJQ48": {
+      "type": "flexible-hero-banner",
+      "name": "Flexible hero banner",
+      "settings": {
+        "heading": "A better way to sofa bed",
+        "heading_tag": "h2",
+        "heading_size": "h1",
+        "text": "<p>A proper sofa by day. A proper bed by night.</p>",
+        "text_size": "medium",
+        "button_label_1": "Shop now",
+        "button_link_1": "shopify://collections/pebble-modular-sofa-beds",
+        "button_style_1": "primary",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "layout_mode": "classic",
+        "desktop_vertical_position": "bottom",
+        "desktop_text_alignment": "left",
+        "mobile_vertical_position": "bottom",
+        "mobile_text_alignment": "left",
+        "desktop_height": "large",
+        "mobile_height": "medium",
+        "media_type": "image",
+        "desktop_image": "shopify://shop_images/ozroomy-banner-1.webp",
+        "mobile_video_behavior": "poster",
+        "video_position": "center",
+        "overlay_color": "#000000",
+        "overlay_style": "even",
+        "overlay_opacity": 25,
+        "mobile_overlay_opacity": 35,
+        "color_scheme": "inverse",
+        "custom_text_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
       }
     },
     "multirow_w3c4Rh": {
@@ -1275,6 +1312,7 @@
   "order": [
     "slideshow_BCazAc",
     "content_tabs_D3ge9d",
+    "flexible_hero_banner_PTJQ48",
     "multirow_w3c4Rh",
     "image_slider_FkWBeP",
     "content_tabs_pgRjWb",
