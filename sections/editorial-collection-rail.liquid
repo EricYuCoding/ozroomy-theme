@@ -1,0 +1,595 @@
+{%- liquid
+  assign desktop_cards = section.settings.desktop_cards | plus: 0
+  assign has_desktop_overflow = false
+  if section.blocks.size > desktop_cards
+    assign has_desktop_overflow = true
+  endif
+  assign has_tablet_overflow = false
+  if section.blocks.size > 2
+    assign has_tablet_overflow = true
+  endif
+  assign show_controls = false
+  if section.settings.show_arrows and has_desktop_overflow
+    assign show_controls = true
+  endif
+-%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --editorial-rail-gap: {{ section.settings.card_gap }}px;
+    --editorial-rail-visible: {{ section.settings.desktop_cards }};
+    --editorial-rail-count: {{ section.blocks.size | at_least: 1 }};
+    --editorial-rail-peek: clamp(4.8rem, 7vw, 9.6rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail {
+    padding-block: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail.color-custom {
+    --color-background: {{ section.settings.custom_background.red }}, {{ section.settings.custom_background.green }}, {{ section.settings.custom_background.blue }};
+    --gradient-background: {{ section.settings.custom_background }};
+    --color-foreground: {{ section.settings.custom_text_color.red }}, {{ section.settings.custom_text_color.green }}, {{ section.settings.custom_text_color.blue }};
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__header {
+    align-items: center;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: clamp(2.4rem, 4vw, 5rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__heading {
+    margin: 0;
+    text-align: {{ section.settings.heading_alignment }};
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__controls {
+    display: none;
+    flex: 0 0 auto;
+    gap: 0.4rem;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__viewport:focus-visible {
+    outline: 0.2rem solid currentColor;
+    outline-offset: 0.4rem;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__list {
+    display: grid;
+    gap: 1.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__item {
+    min-width: 0;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__card {
+    color: #ffffff;
+    display: block;
+    position: relative;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__card[aria-disabled='true'] {
+    cursor: default;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__media {
+    aspect-ratio: {% case section.settings.image_ratio %}{% when 'square' %}1 / 1{% when 'landscape' %}3 / 2{% else %}4 / 5{% endcase %};
+    background: rgba(var(--color-foreground), 0.06);
+    overflow: hidden;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__media::after {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 0%, rgba(0, 0, 0, 0.02) 45%, rgba(0, 0, 0, 0.58) 100%);
+    content: '';
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__image,
+  #shopify-section-{{ section.id }} .editorial-rail__placeholder {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 350ms ease;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__placeholder {
+    background: rgba(var(--color-foreground), 0.08);
+    color: rgba(var(--color-foreground), 0.35);
+    padding: 12%;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__content {
+    align-items: flex-end;
+    display: flex;
+    gap: 2rem;
+    inset: 0;
+    justify-content: space-between;
+    padding: clamp(1.8rem, 5vw, 3rem);
+    pointer-events: none;
+    position: absolute;
+    z-index: 2;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__title,
+  #shopify-section-{{ section.id }} .editorial-rail__cta {
+    color: inherit;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__title {
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__cta {
+    flex: 0 0 auto;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__card[href]:focus-visible {
+    outline: 0.3rem solid currentColor;
+    outline-offset: -0.6rem;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    #shopify-section-{{ section.id }} .editorial-rail__card[href]:hover .editorial-rail__image {
+      transform: scale(1.025);
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .editorial-rail {
+      padding-block: {{ section.settings.padding_top }}px {{ section.settings.padding_bottom }}px;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__viewport {
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-behavior: smooth;
+      scroll-padding-inline: 0;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__viewport::-webkit-scrollbar {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__list {
+      display: flex;
+      gap: var(--editorial-rail-gap);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__item {
+      flex: 0 0 calc((100% - ((var(--editorial-rail-count) - 1) * var(--editorial-rail-gap))) / var(--editorial-rail-count));
+      scroll-snap-align: start;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__content {
+      align-items: flex-start;
+      padding: clamp(1.6rem, 2vw, 3rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__title {
+      font-size: clamp(2rem, 2.1vw, 3.6rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__cta {
+      font-size: clamp(1.6rem, 1.5vw, 2.4rem);
+    }
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #shopify-section-{{ section.id }} {
+      --editorial-rail-visible: 2;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__list--tablet-overflow .editorial-rail__item {
+      flex-basis: calc((100% - (var(--editorial-rail-visible) * var(--editorial-rail-gap)) - var(--editorial-rail-peek)) / var(--editorial-rail-visible));
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    #shopify-section-{{ section.id }} .editorial-rail__controls {
+      display: flex;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__list--desktop-overflow .editorial-rail__item {
+      flex-basis: calc((100% - (var(--editorial-rail-visible) * var(--editorial-rail-gap)) - var(--editorial-rail-peek)) / var(--editorial-rail-visible));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #shopify-section-{{ section.id }} .editorial-rail__viewport {
+      scroll-behavior: auto;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__image {
+      transition: none;
+    }
+  }
+{%- endstyle -%}
+
+<div class="editorial-rail color-{{ section.settings.color_scheme }} gradient">
+  <slider-component class="editorial-rail__component page-width">
+    {%- if section.settings.heading != blank or show_controls -%}
+      <div class="editorial-rail__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 id="EditorialRailHeading-{{ section.id }}" class="editorial-rail__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if show_controls -%}
+          <div class="editorial-rail__controls no-js-hidden" aria-label="Editorial rail navigation">
+            <button
+              type="button"
+              class="slider-button slider-button--prev"
+              name="previous"
+              aria-label="Previous cards"
+            >
+              {% render 'icon-caret' %}
+            </button>
+            <button
+              type="button"
+              class="slider-button slider-button--next"
+              name="next"
+              aria-label="Next cards"
+            >
+              {% render 'icon-caret' %}
+            </button>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <p id="EditorialRailInstructions-{{ section.id }}" class="visually-hidden">
+        On larger screens, scroll horizontally to view more cards.
+      </p>
+      <div
+        class="editorial-rail__viewport"
+        id="Slider-EditorialRail-{{ section.id }}"
+        tabindex="0"
+        {% if section.settings.heading != blank %}
+          aria-labelledby="EditorialRailHeading-{{ section.id }}"
+        {% else %}
+          aria-label="Editorial collection rail"
+        {% endif %}
+        aria-describedby="EditorialRailInstructions-{{ section.id }}"
+      >
+        <ul
+          class="editorial-rail__list{% if has_tablet_overflow %} editorial-rail__list--tablet-overflow{% endif %}{% if has_desktop_overflow %} editorial-rail__list--desktop-overflow{% endif %}"
+          role="list"
+        >
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign card_resource = blank
+              assign card_image = block.settings.image_override
+              assign card_title = block.settings.heading
+              assign card_url = blank
+
+              if block.type == 'collection_card'
+                assign card_resource = block.settings.collection
+                if card_image == blank
+                  assign card_image = card_resource.featured_image
+                endif
+              elsif block.type == 'product_card'
+                assign card_resource = block.settings.product
+                if card_image == blank
+                  assign card_image = card_resource.featured_image
+                endif
+              endif
+
+              if card_title == blank
+                assign card_title = card_resource.title
+              endif
+              if card_resource != blank
+                assign card_url = card_resource.url
+              endif
+
+              assign image_loading = 'lazy'
+              assign image_fetchpriority = 'auto'
+              if section.index == 1 and forloop.first
+                assign image_loading = 'eager'
+                assign image_fetchpriority = 'high'
+              endif
+
+              capture image_sizes
+                echo '(min-width: '
+                echo settings.page_width
+                echo 'px) calc(('
+                echo settings.page_width
+                echo 'px - 10rem) / '
+                echo section.settings.desktop_cards
+                echo '), (min-width: 750px) calc((100vw - 10rem) / '
+                echo section.settings.desktop_cards
+                echo '), calc(100vw - 3rem)'
+              endcapture
+            -%}
+
+            <li
+              id="Slide-EditorialRail-{{ section.id }}-{{ block.id }}"
+              class="editorial-rail__item slider__slide"
+              {{ block.shopify_attributes }}
+            >
+              {%- if card_url != blank -%}
+                <a class="editorial-rail__card" href="{{ card_url }}">
+              {%- else -%}
+                <div class="editorial-rail__card" aria-disabled="true">
+              {%- endif -%}
+
+                <div class="editorial-rail__media">
+                  {%- if card_image != blank -%}
+                    {{
+                      card_image
+                      | image_url: width: 1800
+                      | image_tag:
+                        loading: image_loading,
+                        fetchpriority: image_fetchpriority,
+                        sizes: image_sizes,
+                        widths: '240, 360, 480, 600, 750, 900, 1200, 1500, 1800',
+                        alt: '',
+                        class: 'editorial-rail__image'
+                    }}
+                  {%- else -%}
+                    {{ 'collection-1' | placeholder_svg_tag: 'editorial-rail__placeholder' }}
+                  {%- endif -%}
+                </div>
+
+                <div class="editorial-rail__content">
+                  <p class="editorial-rail__title">
+                    {%- if card_title != blank -%}
+                      {{ card_title | escape }}
+                    {%- elsif block.type == 'product_card' -%}
+                      Product
+                    {%- else -%}
+                      Collection
+                    {%- endif -%}
+                  </p>
+                  {%- if block.settings.link_label != blank -%}
+                    <span class="editorial-rail__cta">{{ block.settings.link_label | escape }}</span>
+                  {%- endif -%}
+                </div>
+
+              {%- if card_url != blank -%}
+                </a>
+              {%- else -%}
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+    {%- endif -%}
+  </slider-component>
+</div>
+
+{% schema %}
+{
+  "name": "Editorial collection rail",
+  "tag": "section",
+  "class": "section section-editorial-rail",
+  "max_blocks": 12,
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore our range"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "square", "label": "Square" },
+        { "value": "landscape", "label": "Landscape" }
+      ],
+      "default": "portrait"
+    },
+    {
+      "type": "select",
+      "id": "desktop_cards",
+      "label": "Full cards on desktop",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" },
+        { "value": "5", "label": "5" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Card gap",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "Show desktop arrows",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "accent-1", "label": "Accent 1" },
+        { "value": "accent-2", "label": "Accent 2" },
+        { "value": "background-1", "label": "Background 1" },
+        { "value": "background-2", "label": "Background 2" },
+        { "value": "inverse", "label": "Inverse" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "background-1",
+      "info": "Choose Custom to use the colours below."
+    },
+    {
+      "type": "color",
+      "id": "custom_background",
+      "label": "Custom background",
+      "default": "#F8F4F3"
+    },
+    {
+      "type": "color",
+      "id": "custom_text_color",
+      "label": "Custom text",
+      "default": "#2E2A39"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_card",
+      "name": "Collection card",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Image override"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading override",
+          "info": "Leave blank to use the collection title."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "CTA label",
+          "info": "Optional. The whole card links to the selected collection."
+        }
+      ]
+    },
+    {
+      "type": "product_card",
+      "name": "Product card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Image override"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading override",
+          "info": "Leave blank to use the product title."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "CTA label",
+          "info": "Optional. The whole card links to the selected product."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial collection rail",
+      "blocks": [
+        { "type": "collection_card" },
+        { "type": "collection_card" },
+        { "type": "product_card" },
+        { "type": "product_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
