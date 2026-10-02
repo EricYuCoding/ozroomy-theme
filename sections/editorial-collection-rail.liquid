@@ -102,7 +102,7 @@
     padding: 12%;
   }
 
-  #shopify-section-{{ section.id }} .editorial-rail__content {
+  #shopify-section-{{ section.id }} .editorial-rail__overlay {
     align-items: flex-end;
     display: flex;
     gap: 2rem;
@@ -114,24 +114,105 @@
     z-index: 2;
   }
 
-  #shopify-section-{{ section.id }} .editorial-rail__title,
-  #shopify-section-{{ section.id }} .editorial-rail__cta {
-    color: inherit;
-    font-family: var(--font-heading-family);
-    font-style: var(--font-heading-style);
-    font-weight: var(--font-heading-weight);
+  #shopify-section-{{ section.id }} .editorial-rail__overlay-title {
+    color: var(--rail-overlay-color);
+    flex: 1 1 auto;
+    font-weight: var(--rail-overlay-weight);
     line-height: 1.15;
     margin: 0;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    text-align: var(--rail-overlay-alignment);
     text-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.45);
   }
 
-  #shopify-section-{{ section.id }} .editorial-rail__title {
+  #shopify-section-{{ section.id }} .editorial-rail__overlay-title--heading,
+  #shopify-section-{{ section.id }} .editorial-rail__cta {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__overlay-title--body {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__overlay-title--small {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__overlay-title--medium {
+    font-size: clamp(2rem, 5.5vw, 3.2rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__overlay-title--large {
     font-size: clamp(2.4rem, 7vw, 4.2rem);
   }
 
+  #shopify-section-{{ section.id }} .editorial-rail__overlay-title--xlarge {
+    font-size: clamp(3rem, 8vw, 5.2rem);
+  }
+
   #shopify-section-{{ section.id }} .editorial-rail__cta {
+    color: #ffffff;
     flex: 0 0 auto;
     font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: var(--font-heading-weight);
+    line-height: 1.15;
+    margin: 0;
+    margin-left: auto;
+    text-shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.45);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below {
+    color: var(--rail-below-color);
+    padding-top: 1.2rem;
+    text-align: var(--rail-below-alignment);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below--heading {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below--body {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below-title,
+  #shopify-section-{{ section.id }} .editorial-rail__price {
+    color: inherit;
+    overflow-wrap: anywhere;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below-title {
+    font-weight: var(--rail-below-weight);
+    line-height: 1.25;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below--size-small {
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below--size-medium {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below--size-large {
+    font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__below--size-xlarge {
+    font-size: clamp(2.2rem, 5.5vw, 3.4rem);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-rail__price {
+    font-size: 0.875em;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0.5rem 0 0;
   }
 
   #shopify-section-{{ section.id }} .editorial-rail__card[href]:focus-visible {
@@ -174,17 +255,45 @@
       scroll-snap-align: start;
     }
 
-    #shopify-section-{{ section.id }} .editorial-rail__content {
+    #shopify-section-{{ section.id }} .editorial-rail__overlay {
       align-items: flex-start;
       padding: clamp(1.6rem, 2vw, 3rem);
     }
 
-    #shopify-section-{{ section.id }} .editorial-rail__title {
+    #shopify-section-{{ section.id }} .editorial-rail__overlay-title--small {
+      font-size: clamp(1.4rem, 1.2vw, 1.8rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__overlay-title--medium {
+      font-size: clamp(1.7rem, 1.6vw, 2.6rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__overlay-title--large {
       font-size: clamp(2rem, 2.1vw, 3.6rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__overlay-title--xlarge {
+      font-size: clamp(2.4rem, 2.8vw, 4.6rem);
     }
 
     #shopify-section-{{ section.id }} .editorial-rail__cta {
       font-size: clamp(1.6rem, 1.5vw, 2.4rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__below--size-small {
+      font-size: 1.4rem;
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__below--size-medium {
+      font-size: clamp(1.5rem, 1.3vw, 1.8rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__below--size-large {
+      font-size: clamp(1.8rem, 1.8vw, 2.4rem);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-rail__below--size-xlarge {
+      font-size: clamp(2.1rem, 2.2vw, 3rem);
     }
   }
 
@@ -277,6 +386,16 @@
               assign card_image = block.settings.image_override
               assign card_title = block.settings.heading
               assign card_url = blank
+              assign card_price = blank
+              assign show_overlay_title = true
+              if block.settings.show_overlay_title == false
+                assign show_overlay_title = false
+              endif
+              assign show_below_content = block.settings.show_below_content
+              assign show_product_price = true
+              if block.settings.show_product_price == false
+                assign show_product_price = false
+              endif
 
               if block.type == 'collection_card'
                 assign card_resource = block.settings.collection
@@ -293,9 +412,36 @@
               if card_title == blank
                 assign card_title = card_resource.title
               endif
+              if card_title == blank
+                if block.type == 'product_card'
+                  assign card_title = 'Product'
+                else
+                  assign card_title = 'Collection'
+                endif
+              endif
               if card_resource != blank
                 assign card_url = card_resource.url
               endif
+
+              if block.type == 'product_card' and card_resource != blank
+                assign card_price = card_resource.price | money
+                if settings.currency_code_enabled
+                  assign card_price = card_resource.price | money_with_currency
+                endif
+                if card_resource.price_varies
+                  assign card_price = 'products.product.price.from_price_html' | t: price: card_price
+                endif
+              endif
+
+              assign overlay_text_color = block.settings.overlay_text_color | default: '#ffffff'
+              assign overlay_font_weight = block.settings.overlay_font_weight | default: '700'
+              assign overlay_text_alignment = block.settings.overlay_text_alignment | default: 'left'
+              assign below_text_color = block.settings.below_text_color
+              if below_text_color == blank
+                assign below_text_color = 'rgb(var(--color-foreground))'
+              endif
+              assign below_title_weight = block.settings.below_title_weight | default: '500'
+              assign below_alignment = block.settings.below_alignment | default: 'left'
 
               assign image_loading = 'lazy'
               assign image_fetchpriority = 'auto'
@@ -320,10 +466,17 @@
             <li
               id="Slide-EditorialRail-{{ section.id }}-{{ block.id }}"
               class="editorial-rail__item slider__slide"
+              style="--rail-overlay-color: {{ overlay_text_color }}; --rail-overlay-weight: {{ overlay_font_weight }}; --rail-overlay-alignment: {{ overlay_text_alignment }}; --rail-below-color: {{ below_text_color }}; --rail-below-weight: {{ below_title_weight }}; --rail-below-alignment: {{ below_alignment }};"
               {{ block.shopify_attributes }}
             >
               {%- if card_url != blank -%}
-                <a class="editorial-rail__card" href="{{ card_url }}">
+                <a
+                  class="editorial-rail__card"
+                  href="{{ card_url }}"
+                  {% unless show_overlay_title or show_below_content %}
+                    aria-label="{{ card_title | escape }}"
+                  {% endunless %}
+                >
               {%- else -%}
                 <div class="editorial-rail__card" aria-disabled="true">
               {%- endif -%}
@@ -344,22 +497,36 @@
                   {%- else -%}
                     {{ 'collection-1' | placeholder_svg_tag: 'editorial-rail__placeholder' }}
                   {%- endif -%}
-                </div>
 
-                <div class="editorial-rail__content">
-                  <p class="editorial-rail__title">
-                    {%- if card_title != blank -%}
-                      {{ card_title | escape }}
-                    {%- elsif block.type == 'product_card' -%}
-                      Product
-                    {%- else -%}
-                      Collection
-                    {%- endif -%}
-                  </p>
-                  {%- if block.settings.link_label != blank -%}
-                    <span class="editorial-rail__cta">{{ block.settings.link_label | escape }}</span>
+                  {%- if show_overlay_title or block.settings.link_label != blank -%}
+                    <div class="editorial-rail__overlay">
+                      {%- if show_overlay_title -%}
+                        <p
+                          class="editorial-rail__overlay-title editorial-rail__overlay-title--{{ block.settings.overlay_font | default: 'heading' }} editorial-rail__overlay-title--{{ block.settings.overlay_text_size | default: 'large' }}"
+                          {% if show_below_content %}
+                            aria-hidden="true"
+                          {% endif %}
+                        >
+                          {{ card_title | escape }}
+                        </p>
+                      {%- endif -%}
+                      {%- if block.settings.link_label != blank -%}
+                        <span class="editorial-rail__cta" aria-hidden="true">{{ block.settings.link_label | escape }}</span>
+                      {%- endif -%}
+                    </div>
                   {%- endif -%}
                 </div>
+
+                {%- if show_below_content -%}
+                  <div class="editorial-rail__below editorial-rail__below--{{ block.settings.below_font | default: 'body' }} editorial-rail__below--size-{{ block.settings.below_title_size | default: 'medium' }}">
+                    <p class="editorial-rail__below-title">
+                      {{ card_title | escape }}
+                    </p>
+                    {%- if block.type == 'product_card' and show_product_price and card_price != blank -%}
+                      <p class="editorial-rail__price">{{ card_price }}</p>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
 
               {%- if card_url != blank -%}
                 </a>
@@ -520,19 +687,22 @@
       "name": "Collection card",
       "settings": [
         {
+          "type": "header",
+          "content": "Resource"
+        },
+        {
           "type": "collection",
           "id": "collection",
           "label": "Collection"
         },
         {
-          "type": "image_picker",
-          "id": "image_override",
-          "label": "Image override"
+          "type": "header",
+          "content": "Content"
         },
         {
           "type": "text",
           "id": "heading",
-          "label": "Heading override",
+          "label": "Custom display title",
           "info": "Leave blank to use the collection title."
         },
         {
@@ -540,6 +710,137 @@
           "id": "link_label",
           "label": "CTA label",
           "info": "Optional. The whole card links to the selected collection."
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Image override"
+        },
+        {
+          "type": "header",
+          "content": "Overlay title"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay_title",
+          "label": "Show title over image",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "overlay_font",
+          "label": "Overlay font",
+          "options": [
+            { "value": "heading", "label": "Heading font" },
+            { "value": "body", "label": "Body font" }
+          ],
+          "default": "heading"
+        },
+        {
+          "type": "select",
+          "id": "overlay_text_size",
+          "label": "Overlay text size",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" },
+            { "value": "xlarge", "label": "Extra large" }
+          ],
+          "default": "large"
+        },
+        {
+          "type": "select",
+          "id": "overlay_font_weight",
+          "label": "Overlay font weight",
+          "options": [
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "700"
+        },
+        {
+          "type": "color",
+          "id": "overlay_text_color",
+          "label": "Overlay text colour",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "select",
+          "id": "overlay_text_alignment",
+          "label": "Overlay text alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Below image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_below_content",
+          "label": "Show content below image",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "below_font",
+          "label": "Below-image font",
+          "options": [
+            { "value": "heading", "label": "Heading font" },
+            { "value": "body", "label": "Body font" }
+          ],
+          "default": "body"
+        },
+        {
+          "type": "select",
+          "id": "below_title_size",
+          "label": "Below-image title size",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" },
+            { "value": "xlarge", "label": "Extra large" }
+          ],
+          "default": "medium"
+        },
+        {
+          "type": "select",
+          "id": "below_title_weight",
+          "label": "Below-image title weight",
+          "options": [
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "500"
+        },
+        {
+          "type": "color",
+          "id": "below_text_color",
+          "label": "Below-image text colour",
+          "info": "Leave blank to use the section text colour."
+        },
+        {
+          "type": "select",
+          "id": "below_alignment",
+          "label": "Below-image alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
         }
       ]
     },
@@ -548,19 +849,22 @@
       "name": "Product card",
       "settings": [
         {
+          "type": "header",
+          "content": "Resource"
+        },
+        {
           "type": "product",
           "id": "product",
           "label": "Product"
         },
         {
-          "type": "image_picker",
-          "id": "image_override",
-          "label": "Image override"
+          "type": "header",
+          "content": "Content"
         },
         {
           "type": "text",
           "id": "heading",
-          "label": "Heading override",
+          "label": "Custom display title",
           "info": "Leave blank to use the product title."
         },
         {
@@ -568,6 +872,147 @@
           "id": "link_label",
           "label": "CTA label",
           "info": "Optional. The whole card links to the selected product."
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Image override"
+        },
+        {
+          "type": "header",
+          "content": "Overlay title"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay_title",
+          "label": "Show title over image",
+          "default": true
+        },
+        {
+          "type": "select",
+          "id": "overlay_font",
+          "label": "Overlay font",
+          "options": [
+            { "value": "heading", "label": "Heading font" },
+            { "value": "body", "label": "Body font" }
+          ],
+          "default": "heading"
+        },
+        {
+          "type": "select",
+          "id": "overlay_text_size",
+          "label": "Overlay text size",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" },
+            { "value": "xlarge", "label": "Extra large" }
+          ],
+          "default": "large"
+        },
+        {
+          "type": "select",
+          "id": "overlay_font_weight",
+          "label": "Overlay font weight",
+          "options": [
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "700"
+        },
+        {
+          "type": "color",
+          "id": "overlay_text_color",
+          "label": "Overlay text colour",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "select",
+          "id": "overlay_text_alignment",
+          "label": "Overlay text alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Below image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_below_content",
+          "label": "Show content below image",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "below_font",
+          "label": "Below-image font",
+          "options": [
+            { "value": "heading", "label": "Heading font" },
+            { "value": "body", "label": "Body font" }
+          ],
+          "default": "body"
+        },
+        {
+          "type": "select",
+          "id": "below_title_size",
+          "label": "Below-image title size",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" },
+            { "value": "xlarge", "label": "Extra large" }
+          ],
+          "default": "medium"
+        },
+        {
+          "type": "select",
+          "id": "below_title_weight",
+          "label": "Below-image title weight",
+          "options": [
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semibold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "500"
+        },
+        {
+          "type": "color",
+          "id": "below_text_color",
+          "label": "Below-image text colour",
+          "info": "Leave blank to use the section text colour."
+        },
+        {
+          "type": "select",
+          "id": "below_alignment",
+          "label": "Below-image alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Product only"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_product_price",
+          "label": "Show product price",
+          "default": true
         }
       ]
     }
