@@ -236,10 +236,14 @@ Renders the cart drawer.
   }
 
   .cart-upsell-options__submit {
+    --buttons-radius: var(--cart-upsell-button-radius, 6px);
+    --buttons-radius-outset: var(--cart-upsell-button-radius, 6px);
     min-height: 4.8rem;
   }
 
   .cart-upsell-options__details-link {
+    --buttons-radius: var(--cart-upsell-button-radius, 6px);
+    --buttons-radius-outset: var(--cart-upsell-button-radius, 6px);
     min-height: 4.8rem;
     width: 100%;
   }
@@ -294,6 +298,7 @@ Renders the cart drawer.
   data-type="modal"
   {% if product_upsells_block != blank %}
     data-product-upsells-enabled="true"
+    style="--cart-upsell-button-radius: {{ product_upsells_block.settings.button_radius | default: 6 }}px;"
   {% endif %}
 >
   <div id="CartDrawer" class="cart-drawer">
