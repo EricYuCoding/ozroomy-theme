@@ -1,9 +1,9 @@
-{% comment %}
-  Renders cart drawer
+{% doc %}
+Renders the cart drawer.
 
-  Usage:
-  {% render 'cart-drawer' %}
-{% endcomment %}
+@example
+{% render 'cart-drawer' %}
+{% enddoc %}
 {% liquid
   assign currency = cart.currency.iso_code
   assign currencySymbol = ""
@@ -20,6 +20,8 @@
     when 'HKD'
       assign currencySymbol = "HKD"
   endcase
+
+  assign product_upsells_block = section.blocks | find: 'type', 'product_specific_upsells'
  %}
 
 <style>
@@ -41,9 +43,209 @@
       background: {{ section.settings.footer_bg_color }};
     }
   {% endif %}
+
+  {% if product_upsells_block != blank %}
+  cart-drawer.is-upsell-options .cart-drawer__body,
+  cart-drawer.is-upsell-options .drawer__footer {
+    display: none;
+  }
+
+  .cart-upsell-options-view {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0 1.5rem max(2rem, env(safe-area-inset-bottom));
+  }
+
+  .cart-upsell-options-view__header {
+    align-items: center;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-block: 1rem;
+  }
+
+  .cart-upsell-options-view__back {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: currentColor;
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    min-height: 4.4rem;
+    padding: 0.8rem 0;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+  }
+
+  .cart-upsell-options-view__heading {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .cart-upsell-options-view__status {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    min-height: 12rem;
+    text-align: center;
+  }
+
+  .cart-upsell-options__product {
+    display: grid;
+    gap: 1.6rem;
+    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+  }
+
+  .cart-upsell-options__media {
+    align-self: start;
+    aspect-ratio: 1;
+    background: rgba(var(--color-foreground), 0.04);
+    overflow: hidden;
+  }
+
+  .cart-upsell-options__image,
+  .cart-upsell-options__placeholder {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .cart-upsell-options__summary {
+    min-width: 0;
+  }
+
+  .cart-upsell-options__title {
+    font-family: var(--font-heading-family);
+    font-size: 2rem;
+    line-height: 1.25;
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .cart-upsell-options__description {
+    font-size: 1.3rem;
+    line-height: 1.45;
+    margin: 0.8rem 0 0;
+  }
+
+  .cart-upsell-options__price {
+    margin-top: 1rem;
+  }
+
+  .cart-upsell-options__variants {
+    display: grid;
+    gap: 1.8rem;
+    margin-top: 2.4rem;
+  }
+
+  .cart-upsell-options__fieldset {
+    border: 0;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .cart-upsell-options__legend {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+  }
+
+  .cart-upsell-options__values {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .cart-upsell-options__value {
+    align-items: center;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.35);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    min-height: 4.4rem;
+    min-width: 4.4rem;
+    padding: 0.8rem 1.2rem;
+  }
+
+  .cart-upsell-options__value--swatch {
+    border-radius: 50%;
+    padding: 0.4rem;
+  }
+
+  .cart-upsell-options__swatch {
+    background: var(--swatch-color);
+    border-radius: 50%;
+    display: block;
+    height: 3.2rem;
+    width: 3.2rem;
+  }
+
+  .cart-upsell-options__swatch--image {
+    background-image: var(--swatch-image);
+    background-position: center;
+    background-size: cover;
+  }
+
+  .cart-upsell-options__input:checked + .cart-upsell-options__value {
+    box-shadow: 0 0 0 0.2rem rgb(var(--color-foreground));
+  }
+
+  .cart-upsell-options__input:focus-visible + .cart-upsell-options__value {
+    outline: 0.2rem solid currentColor;
+    outline-offset: 0.3rem;
+  }
+
+  .cart-upsell-options__input:disabled + .cart-upsell-options__value {
+    cursor: not-allowed;
+    opacity: 0.45;
+    text-decoration: line-through;
+  }
+
+  .cart-upsell-options .product-form {
+    margin-top: 2.4rem;
+  }
+
+  .cart-upsell-options__submit {
+    min-height: 4.8rem;
+  }
+
+  .cart-upsell-options__details-link {
+    display: inline-flex;
+    margin-top: 1.6rem;
+    min-height: 4.4rem;
+    padding-block: 1rem;
+    text-underline-offset: 0.3rem;
+  }
+
+  @media screen and (min-width: 500px) {
+    .cart-upsell-options-view {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cart-upsell-options-view *,
+    .cart-product-upsells * {
+      scroll-behavior: auto;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  {% endif %}
 </style>
 
-<cart-drawer class="drawer{% if cart == empty %} is-empty{% endif %}{% if section.settings.test_mode %} active{% endif %} cart-drawer--desktop-width-{{ section.settings.desktop_width }} cart-drawer--mobile-width-{{ section.settings.mobile_width }}" data-type='modal'>
+<cart-drawer
+  class="drawer{% if cart == empty %} is-empty{% endif %}{% if section.settings.test_mode %} active{% endif %} cart-drawer--desktop-width-{{ section.settings.desktop_width }} cart-drawer--mobile-width-{{ section.settings.mobile_width }}"
+  data-type="modal"
+  {% if product_upsells_block != blank %}
+    data-product-upsells-enabled="true"
+  {% endif %}
+>
   <div id="CartDrawer" class="cart-drawer">
     <div id="CartDrawer-Overlay" class="cart-drawer__overlay"></div>
     <div
@@ -494,6 +696,8 @@
                   {% render 'upsell-block', block: block, type: 'cart-drawer' %}
                 {% endif %}
               {% endif %}
+            {% when 'product_specific_upsells' %}
+              {% render 'cart-product-upsells', block: block %}
             {% when 'gift' %}
               {% if block.settings.position == 'body' %}
                 {% liquid
@@ -787,6 +991,21 @@
         {% endfor %}
         <!-- end footer -->
       </div>
+      {% if product_upsells_block != blank %}
+        <div class="cart-upsell-options-view" data-cart-upsell-options-view hidden aria-hidden="true">
+          <div class="cart-upsell-options-view__header">
+            <button type="button" class="cart-upsell-options-view__back" data-cart-upsell-back>
+              Back
+            </button>
+            <h2 class="cart-upsell-options-view__heading" data-cart-upsell-options-heading tabindex="-1">
+              Choose options
+            </h2>
+          </div>
+          <div data-cart-upsell-options-content>
+            <p class="cart-upsell-options-view__status" role="status">Loading options...</p>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 </cart-drawer>

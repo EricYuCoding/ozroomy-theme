@@ -888,17 +888,26 @@ class CartDrawer extends HTMLElement {
     super(),
       (this["upsellHandles"] = this["getUpsellHandles"]()),
       this[_0x6cfe32(0x429)](),
-      this[_0x6cfe32(0x499)](
-        "keyup",
-        (_0x35b222) =>
-          _0x35b222[_0x6cfe32(0x34c)] === _0x6cfe32(0x3eb) &&
-          this[_0x6cfe32(0x3df)]()
-      ),
+      this[_0x6cfe32(0x499)]("keyup", (_0x35b222) => {
+        if (_0x35b222.code !== "Escape") return;
+        if (this.classList.contains("is-upsell-options")) {
+          _0x35b222.stopPropagation();
+          this.closeUpsellOptions();
+          return;
+        }
+        this.close();
+      }),
       this["querySelector"](_0x6cfe32(0x1fd))[_0x6cfe32(0x499)](
         _0x6cfe32(0x20d),
         this[_0x6cfe32(0x3df)]["bind"](this)
       ),
       this[_0x6cfe32(0x478)]();
+    if (this.dataset.productUpsellsEnabled === "true") {
+      this.upsellOptionsCache = new Map();
+      this.lastAddedProductId = null;
+      this.upsellOptionsTrigger = null;
+      this.addEventListener("click", this.handleProductUpsellClick.bind(this));
+    }
   }
   [a0_0x5cI9e6f(0x478)]() {
     const _0x3a17bf = a0_0x5cI9e6f,
@@ -953,6 +962,7 @@ class CartDrawer extends HTMLElement {
   }
   ["close"]() {
     const _0x7e9d3f = a0_0x5cI9e6f;
+    this.closeUpsellOptions({ restoreFocus: false });
     this[_0x7e9d3f(0x205)][_0x7e9d3f(0x38b)](_0x7e9d3f(0x1f9)),
       removeTrapFocus(this[_0x7e9d3f(0x467)]),
       document[_0x7e9d3f(0x2cd)][_0x7e9d3f(0x205)]["remove"](_0x7e9d3f(0x3ea));
@@ -1024,6 +1034,8 @@ class CartDrawer extends HTMLElement {
   }
   [a0_0x5cI9e6f(0x219)](_0x10a603, _0x1ec4bd = ![]) {
     const _0x515ce9 = a0_0x5cI9e6f;
+    this.captureLastAddedProduct(_0x10a603);
+    this.closeUpsellOptions({ restoreFocus: false });
     this[_0x515ce9(0x309)](_0x515ce9(0x251))[_0x515ce9(0x205)][
       _0x515ce9(0x4c5)
     ](_0x515ce9(0x29d)) &&
@@ -1067,7 +1079,14 @@ class CartDrawer extends HTMLElement {
         _0x4b9ffe(0x20d),
         this[_0x4b9ffe(0x3df)][_0x4b9ffe(0x216)](this)
       );
-      if (_0x1ec4bd) return;
+      if (_0x1ec4bd) {
+        const _0x3b75a1 = this.querySelector(".drawer__heading");
+        if (_0x3b75a1) {
+          _0x3b75a1.setAttribute("tabindex", "-1");
+          trapFocus(this.querySelector(".drawer__inner"), _0x3b75a1);
+        }
+        return;
+      }
       this[_0x4b9ffe(0x4ac)]();
     });
   }
@@ -1098,11 +1117,275 @@ class CartDrawer extends HTMLElement {
       [_0x14415d(0x46a)](_0x24d259, _0x14415d(0x347))
       [_0x14415d(0x309)](_0x328298);
   }
+  captureLastAddedProduct(response) {
+    const addedItem =
+      response && Array.isArray(response.items) ? response.items[0] : response;
+    if (addedItem && addedItem.product_id) {
+      this.lastAddedProductId = String(addedItem.product_id);
+    }
+  }
+  handleProductUpsellClick(event) {
+    const backButton = event.target.closest("[data-cart-upsell-back]");
+    if (backButton) {
+      event.preventDefault();
+      this.closeUpsellOptions();
+      return;
+    }
+
+    const retryButton = event.target.closest("[data-cart-upsell-retry]");
+    if (retryButton && this.upsellOptionsTrigger) {
+      event.preventDefault();
+      this.openUpsellOptions(this.upsellOptionsTrigger);
+      return;
+    }
+
+    const optionsButton = event.target.closest("[data-cart-upsell-options-url]");
+    if (!optionsButton) return;
+    event.preventDefault();
+    this.openUpsellOptions(optionsButton);
+  }
+  async openUpsellOptions(trigger) {
+    const view = this.querySelector("[data-cart-upsell-options-view]");
+    const content = this.querySelector("[data-cart-upsell-options-content]");
+    const heading = this.querySelector("[data-cart-upsell-options-heading]");
+    if (!view || !content || !heading) return;
+
+    this.upsellOptionsTrigger = trigger;
+    this.classList.add("is-upsell-options");
+    view.hidden = false;
+    view.setAttribute("aria-hidden", "false");
+    trapFocus(this.querySelector(".drawer__inner"), heading);
+
+    const productId = trigger.dataset.cartUpsellProductId;
+    const cachedMarkup = this.upsellOptionsCache.get(productId);
+    if (cachedMarkup) {
+      content.innerHTML = cachedMarkup;
+      this.prepareUpsellOptions(content, trigger);
+      return;
+    }
+
+    content.innerHTML =
+      '<p class="cart-upsell-options-view__status" role="status">Loading options...</p>';
+
+    try {
+      const response = await fetch(trigger.dataset.cartUpsellOptionsUrl, {
+        headers: { "X-Requested-With": "XMLHttpRequest" },
+      });
+      if (!response.ok) throw new Error("Unable to load product options.");
+
+      const html = await response.text();
+      const fragment = new DOMParser()
+        .parseFromString(html, "text/html")
+        .querySelector("#CartUpsellOptions");
+      if (!fragment) throw new Error("Product options were not returned.");
+
+      const markup = fragment.outerHTML;
+      this.upsellOptionsCache.set(productId, markup);
+      view.dataset.responseBytes = String(new Blob([html]).size);
+      content.innerHTML = markup;
+      this.prepareUpsellOptions(content, trigger);
+    } catch (error) {
+      content.innerHTML =
+        '<div class="cart-upsell-options-view__status" role="alert"><div><p>Options could not be loaded.</p><button type="button" class="button button--secondary" data-cart-upsell-retry>Try again</button></div></div>';
+      trapFocus(this.querySelector(".drawer__inner"), heading);
+    }
+  }
+  prepareUpsellOptions(content, trigger) {
+    const description = content.querySelector("[data-cart-upsell-description]");
+    if (description && trigger.dataset.showDescription !== "true") {
+      description.hidden = true;
+    }
+    const heading = this.querySelector("[data-cart-upsell-options-heading]");
+    if (heading) {
+      trapFocus(this.querySelector(".drawer__inner"), heading);
+    }
+  }
+  closeUpsellOptions({ restoreFocus = true } = {}) {
+    const view = this.querySelector("[data-cart-upsell-options-view]");
+    this.classList.remove("is-upsell-options");
+    if (view) {
+      view.hidden = true;
+      view.setAttribute("aria-hidden", "true");
+    }
+    if (
+      restoreFocus &&
+      this.upsellOptionsTrigger &&
+      this.upsellOptionsTrigger.isConnected
+    ) {
+      trapFocus(
+        this.querySelector(".drawer__inner"),
+        this.upsellOptionsTrigger
+      );
+    }
+  }
+  activateProductUpsells(upsells = this.querySelector("cart-product-upsells")) {
+    if (!upsells) return;
+    const groups = Array.from(
+      upsells.querySelectorAll("[data-upsell-source]")
+    );
+    if (!groups.length) {
+      upsells.hidden = true;
+      return;
+    }
+
+    let activeGroup = null;
+    if (this.lastAddedProductId) {
+      activeGroup = groups.find(
+        (group) => group.dataset.upsellSource === this.lastAddedProductId
+      );
+      if (!activeGroup) {
+        activeGroup = groups.find(
+          (group) => group.dataset.upsellSource === "fallback"
+        );
+      }
+    }
+    if (!activeGroup) {
+      activeGroup =
+        groups.find((group) => group.dataset.upsellSource !== "fallback") ||
+        groups[0];
+    }
+
+    groups.forEach((group) => {
+      const isActive = group === activeGroup;
+      group.hidden = !isActive;
+      group.toggleAttribute("data-active", isActive);
+    });
+    activeGroup.querySelectorAll("img[data-src]").forEach((image) => {
+      image.src = image.dataset.src;
+      image.removeAttribute("data-src");
+    });
+    upsells.hidden = false;
+  }
   [a0_0x5cI9e6f(0x3c4)](_0x27a92c) {
     this["activeElement"] = _0x27a92c;
   }
 }
 customElements[a0_0x5cI9e6f(0x418)](a0_0x5cI9e6f(0x2c0), CartDrawer);
+class CartProductUpsells extends HTMLElement {
+  connectedCallback() {
+    const drawer = this.closest("cart-drawer");
+    if (drawer && drawer.activateProductUpsells) {
+      drawer.activateProductUpsells(this);
+    }
+  }
+}
+customElements.define("cart-product-upsells", CartProductUpsells);
+class CartUpsellVariantSelector extends HTMLElement {
+  connectedCallback() {
+    if (this.initialized) return;
+    this.initialized = true;
+    this.variantData = JSON.parse(
+      this.querySelector("[data-cart-upsell-variants]").textContent
+    );
+    this.fieldsets = Array.from(
+      this.querySelectorAll("[data-option-position]")
+    );
+    this.addEventListener("change", (event) => {
+      if (!event.target.matches(".cart-upsell-options__input")) return;
+      this.updateVariant();
+    });
+    this.updateVariant();
+  }
+  getSelectedOptions() {
+    return this.fieldsets.map((fieldset) => {
+      const checked = fieldset.querySelector("input:checked");
+      return checked ? checked.value : null;
+    });
+  }
+  updateVariant() {
+    const selectedOptions = this.getSelectedOptions();
+    const variant = this.variantData.find((candidate) =>
+      candidate.options.every(
+        (option, index) => option === selectedOptions[index]
+      )
+    );
+    this.updateOptionAvailability(selectedOptions);
+    this.updateSelectionLabels(selectedOptions);
+    this.updateProductState(variant);
+  }
+  updateOptionAvailability(selectedOptions) {
+    this.fieldsets.forEach((fieldset, optionIndex) => {
+      fieldset
+        .querySelectorAll(".cart-upsell-options__input")
+        .forEach((input) => {
+          const available = this.variantData.some((variant) => {
+            if (!variant.available || variant.options[optionIndex] !== input.value) {
+              return false;
+            }
+            return variant.options
+              .slice(0, optionIndex)
+              .every((value, index) => value === selectedOptions[index]);
+          });
+          input.disabled = !available;
+          input.setAttribute("aria-disabled", String(!available));
+          const unavailableLabel = input.nextElementSibling.querySelector(
+            "[data-unavailable-option]"
+          );
+          if (unavailableLabel) unavailableLabel.hidden = available;
+        });
+    });
+  }
+  updateSelectionLabels(selectedOptions) {
+    this.fieldsets.forEach((fieldset, index) => {
+      const label = fieldset.querySelector("[data-selected-option]");
+      if (label) label.textContent = selectedOptions[index] || "";
+    });
+  }
+  updateProductState(variant) {
+    const idInput = this.querySelector("[data-cart-upsell-variant-id]");
+    const quantityInput = this.querySelector("[data-cart-upsell-quantity]");
+    const submitButton = this.querySelector("[data-cart-upsell-submit]");
+    const submitLabel = this.querySelector("[data-cart-upsell-submit-label]");
+    const availability = this.querySelector("[data-cart-upsell-availability]");
+    const image = this.querySelector("[data-cart-upsell-image]");
+
+    if (variant) {
+      idInput.value = variant.id;
+      quantityInput.value = variant.minimum_quantity || 1;
+      this.updatePrice(variant);
+      if (image && variant.featured_image) {
+        image.src = variant.featured_image;
+        image.alt = variant.featured_image_alt || "";
+      }
+    }
+
+    const available = Boolean(variant && variant.available);
+    submitButton.disabled = !available;
+    submitButton.setAttribute("aria-disabled", String(!available));
+    if (available) {
+      submitLabel.textContent = this.dataset.addLabel;
+      availability.textContent = "";
+    } else if (variant) {
+      submitLabel.textContent = this.dataset.soldOutLabel;
+      availability.textContent = this.dataset.soldOutLabel;
+    } else {
+      idInput.value = "";
+      submitLabel.textContent = this.dataset.unavailableLabel;
+      availability.textContent = this.dataset.unavailableLabel;
+    }
+  }
+  updatePrice(variant) {
+    const priceContainer = this.querySelector("[data-cart-upsell-price]");
+    if (!priceContainer) return;
+    priceContainer.replaceChildren();
+
+    const price = document.createElement("span");
+    price.className = "price-item price-item--regular";
+    price.textContent = variant.formatted_price;
+    priceContainer.appendChild(price);
+
+    if (
+      variant.compare_at_price &&
+      variant.compare_at_price > variant.price
+    ) {
+      const comparePrice = document.createElement("s");
+      comparePrice.className = "price-item price-item--regular";
+      comparePrice.textContent = variant.formatted_compare_at_price;
+      priceContainer.prepend(comparePrice);
+    }
+  }
+}
+customElements.define("cart-upsell-variant-selector", CartUpsellVariantSelector);
 class CartDrawerItems extends CartItems {
   constructor() {
     const _0x465533 = a0_0x5cI9e6f;
