@@ -97,3 +97,19 @@ Desktop at 1024/1440px: inspect the homepage banner, then use Customize to toggl
 Mobile at 320/375/390/430px and a short viewport: check banner wrapping, swatch wrapping, absence of horizontal overflow, body scrolling, usable Total/Checkout in normal state, option Add control and Back/Close. Current catalogue fallback products are multi-variant; direct Add was logic-tested but requires a single-variant available product configured for human review.
 
 Production is not published; dev is not merged to main; metafield creation and product-specific mappings remain merchant tasks. Next action: open the review preview, run the short checks, and report any issues before requesting production promotion.
+
+## Cart upsell UI polish — 2026-10-05
+
+The focused `fix/cart-upsell-ui-polish` pass preserves the existing recommendation, cart Ajax, compact section, cache and local variant-selection architecture. No JavaScript or request path changed.
+
+- Replaced the fragile 400px-drawer three-column card with a two-column image/content grid and a full-width action below the content. The 500px drawer promotes the action to a third column through a container query only when the component has enough space.
+- Removed forced `overflow-wrap: anywhere`; titles now use normal word breaking, and every flexible grid/action column has a safe minimum width.
+- Added narrower 320px card and options rules, wrapped option values, constrained media, and explicit horizontal overflow protection.
+- Refined the internal options state with a Cart back label, clearer heading hierarchy, bordered product summary, separated option groups, and paired action buttons on desktop/full-width actions on mobile.
+- Added **Button corner radius** to the Product-specific upsells block: 0–30px, default 6px. It controls the normal-cart CTA, options Add to cart, and View full details buttons through a scoped CSS variable.
+
+The existing unpublished review theme `145495195882` was updated in place. Its review-only block explicitly uses a 6px radius. Server-render checks confirmed both fallback products, the radius variable, refined options markup, compiled stable-grid CSS and no Liquid errors. The compact Maxi Cushion response measured 26,073 uncompressed UTF-8 bytes after the markup refinement.
+
+Theme Check remains at the historical 83 errors / 174 warnings, with no new errors or warnings from this pass. JavaScript syntax, schema/JSON parsing, balanced edited markup and `git diff --check` pass. The bundled Liquid validation helper could not run because its own `@shopify/theme-check-common` dependency is absent; the installed Shopify CLI Theme Check supplied the Liquid/schema validation instead.
+
+No browser was connected, so the responsive layout and interaction remain code-level/server-render verified rather than visually approved. Human review should inspect 1280/1440px desktop and 320/375/390/430px mobile widths, long product titles, swatch wrapping, both option-state actions, Back/Escape/Close, focus, quantity/subtotal and checkout controls.
