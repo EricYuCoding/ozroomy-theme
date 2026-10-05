@@ -51,20 +51,22 @@ Renders the cart drawer.
   }
 
   .cart-upsell-options-view {
+    background: rgb(var(--color-background));
     flex: 1 1 auto;
     min-height: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 0 1.5rem max(2rem, env(safe-area-inset-bottom));
+    padding: 0 1.5rem max(2.4rem, env(safe-area-inset-bottom));
   }
 
   .cart-upsell-options-view__header {
     align-items: center;
     border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.12);
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding-block: 1rem;
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: auto minmax(0, 1fr);
+    margin-bottom: 2.4rem;
+    padding-block: 1.2rem;
   }
 
   .cart-upsell-options-view__back {
@@ -75,15 +77,19 @@ Renders the cart drawer.
     cursor: pointer;
     display: inline-flex;
     font: inherit;
+    font-size: 1.35rem;
+    gap: 0.5rem;
     min-height: 4.4rem;
-    padding: 0.8rem 0;
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
+    padding: 0.8rem 0.4rem 0.8rem 0;
+    text-decoration: none;
   }
 
   .cart-upsell-options-view__heading {
-    font-size: 1.8rem;
+    font-family: var(--font-heading-family);
+    font-size: 2.1rem;
+    line-height: 1.2;
     margin: 0;
+    min-width: 0;
   }
 
   .cart-upsell-options-view__status {
@@ -95,9 +101,13 @@ Renders the cart drawer.
   }
 
   .cart-upsell-options__product {
+    align-items: start;
+    background: rgba(var(--color-foreground), 0.025);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
     display: grid;
-    gap: 1.6rem;
-    grid-template-columns: minmax(0, 12rem) minmax(0, 1fr);
+    gap: 1.4rem;
+    grid-template-columns: 9.6rem minmax(0, 1fr);
+    padding: 1.2rem;
   }
 
   .cart-upsell-options__media {
@@ -105,6 +115,7 @@ Renders the cart drawer.
     aspect-ratio: 1;
     background: rgba(var(--color-foreground), 0.04);
     overflow: hidden;
+    width: 100%;
   }
 
   .cart-upsell-options__image,
@@ -121,26 +132,29 @@ Renders the cart drawer.
 
   .cart-upsell-options__title {
     font-family: var(--font-heading-family);
-    font-size: 2rem;
-    line-height: 1.25;
+    font-size: 1.9rem;
+    line-height: 1.2;
     margin: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .cart-upsell-options__description {
     font-size: 1.3rem;
     line-height: 1.45;
-    margin: 0.8rem 0 0;
+    margin: 0.7rem 0 0;
   }
 
   .cart-upsell-options__price {
-    margin-top: 1rem;
+    margin-top: 0.8rem;
   }
 
   .cart-upsell-options__variants {
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.12);
     display: grid;
     gap: 1.8rem;
-    margin-top: 2.4rem;
+    margin-top: 2.6rem;
+    padding-top: 2.2rem;
   }
 
   .cart-upsell-options__fieldset {
@@ -171,6 +185,7 @@ Renders the cart drawer.
     min-height: 4.4rem;
     min-width: 4.4rem;
     padding: 0.8rem 1.2rem;
+    white-space: normal;
   }
 
   .cart-upsell-options__value--swatch {
@@ -207,8 +222,17 @@ Renders the cart drawer.
     text-decoration: line-through;
   }
 
-  .cart-upsell-options .product-form {
-    margin-top: 2.4rem;
+  .cart-upsell-options__actions {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2.8rem;
+  }
+
+  .cart-upsell-options__actions .product-form,
+  .cart-upsell-options__actions .form {
+    display: block;
+    margin: 0;
+    width: 100%;
   }
 
   .cart-upsell-options__submit {
@@ -216,16 +240,42 @@ Renders the cart drawer.
   }
 
   .cart-upsell-options__details-link {
-    display: inline-flex;
-    margin-top: 1.6rem;
-    min-height: 4.4rem;
-    padding-block: 1rem;
-    text-underline-offset: 0.3rem;
+    min-height: 4.8rem;
+    width: 100%;
   }
 
   @media screen and (min-width: 500px) {
     .cart-upsell-options-view {
-      padding-inline: 2rem;
+      padding-inline: 2.4rem;
+    }
+
+    .cart-upsell-options__product {
+      gap: 1.8rem;
+      grid-template-columns: 13.6rem minmax(0, 1fr);
+      padding: 1.6rem;
+    }
+
+    .cart-upsell-options__title {
+      font-size: 2.2rem;
+    }
+
+    .cart-upsell-options__actions {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+
+    .cart-upsell-options__details-link {
+      grid-column: 2;
+    }
+  }
+
+  @media screen and (max-width: 374px) {
+    .cart-upsell-options__product {
+      grid-template-columns: 8rem minmax(0, 1fr);
+      padding: 1rem;
+    }
+
+    .cart-upsell-options__title {
+      font-size: 1.7rem;
     }
   }
 
@@ -995,10 +1045,11 @@ Renders the cart drawer.
         <div class="cart-upsell-options-view" data-cart-upsell-options-view hidden aria-hidden="true">
           <div class="cart-upsell-options-view__header">
             <button type="button" class="cart-upsell-options-view__back" data-cart-upsell-back>
-              Back
+              <span aria-hidden="true">←</span>
+              <span>{{ 'sections.cart.title' | t }}</span>
             </button>
             <h2 class="cart-upsell-options-view__heading" data-cart-upsell-options-heading tabindex="-1">
-              Choose options
+              {{ 'products.product.choose_options' | t }}
             </h2>
           </div>
           <div data-cart-upsell-options-content>

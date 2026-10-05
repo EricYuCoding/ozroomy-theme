@@ -243,42 +243,43 @@ Renders product-specific cart drawer recommendations with a global fallback.
 {% stylesheet %}
   .cart-product-upsells {
     border-top: 0.1rem solid rgba(var(--color-foreground), 0.16);
+    container-name: cart-product-upsells;
+    container-type: inline-size;
     display: block;
-    margin: 2rem 1.5rem 0;
-    padding-top: 2rem;
+    margin-top: 2.4rem;
+    padding-top: 2.2rem;
   }
 
   .cart-product-upsells__heading {
     font-family: var(--font-heading-family);
-    font-size: 1.8rem;
-    line-height: 1.25;
-    margin: 0 0 1.4rem;
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 0 0 1.6rem;
   }
 
   .cart-product-upsells__group {
     display: grid;
-    gap: 1.2rem;
+    gap: 1.4rem;
   }
 
   .cart-product-upsells__card {
-    align-items: center;
+    align-items: start;
+    background: rgba(var(--color-foreground), 0.025);
+    border: 0.1rem solid rgba(var(--color-foreground), 0.12);
     display: grid;
-    gap: 1.2rem;
-    grid-template-columns: 7.2rem minmax(0, 1fr);
-    padding-bottom: 1.2rem;
-  }
-
-  .cart-product-upsells__card + .cart-product-upsells__card {
-    border-top: 0.1rem solid rgba(var(--color-foreground), 0.1);
-    padding-top: 1.2rem;
+    gap: 1rem 1.4rem;
+    grid-template-columns: 7.6rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    padding: 1.2rem;
   }
 
   .cart-product-upsells__media {
-    align-self: start;
     aspect-ratio: 1;
     background: rgba(var(--color-foreground), 0.04);
+    grid-column: 1;
     grid-row: span 2;
     overflow: hidden;
+    width: 100%;
   }
 
   .cart-product-upsells__image,
@@ -290,18 +291,22 @@ Renders product-specific cart drawer recommendations with a global fallback.
   }
 
   .cart-product-upsells__details {
+    align-self: center;
+    grid-column: 2;
     min-width: 0;
   }
 
   .cart-product-upsells__title,
   .cart-product-upsells__description {
     margin: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .cart-product-upsells__title {
-    font-size: 1.5rem;
-    line-height: 1.3;
+    font-family: var(--font-heading-family);
+    font-size: 1.55rem;
+    line-height: 1.25;
   }
 
   .cart-product-upsells__description {
@@ -311,19 +316,28 @@ Renders product-specific cart drawer recommendations with a global fallback.
   }
 
   .cart-product-upsells__price .price {
-    font-size: 1.3rem;
-    margin-top: 0.4rem;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-top: 0.6rem;
   }
 
   .cart-product-upsells__action {
+    align-self: end;
     grid-column: 2;
+    min-width: 0;
   }
 
   .cart-product-upsells__button {
     min-height: 4.4rem;
-    min-width: 12rem;
+    min-width: 0;
     padding: 0.8rem 1.4rem;
-    width: auto;
+    width: 100%;
+  }
+
+  .cart-product-upsells__action product-form,
+  .cart-product-upsells__action .form {
+    display: block;
+    width: 100%;
   }
 
   .cart-product-upsells .product-form__error-message-wrapper:not([hidden]) {
@@ -331,21 +345,42 @@ Renders product-specific cart drawer recommendations with a global fallback.
     margin-bottom: 0.6rem;
   }
 
-  @media screen and (min-width: 500px) {
-    .cart-product-upsells {
-      margin-inline: 2rem;
-    }
-
+  @container cart-product-upsells (min-width: 42rem) {
     .cart-product-upsells__card {
-      grid-template-columns: 8rem minmax(0, 1fr) auto;
+      align-items: center;
+      grid-template-columns: 8.8rem minmax(12rem, 1fr) minmax(11rem, auto);
+      grid-template-rows: auto;
+      padding: 1.4rem;
     }
 
     .cart-product-upsells__media {
+      grid-column: 1;
       grid-row: auto;
     }
 
+    .cart-product-upsells__details {
+      grid-column: 2;
+    }
+
     .cart-product-upsells__action {
-      grid-column: auto;
+      grid-column: 3;
+      min-width: 11rem;
+    }
+
+    .cart-product-upsells__button {
+      width: auto;
+    }
+  }
+
+  @media screen and (max-width: 374px) {
+    .cart-product-upsells__card {
+      gap: 1rem 1.2rem;
+      grid-template-columns: 6.8rem minmax(0, 1fr);
+      padding: 1rem;
+    }
+
+    .cart-product-upsells__button {
+      padding-inline: 1rem;
     }
   }
 {% endstylesheet %}

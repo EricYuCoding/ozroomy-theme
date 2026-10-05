@@ -91,58 +91,60 @@
 
       <p class="cart-upsell-options__availability visually-hidden" role="status" aria-live="polite" data-cart-upsell-availability></p>
 
-      <product-form data-is-cart-upsell="true" data-section="cart-upsell-options-{{ product.id }}">
-        <div class="product-form__error-message-wrapper" role="alert" hidden>
-          <span class="product-form__error-message"></span>
-        </div>
-        {%- form 'product',
-          product,
-          id: product_form_id,
-          class: 'form',
-          novalidate: 'novalidate',
-          data-type: 'add-to-cart-form'
-        -%}
-          <input
-            type="hidden"
-            name="id"
-            value="{{ selected_variant.id }}"
-            class="product-variant-id"
-            data-cart-upsell-variant-id
-          >
-          <input
-            type="hidden"
-            name="quantity"
-            value="{{ selected_variant.quantity_rule.min | default: 1 }}"
-            data-cart-upsell-quantity
-          >
-          <button
-            type="submit"
-            name="add"
-            class="cart-upsell-options__submit product-form__submit button button--full-width button--has-spinner"
-            data-cart-upsell-submit
-            {% unless selected_variant.available %}
-              disabled
-            {% endunless %}
-          >
-            <span data-cart-upsell-submit-label>
-              {%- if selected_variant.available -%}
-                {{ 'products.product.add_to_cart' | t }}
-              {%- else -%}
-                {{ 'products.product.sold_out' | t }}
-              {%- endif -%}
-            </span>
-            <span class="loading-overlay__spinner hidden">
-              <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66">
-                <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-              </svg>
-            </span>
-          </button>
-        {%- endform -%}
-      </product-form>
+      <div class="cart-upsell-options__actions">
+        <product-form data-is-cart-upsell="true" data-section="cart-upsell-options-{{ product.id }}">
+          <div class="product-form__error-message-wrapper" role="alert" hidden>
+            <span class="product-form__error-message"></span>
+          </div>
+          {%- form 'product',
+            product,
+            id: product_form_id,
+            class: 'form',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart-form'
+          -%}
+            <input
+              type="hidden"
+              name="id"
+              value="{{ selected_variant.id }}"
+              class="product-variant-id"
+              data-cart-upsell-variant-id
+            >
+            <input
+              type="hidden"
+              name="quantity"
+              value="{{ selected_variant.quantity_rule.min | default: 1 }}"
+              data-cart-upsell-quantity
+            >
+            <button
+              type="submit"
+              name="add"
+              class="cart-upsell-options__submit product-form__submit button button--full-width button--has-spinner"
+              data-cart-upsell-submit
+              {% unless selected_variant.available %}
+                disabled
+              {% endunless %}
+            >
+              <span data-cart-upsell-submit-label>
+                {%- if selected_variant.available -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- endif -%}
+              </span>
+              <span class="loading-overlay__spinner hidden">
+                <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66">
+                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </span>
+            </button>
+          {%- endform -%}
+        </product-form>
 
-      <a class="cart-upsell-options__details-link" href="{{ product.url }}">
-        View full details
-      </a>
+        <a class="cart-upsell-options__details-link button button--secondary" href="{{ product.url }}">
+          {{ 'products.product.view_full_details' | t }}
+        </a>
+      </div>
 
       <script type="application/json" data-cart-upsell-variants>
         [
