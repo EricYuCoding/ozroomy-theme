@@ -1,0 +1,411 @@
+{% doc %}
+Renders product-specific cart drawer recommendations with a global fallback.
+
+@param {block} block - The Product-specific cart upsells block.
+
+@example
+{% render 'cart-product-upsells', block: block %}
+{% enddoc %}
+
+{%- liquid
+  assign recommendation_limit = block.settings.max_visible | at_most: 3 | at_least: 1
+  assign options_button_label = block.settings.options_button_label | strip
+  if options_button_label == blank
+    assign options_button_label = 'Choose options'
+  endif
+  assign source_group_count = 0
+  assign seen_source_ids = '|'
+  assign cart_product_ids = '|'
+  assign any_recommendations = false
+
+  for cart_item in cart.items
+    capture cart_product_key
+      echo '|'
+      echo cart_item.product.id
+      echo '|'
+    endcapture
+    unless cart_product_ids contains cart_product_key
+      assign cart_product_ids = cart_product_ids | append: cart_item.product.id | append: '|'
+    endunless
+  endfor
+-%}
+
+{%- capture recommendation_groups -%}
+  {%- for cart_item in cart.items -%}
+    {%- if source_group_count >= 8 -%}
+      {%- break -%}
+    {%- endif -%}
+
+    {%- capture source_key -%}|{{ cart_item.product.id }}|{%- endcapture -%}
+    {%- unless seen_source_ids contains source_key -%}
+      {%- assign seen_source_ids = seen_source_ids | append: cart_item.product.id | append: '|' -%}
+      {%- assign source_recommendations = cart_item.product.metafields.custom.cart_upsells.value -%}
+      {%- assign rendered_candidate_ids = '|' -%}
+      {%- assign rendered_candidate_count = 0 -%}
+
+      {%- capture source_cards -%}
+        {%- for candidate in source_recommendations -%}
+          {%- if rendered_candidate_count >= recommendation_limit -%}
+            {%- break -%}
+          {%- endif -%}
+          {%- capture candidate_key -%}|{{ candidate.id }}|{%- endcapture -%}
+          {%- if candidate.available and candidate.id != cart_item.product.id -%}
+            {%- unless cart_product_ids contains candidate_key or rendered_candidate_ids contains candidate_key -%}
+              {%- assign rendered_candidate_ids = rendered_candidate_ids | append: candidate.id | append: '|' -%}
+              {%- assign rendered_candidate_count = rendered_candidate_count | plus: 1 -%}
+              {%- assign candidate_variant = candidate.first_available_variant -%}
+              {%- assign product_form_id = 'CartUpsellForm-' | append: block.id | append: '-' | append: cart_item.product.id | append: '-' | append: candidate.id -%}
+              <article class="cart-product-upsells__card" data-product-id="{{ candidate.id }}">
+                <div class="cart-product-upsells__media">
+                  {%- if candidate.featured_image != blank -%}
+                    <img
+                      class="cart-product-upsells__image"
+                      src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+                      data-src="{{ candidate.featured_image | image_url: width: 240 }}"
+                      alt="{{ candidate.featured_image.alt | default: candidate.title | escape }}"
+                      loading="lazy"
+                      width="{{ candidate.featured_image.width }}"
+                      height="{{ candidate.featured_image.height }}"
+                    >
+                  {%- else -%}
+                    {{ 'product-1' | placeholder_svg_tag: 'cart-product-upsells__placeholder placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+                <div class="cart-product-upsells__details">
+                  <h4 class="cart-product-upsells__title">{{ candidate.title | escape }}</h4>
+                  {%- if block.settings.show_short_description and candidate.description != blank -%}
+                    <p class="cart-product-upsells__description">{{ candidate.description | strip_html | truncatewords: 18 }}</p>
+                  {%- endif -%}
+                  <div class="cart-product-upsells__price">
+                    {% render 'price', product: candidate, use_variant: true, show_badges: false %}
+                  </div>
+                </div>
+                <div class="cart-product-upsells__action">
+                  {%- if candidate.variants.size == 1 and candidate_variant.available -%}
+                    <product-form data-is-cart-upsell="true" data-section="{{ block.id }}-{{ cart_item.product.id }}-{{ candidate.id }}">
+                      <div class="product-form__error-message-wrapper" role="alert" hidden>
+                        <span class="product-form__error-message"></span>
+                      </div>
+                      {%- form 'product',
+                        candidate,
+                        id: product_form_id,
+                        class: 'form',
+                        novalidate: 'novalidate',
+                        data-type: 'add-to-cart-form'
+                      -%}
+                        <input type="hidden" name="id" value="{{ candidate_variant.id }}">
+                        <input type="hidden" name="quantity" value="{{ candidate_variant.quantity_rule.min | default: 1 }}">
+                        <button
+                          type="submit"
+                          name="add"
+                          class="cart-product-upsells__button button button--secondary button--has-spinner"
+                          aria-label="{{ 'products.product.add_to_cart' | t }}: {{ candidate.title | escape }}"
+                        >
+                          <span>{{ 'products.product.add_to_cart' | t }}</span>
+                          <span class="loading-overlay__spinner hidden">
+                            <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66">
+                              <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                            </svg>
+                          </span>
+                        </button>
+                      {%- endform -%}
+                    </product-form>
+                  {%- else -%}
+                    <button
+                      type="button"
+                      class="cart-product-upsells__button button button--secondary"
+                      data-cart-upsell-options-url="{{ candidate.url }}?section_id=cart-upsell-options"
+                      data-cart-upsell-product-id="{{ candidate.id }}"
+                      data-show-description="{{ block.settings.show_short_description }}"
+                      aria-label="{{ options_button_label | escape }}: {{ candidate.title | escape }}"
+                    >
+                      {{ options_button_label | escape }}
+                    </button>
+                  {%- endif -%}
+                </div>
+              </article>
+            {%- endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endcapture -%}
+
+      {%- if rendered_candidate_count > 0 -%}
+        {%- assign source_group_count = source_group_count | plus: 1 -%}
+        {%- assign any_recommendations = true -%}
+        <div class="cart-product-upsells__group" data-upsell-source="{{ cart_item.product.id }}" hidden>
+          {{ source_cards }}
+        </div>
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endfor -%}
+
+  {%- assign rendered_candidate_ids = '|' -%}
+  {%- assign rendered_candidate_count = 0 -%}
+  {%- capture fallback_cards -%}
+    {%- for candidate in block.settings.fallback_products -%}
+      {%- if rendered_candidate_count >= recommendation_limit -%}
+        {%- break -%}
+      {%- endif -%}
+      {%- capture candidate_key -%}|{{ candidate.id }}|{%- endcapture -%}
+      {%- if candidate.available -%}
+        {%- unless cart_product_ids contains candidate_key or rendered_candidate_ids contains candidate_key -%}
+          {%- assign rendered_candidate_ids = rendered_candidate_ids | append: candidate.id | append: '|' -%}
+          {%- assign rendered_candidate_count = rendered_candidate_count | plus: 1 -%}
+          {%- assign candidate_variant = candidate.first_available_variant -%}
+          {%- assign product_form_id = 'CartUpsellForm-' | append: block.id | append: '-fallback-' | append: candidate.id -%}
+          <article class="cart-product-upsells__card" data-product-id="{{ candidate.id }}">
+            <div class="cart-product-upsells__media">
+              {%- if candidate.featured_image != blank -%}
+                <img
+                  class="cart-product-upsells__image"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACw="
+                  data-src="{{ candidate.featured_image | image_url: width: 240 }}"
+                  alt="{{ candidate.featured_image.alt | default: candidate.title | escape }}"
+                  loading="lazy"
+                  width="{{ candidate.featured_image.width }}"
+                  height="{{ candidate.featured_image.height }}"
+                >
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'cart-product-upsells__placeholder placeholder-svg' }}
+              {%- endif -%}
+            </div>
+            <div class="cart-product-upsells__details">
+              <h4 class="cart-product-upsells__title">{{ candidate.title | escape }}</h4>
+              {%- if block.settings.show_short_description and candidate.description != blank -%}
+                <p class="cart-product-upsells__description">{{ candidate.description | strip_html | truncatewords: 18 }}</p>
+              {%- endif -%}
+              <div class="cart-product-upsells__price">
+                {% render 'price', product: candidate, use_variant: true, show_badges: false %}
+              </div>
+            </div>
+            <div class="cart-product-upsells__action">
+              {%- if candidate.variants.size == 1 and candidate_variant.available -%}
+                <product-form data-is-cart-upsell="true" data-section="{{ block.id }}-fallback-{{ candidate.id }}">
+                  <div class="product-form__error-message-wrapper" role="alert" hidden>
+                    <span class="product-form__error-message"></span>
+                  </div>
+                  {%- form 'product',
+                    candidate,
+                    id: product_form_id,
+                    class: 'form',
+                    novalidate: 'novalidate',
+                    data-type: 'add-to-cart-form'
+                  -%}
+                    <input type="hidden" name="id" value="{{ candidate_variant.id }}">
+                    <input type="hidden" name="quantity" value="{{ candidate_variant.quantity_rule.min | default: 1 }}">
+                    <button
+                      type="submit"
+                      name="add"
+                      class="cart-product-upsells__button button button--secondary button--has-spinner"
+                      aria-label="{{ 'products.product.add_to_cart' | t }}: {{ candidate.title | escape }}"
+                    >
+                      <span>{{ 'products.product.add_to_cart' | t }}</span>
+                      <span class="loading-overlay__spinner hidden">
+                        <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66">
+                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                        </svg>
+                      </span>
+                    </button>
+                  {%- endform -%}
+                </product-form>
+              {%- else -%}
+                <button
+                  type="button"
+                  class="cart-product-upsells__button button button--secondary"
+                  data-cart-upsell-options-url="{{ candidate.url }}?section_id=cart-upsell-options"
+                  data-cart-upsell-product-id="{{ candidate.id }}"
+                  data-show-description="{{ block.settings.show_short_description }}"
+                  aria-label="{{ options_button_label | escape }}: {{ candidate.title | escape }}"
+                >
+                  {{ options_button_label | escape }}
+                </button>
+              {%- endif -%}
+            </div>
+          </article>
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- if rendered_candidate_count > 0 -%}
+    {%- assign any_recommendations = true -%}
+    <div class="cart-product-upsells__group" data-upsell-source="fallback" hidden>
+      {{ fallback_cards }}
+    </div>
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- if any_recommendations -%}
+  <cart-product-upsells class="cart-product-upsells" {{ block.shopify_attributes }}>
+    {%- if block.settings.heading != blank -%}
+      <h3 class="cart-product-upsells__heading">{{ block.settings.heading | escape }}</h3>
+    {%- endif -%}
+    {{ recommendation_groups }}
+  </cart-product-upsells>
+{%- endif -%}
+
+{% stylesheet %}
+  .cart-product-upsells {
+    border-top: 0.1rem solid rgba(var(--color-foreground), 0.16);
+    container-name: cart-product-upsells;
+    container-type: inline-size;
+    display: block;
+    margin-top: 2.8rem;
+    padding-top: 2.4rem;
+  }
+
+  .cart-product-upsells__heading {
+    font-family: var(--font-heading-family);
+    font-size: 1.9rem;
+    line-height: 1.2;
+    margin: 0 0 1.8rem;
+  }
+
+  .cart-product-upsells__group {
+    display: grid;
+    gap: 0;
+  }
+
+  .cart-product-upsells__card {
+    align-items: start;
+    border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.14);
+    display: grid;
+    gap: 1.2rem 1.6rem;
+    grid-template-columns: 8.4rem minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    padding: 1.6rem 0;
+  }
+
+  .cart-product-upsells__card:first-child {
+    padding-top: 0;
+  }
+
+  .cart-product-upsells__media {
+    aspect-ratio: 1;
+    background: rgba(var(--color-foreground), 0.04);
+    grid-column: 1;
+    grid-row: span 2;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .cart-product-upsells__image,
+  .cart-product-upsells__placeholder {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .cart-product-upsells__details {
+    align-self: center;
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .cart-product-upsells__title,
+  .cart-product-upsells__description {
+    margin: 0;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .cart-product-upsells__title {
+    font-family: var(--font-heading-family);
+    font-size: 1.55rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .cart-product-upsells__description {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    margin-top: 0.4rem;
+  }
+
+  .cart-product-upsells__price .price {
+    color: rgba(var(--color-foreground), 0.76);
+    font-size: 1.25rem;
+    line-height: 1.35;
+    margin-top: 0.7rem;
+  }
+
+  .cart-product-upsells__price .price--on-sale .price-item--regular {
+    color: rgba(var(--color-foreground), 0.56);
+    font-size: 1.1rem;
+  }
+
+  .cart-product-upsells__action {
+    align-self: end;
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .cart-product-upsells__button {
+    --buttons-radius: var(--cart-upsell-button-radius, 6px);
+    --buttons-radius-outset: var(--cart-upsell-button-radius, 6px);
+    min-height: 4.4rem;
+    min-width: 0;
+    padding: 0.8rem 1.4rem;
+    white-space: normal;
+    width: 100%;
+  }
+
+  .cart-product-upsells__action product-form,
+  .cart-product-upsells__action .form {
+    display: block;
+    width: 100%;
+  }
+
+  .cart-product-upsells .product-form__error-message-wrapper:not([hidden]) {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  @container cart-product-upsells (min-width: 46rem) {
+    .cart-product-upsells__card {
+      align-items: center;
+      column-gap: 2.4rem;
+      grid-template-columns: 10rem minmax(0, 1fr) minmax(13.6rem, 16rem);
+      grid-template-rows: auto;
+      padding: 2rem 0;
+    }
+
+    .cart-product-upsells__media {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+    .cart-product-upsells__details {
+      grid-column: 2;
+      padding-right: 0.8rem;
+    }
+
+    .cart-product-upsells__title {
+      font-size: 1.7rem;
+    }
+
+    .cart-product-upsells__action {
+      align-self: center;
+      grid-column: 3;
+      min-width: 13.6rem;
+    }
+
+    .cart-product-upsells__button {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 374px) {
+    .cart-product-upsells__card {
+      gap: 1rem 1.2rem;
+      grid-template-columns: 6.8rem minmax(0, 1fr);
+      padding-bottom: 1.4rem;
+      padding-top: 1.4rem;
+    }
+
+    .cart-product-upsells__button {
+      padding-inline: 1rem;
+    }
+  }
+{% endstylesheet %}

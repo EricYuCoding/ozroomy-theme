@@ -14,6 +14,7 @@
       "blocks": {
         "slide_hezjkf": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/ozroomy-banner-1.webp",
             "image_overlay_opacity": 20,
@@ -239,13 +240,65 @@
         "custom_tabs_color_label": "#ffffff"
       }
     },
+    "flexible_hero_banner_PTJQ48": {
+      "type": "flexible-hero-banner",
+      "name": "Flexible hero banner",
+      "settings": {
+        "heading": "A better way to sofa bed",
+        "heading_tag": "h2",
+        "heading_size": "h1",
+        "text": "<p>A proper sofa by day. A proper bed by night.</p>",
+        "text_size": "medium",
+        "button_label_1": "Shop now",
+        "button_link_1": "shopify://collections/pebble-modular-sofa-beds",
+        "button_style_1": "primary",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "layout_mode": "classic",
+        "desktop_vertical_position": "bottom",
+        "desktop_text_alignment": "left",
+        "mobile_vertical_position": "bottom",
+        "mobile_text_alignment": "left",
+        "desktop_height": "large",
+        "mobile_height": "medium",
+        "media_type": "image",
+        "desktop_image": "shopify://shop_images/ozroomy-banner-1.webp",
+        "mobile_video_behavior": "poster",
+        "video_position": "center",
+        "overlay_color": "#000000",
+        "overlay_style": "even",
+        "overlay_opacity": 25,
+        "mobile_overlay_opacity": 35,
+        "color_scheme": "inverse",
+        "custom_text_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
     "multirow_w3c4Rh": {
       "type": "multirow",
       "blocks": {
+        "row_qECFKD": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/landing-page-2.webp",
+            "caption": " Made for slow days and sleepovers. ",
+            "title": "&nbsp;LOOPA SOFA BED&nbsp;",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>A deep, relaxed sofa by day, a proper bed by night. Loopa opens out in seconds, giving you more space when you need it without taking over the room.<br/></p>",
+            "button_label": "Shop Now",
+            "button_link": "shopify://products/loopa-sofa-bed",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
         "row_ifqNbC": {
           "type": "row",
           "settings": {
-            "caption": "Pebble, Ready to Ship",
+            "video": "shopify://files/videos/landing-page-loopa-base-filter.mp4",
+            "caption": "Loopa, Ready to Ship",
             "title": "IN STOCK NOW",
             "title_highlight_color": "#6d388b",
             "text": "<p><br/>In-stock colours leave our warehouse in 1–2 days.<br/><br/></p>",
@@ -258,6 +311,7 @@
         }
       },
       "block_order": [
+        "row_qECFKD",
         "row_ifqNbC"
       ],
       "settings": {
@@ -354,6 +408,7 @@
         "image_slide_BMJHrN",
         "image_slide_diDziX"
       ],
+      "disabled": true,
       "name": "Image/Video Slider",
       "settings": {
         "display_id": false,
@@ -519,11 +574,100 @@
         "custom_tabs_color_label": "#ffffff"
       }
     },
+    "editorial_collection_rail_Lnge7g": {
+      "type": "editorial-collection-rail",
+      "blocks": {
+        "collection_card_amDBUh": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "loopa-modular-sofa-beds",
+            "heading": "Loopa Sofa Beds",
+            "link_label": "",
+            "image_override": "shopify://shop_images/loopa-collection-image.webp",
+            "show_overlay_title": false,
+            "overlay_font": "heading",
+            "overlay_text_size": "large",
+            "overlay_font_weight": "700",
+            "overlay_text_color": "#ffffff",
+            "overlay_text_alignment": "left",
+            "show_below_content": true,
+            "below_font": "body",
+            "below_title_size": "medium",
+            "below_title_weight": "500",
+            "below_text_color": "",
+            "below_alignment": "left"
+          }
+        },
+        "collection_card_gfA8nJ": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "pebble-modular-sofa-beds",
+            "heading": "Pebble Sofa Beds",
+            "link_label": "",
+            "image_override": "shopify://shop_images/pebble-collection-image.webp",
+            "show_overlay_title": false,
+            "overlay_font": "heading",
+            "overlay_text_size": "large",
+            "overlay_font_weight": "700",
+            "overlay_text_color": "#ffffff",
+            "overlay_text_alignment": "left",
+            "show_below_content": true,
+            "below_font": "body",
+            "below_title_size": "medium",
+            "below_title_weight": "500",
+            "below_text_color": "",
+            "below_alignment": "left"
+          }
+        },
+        "collection_card_3LXAn9": {
+          "type": "collection_card",
+          "settings": {
+            "collection": "accessories",
+            "heading": "Swatches",
+            "link_label": "",
+            "image_override": "shopify://shop_images/chenille-product-image-grey-back.webp",
+            "show_overlay_title": false,
+            "overlay_font": "heading",
+            "overlay_text_size": "large",
+            "overlay_font_weight": "700",
+            "overlay_text_color": "#ffffff",
+            "overlay_text_alignment": "left",
+            "show_below_content": true,
+            "below_font": "body",
+            "below_title_size": "medium",
+            "below_title_weight": "500",
+            "below_text_color": "",
+            "below_alignment": "left"
+          }
+        }
+      },
+      "block_order": [
+        "collection_card_amDBUh",
+        "collection_card_gfA8nJ",
+        "collection_card_3LXAn9"
+      ],
+      "name": "Editorial collection rail",
+      "settings": {
+        "heading": "&nbsp;For every way you live.&nbsp;",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "image_ratio": "portrait",
+        "desktop_cards": "3",
+        "card_gap": 16,
+        "show_arrows": false,
+        "color_scheme": "background-1",
+        "custom_background": "#f8f4f3",
+        "custom_text_color": "#2e2a39",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "multirow_LjbLYn": {
       "type": "multirow",
       "blocks": {
         "row_g8dGBz": {
           "type": "row",
+          "disabled": true,
           "settings": {
             "caption": "Loopa Sofa bED",
             "title": "Comfort Without Worry",
@@ -556,6 +700,7 @@
         "row_g8dGBz",
         "row_nBbUE6"
       ],
+      "disabled": true,
       "settings": {
         "display_id": false,
         "visibility": "always-display",
@@ -590,25 +735,8 @@
         "image_slide_nmdjGG": {
           "type": "image_slide",
           "settings": {
+            "image": "shopify://shop_images/Amber-Loopa-image_landing.webp",
             "link": "https://www.instagram.com/p/DXMMenNkwPM/",
-            "description": "",
-            "desc_alignment": "center",
-            "desc_color_scheme": "background-2"
-          }
-        },
-        "image_slide_ThqFp3": {
-          "type": "image_slide",
-          "settings": {
-            "link": "https://www.instagram.com/p/DWsGc6QD1rv/",
-            "description": "",
-            "desc_alignment": "center",
-            "desc_color_scheme": "background-2"
-          }
-        },
-        "image_slide_Hyh3xP": {
-          "type": "image_slide",
-          "settings": {
-            "link": "https://www.instagram.com/p/DWOU-fbCvy4/",
             "description": "",
             "desc_alignment": "center",
             "desc_color_scheme": "background-2"
@@ -617,7 +745,38 @@
         "image_slide_UenAEG": {
           "type": "image_slide",
           "settings": {
+            "image": "shopify://shop_images/ins-4.webp",
             "link": "https://www.instagram.com/p/DRzAy2ZigRR/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_gpW9MV": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/ins-2.webp",
+            "link": "",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_Hyh3xP": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/KOL-Jeff.webp",
+            "link": "https://www.instagram.com/p/DWOU-fbCvy4/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_ThqFp3": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/KOL-UK-JOEL.webp",
+            "link": "https://www.instagram.com/p/DWsGc6QD1rv/",
             "description": "",
             "desc_alignment": "center",
             "desc_color_scheme": "background-2"
@@ -626,7 +785,18 @@
         "image_slide_NmRHRc": {
           "type": "image_slide",
           "settings": {
+            "image": "shopify://shop_images/ins-1.webp",
             "link": "https://www.instagram.com/p/DVkUjFFigVF/",
+            "description": "",
+            "desc_alignment": "center",
+            "desc_color_scheme": "background-2"
+          }
+        },
+        "image_slide_q7X9re": {
+          "type": "image_slide",
+          "settings": {
+            "image": "shopify://shop_images/ins-3.webp",
+            "link": "",
             "description": "",
             "desc_alignment": "center",
             "desc_color_scheme": "background-2"
@@ -635,18 +805,20 @@
       },
       "block_order": [
         "image_slide_nmdjGG",
-        "image_slide_ThqFp3",
-        "image_slide_Hyh3xP",
         "image_slide_UenAEG",
-        "image_slide_NmRHRc"
+        "image_slide_gpW9MV",
+        "image_slide_Hyh3xP",
+        "image_slide_ThqFp3",
+        "image_slide_NmRHRc",
+        "image_slide_q7X9re"
       ],
       "name": "Image/Video Slider",
       "settings": {
         "display_id": false,
         "visibility": "always-display",
-        "title": "@OZDESIGN",
+        "title": "&nbsp;As seen in your homes&nbsp;",
         "title_highlight_color": "#6d388b",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "color_scheme": "background-1",
         "type": "slide",
         "drag": "enabled",
@@ -720,6 +892,7 @@
         "row_7aN3yB",
         "row_cydLkU"
       ],
+      "disabled": true,
       "settings": {
         "display_id": false,
         "visibility": "always-display",
@@ -1258,9 +1431,11 @@
   "order": [
     "slideshow_BCazAc",
     "content_tabs_D3ge9d",
+    "flexible_hero_banner_PTJQ48",
     "multirow_w3c4Rh",
     "image_slider_FkWBeP",
     "content_tabs_pgRjWb",
+    "editorial_collection_rail_Lnge7g",
     "multirow_LjbLYn",
     "image_slider_KTCwWd",
     "multirow_CN9UaG",

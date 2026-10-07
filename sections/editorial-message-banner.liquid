@@ -1,0 +1,640 @@
+{%- liquid
+  case section.settings.mobile_vertical_alignment
+    when 'top'
+      assign mobile_vertical_alignment = 'flex-start'
+    when 'bottom'
+      assign mobile_vertical_alignment = 'flex-end'
+    else
+      assign mobile_vertical_alignment = 'center'
+  endcase
+
+  case section.settings.desktop_vertical_alignment
+    when 'top'
+      assign desktop_vertical_alignment = 'flex-start'
+    when 'bottom'
+      assign desktop_vertical_alignment = 'flex-end'
+    else
+      assign desktop_vertical_alignment = 'center'
+  endcase
+
+  case section.settings.mobile_horizontal_alignment
+    when 'left'
+      assign mobile_horizontal_alignment = 'flex-start'
+    when 'right'
+      assign mobile_horizontal_alignment = 'flex-end'
+    else
+      assign mobile_horizontal_alignment = 'center'
+  endcase
+
+  case section.settings.desktop_horizontal_alignment
+    when 'left'
+      assign desktop_horizontal_alignment = 'flex-start'
+    when 'right'
+      assign desktop_horizontal_alignment = 'flex-end'
+    else
+      assign desktop_horizontal_alignment = 'center'
+  endcase
+-%}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    --editorial-banner-body-color: {% if section.settings.body_color != blank %}{{ section.settings.body_color }}{% else %}rgb(var(--color-foreground)){% endif %};
+    --editorial-banner-body-desktop-size: {{ section.settings.body_desktop_size }}px;
+    --editorial-banner-body-letter-spacing: {{ section.settings.body_letter_spacing }}px;
+    --editorial-banner-body-line-height: {{ section.settings.body_line_height | divided_by: 100.0 }};
+    --editorial-banner-body-mobile-size: {{ section.settings.body_mobile_size }}px;
+    --editorial-banner-body-weight: {{ section.settings.body_weight }};
+    --editorial-banner-border-color: {{ section.settings.border_color }};
+    --editorial-banner-content-max: {{ section.settings.content_max_width }}px;
+    --editorial-banner-cta-gap: {{ section.settings.cta_gap }}px;
+    --editorial-banner-desktop-height: {{ section.settings.desktop_min_height }}px;
+    --editorial-banner-desktop-horizontal: {{ desktop_horizontal_alignment }};
+    --editorial-banner-desktop-padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
+    --editorial-banner-desktop-padding-top: {{ section.settings.desktop_padding_top }}px;
+    --editorial-banner-desktop-text-align: {{ section.settings.desktop_horizontal_alignment }};
+    --editorial-banner-desktop-vertical: {{ desktop_vertical_alignment }};
+    --editorial-banner-heading-color: {% if section.settings.heading_color != blank %}{{ section.settings.heading_color }}{% else %}rgb(var(--color-foreground)){% endif %};
+    --editorial-banner-heading-desktop-size: {{ section.settings.heading_desktop_size }}px;
+    --editorial-banner-heading-letter-spacing: {{ section.settings.heading_letter_spacing }}px;
+    --editorial-banner-heading-line-height: {{ section.settings.heading_line_height | divided_by: 100.0 }};
+    --editorial-banner-heading-mobile-size: {{ section.settings.heading_mobile_size }}px;
+    --editorial-banner-heading-weight: {{ section.settings.heading_weight }};
+    --editorial-banner-mobile-height: {{ section.settings.mobile_min_height }}px;
+    --editorial-banner-mobile-horizontal: {{ mobile_horizontal_alignment }};
+    --editorial-banner-mobile-padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+    --editorial-banner-mobile-padding-top: {{ section.settings.mobile_padding_top }}px;
+    --editorial-banner-mobile-text-align: {{ section.settings.mobile_horizontal_alignment }};
+    --editorial-banner-mobile-vertical: {{ mobile_vertical_alignment }};
+    --editorial-banner-text-gap: {{ section.settings.text_gap }}px;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__surface {
+    align-items: var(--editorial-banner-mobile-horizontal);
+    display: flex;
+    justify-content: var(--editorial-banner-mobile-vertical);
+    min-height: var(--editorial-banner-mobile-height);
+    padding: var(--editorial-banner-mobile-padding-top) 2rem var(--editorial-banner-mobile-padding-bottom);
+  }
+
+  {% if section.settings.custom_background != blank %}
+    #shopify-section-{{ section.id }} .editorial-message-banner__surface {
+      background: {{ section.settings.custom_background }};
+    }
+  {% endif %}
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__surface--border-top,
+  #shopify-section-{{ section.id }} .editorial-message-banner__surface--border-both {
+    border-top: 0.1rem solid var(--editorial-banner-border-color);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__surface--border-bottom,
+  #shopify-section-{{ section.id }} .editorial-message-banner__surface--border-both {
+    border-bottom: 0.1rem solid var(--editorial-banner-border-color);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__content {
+    max-width: var(--editorial-banner-content-max);
+    text-align: var(--editorial-banner-mobile-text-align);
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__heading {
+    color: var(--editorial-banner-heading-color);
+    font-size: var(--editorial-banner-heading-mobile-size);
+    font-weight: var(--editorial-banner-heading-weight);
+    letter-spacing: var(--editorial-banner-heading-letter-spacing);
+    line-height: var(--editorial-banner-heading-line-height);
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__heading--heading {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__heading--body {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__body {
+    color: var(--editorial-banner-body-color);
+    font-size: var(--editorial-banner-body-mobile-size);
+    font-weight: var(--editorial-banner-body-weight);
+    letter-spacing: var(--editorial-banner-body-letter-spacing);
+    line-height: var(--editorial-banner-body-line-height);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__body--heading {
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__body--body {
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__body--after-heading {
+    margin-top: var(--editorial-banner-text-gap);
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__body > :first-child {
+    margin-top: 0;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__body > :last-child {
+    margin-bottom: 0;
+  }
+
+  #shopify-section-{{ section.id }} .editorial-message-banner__cta {
+    display: flex;
+    justify-content: var(--editorial-banner-mobile-horizontal);
+    margin-top: var(--editorial-banner-cta-gap);
+  }
+
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} .editorial-message-banner__surface {
+      align-items: var(--editorial-banner-desktop-horizontal);
+      justify-content: var(--editorial-banner-desktop-vertical);
+      min-height: var(--editorial-banner-desktop-height);
+      padding: var(--editorial-banner-desktop-padding-top) 4rem var(--editorial-banner-desktop-padding-bottom);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-message-banner__content {
+      text-align: var(--editorial-banner-desktop-text-align);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-message-banner__heading {
+      font-size: var(--editorial-banner-heading-desktop-size);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-message-banner__body {
+      font-size: var(--editorial-banner-body-desktop-size);
+    }
+
+    #shopify-section-{{ section.id }} .editorial-message-banner__cta {
+      justify-content: var(--editorial-banner-desktop-horizontal);
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    #shopify-section-{{ section.id }} .editorial-message-banner__surface {
+      padding-inline: 5rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="editorial-message-banner {{ section.settings.visibility }}">
+  {%- if section.settings.display_id -%}
+    <copy-button class="section-id-btn button" data-content="#shopify-section-{{ section.id }}" data-success="false">
+      <span class="copy-text">Click to copy section ID</span>
+      <span class="copy-success">ID copied successfully!</span>
+    </copy-button>
+  {%- endif -%}
+
+  <div class="{% if section.settings.section_width == 'page' %}page-width{% endif %}">
+    <div class="editorial-message-banner__surface editorial-message-banner__surface--border-{{ section.settings.border_position }} color-{{ section.settings.color_scheme }} gradient">
+      <div class="editorial-message-banner__content">
+        {%- if section.settings.heading != blank -%}
+          <{{ section.settings.heading_tag }} class="editorial-message-banner__heading editorial-message-banner__heading--{{ section.settings.heading_font }}">
+            {{ section.settings.heading }}
+          </{{ section.settings.heading_tag }}>
+        {%- endif -%}
+
+        {%- if section.settings.body != blank -%}
+          <div class="editorial-message-banner__body editorial-message-banner__body--{{ section.settings.body_font }}{% if section.settings.heading != blank %} editorial-message-banner__body--after-heading{% endif %} rte">
+            {{ section.settings.body }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.cta_label != blank -%}
+          <div class="editorial-message-banner__cta">
+            <a
+              {% if section.settings.cta_url == blank %}
+                role="link"
+                aria-disabled="true"
+              {% else %}
+                href="{{ section.settings.cta_url }}"
+              {% endif %}
+              class="button{% if section.settings.cta_style == 'secondary' %} button--secondary{% else %} button--primary{% endif %}"
+            >
+              {{ section.settings.cta_label | escape }}
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Editorial message banner",
+  "tag": "section",
+  "class": "section section-editorial-message-banner",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A thoughtful message for your space"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading HTML tag",
+      "info": "Use H1 only when this is the page's main heading.",
+      "options": [
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "h1", "label": "H1" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body",
+      "default": "<p>Share a concise announcement, reassurance, or editorial message.</p>"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA link"
+    },
+    {
+      "type": "select",
+      "id": "cta_style",
+      "label": "CTA style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" }
+      ],
+      "default": "secondary"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Section width",
+      "options": [
+        { "value": "full", "label": "Full width" },
+        { "value": "page", "label": "Page width" }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "range",
+      "id": "desktop_min_height",
+      "label": "Desktop minimum height",
+      "min": 200,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 360
+    },
+    {
+      "type": "range",
+      "id": "mobile_min_height",
+      "label": "Mobile minimum height",
+      "min": 160,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 260
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "label": "Desktop content maximum width",
+      "min": 400,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "default": 760
+    },
+    {
+      "type": "select",
+      "id": "desktop_horizontal_alignment",
+      "label": "Desktop horizontal alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_horizontal_alignment",
+      "label": "Mobile horizontal alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_vertical_alignment",
+      "label": "Desktop vertical alignment",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "mobile_vertical_alignment",
+      "label": "Mobile vertical alignment",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "display_id",
+      "label": "Display section ID",
+      "info": "ID is used in the Sections group section to merge 2 sections. ID can also be put inside any button link and the button will scroll to this section.",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "visibility",
+      "label": "Display on",
+      "options": [
+        { "value": "desktop-hidden", "label": "Mobile only" },
+        { "value": "mobile-hidden", "label": "Desktop only" },
+        { "value": "always-display", "label": "All devices" }
+      ],
+      "default": "always-display"
+    },
+    {
+      "type": "header",
+      "content": "Colours"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "accent-1", "label": "Accent 1" },
+        { "value": "accent-2", "label": "Accent 2" },
+        { "value": "background-1", "label": "Background 1" },
+        { "value": "background-2", "label": "Background 2" },
+        { "value": "inverse", "label": "Inverse" }
+      ],
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "custom_background",
+      "label": "Custom background",
+      "info": "Leave blank to use the colour scheme."
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Custom heading colour",
+      "info": "Leave blank to use the colour scheme."
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Custom body colour",
+      "info": "Leave blank to use the colour scheme."
+    },
+    {
+      "type": "select",
+      "id": "border_position",
+      "label": "Border position",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" },
+        { "value": "both", "label": "Both" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border colour",
+      "default": "#2E2A39"
+    },
+    {
+      "type": "select",
+      "id": "heading_font",
+      "label": "Font role",
+      "options": [
+        { "value": "heading", "label": "Heading" },
+        { "value": "body", "label": "Body" }
+      ],
+      "default": "heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_desktop_size",
+      "label": "Desktop size",
+      "min": 20,
+      "max": 80,
+      "step": 1,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "heading_mobile_size",
+      "label": "Mobile size",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 34
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "heading_line_height",
+      "label": "Line height",
+      "min": 90,
+      "max": 160,
+      "step": 5,
+      "unit": "%",
+      "default": 110
+    },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Letter spacing",
+      "min": -2,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "body_font",
+      "label": "Font role",
+      "options": [
+        { "value": "body", "label": "Body" },
+        { "value": "heading", "label": "Heading" }
+      ],
+      "default": "body"
+    },
+    {
+      "type": "range",
+      "id": "body_desktop_size",
+      "label": "Desktop size",
+      "min": 12,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "body_mobile_size",
+      "label": "Mobile size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 17
+    },
+    {
+      "type": "select",
+      "id": "body_weight",
+      "label": "Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "range",
+      "id": "body_line_height",
+      "label": "Line height",
+      "min": 100,
+      "max": 200,
+      "step": 5,
+      "unit": "%",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "body_letter_spacing",
+      "label": "Letter spacing",
+      "min": -2,
+      "max": 5,
+      "step": 0.1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "text_gap",
+      "label": "Heading/body gap",
+      "min": 0,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "cta_gap",
+      "label": "CTA gap",
+      "min": 0,
+      "max": 64,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial message banner"
+    }
+  ]
+}
+{% endschema %}

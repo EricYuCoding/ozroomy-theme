@@ -90,6 +90,141 @@
       padding-top: 0.5rem;
     }
   }
+
+  .header-country-selector {
+    color: rgb(var(--color-foreground));
+  }
+
+  .header-country-selector__form {
+    margin: 0;
+  }
+
+  .header-country-selector--desktop {
+    display: none;
+    position: relative;
+  }
+
+  .header-country-selector__trigger {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    font: inherit;
+    font-size: 1.3rem;
+    gap: 0.8rem;
+    min-height: 4.4rem;
+    padding: 0 0.8rem;
+    white-space: nowrap;
+  }
+
+  .header-country-selector__trigger .icon-caret {
+    height: 0.6rem;
+    transition: transform var(--duration-short) ease;
+    width: 1rem;
+  }
+
+  .header-country-selector__trigger[aria-expanded='true'] .icon-caret {
+    transform: rotate(180deg);
+  }
+
+  .header-country-selector__panel {
+    background: rgb(var(--color-background));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.2);
+    box-shadow: 0 0.8rem 2.4rem rgba(var(--color-shadow), 0.12);
+    max-width: min(32rem, calc(100vw - 4rem));
+    min-width: 24rem;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.4rem);
+    z-index: 6;
+  }
+
+  .header-country-selector__panel[hidden] {
+    display: none;
+  }
+
+  .header-country-selector__list {
+    list-style: none;
+    margin: 0;
+    max-height: min(32rem, calc(100vh - var(--header-height) - 2rem));
+    overflow-y: auto;
+    padding: 0.6rem;
+  }
+
+  .header-country-selector__option {
+    align-items: baseline;
+    color: inherit;
+    display: flex;
+    font-size: 1.4rem;
+    gap: 0.6rem;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    text-decoration: none;
+  }
+
+  .header-country-selector__option:hover,
+  .header-country-selector__option:focus-visible,
+  .header-country-selector__option--current {
+    background: rgba(var(--color-foreground), 0.06);
+  }
+
+  .header-country-selector__option--current {
+    font-weight: 600;
+  }
+
+  .header-country-selector__currency {
+    color: rgba(var(--color-foreground), 0.7);
+    white-space: nowrap;
+  }
+
+  .header-country-selector--mobile {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .header-country-selector__mobile-label {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .header-country-selector__select-wrapper {
+    position: relative;
+  }
+
+  .header-country-selector__select {
+    appearance: none;
+    background: rgb(var(--color-background));
+    border: 0.1rem solid rgba(var(--color-foreground), 0.25);
+    border-radius: var(--inputs-radius-outset);
+    color: inherit;
+    font: inherit;
+    font-size: 1.4rem;
+    min-height: 4.8rem;
+    padding: 0.8rem 4rem 0.8rem 1.2rem;
+    width: 100%;
+  }
+
+  .header-country-selector__select-wrapper .icon-caret {
+    height: 0.6rem;
+    pointer-events: none;
+    position: absolute;
+    right: 1.5rem;
+    top: calc(50% - 0.3rem);
+    width: 1rem;
+  }
+
+  @media screen and (min-width: 990px) {
+    .header-country-selector--desktop {
+      display: block;
+    }
+
+    .header-country-selector--mobile {
+      display: none;
+    }
+  }
 </style>
 
 {%- style -%}
@@ -436,6 +571,76 @@
     {%- endif -%}
 
     <div class="header__icons">
+      {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+        <noscript class="header-country-selector header-country-selector--desktop">
+          {%- form 'localization', id: 'HeaderCountryFormNoScript', class: 'header-country-selector__form' -%}
+            <label class="visually-hidden" for="HeaderCountrySelectNoScript">
+              {{- 'localization.country_label' | t -}}
+            </label>
+            <div class="header-country-selector__select-wrapper">
+              <select
+                id="HeaderCountrySelectNoScript"
+                class="header-country-selector__select"
+                name="country_code"
+              >
+                {%- for country in localization.available_countries -%}
+                  <option
+                    value="{{ country.iso_code }}"
+                    {%- if country.iso_code == localization.country.iso_code %}
+                      selected
+                    {%- endif %}
+                  >
+                    {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                  </option>
+                {%- endfor -%}
+              </select>
+              {% render 'icon-caret' %}
+            </div>
+            <button type="submit" class="visually-hidden">
+              {{- 'localization.update_country' | t -}}
+            </button>
+          {%- endform -%}
+        </noscript>
+
+        <header-country-selector class="header-country-selector header-country-selector--desktop no-js-hidden">
+          {%- form 'localization', id: 'HeaderCountryForm', class: 'header-country-selector__form' -%}
+            <span class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</span>
+            <button
+              type="button"
+              class="header-country-selector__trigger focus-inset"
+              aria-expanded="false"
+              aria-controls="HeaderCountryList"
+              aria-describedby="HeaderCountryLabel"
+              data-country-trigger
+            >
+              <span>{{ localization.country.name }} ({{ localization.country.currency.iso_code }} {{ localization.country.currency.symbol }})</span>
+              {% render 'icon-caret' %}
+            </button>
+            <div class="header-country-selector__panel" data-country-panel hidden>
+              <ul id="HeaderCountryList" class="header-country-selector__list" role="list">
+                {%- for country in localization.available_countries -%}
+                  <li>
+                    <a
+                      class="header-country-selector__option focus-inset{% if country.iso_code == localization.country.iso_code %} header-country-selector__option--current{% endif %}"
+                      href="#"
+                      data-country-option
+                      data-value="{{ country.iso_code }}"
+                      {% if country.iso_code == localization.country.iso_code %}
+                        aria-current="true"
+                      {% endif %}
+                    >
+                      <span>{{ country.name }}</span>
+                      <span class="header-country-selector__currency">({{ country.currency.iso_code }} {{ country.currency.symbol }})</span>
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            </div>
+            <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}" data-country-input>
+          {%- endform -%}
+        </header-country-selector>
+      {%- endif -%}
+
       <details-modal class="header__search">
         <details>
           <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
@@ -567,6 +772,91 @@
 {%- endif -%}
 
 {% javascript %}
+  class HeaderCountrySelector extends HTMLElement {
+    constructor() {
+      super();
+      this.form = this.querySelector('form');
+      this.trigger = this.querySelector('[data-country-trigger]');
+      this.panel = this.querySelector('[data-country-panel]');
+      this.input = this.querySelector('[data-country-input]');
+      this.select = this.querySelector('[data-country-select]');
+      this.options = this.querySelectorAll('[data-country-option]');
+      this.onDocumentClick = this.onDocumentClick.bind(this);
+      this.onKeyUp = this.onKeyUp.bind(this);
+      this.onFocusOut = this.onFocusOut.bind(this);
+    }
+
+    connectedCallback() {
+      if (this.trigger && this.panel) {
+        this.trigger.addEventListener('click', () => this.toggle());
+        this.options.forEach((option) => option.addEventListener('click', (event) => this.selectCountry(event)));
+        this.addEventListener('keyup', this.onKeyUp);
+        this.addEventListener('focusout', this.onFocusOut);
+        document.addEventListener('click', this.onDocumentClick);
+      }
+
+      if (this.select) {
+        this.select.addEventListener('change', () => this.form?.submit());
+      }
+    }
+
+    disconnectedCallback() {
+      document.removeEventListener('click', this.onDocumentClick);
+    }
+
+    toggle() {
+      if (this.panel.hidden) {
+        this.open();
+      } else {
+        this.close();
+      }
+    }
+
+    open() {
+      document.querySelectorAll('header-country-selector[data-open]').forEach((selector) => {
+        if (selector !== this && typeof selector.close === 'function') selector.close();
+      });
+      this.panel.hidden = false;
+      this.trigger.setAttribute('aria-expanded', 'true');
+      this.setAttribute('data-open', '');
+    }
+
+    close() {
+      if (!this.panel || !this.trigger) return;
+      this.panel.hidden = true;
+      this.trigger.setAttribute('aria-expanded', 'false');
+      this.removeAttribute('data-open');
+    }
+
+    onDocumentClick(event) {
+      if (!this.contains(event.target)) this.close();
+    }
+
+    onKeyUp(event) {
+      if (event.code.toUpperCase() !== 'ESCAPE' || this.panel.hidden) return;
+      event.preventDefault();
+      event.stopPropagation();
+      this.close();
+      this.trigger.focus();
+    }
+
+    onFocusOut() {
+      window.setTimeout(() => {
+        if (!this.contains(document.activeElement)) this.close();
+      });
+    }
+
+    selectCountry(event) {
+      event.preventDefault();
+      this.input.value = event.currentTarget.dataset.value;
+      this.form?.submit();
+    }
+  }
+
+  if (!customElements.get('header-country-selector')) {
+    customElements.define('header-country-selector', HeaderCountrySelector);
+  }
+
   class HeaderMegaMenuV2 extends HTMLElement {
     constructor() {
       super();
@@ -911,7 +1201,7 @@
     }
 
     closeMenuDisclosure() {
-      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu, header-mega-menu-v2, products-mega-menu');
+      this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu, header-mega-menu-v2, header-country-selector, products-mega-menu');
       this.disclosures.forEach((disclosure) => {
         if (typeof disclosure.close === 'function') disclosure.close();
         if (typeof disclosure.closeMenu === 'function') disclosure.closeMenu();
@@ -1263,6 +1553,16 @@
       "type": "checkbox",
       "id": "display_search",
       "label": "Display search icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Localization"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "label": "Enable country/region selector",
       "default": true
     },
     {

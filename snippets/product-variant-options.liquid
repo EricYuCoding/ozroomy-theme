@@ -283,6 +283,7 @@
           {% endfor %}
         </div>
         <label class="color-swatch_hidden-label" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+          <span class="visually-hidden">{{ option.name | escape }}: {{ value | escape }}</span>
         </label>
         <span class="color-swatch__label">{{ value }}</span>
       </div>

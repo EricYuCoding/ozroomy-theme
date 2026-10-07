@@ -1,0 +1,176 @@
+{%- if product != blank -%}
+  {%- assign selected_variant = product.selected_or_first_available_variant -%}
+  {%- assign product_form_id = 'CartUpsellOptionsForm-' | append: product.id -%}
+  <div id="CartUpsellOptions" class="cart-upsell-options" data-product-id="{{ product.id }}">
+    <cart-upsell-variant-selector
+      class="cart-upsell-options__selector"
+      data-add-label="{{ 'products.product.add_to_cart' | t | escape }}"
+      data-sold-out-label="{{ 'products.product.sold_out' | t | escape }}"
+      data-unavailable-label="{{ 'products.product.unavailable' | t | escape }}"
+    >
+      <div class="cart-upsell-options__product">
+        <div class="cart-upsell-options__media">
+          {%- if selected_variant.featured_image != blank or product.featured_image != blank -%}
+            {%- assign option_image = selected_variant.featured_image | default: product.featured_image -%}
+            <img
+              class="cart-upsell-options__image"
+              src="{{ option_image | image_url: width: 480 }}"
+              alt="{{ option_image.alt | default: product.title | escape }}"
+              loading="lazy"
+              width="{{ option_image.width }}"
+              height="{{ option_image.height }}"
+              data-cart-upsell-image
+            >
+          {%- else -%}
+            {{ 'product-1' | placeholder_svg_tag: 'cart-upsell-options__placeholder placeholder-svg' }}
+          {%- endif -%}
+        </div>
+
+        <div class="cart-upsell-options__summary">
+          <h3 class="cart-upsell-options__title" tabindex="-1" data-cart-upsell-product-title>
+            {{ product.title | escape }}
+          </h3>
+          {%- if product.description != blank -%}
+            <p class="cart-upsell-options__description" data-cart-upsell-description>
+              {{ product.description | strip_html | truncatewords: 24 }}
+            </p>
+          {%- endif -%}
+          <div class="cart-upsell-options__price" data-cart-upsell-price aria-live="polite">
+            {% render 'price', product: product, use_variant: true, show_badges: false %}
+          </div>
+        </div>
+      </div>
+
+      {%- unless product.has_only_default_variant -%}
+        <div class="cart-upsell-options__variants">
+          {%- for option in product.options_with_values -%}
+            <fieldset class="cart-upsell-options__fieldset" data-option-position="{{ option.position | minus: 1 }}">
+              <legend class="cart-upsell-options__legend">
+                {{ option.name | escape }}:
+                <span data-selected-option>{{ option.selected_value | escape }}</span>
+              </legend>
+              <div class="cart-upsell-options__values">
+                {%- for value in option.values -%}
+                  {%- assign input_id = 'CartUpsellOption-' | append: product.id | append: '-' | append: option.position | append: '-' | append: forloop.index0 -%}
+                  <input
+                    class="cart-upsell-options__input visually-hidden"
+                    type="radio"
+                    id="{{ input_id }}"
+                    name="CartUpsellOption-{{ product.id }}-{{ option.position }}"
+                    value="{{ value | escape }}"
+                    {% if value == option.selected_value %}
+                      checked
+                    {% endif %}
+                  >
+                  <label
+                    class="cart-upsell-options__value{% if value.swatch.color != blank or value.swatch.image != blank %} cart-upsell-options__value--swatch{% endif %}"
+                    for="{{ input_id }}"
+                  >
+                    {%- if value.swatch.color != blank -%}
+                      <span class="cart-upsell-options__swatch" style="--swatch-color: {{ value.swatch.color }};"></span>
+                      <span class="visually-hidden">{{ option.name | escape }}: {{ value | escape }}</span>
+                    {%- elsif value.swatch.image != blank -%}
+                      <span
+                        class="cart-upsell-options__swatch cart-upsell-options__swatch--image"
+                        style="--swatch-image: url('{{ value.swatch.image | image_url: width: 96 }}');"
+                      ></span>
+                      <span class="visually-hidden">{{ option.name | escape }}: {{ value | escape }}</span>
+                    {%- else -%}
+                      <span>{{ value | escape }}</span>
+                    {%- endif -%}
+                    <span class="visually-hidden" data-unavailable-option hidden>
+                      {{ 'products.product.variant_sold_out_or_unavailable' | t }}
+                    </span>
+                  </label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+          {%- endfor -%}
+        </div>
+      {%- endunless -%}
+
+      <p class="cart-upsell-options__availability visually-hidden" role="status" aria-live="polite" data-cart-upsell-availability></p>
+
+      <div class="cart-upsell-options__actions">
+        <product-form data-is-cart-upsell="true" data-section="cart-upsell-options-{{ product.id }}">
+          <div class="product-form__error-message-wrapper" role="alert" hidden>
+            <span class="product-form__error-message"></span>
+          </div>
+          {%- form 'product',
+            product,
+            id: product_form_id,
+            class: 'form',
+            novalidate: 'novalidate',
+            data-type: 'add-to-cart-form'
+          -%}
+            <input
+              type="hidden"
+              name="id"
+              value="{{ selected_variant.id }}"
+              class="product-variant-id"
+              data-cart-upsell-variant-id
+            >
+            <input
+              type="hidden"
+              name="quantity"
+              value="{{ selected_variant.quantity_rule.min | default: 1 }}"
+              data-cart-upsell-quantity
+            >
+            <button
+              type="submit"
+              name="add"
+              class="cart-upsell-options__submit product-form__submit button button--full-width button--has-spinner"
+              data-cart-upsell-submit
+              {% unless selected_variant.available %}
+                disabled
+              {% endunless %}
+            >
+              <span data-cart-upsell-submit-label>
+                {%- if selected_variant.available -%}
+                  {{ 'products.product.add_to_cart' | t }}
+                {%- else -%}
+                  {{ 'products.product.sold_out' | t }}
+                {%- endif -%}
+              </span>
+              <span class="loading-overlay__spinner hidden">
+                <svg aria-hidden="true" focusable="false" class="spinner" viewBox="0 0 66 66">
+                  <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                </svg>
+              </span>
+            </button>
+          {%- endform -%}
+        </product-form>
+
+        <a class="cart-upsell-options__details-link button button--secondary" href="{{ product.url }}">
+          {{ 'products.product.view_full_details' | t }}
+        </a>
+      </div>
+
+      <script type="application/json" data-cart-upsell-variants>
+        [
+          {%- for variant in product.variants -%}
+            {
+              "id": {{ variant.id | json }},
+              "available": {{ variant.available | json }},
+              "options": {{ variant.options | json }},
+              "price": {{ variant.price | json }},
+              "formatted_price": {{ variant.price | money | json }},
+              "compare_at_price": {{ variant.compare_at_price | default: 0 | json }},
+              "formatted_compare_at_price": {{ variant.compare_at_price | money | json }},
+              "minimum_quantity": {{ variant.quantity_rule.min | default: 1 | json }},
+              "featured_image": {% if variant.featured_image != blank %}{{ variant.featured_image | image_url: width: 480 | json }}{% else %}null{% endif %},
+              "featured_image_alt": {% if variant.featured_image != blank %}{{ variant.featured_image.alt | default: product.title | json }}{% else %}null{% endif %}
+            }{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        ]
+      </script>
+    </cart-upsell-variant-selector>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Cart upsell options",
+  "settings": []
+}
+{% endschema %}

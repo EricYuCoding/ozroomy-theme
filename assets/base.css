@@ -5698,6 +5698,37 @@ cart-remove-button .icon-remove {
 .cart-drawer--desktop-width-large .drawer__inner {
   width: 50rem;
 }
+@media screen and (min-width: 750px) {
+  .cart-drawer--desktop-width-normal .drawer__inner {
+    width: 58rem;
+  }
+  .cart-drawer--desktop-width-large .drawer__inner {
+    width: 68rem;
+  }
+  .cart-drawer .drawer__inner {
+    max-width: calc(100vw - 6rem);
+  }
+  .cart-drawer .drawer__inner-empty,
+  .cart-drawer .drawer__header,
+  .cart-drawer__body,
+  .cart-drawer .drawer__footer {
+    padding-left: 2.8rem;
+    padding-right: 2.8rem;
+  }
+  .cart-drawer__collection {
+    margin-left: 2.8rem;
+    margin-right: 2.8rem;
+  }
+  .cart-drawer .cart-timer,
+  .cart-drawer .side-margins-negative {
+    margin-left: -2.8rem;
+    margin-right: -2.8rem;
+  }
+  .cart-drawer .cart-timer {
+    padding-left: 2.8rem;
+    padding-right: 2.8rem;
+  }
+}
 @media screen and (max-width: 500px) {
   .cart-drawer--mobile-width-full .cart-drawer {
     width: 100%;
