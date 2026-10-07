@@ -430,12 +430,16 @@
   </div>
 
   <div class="flexible-hero__inner page-width">
-    {%- if section.settings.heading != blank or section.settings.text != blank or show_button_1 or show_button_2 -%}
+    {%- if section.settings.heading_with_line_breaks != blank or section.settings.heading != blank or section.settings.text != blank or show_button_1 or show_button_2 -%}
       <div class="flexible-hero__content">
-        {%- if section.settings.heading != blank -%}
+        {%- if section.settings.heading_with_line_breaks != blank or section.settings.heading != blank -%}
           <div class="flexible-hero__heading-region">
             <{{ section.settings.heading_tag }} class="flexible-hero__heading {{ section.settings.heading_size }}">
-              {{ section.settings.heading }}
+              {%- if section.settings.heading_with_line_breaks != blank -%}
+                {{ section.settings.heading_with_line_breaks | escape | newline_to_br }}
+              {%- else -%}
+                {{ section.settings.heading }}
+              {%- endif -%}
             </{{ section.settings.heading_tag }}>
           </div>
         {%- endif -%}
@@ -497,6 +501,12 @@
       "id": "heading",
       "label": "Heading",
       "default": "A considered space for everyday living"
+    },
+    {
+      "type": "textarea",
+      "id": "heading_with_line_breaks",
+      "label": "Heading with line breaks",
+      "info": "Optional. Replaces Heading when entered. Press Enter where an intentional line break is required."
     },
     {
       "type": "select",
