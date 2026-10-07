@@ -273,6 +273,41 @@
           {% endif %}
 <!--                 end secondary nav -->
           <div class="menu-drawer__utility-links">
+            {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+              <header-country-selector class="header-country-selector header-country-selector--mobile">
+                {%- form 'localization', id: 'HeaderCountryMobileForm', class: 'header-country-selector__form' -%}
+                  <label class="header-country-selector__mobile-label" for="HeaderCountryMobileSelect">
+                    {{- 'localization.country_label' | t -}}
+                  </label>
+                  <div class="header-country-selector__select-wrapper">
+                    <select
+                      id="HeaderCountryMobileSelect"
+                      class="header-country-selector__select"
+                      name="country_code"
+                      data-country-select
+                    >
+                      {%- for country in localization.available_countries -%}
+                        <option
+                          value="{{ country.iso_code }}"
+                          {%- if country.iso_code == localization.country.iso_code %}
+                            selected
+                          {%- endif %}
+                        >
+                          {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                    {% render 'icon-caret' %}
+                  </div>
+                  <noscript>
+                    <button type="submit" class="button button--tertiary">
+                      {{- 'localization.update_country' | t -}}
+                    </button>
+                  </noscript>
+                {%- endform -%}
+              </header-country-selector>
+            {%- endif -%}
+
             {%- if shop.customer_accounts_enabled -%}
               <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="menu-drawer__account link focus-inset h5">
                 {% render 'icon-account' %}
