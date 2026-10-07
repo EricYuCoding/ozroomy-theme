@@ -9,6 +9,10 @@ Renders product-specific cart drawer recommendations with a global fallback.
 
 {%- liquid
   assign recommendation_limit = block.settings.max_visible | at_most: 3 | at_least: 1
+  assign options_button_label = block.settings.options_button_label | strip
+  if options_button_label == blank
+    assign options_button_label = 'Choose options'
+  endif
   assign source_group_count = 0
   assign seen_source_ids = '|'
   assign cart_product_ids = '|'
@@ -113,9 +117,9 @@ Renders product-specific cart drawer recommendations with a global fallback.
                       data-cart-upsell-options-url="{{ candidate.url }}?section_id=cart-upsell-options"
                       data-cart-upsell-product-id="{{ candidate.id }}"
                       data-show-description="{{ block.settings.show_short_description }}"
-                      aria-label="Choose options for {{ candidate.title | escape }}"
+                      aria-label="{{ options_button_label | escape }}: {{ candidate.title | escape }}"
                     >
-                      Choose options
+                      {{ options_button_label | escape }}
                     </button>
                   {%- endif -%}
                 </div>
@@ -211,9 +215,9 @@ Renders product-specific cart drawer recommendations with a global fallback.
                   data-cart-upsell-options-url="{{ candidate.url }}?section_id=cart-upsell-options"
                   data-cart-upsell-product-id="{{ candidate.id }}"
                   data-show-description="{{ block.settings.show_short_description }}"
-                  aria-label="Choose options for {{ candidate.title | escape }}"
+                  aria-label="{{ options_button_label | escape }}: {{ candidate.title | escape }}"
                 >
-                  Choose options
+                  {{ options_button_label | escape }}
                 </button>
               {%- endif -%}
             </div>
