@@ -117,6 +117,7 @@
         "caption": "",
         "title": "Shipping Policy",
         "title_highlight_color": "#6d388b",
+        "heading_tag": "h1",
         "heading_size": "h0",
         "heading_alignment": "center",
         "layout": "none",
