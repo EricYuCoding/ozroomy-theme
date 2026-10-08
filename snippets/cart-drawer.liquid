@@ -936,8 +936,10 @@ Renders the cart drawer.
             
                   {%- for type in enabled_payment_types -%}
                     {% assign payment_type = type | strip %}
+                    {% assign payment_icon_id = 'pi-' | append: payment_type %}
+                    {% assign unique_payment_icon_id = payment_icon_id | append: '-cart-drawer' %}
                     <li class="list-payment__item">
-                      {{ payment_type | payment_type_svg_tag: class: 'icon icon--full-color' }}
+                      {{ payment_type | payment_type_svg_tag: class: 'icon icon--full-color' | replace: payment_icon_id, unique_payment_icon_id }}
                     </li>
                   {%- endfor -%}
                 </ul>

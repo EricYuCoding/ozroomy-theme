@@ -42,8 +42,8 @@
   data-count="{{ item_count }}"
   {{ block.shopify_attributes }}
 >
-  {% if item_count == 0 %}
-    <h4 class='center'>Assign upsell products in block settings</h4>
+  {% if item_count == 0 and request.design_mode %}
+    <p class='h4 center'>Assign upsell products in block settings</p>
   {% endif %}
   {% if block.settings.container_title != blank and block.settings.container_title_position == 'outside' and item_count != 0 %}
     <h3 class='upsell__outside-title center custom-font-size' style='--mobile-text-size: {{ block.settings.container_title_mobile_text_size | divided_by: 10.0 }}rem;--desktop-text-size: {{ block.settings.container_title_desktop_text_size | divided_by: 10.0 }}rem;'>
