@@ -17,383 +17,120 @@
         "padding_bottom": 36
       }
     },
-    "custom_columns_af6Ri9": {
-      "type": "custom-columns",
+    "advanced_collapsible_content_LJEtMy": {
+      "type": "advanced-collapsible-content",
       "blocks": {
-        "heading_EmdmtQ": {
-          "type": "heading",
+        "advanced_collapsible_row_ezWaEc": {
+          "type": "advanced_collapsible_row",
           "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "heading": "Warranty Policy",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
+            "heading": "Returns & 60 Day Trial",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "<h1>What if it’s not right for my home?</h1><p>Buying a sofa online is a big decision. We want you to feel completely confident that you've found the right one for your home.</p><p>That's why every OZROOMY sofa comes with a <strong>60-Day Home Trial</strong>. Take your time to sit, lounge, nap and see how it fits into your everyday life.</p><p>If it's not quite right, that's okay too.</p><h2>60-Day Home Trial</h2><p>You have 60 days from the day your sofa is delivered to decide if it's right for you.</p><p>If you're not completely happy, simply contact us within 60 days to arrange a return.</p><p>We just ask that your sofa is kept in good condition, free from significant stains, damage, excessive wear, strong odours or missing parts.</p><p>Once your return is completed and the sofa's condition is verified, we'll refund the purchase price of your sofa to your original payment method.</p><h2>Free Home Collection in Metro Areas</h2><p>Returning a sofa shouldn't be a hassle.</p><p>If you're within one of our eligible Australian metro collection areas, <strong>we'll pick up your sofa from your home for free</strong>.</p><p>Outside our eligible collection areas? No problem. You can arrange to return your sofa to our designated warehouse at your own cost.</p><p>And don't worry about the packaging. There's no need to compress your sofa or squeeze it back into its original box.</p><h2>Giving Your Sofa a Second Home</h2><p>A sofa that isn't quite right for your home could be just right for someone else's.</p><p>We never resell used Home Trial sofas as brand-new products.</p><p>Where possible, we aim to give returned sofas a second life through charitable donations, community reuse or responsible recycling.</p><p>It's our way of keeping good furniture in use and reducing unnecessary waste.</p><h2>How to Start a Return</h2><p>Simply email <a href=\"mailto:support@ozroomy.com\"><strong>support@ozroomy.com</strong></a> or reach out through our Contact Us page with your order number and a few clear photos of your sofa.</p><p>Our team will guide you through the next steps.</p><h2>Faulty or Damaged Products</h2><p>Our 60-Day Home Trial covers change-of-mind returns and is an additional benefit beyond your rights under the Australian Consumer Law.</p><p>If your sofa arrives faulty, damaged or not as described, please contact us so we can help make things right.</p><p>Your rights under Australian Consumer Law are not limited by our 60-Day Home Trial, including where we are responsible for collection or reasonable return costs.</p>",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
           }
         },
-        "richtext_ntAmhH": {
-          "type": "richtext",
+        "advanced_collapsible_row_HXFFDj": {
+          "type": "advanced_collapsible_row",
           "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "text": "<p>We understand that seating furniture endures the rigors of daily home life. That’s why our sofas are built to meet rigorous quality and durability standards. We are confident in the craftsmanship of our products and offer a <strong>3-year limited warranty</strong> covering defects in materials and workmanship for the frames, as well as seat and back cushions.</p>",
-            "text_style": "body",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
+            "heading": "Damages and Issues",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "<p>Please check your order when it arrives and contact us as soon as possible if anything looks damaged, faulty, or different from what you ordered.</p><p>To help us review the issue quickly, please include:</p><p>Your order number<br/><br/>Clear photos of the product<br/><br/>Photos of the packaging, especially if the box was damaged in transit<br/><br/>A short description of the issue</p><p>Once we receive the details, our team will review the case and help with the next steps. Depending on the situation, this may include replacement parts, a repair solution, an exchange, or another suitable resolution.</p><p>Please contact us at <a><strong>support@ozdesignsofa.com</strong></a> or through our <a href=\"/pages/contact\" title=\"Contact\"><strong>Contact Us</strong></a> page.</p>",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_qybBjx": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Refunds before shipping",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "<p>If you need to cancel your order before it has been dispatched, please contact us as soon as possible.</p><p>For in-stock items, we process orders quickly, so cancellation may not always be possible once the order has entered the dispatch process.</p><p>For made-to-order items, cancellation may depend on the production stage. If production has already started or your order has been prepared for shipping, cancellation may not be possible or certain costs may be deducted from your refund.</p><p>If your cancellation is approved, your refund will be issued back to your original payment method. Refunds may take a few business days to appear, depending on your payment provider.</p>",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_tiaW46": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Color Variation",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "<p>We do our best to show product colours as accurately as possible. However, colours may look slightly different depending on lighting, screen settings, fabric direction, and the natural texture of the material.</p><p>For fabrics such as corduroy, chenille, or suede-style materials, the colour may also appear lighter or darker depending on the angle of the fabric pile.</p><p>Minor colour variation is normal and is not usually considered a product fault.</p><p>If you are unsure about a colour, we recommend ordering fabric samples where available before placing your sofa order.</p>",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_qk89XE": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Need help?",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "<p>If you have any questions about returns, refunds, damaged items or delivery, feel free to reach out to us at <a href=\"mailto:support@ozroomy.com\"><strong>support@ozroomy.com</strong></a> or through our <strong>Contact Us</strong> page.</p><p>Our team is always happy to help and usually responds within <strong>24 hours</strong>.</p>",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
           }
         }
       },
       "block_order": [
-        "heading_EmdmtQ",
-        "richtext_ntAmhH"
+        "advanced_collapsible_row_ezWaEc",
+        "advanced_collapsible_row_HXFFDj",
+        "advanced_collapsible_row_qybBjx",
+        "advanced_collapsible_row_tiaW46",
+        "advanced_collapsible_row_qk89XE"
       ],
+      "name": "Advanced collapsible",
       "settings": {
-        "display_id": false,
-        "visibility": "always-display",
+        "title": "Advanced collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "left",
         "color_scheme": "background-1",
-        "columns_count": 4,
-        "column_gap_desktop": 40,
-        "row_gap_desktop": 40,
-        "desktop_vertical_alignment": "center",
-        "column_gap_mobile": 20,
-        "row_gap_mobile": 30,
-        "mobile_vertical_alignment": "flex-start",
-        "col_1_desktop_width": 12,
-        "col_1_mobile_width": 4,
-        "col_1_visibility": "always-display",
-        "col_2_desktop_width": 4,
-        "col_2_mobile_width": 4,
-        "col_2_visibility": "always-display",
-        "col_3_desktop_width": 4,
-        "col_3_mobile_width": 4,
-        "col_3_visibility": "always-display",
-        "col_4_desktop_width": 4,
-        "col_4_mobile_width": 4,
-        "col_4_visibility": "always-display",
-        "col_5_desktop_width": 3,
-        "col_5_mobile_width": 4,
-        "col_5_visibility": "always-display",
-        "col_6_desktop_width": 3,
-        "col_6_mobile_width": 4,
-        "col_6_visibility": "always-display",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
-      }
-    },
-    "custom_columns_EFxYqd": {
-      "type": "custom-columns",
-      "blocks": {
-        "heading_N7aqwC": {
-          "type": "heading",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "heading": "What is covered under this warranty?",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "richtext_MpjpWP": {
-          "type": "richtext",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "text": "<p>This warranty applies exclusively to residential use. It covers:</p><ul><li>Defects in materials and craftsmanship affecting the sofa frames.</li><li>Seat and back cushions when used with their intended frames.</li></ul>",
-            "text_style": "body",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        }
-      },
-      "block_order": [
-        "heading_N7aqwC",
-        "richtext_MpjpWP"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "color_scheme": "background-1",
-        "columns_count": 4,
-        "column_gap_desktop": 40,
-        "row_gap_desktop": 40,
-        "desktop_vertical_alignment": "center",
-        "column_gap_mobile": 20,
-        "row_gap_mobile": 24,
-        "mobile_vertical_alignment": "flex-start",
-        "col_1_desktop_width": 12,
-        "col_1_mobile_width": 4,
-        "col_1_visibility": "always-display",
-        "col_2_desktop_width": 4,
-        "col_2_mobile_width": 4,
-        "col_2_visibility": "always-display",
-        "col_3_desktop_width": 4,
-        "col_3_mobile_width": 4,
-        "col_3_visibility": "always-display",
-        "col_4_desktop_width": 4,
-        "col_4_mobile_width": 4,
-        "col_4_visibility": "always-display",
-        "col_5_desktop_width": 3,
-        "col_5_mobile_width": 4,
-        "col_5_visibility": "always-display",
-        "col_6_desktop_width": 3,
-        "col_6_mobile_width": 4,
-        "col_6_visibility": "always-display",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
-      }
-    },
-    "custom_columns_FDVAHb": {
-      "type": "custom-columns",
-      "blocks": {
-        "heading_nRQUh9": {
-          "type": "heading",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "heading": "What is not covered under this warranty?",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "richtext_RiPXcD": {
-          "type": "richtext",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "text": "<p>Our warranty <strong>does not cover</strong>:</p><ul><li>Damage caused by improper storage, assembly, installation, misuse, abuse, or unauthorized alterations.</li><li>Issues arising from incorrect cleaning methods or unsuitable cleaning products.</li><li>Normal wear and tear, including cuts, scratches, or damage from impacts or accidents.</li><li>Products placed outdoors or in damp/humid environments.</li><li>Any incidental or consequential damages.</li></ul>",
-            "text_style": "body",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        }
-      },
-      "block_order": [
-        "heading_nRQUh9",
-        "richtext_RiPXcD"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "color_scheme": "background-1",
-        "columns_count": 4,
-        "column_gap_desktop": 40,
-        "row_gap_desktop": 40,
-        "desktop_vertical_alignment": "center",
-        "column_gap_mobile": 20,
-        "row_gap_mobile": 24,
-        "mobile_vertical_alignment": "flex-start",
-        "col_1_desktop_width": 12,
-        "col_1_mobile_width": 4,
-        "col_1_visibility": "always-display",
-        "col_2_desktop_width": 4,
-        "col_2_mobile_width": 4,
-        "col_2_visibility": "always-display",
-        "col_3_desktop_width": 4,
-        "col_3_mobile_width": 4,
-        "col_3_visibility": "always-display",
-        "col_4_desktop_width": 4,
-        "col_4_mobile_width": 4,
-        "col_4_visibility": "always-display",
-        "col_5_desktop_width": 3,
-        "col_5_mobile_width": 4,
-        "col_5_visibility": "always-display",
-        "col_6_desktop_width": 3,
-        "col_6_mobile_width": 4,
-        "col_6_visibility": "always-display",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
-      }
-    },
-    "custom_columns_aCRVe4": {
-      "type": "custom-columns",
-      "blocks": {
-        "heading_NeUyGt": {
-          "type": "heading",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "heading": "How to Request Service",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "richtext_qg4Ybj": {
-          "type": "richtext",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "text": "<p>If you experience an issue, reach out to us via <strong>Facebook </strong>or <strong>email </strong>at<strong> support@ozroomy.com</strong> To help us resolve the matter efficiently, please include photos or videos of the product along with your order details.</p>",
-            "text_style": "body",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        }
-      },
-      "block_order": [
-        "heading_NeUyGt",
-        "richtext_qg4Ybj"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "color_scheme": "background-1",
-        "columns_count": 4,
-        "column_gap_desktop": 40,
-        "row_gap_desktop": 40,
-        "desktop_vertical_alignment": "center",
-        "column_gap_mobile": 20,
-        "row_gap_mobile": 24,
-        "mobile_vertical_alignment": "flex-start",
-        "col_1_desktop_width": 12,
-        "col_1_mobile_width": 4,
-        "col_1_visibility": "always-display",
-        "col_2_desktop_width": 4,
-        "col_2_mobile_width": 4,
-        "col_2_visibility": "always-display",
-        "col_3_desktop_width": 4,
-        "col_3_mobile_width": 4,
-        "col_3_visibility": "always-display",
-        "col_4_desktop_width": 4,
-        "col_4_mobile_width": 4,
-        "col_4_visibility": "always-display",
-        "col_5_desktop_width": 3,
-        "col_5_mobile_width": 4,
-        "col_5_visibility": "always-display",
-        "col_6_desktop_width": 3,
-        "col_6_mobile_width": 4,
-        "col_6_visibility": "always-display",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
-      }
-    },
-    "custom_columns_8B9Hy4": {
-      "type": "custom-columns",
-      "blocks": {
-        "heading_4XkEpG": {
-          "type": "heading",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "heading": "Important Information",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        },
-        "richtext_TRPJEt": {
-          "type": "richtext",
-          "settings": {
-            "column": "col_1",
-            "visibility": "always-display",
-            "text": "<p>Your warranty coverage begins on the date of purchase.</p><p>Claims require the <strong>original receipt</strong> as proof of purchase.</p>",
-            "text_style": "body",
-            "alignment": "left",
-            "mobile_alignment": "mobile-left",
-            "margin_top": 20,
-            "margin_bottom": 20
-          }
-        }
-      },
-      "block_order": [
-        "heading_4XkEpG",
-        "richtext_TRPJEt"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "color_scheme": "background-1",
-        "columns_count": 4,
-        "column_gap_desktop": 40,
-        "row_gap_desktop": 40,
-        "desktop_vertical_alignment": "center",
-        "column_gap_mobile": 20,
-        "row_gap_mobile": 24,
-        "mobile_vertical_alignment": "flex-start",
-        "col_1_desktop_width": 12,
-        "col_1_mobile_width": 4,
-        "col_1_visibility": "always-display",
-        "col_2_desktop_width": 4,
-        "col_2_mobile_width": 4,
-        "col_2_visibility": "always-display",
-        "col_3_desktop_width": 4,
-        "col_3_mobile_width": 4,
-        "col_3_visibility": "always-display",
-        "col_4_desktop_width": 4,
-        "col_4_mobile_width": 4,
-        "col_4_visibility": "always-display",
-        "col_5_desktop_width": 3,
-        "col_5_mobile_width": 4,
-        "col_5_visibility": "always-display",
-        "col_6_desktop_width": 3,
-        "col_6_mobile_width": 4,
-        "col_6_visibility": "always-display",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
-    "custom_columns_af6Ri9",
-    "custom_columns_EFxYqd",
-    "custom_columns_FDVAHb",
-    "custom_columns_aCRVe4",
-    "custom_columns_8B9Hy4"
+    "advanced_collapsible_content_LJEtMy"
   ]
 }

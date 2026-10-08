@@ -13,7 +13,7 @@
     "country_list_function": "block",
     "country_list": "AU",
     "country_invalid_error_msg": "<h4>Site under construction. Please come back soon!</h4>",
-    "logo": "shopify://shop_images/NO_OZDESIGN.webp",
+    "logo": "shopify://shop_images/OZROOMY-logo.svg",
     "logo_width": 120,
     "mobile_logo_width": 130,
     "favicon": "shopify://shop_images/white_background.png",
@@ -366,6 +366,7 @@
             "type": "product_specific_upsells",
             "settings": {
               "heading": "Complete with",
+              "options_button_label": "Choose options",
               "fallback_products": [
                 "roomy-maxi-cushion",
                 "roomy-pillows"
