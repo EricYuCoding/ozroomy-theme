@@ -99,7 +99,7 @@
         "text_QkC8JB": {
           "type": "text",
           "settings": {
-            "title": "30-Day Home Trial"
+            "title": "60-Day Home Trial"
           }
         },
         "text_GDbVmx": {
@@ -168,7 +168,7 @@
         "mobile_padding_bottom": 12,
         "desktop_padding_top": 16,
         "desktop_padding_bottom": 16,
-        "custom_colors_background": "#191919",
+        "custom_colors_background": "#435743",
         "custom_gradient_background": "",
         "custom_colors_text": "#ffffff"
       }
@@ -223,11 +223,6 @@
     },
     "header": {
       "type": "header",
-      "custom_css": [
-        ".header__inline-menu span {font-size: 1.8rem;}",
-        ".header__inline-menu li:last-child span {color: #9c6037;}",
-        ".menu-drawer__menu li:last-child a {color: #9c6037 !important;}"
-      ],
       "blocks": {
         "mega_menu_shop_v2": {
           "type": "mega_menu",
@@ -260,7 +255,6 @@
             "feature_card_2_text": "Soft curves and flexible modular comfort.",
             "feature_card_2_link": "",
             "feature_card_3_type": "product",
-            "feature_card_3_image": "",
             "feature_card_3_collection": "",
             "feature_card_3_product": "pebble-sofa",
             "feature_card_3_title": "",
@@ -278,8 +272,13 @@
       "block_order": [
         "mega_menu_shop_v2"
       ],
+      "custom_css": [
+        ".header__inline-menu span {font-size: 1.8rem;}",
+        ".header__inline-menu li:last-child span {color: #9c6037;}",
+        ".menu-drawer__menu li:last-child a {color: #9c6037 !important;}"
+      ],
       "settings": {
-        "sticky_header_type": "none",
+        "sticky_header_type": "on-scroll-up",
         "show_line_separator": false,
         "color_scheme": "background-1",
         "logo_link": "/",
@@ -297,6 +296,7 @@
         "menu_color_scheme": "background-1",
         "mobile_logo_position": "center",
         "display_search": true,
+        "enable_country_selector": true,
         "margin_bottom": 0,
         "padding_top": 0,
         "padding_bottom": 0

@@ -11,12 +11,6 @@
   "markets": {
     "eu": {
       "parent": "@default"
-    },
-    "japan": {
-      "parent": "@default"
-    },
-    "international": {
-      "parent": "@default"
     }
   }
 }

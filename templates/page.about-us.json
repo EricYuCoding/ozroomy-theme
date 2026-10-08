@@ -23,9 +23,9 @@
         "slide_UyKGA8": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/pebble-banner-20251216-3.webp",
+            "image": "shopify://shop_images/About-us-banner_39573207-db24-4009-bb8d-1c1c7394562d.webp",
             "image_overlay_opacity": 0,
-            "heading": "OzDesign Sofa",
+            "heading": "",
             "title_highlight_color": "#6d388b",
             "heading_size": "h0",
             "subheading": "",
@@ -95,7 +95,6 @@
         "show_media_only": false,
         "media_max_width": 1024,
         "visibility": "always-display",
-        "image": "shopify://shop_images/6cb260126cb3.webp",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",
@@ -219,10 +218,11 @@
         "row_BnQWBx": {
           "type": "row",
           "settings": {
+            "video": "shopify://files/videos/pebble-1m5-green-landing.mp4",
             "caption": "",
-            "title": "About Us",
-            "title_highlight_color": "#6D388B",
-            "text": "<h3>Making Sofa Setup Easier</h3><p>Buying a sofa online shouldn’t feel complicated.<br/><br/>But for many people, it still does.</p><p>Heavy packages, tricky delivery, tight doorways, and stressful setup.<br/><br/>We’ve been through it ourselves. That’s why we started OZDESIGN SOFA.</p>",
+            "title": "Started in Melbourne",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>We started small, with one simple idea: a sofa bed shouldn’t feel like a compromise.</p><p>Today, our sofa beds have found their way into homes across more than 20 countries.</p>",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -233,11 +233,11 @@
         "row_FjfEXg": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/about-us-image-2.webp",
+            "image": "shopify://shop_images/blue-pebble-sofa-mode.webp",
             "caption": "",
-            "title": "It Started in an Apartment",
-            "title_highlight_color": "#6D388B",
-            "text": "<p>We were living in an apartment.<br/><br/>Traditional sofas were heavy, expensive to ship, and hard to move in.</p><p>Booking lifts, measuring doorways, dealing with long setup times.<br/><br/>It felt like too much effort for something that should be simple.</p><p>So we decided to fix it.</p>",
+            "title": "&nbsp;Sofa First&nbsp;",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>It should still be a sofa you genuinely want in your living room.</p><p>Comfortable to sit on, considered in proportion and designed to feel like part of your home, not a spare bed disguised as furniture.</p>",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -248,11 +248,11 @@
         "row_eDTzJA": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/about-us-image-1.webp",
+            "image": "shopify://shop_images/blue-pebble-bed-mode.webp",
             "caption": "",
-            "title": "The Problem We Saw",
-            "title_highlight_color": "#6D388B",
-            "text": "<p>Most sofas are still designed the old way.<br/></p><ul><li>High shipping costs<br/></li><li>Complicated assembly<br/></li><li>Little to no customisation<br/></li></ul><p>Even affordable brands often ignore how hard sofas are to deliver and set up.</p>",
+            "title": "A Proper Bed",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>When it becomes a bed, it should feel like one.</p><p>Generous sleeping space, supportive comfort and thoughtful materials make it ready for more than the occasional overnight guest.</p>",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -263,11 +263,26 @@
         "row_HgaRU7": {
           "type": "row",
           "settings": {
-            "image": "shopify://shop_images/box-pebble-ozdesign-no-gemini.webp",
+            "image": "shopify://shop_images/OZROOMY-BOX.webp",
             "caption": "",
-            "title": "How We Made It Easier",
-            "title_highlight_color": "#6D388B",
-            "text": "<p>We redesigned the sofa experience around real homes.</p><ul><li><strong>Compressed, roll-packed foam</strong> to save space and reduce shipping costs<br/></li><li><strong>Sofa in a box</strong> packaging that fits through doors and lifts<br/></li><li><strong>Modular designs</strong> for simple, stress-free setup<br/></li><li><strong>Customisation options</strong> because no two homes are the same<br/></li></ul><p>Everything is designed to feel lighter, simpler, and more flexible.</p>",
+            "title": "A Roomier Name",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>You may have known us as OZDESIGN SOFA.</p><p>Australia takes trademarks seriously. So do we.</p><p>Here, we’re OZROOMY. Same team, same thinking, just a new name with a little more room to grow.</p>",
+            "button_label": "",
+            "button_link": "",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        },
+        "row_Eqh86k": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/JP-KOL-VIDEO-01.mp4",
+            "caption": "",
+            "title": "Designed for Real Homes",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Different homes. Different routines.<br/>Our sofa beds are designed to fit naturally into everyday life, whether you’re sitting, lounging, hosting or sleeping.</p>",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -278,10 +293,11 @@
         "row_QdYLY9": {
           "type": "row",
           "settings": {
+            "video": "shopify://files/videos/LOOPA-5-ORIGINAL-CAPCUT-EDITED1.mp4",
             "caption": "",
-            "title": "Designed for Real Life",
-            "title_highlight_color": "#6D388B",
-            "text": "<p>We’re not here to overcomplicate things or overpromise.<br/><br/>We just want to make buying a sofa online feel easier, lighter, and more human.</p><p>If our sofa saves you time, stress, or one awkward moment in a stairwell,<br/><br/>then we’ve done our job.</p>",
+            "title": "Never a Compromise",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Our goal is simple: <strong>Make your room, roomier.</strong></p><p>A sofa bed shouldn’t be something you settle for because you need an extra bed.</p><p>It should be a sofa you genuinely want, with a proper bed ready when you need it.</p>",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -295,6 +311,7 @@
         "row_FjfEXg",
         "row_eDTzJA",
         "row_HgaRU7",
+        "row_Eqh86k",
         "row_QdYLY9"
       ],
       "name": "t:sections.multirow.presets.name",
@@ -316,13 +333,13 @@
         "mobile_content_alignment": "left",
         "padding_top": 36,
         "padding_bottom": 36,
-        "custom_colors_background": "#2E2A39",
+        "custom_colors_background": "#2e2a39",
         "custom_gradient_background": "",
-        "custom_colors_text": "#FFFFFF",
+        "custom_colors_text": "#ffffff",
         "custom_colors_solid_button_background": "#dd1d1d",
         "custom_colors_solid_button_text": "#ffffff",
         "custom_colors_outline_button": "#dd1d1d",
-        "custom_section_colors_background": "#FFFFFF",
+        "custom_section_colors_background": "#ffffff",
         "custom_section_gradient_background": ""
       }
     },
@@ -355,7 +372,6 @@
         "show_media_only": false,
         "media_max_width": 1024,
         "visibility": "always-display",
-        "image": "shopify://shop_images/10531726905205_.pic_hd.webp",
         "height": "adapt",
         "content_layout": "no-overlap",
         "color_scheme": "background-1",

@@ -359,6 +359,155 @@
         "desktop_padding_bottom": 36
       }
     },
+    "advanced_collapsible_content_PQEbF6": {
+      "type": "advanced-collapsible-content",
+      "blocks": {
+        "advanced_collapsible_row_BrVQV7": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "60-Day Trial",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "<h2>What if it’s not right for my home?</h2><p>Choosing a sofa online can feel like a big decision. Sometimes you only know if the size, colour, comfort or overall feel is right once it’s actually in your home.</p><p>That’s why we offer a <strong>60 Day Trial</strong>.</p><p>You’ll have up to <strong>60 days from the day your order is delivered</strong> to live with your sofa and make sure it works for your space.</p><p>If it’s not quite right, simply get in touch and we’ll help you arrange a return.</p><h2>60 Day Trial</h2><p>Our 60 Day Trial applies storewide to eligible products purchased directly from us.</p><p>If you decide your product isn’t right for your home, contact us within <strong>60 days of receiving your order</strong>.</p><p>As long as the product is returned in good condition, with no damage, stains, heavy wear, misuse, strong odours or missing parts, we’ll accept the return and provide a full refund.</p><p>Whether it’s the size, colour, comfort, style or simply how it feels in your space, you don’t need to keep something that doesn’t feel right for your home.</p><h2>Collection</h2><p>Once your return has been approved, we’ll help arrange collection from your address.</p><p>You won’t need to organise the return yourself.</p><p>After collection, we’ll take care of the product through our local donation, recycling and responsible recovery partners wherever possible.</p><p>Returned sofas and furniture are <strong>not resold as new products</strong>.</p><h2>Refunds</h2><p>Once your product has been collected and checked, your refund will be processed back to your original payment method.</p><p>If the product is returned in good condition, you’ll receive a full refund.</p><p>A full refund may not be available if the product has been damaged, stained, heavily used, affected by strong odours, has missing parts, or shows wear beyond what would reasonably be expected during a home trial.</p><h2>How to Start a Return</h2><p>To start a return, contact us at <a href=\"mailto:support@ozroomy.com\"><strong>support@ozroomy.com</strong></a> or through our <strong>Contact Us</strong> page with:</p><ul><li>your order number</li><li>a few clear photos of the product</li><li>a short note letting us know you’d like to return it</li></ul><p>Our team will review your request and guide you through the next steps.</p><h2>Faulty or Damaged Products</h2><p>The 60 Day Trial is designed for change-of-mind returns.</p><p>It does not affect any rights you may have if your product arrives faulty, damaged, incorrect or not as described.</p><p>If there’s an issue with your order, please contact us as soon as possible and we’ll help make it right.</p>",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_TmnPhw": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Why Customers Love the Pebble Sofa Bed",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.description }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_JtqYYy": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Specifications & Dimensions",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_cj3j9J": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Customization",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.customization | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_dzXJQi": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Shipping Information",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.shipping_information | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_b3W3Yr": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Materials",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.materials | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_TVHA6i": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Care Instructions",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "advanced_collapsible_row_BrVQV7",
+        "advanced_collapsible_row_TmnPhw",
+        "advanced_collapsible_row_JtqYYy",
+        "advanced_collapsible_row_cj3j9J",
+        "advanced_collapsible_row_dzXJQi",
+        "advanced_collapsible_row_b3W3Yr",
+        "advanced_collapsible_row_TVHA6i"
+      ],
+      "name": "Advanced collapsible",
+      "settings": {
+        "title": "Advanced collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "left",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collapsible_content_TKej8f": {
       "type": "collapsible-content",
       "blocks": {
@@ -368,7 +517,7 @@
             "heading": "30-Day Trial",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "<h2>What if it’s not right for my home?</h2><p>We want you to feel completely confident when choosing your sofa.</p><p>We’re proud to share that our return rate is currently below <strong>0.5%</strong>, far lower than the average online sofa return rate of around <strong>10%–18%</strong>.</p><p>Most of our customers keep and love their sofas, but we understand that a sofa is a big decision. Sometimes, you only know if it truly works once it is in your home.</p><p>That’s why we offer a <strong>30 Day Trial</strong> across our store.</p><h2>30 Day Trial</h2><p>Our 30 Day Trial applies storewide to all products purchased from OZDESIGN SOFA.</p><p>If your product is not the right fit for your home, you can contact us within <strong>30 days of receiving your order</strong>.</p><p>As long as the product is in good condition, with no damage, stains, heavy wear, misuse, odours, or missing parts, we will accept the return and provide a full refund.</p><p>To help us continue improving our products, service, and customer experience, we may ask for brief feedback on why the product was not the right fit.</p><p>Whether the size, colour, comfort, style, or overall feel is not quite right for your space, we’re happy to help.</p><h2>Collection & Product Recovery</h2><p>Once your return is accepted, we will help arrange collection from your address.</p><p>All returned sofas and furniture items are <strong>never resold</strong>.</p><p>After collection, we’ll take care of the next steps. We work with local charity partners, donation networks, recycling services, and responsible recovery partners to make sure returned items are reused, donated, recycled, or responsibly recovered wherever possible. This helps support local communities and reduce unnecessary waste.</p><p>This helps us avoid unnecessary landfill while giving returned products the best possible second life.</p><h2>Refunds</h2><p>Refunds are processed once the returned product has been collected and checked.</p><p>If the product is returned in good condition, we will issue a full refund to your original payment method.</p><p>We may not be able to offer a full refund if the item is returned damaged, stained, heavily used, affected by odours, missing parts, or in a condition that is not consistent with normal home trial use.</p><h2>How to Start a Return</h2><p>To start a return, please contact us at <a><strong>support@ozdesignsofa.com</strong></a> or through our <strong>Contact Us</strong> page with:</p><ul><li>your order number</li><li>a few clear photos of the product</li><li>a short note letting us know you would like to return it</li></ul><p>Our team will review your request and confirm the next steps.</p><h2>Faulty or Damaged Products</h2><p>The 30 Day Trial applies to change-of-mind returns.</p><p>It does not limit or replace any rights you may have if your product arrives faulty, damaged, incorrect, or not as described. If there is an issue with your order, please contact us as soon as possible and we will help resolve it.</p>",
+            "row_content": "<h2>What if it’s not right for my home?</h2><p>We want you to feel completely confident when choosing your sofa.</p><p>We’re proud to share that our return rate is currently below <strong>0.5%</strong>, far lower than the average online sofa return rate of around <strong>10%–18%</strong>.</p><p>Most of our customers keep and love their sofas, but we understand that a sofa is a big decision. Sometimes, you only know if it truly works once it is in your home.</p><p>That’s why we offer a <strong>30 Day Trial</strong> across our store.</p><h2>30 Day Trial</h2><p>Our 30 Day Trial applies storewide to all products purchased from OZDESIGN SOFA.</p><p>If your product is not the right fit for your home, you can contact us within <strong>30 days of receiving your order</strong>.</p><p>As long as the product is in good condition, with no damage, stains, heavy wear, misuse, odours, or missing parts, we will accept the return and provide a full refund.</p><p>To help us continue improving our products, service, and customer experience, we may ask for brief feedback on why the product was not the right fit.</p><p>Whether the size, colour, comfort, style, or overall feel is not quite right for your space, we’re happy to help.</p><h2>Collection & Product Recovery</h2><p>Once your return is accepted, we will help arrange collection from your address.</p><p>All returned sofas and furniture items are <strong>never resold</strong>.</p><p>After collection, we’ll take care of the next steps. We work with local charity partners, donation networks, recycling services, and responsible recovery partners to make sure returned items are reused, donated, recycled, or responsibly recovered wherever possible. This helps support local communities and reduce unnecessary waste.</p><p>This helps us avoid unnecessary landfill while giving returned products the best possible second life.</p><h2>Refunds</h2><p>Refunds are processed once the returned product has been collected and checked.</p><p>If the product is returned in good condition, we will issue a full refund to your original payment method.</p><p>We may not be able to offer a full refund if the item is returned damaged, stained, heavily used, affected by odours, missing parts, or in a condition that is not consistent with normal home trial use.</p><h2>How to Start a Return</h2><p>To start a return, please contact us at <a><strong>support@ozroomy.com</strong></a> or through our <strong>Contact Us</strong> page with:</p><ul><li>your order number</li><li>a few clear photos of the product</li><li>a short note letting us know you would like to return it</li></ul><p>Our team will review your request and confirm the next steps.</p><h2>Faulty or Damaged Products</h2><p>The 30 Day Trial applies to change-of-mind returns.</p><p>It does not limit or replace any rights you may have if your product arrives faulty, damaged, incorrect, or not as described. If there is an issue with your order, please contact us as soon as possible and we will help resolve it.</p>",
             "page": ""
           }
         },
@@ -442,6 +591,7 @@
         "collapsible_row_ViWdFp",
         "collapsible_row_d4MDcV"
       ],
+      "disabled": true,
       "settings": {
         "display_id": false,
         "visibility": "always-display",
@@ -874,10 +1024,11 @@
         "row_GYrKUh": {
           "type": "row",
           "settings": {
-            "caption": "Packaging Made for Small Spaces",
-            "title": "Compact Boxes, Designed for Real Life",
+            "image": "shopify://shop_images/pebble-foam-display.webp",
+            "caption": "DESIGNED FOR SITTING AND SLEEPING",
+            "title": "&nbsp;Soft Meets Support&nbsp;",
             "title_highlight_color": "#6d388b",
-            "text": "<p>• Easier to handle — ideal for solo living or limited mobility<br/><br/>• Vacuum-compressed for compact delivery through narrow spaces<br/><br/>• Box size: 95 × 44 × 44 cm, approx. 22 kg each<br/><br/>• Unpack and relax — no tools, no assembly<br/></p>",
+            "text": "<p><br/>After testing more than a dozen foam combinations, we landed on a two-layer build that feels right in real life. The upper Plush Comfort Foam brings a softer, more relaxed feel for sleep, while the lower SupportCore Medium-Firm Foam provides the stable support you want for everyday seating.<br/><br/></p>",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -890,7 +1041,7 @@
           "settings": {
             "video": "{{ block.settings.atc_product.metafields.custom.product_page_video3.value }}",
             "caption": "",
-            "title": "&nbsp;Removable, Washable Covers.&nbsp;",
+            "title": "Removable, Washable Covers.&nbsp;",
             "title_highlight_color": "#6d388b",
             "text": "<p>Fully removable covers make everyday marks, spills and seasonal refreshes easier to manage.</p>",
             "button_label": "",
@@ -918,10 +1069,11 @@
         "row_MbxHYF": {
           "type": "row",
           "settings": {
-            "caption": "",
-            "title": "A Fully Removable Design",
+            "image": "shopify://shop_images/pebble-mattress-image_122adc98-da37-4b59-bee5-a507848d4563.webp",
+            "caption": "NEW SLEEP+ OPTION",
+            "title": "Made for sleep.&nbsp;",
             "title_highlight_color": "#6d388b",
-            "text": "<p><strong>All covers and cushions are fully removable for easy cleaning.</strong><br/><br/>If you’d like to see your sofa before it ships, just email us — we’ll record a quick personalised video for you.<br/><br/></p>",
+            "text": "<p>A breathable mattress-style fabric on the sleep side gives Pebble a more bed-like feel at night, while the sofa side keeps its original upholstered finish.</p>",
             "button_label": "",
             "button_link": "",
             "atc_button_label": "",
@@ -989,6 +1141,7 @@
   },
   "order": [
     "main",
+    "advanced_collapsible_content_PQEbF6",
     "collapsible_content_TKej8f",
     "1764309817f86f8b97",
     "related-products",
