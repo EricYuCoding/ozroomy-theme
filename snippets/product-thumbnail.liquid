@@ -163,7 +163,7 @@
               >
             {% endfor %}
           </video>
-          <button class="internal-video__play"{% if no_play_button %} style='visibility: hidden;'{% endif %}>
+          <button type="button" class="internal-video__play" aria-label="{{ 'products.product.media.play_video' | t }}"{% if no_play_button %} style='visibility: hidden;'{% endif %}>
             <div class="play-button color-{{ section.settings.play_btn_color_scheme }}">
               {%- render 'icon-play' -%}
             </div>

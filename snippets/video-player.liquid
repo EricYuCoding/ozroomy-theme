@@ -42,7 +42,7 @@
           >
         {% endfor %}
       </video>
-      <button class="internal-video__play"{% if no_play_button %} style='visibility: hidden;'{% endif %}>
+      <button type="button" class="internal-video__play" aria-label="{{ 'products.product.media.play_video' | t }}"{% if no_play_button %} style='visibility: hidden;'{% endif %}>
         <div class="play-button color-{{ block.settings.btn_color_scheme }}{% if block.settings.btn_animation %} ripple-animation{% endif %}">
           {%- render 'icon-play' -%}
         </div>
