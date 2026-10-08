@@ -16,7 +16,7 @@ No SEO, performance, accessibility, JavaScript, CSS, branding, layout or unrelat
 - Fix commit: `328dad84b11493173d78ceabbd2f6a9d5c4f67fc` - 17 repository email replacements and one Continue Shopping URL change.
 - Reconciliation commit: `61d90f437bd0fc0e3990e1d291a61fe6a710481f` - reviewed live-derived merchant configuration.
 - Feature-to-dev merge: `0ef46c9461090cd60614214a175d248cff576c47`.
-- Dev-to-main merge: pending final closeout update.
+- Dev-to-main merge: `49ae17391f40dae9b56ea761ea9f4b90e477b7dc`.
 
 Feature branch: `feature/email-continue-shopping-reconciliation`. The branch is retained for review and rollback reference.
 
