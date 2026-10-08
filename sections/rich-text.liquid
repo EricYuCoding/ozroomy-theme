@@ -43,9 +43,9 @@
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when 'heading' -%}
-              <h2 class="rich-text__heading rte {{ block.settings.heading_size }} title-with-highlight" style='--hightlight-color:{{ block.settings.title_highlight_color }}' {{ block.shopify_attributes }}>
+              <{{ block.settings.heading_tag | default: 'h2' }} class="rich-text__heading rte {{ block.settings.heading_size }} title-with-highlight" style='--hightlight-color:{{ block.settings.title_highlight_color }}' {{ block.shopify_attributes }}>
                 {{ block.settings.title }}
-              </h2>
+              </{{ block.settings.heading_tag | default: 'h2' }}>
             {% when 'rating_stars' %}
               {% render 'rating-stars-block', block: block, margins: false, block_attributes: true %}
             {% when 'trustpilot_stars' %}
@@ -335,6 +335,17 @@
           "id": "title_highlight_color",
           "label": "Heading highlight color",
           "default": "#6D388B"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "options": [
+            { "value": "h1", "label": "H1" },
+            { "value": "h2", "label": "H2" },
+            { "value": "h3", "label": "H3" }
+          ],
+          "default": "h2",
+          "label": "Heading tag"
         },
         {
           "type": "select",

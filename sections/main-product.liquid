@@ -527,9 +527,9 @@
                   <div class='sticky-atc__left'>
                     <div class='sticky-atc__left__content'>
                       {% if block.settings.mobile_show_title or block.settings.desktop_show_title %}
-                        <h4 class='sticky-atc__title{% unless block.settings.mobile_show_title %} mobile-hidden{% endunless %}{% unless block.settings.desktop_show_title %} desktop-hidden{% endunless %}'>
+                        <p class='sticky-atc__title{% unless block.settings.mobile_show_title %} mobile-hidden{% endunless %}{% unless block.settings.desktop_show_title %} desktop-hidden{% endunless %}'>
                           {{ product.title }}
-                        </h4>
+                        </p>
                       {% endif %}
                       {% if block.settings.mobile_rating_stars or block.settings.desktop_rating_stars %}
                         <div class='rating-stars-and-text font-size--desktop-auto flex-center{% unless block.settings.mobile_rating_stars %} mobile-hidden{% endunless %}{% unless block.settings.desktop_rating_stars %} desktop-hidden{% endunless %}' style='--bg-star-color:{{ block.settings.star_color }};--font-size:1.3rem;--alignment:flex-start;'>

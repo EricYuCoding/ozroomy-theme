@@ -38,9 +38,9 @@
             <p class="caption-with-letter-spacing">{{ section.settings.caption }}</p>
           {% endif %}
           {%- if section.settings.title != blank -%}
-            <h2 class="collapsible-content__heading {{ section.settings.heading_size }} title-with-highlight" style='--hightlight-color:{{ section.settings.title_highlight_color }}'>
+            <{{ section.settings.heading_tag | default: 'h2' }} class="collapsible-content__heading {{ section.settings.heading_size }} title-with-highlight" style='--hightlight-color:{{ section.settings.title_highlight_color }}'>
               {{ section.settings.title }}
-            </h2>
+            </{{ section.settings.heading_tag | default: 'h2' }}>
           {%- else -%}
             <h2 class="visually-hidden">{{ 'accessibility.collapsible_content_title' | t }}</h2>
           {% endif %}
@@ -205,6 +205,17 @@
       "id": "title_highlight_color",
       "label": "Heading highlight color",
       "default": "#6D388B"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ],
+      "default": "h2",
+      "label": "Heading tag"
     },
     {
       "type": "select",

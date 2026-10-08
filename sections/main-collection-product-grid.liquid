@@ -145,6 +145,11 @@
                   if forloop.index > 2
                     assign lazy_load = true
                   endif
+
+                  assign card_fetchpriority = nil
+                  if forloop.index == 1
+                    assign card_fetchpriority = 'high'
+                  endif
                   
                   assign hidden = false
                   if product.tags contains 'collection-hidden'
@@ -161,6 +166,7 @@
                       show_vendor: section.settings.show_vendor,
                       show_rating: section.settings.show_rating,
                       lazy_load: lazy_load,
+                      fetchpriority: card_fetchpriority,
                       show_quick_add: section.settings.enable_quick_add,
                       section_id: section.id
                     %}

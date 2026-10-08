@@ -12,12 +12,5 @@
     "market": "eu"
   },
   "parent": "header-group.json",
-  "sections": {
-    "header": {
-      "settings": {
-        "menu": "header-menu-eu"
-      },
-      "blocks": {}
-    }
-  }
+  "sections": {}
 }
