@@ -515,4 +515,3 @@ Optional after the release gate: inventory contrast, alt text improvements, perf
 - Shopify URL redirects: <https://help.shopify.com/en/manual/online-store/menus-and-links/url-redirect>
 - Shopify image alt text: <https://help.shopify.com/en/manual/products/product-media/add-alt-text>
 - Google ecommerce structured data: <https://developers.google.com/search/docs/specialty/ecommerce/include-structured-data-relevant-to-ecommerce>
-

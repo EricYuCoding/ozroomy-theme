@@ -132,4 +132,3 @@ Record the following every seven days in the same sheet:
 - Only approved dormant URLs are redirected.
 - One useful, reviewed content asset is published or ready to publish.
 - A factual baseline exists for month two; no ranking improvement is promised.
-
