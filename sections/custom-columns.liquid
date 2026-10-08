@@ -356,7 +356,7 @@
                                 type="submit"
                                 class="newsletter-form__button field__button"
                                 name="commit"
-                                id="Subscribe"
+                                id="Subscribe--{{ section.id }}-{{ block.id }}"
                                 aria-label="{{ 'newsletter.button_label' | t }}"
                               >
                                 {% render 'icon-arrow' %}
@@ -376,7 +376,7 @@
                             type="submit"
                             class="button newsletter__solid-btn button--full-width{% if block.settings.button_style_secondary %} button--secondary{% endif %}"
                             name="commit"
-                            id="Subscribe"
+                            id="Subscribe--{{ section.id }}-{{ block.id }}"
                             aria-label="{{ 'newsletter.button_label' | t }}"
                           >
                             {{ block.settings.button_label }}
