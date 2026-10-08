@@ -63,7 +63,6 @@
       "settings": {
         "display_id": false,
         "visibility": "always-display",
-        "image": "shopify://shop_images/LOOPA-BANNER3.webp",
         "image_1_visibility": "always-display",
         "image_2_visibility": "always-display",
         "image_overlay_opacity": 0,
@@ -93,7 +92,7 @@
         "text_WMMkg6": {
           "type": "text",
           "settings": {
-            "text": "<p><br/>Whether you’re interested in sofa customisation, fabric swatches, or delivery details, our team is here to help!<br/><br/>Please share as many details as possible (sofa model, fabric name, or order number) to make sure we can assist you quickly.<br/><br/>You can submit the form below, or reach us directly at <a>support@ozroomy.com</a>.<br/><br/></p>"
+            "text": "<p><br/>Whether you’re interested in sofa customisation, fabric swatches, or delivery details, our team is here to help!<br/><br/>Please share as many details as possible (sofa model, fabric name, or order number) to make sure we can assist you quickly.<br/><br/>You can submit the form below, or reach us directly at <a>support@ozroomy.com</a><br/><br/></p>"
           }
         }
       },

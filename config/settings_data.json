@@ -18,12 +18,12 @@
     "mobile_logo_width": 130,
     "favicon": "shopify://shop_images/white_background.png",
     "colors_solid_button_labels": "#ffffff",
-    "colors_accent_1": "#697861",
+    "colors_accent_1": "#435743",
     "gradient_accent_1": "",
-    "colors_accent_2": "#697861",
+    "colors_accent_2": "#435743",
     "gradient_accent_2": "linear-gradient(54deg, rgba(109, 56, 139, 1) 14%, rgba(105, 14, 14, 1) 85%)",
     "colors_text": "#121212",
-    "colors_outline_button_labels": "#697861",
+    "colors_outline_button_labels": "#435743",
     "colors_background_1": "#ffffff",
     "gradient_background_1": "",
     "colors_background_2": "#f3f3f3",
@@ -45,8 +45,8 @@
     "spacing_sections": 0,
     "spacing_grid_horizontal": 40,
     "spacing_grid_vertical": 40,
-    "link_btn_hover": "arrow",
-    "action_btn_hover": "center",
+    "link_btn_hover": "center",
+    "action_btn_hover": "glow",
     "buttons_border_thickness": 2,
     "buttons_border_opacity": 100,
     "buttons_radius": 6,
@@ -362,6 +362,19 @@
               "margin_bottom": 21
             }
           },
+          "validation_product_specific_upsells": {
+            "type": "product_specific_upsells",
+            "settings": {
+              "heading": "Complete with",
+              "fallback_products": [
+                "roomy-maxi-cushion",
+                "roomy-pillows"
+              ],
+              "max_visible": 2,
+              "show_short_description": false,
+              "button_radius": 6
+            }
+          },
           "631b0e34-4299-400e-9f4d-c107c08cce01": {
             "type": "discount_field",
             "disabled": true,
@@ -432,6 +445,7 @@
           "926ea95f-fd8a-43e7-b215-de4f6cbc19f9",
           "058d6d0a-ba0d-48cb-9432-de85da1e5aef",
           "097b7b4f-c0b8-4073-a06b-e6d49a5aad20",
+          "validation_product_specific_upsells",
           "631b0e34-4299-400e-9f4d-c107c08cce01",
           "4f3e2a5f-006d-40ed-8370-49b15e0e427d",
           "0935e47c-9604-4faa-b47a-d61ca49c0c16",
@@ -540,31 +554,7 @@
         }
       }
     },
-    "content_for_index": [],
-    "blocks": {
-      "11532412952436166569": {
-        "type": "shopify://apps/loox-reviews/blocks/loox-inject/5c3b337f-fd14-4df5-b1d6-80ec13e6e28e",
-        "disabled": true,
-        "settings": {}
-      },
-      "18228966181090706294": {
-        "type": "shopify://apps/selleasy/blocks/app-embed/790c1a03-a71f-4bc1-9869-00dad526d3c2",
-        "disabled": true,
-        "settings": {
-          "storefrontAccessToken": ""
-        }
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": true,
-        "settings": {}
-      },
-      "17676059084223943535": {
-        "type": "shopify://apps/triplewhale/blocks/triple_pixel_snippet/483d496b-3f1a-4609-aea7-8eee3b6b7a2a",
-        "disabled": true,
-        "settings": {}
-      }
-    }
+    "content_for_index": []
   },
   "presets": {
     "Default": {

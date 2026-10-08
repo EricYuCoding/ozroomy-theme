@@ -250,7 +250,7 @@
         "text": "<p>A proper sofa by day. A proper bed by night.</p>",
         "text_size": "medium",
         "button_label_1": "Shop now",
-        "button_link_1": "shopify://collections/pebble-modular-sofa-beds",
+        "button_link_1": "shopify://products/pebble-sofa-bed",
         "button_style_1": "primary",
         "button_label_2": "",
         "button_link_2": "",
@@ -264,6 +264,7 @@
         "mobile_height": "medium",
         "media_type": "image",
         "desktop_image": "shopify://shop_images/ozroomy-banner-1.webp",
+        "mobile_image": "shopify://shop_images/Pebble-banner-1-phone.webp",
         "mobile_video_behavior": "poster",
         "video_position": "center",
         "overlay_color": "#000000",
@@ -662,6 +663,187 @@
         "padding_bottom": 48
       }
     },
+    "editorial_message_banner_validation": {
+      "type": "editorial-message-banner",
+      "name": "Editorial message banner - validation",
+      "settings": {
+        "heading": "&nbsp;Try it at home for 30 days&nbsp;",
+        "heading_tag": "h2",
+        "body": "<p>Live with it, lounge on it, sleep on it. If it’s not right for you, we’ll help arrange the return.</p>",
+        "cta_label": "",
+        "cta_url": "",
+        "cta_style": "secondary",
+        "section_width": "full",
+        "desktop_min_height": 360,
+        "mobile_min_height": 260,
+        "content_max_width": 760,
+        "desktop_horizontal_alignment": "center",
+        "mobile_horizontal_alignment": "center",
+        "desktop_vertical_alignment": "center",
+        "mobile_vertical_alignment": "center",
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "custom_background": "#435743",
+        "heading_color": "#ffffff",
+        "body_color": "#ffffff",
+        "border_position": "none",
+        "border_color": "#ffffff",
+        "heading_font": "heading",
+        "heading_desktop_size": 52,
+        "heading_mobile_size": 34,
+        "heading_weight": "600",
+        "heading_line_height": 110,
+        "heading_letter_spacing": 0,
+        "body_font": "body",
+        "body_desktop_size": 20,
+        "body_mobile_size": 17,
+        "body_weight": "400",
+        "body_line_height": 150,
+        "body_letter_spacing": 0,
+        "desktop_padding_top": 72,
+        "desktop_padding_bottom": 72,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48,
+        "text_gap": 24,
+        "cta_gap": 28
+      }
+    },
+    "flexible_hero_banner_rkH3Qt": {
+      "type": "flexible-hero-banner",
+      "name": "Flexible hero banner",
+      "settings": {
+        "heading": "Built for days. &nbsp; Softer for nights.&nbsp;",
+        "heading_tag": "h2",
+        "heading_size": "h1",
+        "text": "<p>Supportive by day, softer by night, wrapped in water-resistant, hard-wearing fabric.<br/><br/></p>",
+        "text_size": "medium",
+        "button_label_1": "Shop now",
+        "button_link_1": "",
+        "button_style_1": "primary",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "layout_mode": "classic",
+        "desktop_vertical_position": "bottom",
+        "desktop_text_alignment": "left",
+        "mobile_vertical_position": "bottom",
+        "mobile_text_alignment": "left",
+        "desktop_height": "medium",
+        "mobile_height": "medium",
+        "media_type": "image",
+        "desktop_image": "shopify://shop_images/pebble-landing-banner.webp",
+        "mobile_image": "shopify://shop_images/Pebble-dog-banner-phone.webp",
+        "mobile_video_behavior": "poster",
+        "video_position": "center",
+        "overlay_color": "#000000",
+        "overlay_style": "even",
+        "overlay_opacity": 25,
+        "mobile_overlay_opacity": 35,
+        "color_scheme": "inverse",
+        "custom_text_color": "#ffffff",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "multirow_z8wja3": {
+      "type": "multirow",
+      "blocks": {
+        "row_LyHfac": {
+          "type": "row",
+          "settings": {
+            "video": "shopify://files/videos/pebble-1m5-green-landing.mp4",
+            "caption": "PEBBLE SOFA BED",
+            "title": "Day to night",
+            "title_highlight_color": "#6d388b",
+            "text": "<p>Supportive for everyday lounging, softer when it’s time to sleep. Finished with feather-filled arms and durable, water-resistant fabric.</p>",
+            "button_label": "EXPLORE PEBBLE",
+            "button_link": "shopify://products/pebble-sofa-bed",
+            "atc_button_label": "",
+            "atc_product": "",
+            "atc_skip_cart": false
+          }
+        }
+      },
+      "block_order": [
+        "row_LyHfac"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "display_id": false,
+        "visibility": "always-display",
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "image_layout": "alternate-left",
+        "row_color_scheme": "background-1",
+        "section_color_scheme": "background-1",
+        "mobile_full_media_width": false,
+        "mobile_direction": "normal",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#2e2a39",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#ffffff",
+        "custom_colors_solid_button_background": "#dd1d1d",
+        "custom_colors_solid_button_text": "#ffffff",
+        "custom_colors_outline_button": "#dd1d1d",
+        "custom_section_colors_background": "#ffffff",
+        "custom_section_gradient_background": ""
+      }
+    },
+    "editorial_message_banner_D6DWXV": {
+      "type": "editorial-message-banner",
+      "disabled": true,
+      "name": "Editorial message banner",
+      "settings": {
+        "heading": "A thoughtful message for your space",
+        "heading_tag": "h2",
+        "body": "<p>Share a concise announcement, reassurance, or editorial message.</p>",
+        "cta_label": "",
+        "cta_url": "",
+        "cta_style": "secondary",
+        "section_width": "full",
+        "desktop_min_height": 360,
+        "mobile_min_height": 260,
+        "content_max_width": 760,
+        "desktop_horizontal_alignment": "center",
+        "mobile_horizontal_alignment": "center",
+        "desktop_vertical_alignment": "center",
+        "mobile_vertical_alignment": "center",
+        "display_id": false,
+        "visibility": "always-display",
+        "color_scheme": "background-1",
+        "custom_background": "",
+        "heading_color": "",
+        "body_color": "",
+        "border_position": "none",
+        "border_color": "#2e2a39",
+        "heading_font": "heading",
+        "heading_desktop_size": 52,
+        "heading_mobile_size": 34,
+        "heading_weight": "600",
+        "heading_line_height": 110,
+        "heading_letter_spacing": 0,
+        "body_font": "body",
+        "body_desktop_size": 20,
+        "body_mobile_size": 17,
+        "body_weight": "400",
+        "body_line_height": 150,
+        "body_letter_spacing": 0,
+        "desktop_padding_top": 72,
+        "desktop_padding_bottom": 72,
+        "mobile_padding_top": 48,
+        "mobile_padding_bottom": 48,
+        "text_gap": 24,
+        "cta_gap": 28
+      }
+    },
     "multirow_LjbLYn": {
       "type": "multirow",
       "blocks": {
@@ -853,6 +1035,95 @@
         "custom_colors_background": "#ffffff",
         "custom_gradient_background": "",
         "custom_colors_text": "#121212"
+      }
+    },
+    "editorial_collection_rail_t7empy": {
+      "type": "editorial-collection-rail",
+      "blocks": {
+        "product_card_KP3jNk": {
+          "type": "product_card",
+          "settings": {
+            "product": "roomy-base",
+            "heading": "",
+            "link_label": "",
+            "show_overlay_title": true,
+            "overlay_font": "heading",
+            "overlay_text_size": "large",
+            "overlay_font_weight": "700",
+            "overlay_text_color": "#ffffff",
+            "overlay_text_alignment": "left",
+            "show_below_content": false,
+            "below_font": "body",
+            "below_title_size": "medium",
+            "below_title_weight": "500",
+            "below_text_color": "",
+            "below_alignment": "left",
+            "show_product_price": true
+          }
+        },
+        "product_card_ajFeVJ": {
+          "type": "product_card",
+          "settings": {
+            "product": "extra-coverloopa-sofa",
+            "heading": "",
+            "link_label": "",
+            "show_overlay_title": true,
+            "overlay_font": "heading",
+            "overlay_text_size": "large",
+            "overlay_font_weight": "700",
+            "overlay_text_color": "#ffffff",
+            "overlay_text_alignment": "left",
+            "show_below_content": false,
+            "below_font": "body",
+            "below_title_size": "medium",
+            "below_title_weight": "500",
+            "below_text_color": "",
+            "below_alignment": "left",
+            "show_product_price": true
+          }
+        },
+        "product_card_FKqxiV": {
+          "type": "product_card",
+          "settings": {
+            "product": "pebble-sofa",
+            "heading": "",
+            "link_label": "",
+            "show_overlay_title": true,
+            "overlay_font": "heading",
+            "overlay_text_size": "large",
+            "overlay_font_weight": "700",
+            "overlay_text_color": "#ffffff",
+            "overlay_text_alignment": "left",
+            "show_below_content": false,
+            "below_font": "body",
+            "below_title_size": "medium",
+            "below_title_weight": "500",
+            "below_text_color": "",
+            "below_alignment": "left",
+            "show_product_price": true
+          }
+        }
+      },
+      "block_order": [
+        "product_card_KP3jNk",
+        "product_card_ajFeVJ",
+        "product_card_FKqxiV"
+      ],
+      "disabled": true,
+      "name": "Editorial collection rail",
+      "settings": {
+        "heading": "Accessories",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "image_ratio": "square",
+        "desktop_cards": "3",
+        "card_gap": 16,
+        "show_arrows": false,
+        "color_scheme": "background-1",
+        "custom_background": "#f8f4f3",
+        "custom_text_color": "#2e2a39",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "multirow_CN9UaG": {
@@ -1368,58 +1639,6 @@
         "show_text_below": true
       }
     },
-    "rich_text_hRbgex": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_Ayhhzw": {
-          "type": "heading",
-          "settings": {
-            "title": "Inspiring Comfort, Redefining Home",
-            "title_highlight_color": "#6d388b",
-            "heading_size": "h1"
-          }
-        },
-        "text_pidgQX": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Discover the perfect blend of flexibility, comfort, and style with<strong> </strong>OzDesign Sofa—crafted to transform your home and enhance your lifestyle effortlessly.</p>"
-          }
-        },
-        "button_68b4Ah": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "View All",
-            "button_link": "shopify://collections/all",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_Ayhhzw",
-        "text_pidgQX",
-        "button_68b4Ah"
-      ],
-      "settings": {
-        "display_id": false,
-        "visibility": "always-display",
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "full_width": true,
-        "color_scheme": "background-1",
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d"
-      }
-    },
     "173585945899c78b61": {
       "type": "apps",
       "settings": {
@@ -1436,8 +1655,13 @@
     "image_slider_FkWBeP",
     "content_tabs_pgRjWb",
     "editorial_collection_rail_Lnge7g",
+    "editorial_message_banner_validation",
+    "flexible_hero_banner_rkH3Qt",
+    "multirow_z8wja3",
+    "editorial_message_banner_D6DWXV",
     "multirow_LjbLYn",
     "image_slider_KTCwWd",
+    "editorial_collection_rail_t7empy",
     "multirow_CN9UaG",
     "slideshow_hero_cBWiTn",
     "multicolumn_qyL48n",
@@ -1446,7 +1670,6 @@
     "image_banner_EjeTib",
     "image_slider_wVThxg",
     "image_banner_DP7iCk",
-    "rich_text_hRbgex",
     "173585945899c78b61"
   ]
 }

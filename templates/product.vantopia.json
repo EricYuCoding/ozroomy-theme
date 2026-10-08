@@ -360,6 +360,137 @@
         "desktop_padding_bottom": 36
       }
     },
+    "advanced_collapsible_content_TCb3Dp": {
+      "type": "advanced-collapsible-content",
+      "blocks": {
+        "advanced_collapsible_row_7H3xYN": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Description",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.description }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_pcCnyM": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Specifications & Dimensions",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.specifications_dimensions | metafield_tag }}",
+            "image": "{{ product.metafields.custom.product_page_image1.value }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_37qR8c": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Customization",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.customization | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_t4fLtK": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Shipping Information",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.shipping_information | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_hYPftQ": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Materials",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.materials | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        },
+        "advanced_collapsible_row_LzWy9T": {
+          "type": "advanced_collapsible_row",
+          "settings": {
+            "heading": "Care Instructions",
+            "heading_color": "",
+            "heading_size": 16,
+            "heading_weight": "600",
+            "icon": "",
+            "filled_icon": false,
+            "open": false,
+            "collapse_icon": "caret",
+            "display_top_border": true,
+            "content": "{{ product.metafields.custom.care_instructions | metafield_tag }}",
+            "image_position": "above",
+            "image_alignment": "center",
+            "image_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "advanced_collapsible_row_7H3xYN",
+        "advanced_collapsible_row_pcCnyM",
+        "advanced_collapsible_row_37qR8c",
+        "advanced_collapsible_row_t4fLtK",
+        "advanced_collapsible_row_hYPftQ",
+        "advanced_collapsible_row_LzWy9T"
+      ],
+      "name": "Advanced collapsible",
+      "settings": {
+        "title": "&nbsp;Product Information&nbsp;",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "collapsible_content_TKej8f": {
       "type": "collapsible-content",
       "blocks": {
@@ -432,6 +563,7 @@
         "collapsible_row_ViWdFp",
         "collapsible_row_d4MDcV"
       ],
+      "disabled": true,
       "settings": {
         "display_id": false,
         "visibility": "always-display",
@@ -731,6 +863,7 @@
   },
   "order": [
     "main",
+    "advanced_collapsible_content_TCb3Dp",
     "collapsible_content_TKej8f",
     "related-products",
     "featured_collection_pR9D3Q",
