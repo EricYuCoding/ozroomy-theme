@@ -56,7 +56,7 @@
             "heading": "Track Order",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "<p><br/>For products with an Express Delivery option, we’ll send your order and delivery information once your order has been dispatched. This usually takes around <strong>2–3 business days</strong>.</p><p>For made-to-order pieces, the delivery journey is a little longer. Once your order has been dispatched, we’ll usually send a reminder email around <strong>5–6 weeks later</strong> with delivery tips and the latest estimated arrival timeframe.</p><p>When your order reaches the local delivery stage, our furniture delivery partner may contact you by email, SMS, or phone to arrange the final delivery time.</p><p>We understand that ordering furniture online can feel like a long wait, especially for made-to-order pieces. If you have any questions at any point, you’re always welcome to contact us at <a><strong>support@ozroomy.com</strong></a> or through our <a href=\"/pages/contact\" title=\"Contact\"><strong>Contact Us</strong></a> page. Our support team usually replies within <strong>24 hours</strong>.</p>",
+            "row_content": "<p><br/>For products with an Express Delivery option, we’ll send your order and delivery information once your order has been dispatched. This usually takes around <strong>2–3 business days</strong>.</p><p>For made-to-order pieces, the delivery journey is a little longer. Once your order has been dispatched, we’ll usually send a reminder email around <strong>5–6 weeks later</strong> with delivery tips and the latest estimated arrival timeframe.</p><p>When your order reaches the local delivery stage, our furniture delivery partner may contact you by email, SMS, or phone to arrange the final delivery time.</p><p>We understand that ordering furniture online can feel like a long wait, especially for made-to-order pieces. If you have any questions at any point, you’re always welcome to contact us at <a href=\"mailto:support@ozroomy.com\"><strong>support@ozroomy.com</strong></a> or through our <a href=\"/pages/contact\" title=\"Contact\"><strong>Contact Us</strong></a> page. Our support team usually replies within <strong>24 hours</strong>.</p>",
             "page": ""
           }
         },
@@ -86,7 +86,7 @@
             "heading": "Shipping Inquiries",
             "icon": "check_box",
             "filled_icon": false,
-            "row_content": "<p><br/>If you have any questions about shipping, please contact us at <a>support@ozroomy.com</a> or through our <a href=\"/pages/contact\" title=\"Contact\">Contact Us</a> page. Our support team usually replies within 24 hours.</p>",
+            "row_content": "<p><br/>If you have any questions about shipping, please contact us at <a href=\"mailto:support@ozroomy.com\">support@ozroomy.com</a> or through our <a href=\"/pages/contact\" title=\"Contact\">Contact Us</a> page. Our support team usually replies within 24 hours.</p>",
             "page": ""
           }
         },
