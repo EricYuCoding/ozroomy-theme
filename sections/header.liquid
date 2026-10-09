@@ -364,7 +364,7 @@
 
     {%- if section.settings.logo_position != 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
+        <div class="header__heading">
       {%- endif -%}
           <{% if section.settings.logo_link != blank %}a href="{{ section.settings.logo_link }}"{% else %}div{% endif %}
             class="header__heading-link{% if section.settings.logo_link != blank %} link link--text focus-inset{% endif %}{% if settings.logo != blank %} media media--transparent ratio{% endif %}"
@@ -397,7 +397,7 @@
             {%- endif -%}
           </{% if section.settings.logo_link != blank %}a{% else %}div{% endif %}>
       {%- if request.page_type == 'index' -%}
-        </h1>
+        </div>
       {%- endif -%}
     {%- endif -%}
 
@@ -533,7 +533,7 @@
 
     {%- if section.settings.logo_position == 'middle-center' -%}
       {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
+        <div class="header__heading">
       {%- endif -%}
           <{% if section.settings.logo_link != blank %}a href="{{ section.settings.logo_link }}"{% else %}div{% endif %}
             class="header__heading-link{% if section.settings.logo_link != blank %} link link--text focus-inset{% endif %}{% if settings.logo != blank %} media media--transparent ratio{% endif %}"
@@ -566,7 +566,7 @@
             {%- endif -%}
           </{% if section.settings.logo_link != blank %}a{% else %}div{% endif %}>
       {%- if request.page_type == 'index' -%}
-        </h1>
+        </div>
       {%- endif -%}
     {%- endif -%}
 
@@ -1248,17 +1248,52 @@
       "logo": {{ settings.logo | image_url: width: 500 | prepend: "https:" | json }},
     {% endif %}
     "sameAs": [
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
+      {%- assign social_link_count = 0 -%}
+      {%- if settings.social_twitter_link != blank -%}
+        {{ settings.social_twitter_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_facebook_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_facebook_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_pinterest_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_pinterest_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_instagram_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_instagram_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_tiktok_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_tiktok_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_tumblr_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_tumblr_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_snapchat_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_snapchat_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_youtube_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_youtube_link | json }}
+        {%- assign social_link_count = social_link_count | plus: 1 -%}
+      {%- endif -%}
+      {%- if settings.social_vimeo_link != blank -%}
+        {%- if social_link_count > 0 -%},{%- endif -%}
+        {{ settings.social_vimeo_link | json }}
+      {%- endif -%}
     ],
-    "url": {{ request.origin | append: page.url | json }}
+    "url": {{ request.origin | json }}
   }
 </script>
 
