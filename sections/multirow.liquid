@@ -131,13 +131,72 @@
                 <div class="image-with-text__text rte {{ section.settings.text_style }}">{{ block.settings.text }}</div>
               {%- endif -%}
               {%- if block.settings.button_label != blank -%}
+                {%- liquid
+                  assign cta_background = block.settings.cta_background
+                  assign cta_hover_background = block.settings.cta_hover_background
+                  assign cta_text_color = block.settings.cta_text_color | default: '#000000'
+                  assign cta_hover_text_color = block.settings.cta_hover_text_color | default: cta_text_color
+                  assign cta_border_color = block.settings.cta_border_color | default: cta_text_color
+                  assign cta_hover_border_color = block.settings.cta_hover_border_color | default: cta_border_color
+                  assign cta_shadow = 'none'
+                  assign cta_alignment = 'flex-start'
+                  assign cta_width = 'auto'
+
+                  if block.settings.cta_background == blank
+                    assign cta_background = 'transparent'
+                  endif
+                  if block.settings.cta_hover_background == blank
+                    assign cta_hover_background = 'transparent'
+                  endif
+
+                  case block.settings.cta_shadow
+                    when 'subtle'
+                      assign cta_shadow = '0 2px 6px rgba(0, 0, 0, 0.12)'
+                    when 'medium'
+                      assign cta_shadow = '0 5px 14px rgba(0, 0, 0, 0.18)'
+                    when 'strong'
+                      assign cta_shadow = '0 8px 24px rgba(0, 0, 0, 0.24)'
+                  endcase
+
+                  case block.settings.cta_alignment
+                    when 'center'
+                      assign cta_alignment = 'center'
+                    when 'right'
+                      assign cta_alignment = 'flex-end'
+                    when 'full'
+                      assign cta_alignment = 'stretch'
+                      assign cta_width = '100%'
+                  endcase
+                -%}
                 <a
                   {% if block.settings.button_link == blank %}
                     role="link" aria-disabled="true"
                   {% else %}
                     href="{{ block.settings.button_link }}"
                   {% endif %}
-                  class="button button--{{ section.settings.button_style }}"
+                  {% if block.settings.enable_custom_cta %}
+                    class="multirow__button--custom multirow__button--hover-{{ block.settings.cta_hover_behavior }}"
+                    data-multirow-custom-button
+                    style="
+                      --multirow-button-font-size: {{ block.settings.cta_font_size }}px;
+                      --multirow-button-font-weight: {{ block.settings.cta_font_weight }};
+                      --multirow-button-text: {{ cta_text_color }};
+                      --multirow-button-hover-text: {{ cta_hover_text_color }};
+                      --multirow-button-background: {{ cta_background }};
+                      --multirow-button-hover-background: {{ cta_hover_background }};
+                      --multirow-button-border: {{ cta_border_color }};
+                      --multirow-button-hover-border: {{ cta_hover_border_color }};
+                      --multirow-button-border-width: {{ block.settings.cta_border_width }}px;
+                      --multirow-button-radius: {{ block.settings.cta_border_radius }}px;
+                      --multirow-button-padding-x: {{ block.settings.cta_padding_horizontal }}px;
+                      --multirow-button-padding-y: {{ block.settings.cta_padding_vertical }}px;
+                      --multirow-button-shadow: {{ cta_shadow }};
+                      --multirow-button-alignment: {{ cta_alignment }};
+                      --multirow-button-width: {{ cta_width }};
+                    "
+                  {% else %}
+                    class="button button--{{ section.settings.button_style }}"
+                  {% endif %}
                 >
                   {{ block.settings.button_label | escape }}
                 </a>
@@ -185,6 +244,80 @@
     {%- endfor -%}
   </div>
 </div>
+
+{% stylesheet %}
+  .multirow [data-multirow-custom-button] {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-self: var(--multirow-button-alignment);
+    box-sizing: border-box;
+    position: relative;
+    width: var(--multirow-button-width);
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+    padding: var(--multirow-button-padding-y) var(--multirow-button-padding-x);
+    color: var(--multirow-button-text);
+    background-color: var(--multirow-button-background);
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: var(--multirow-button-font-size);
+    font-weight: var(--multirow-button-font-weight);
+    font-style: inherit;
+    letter-spacing: normal;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    border: var(--multirow-button-border-width) solid var(--multirow-button-border);
+    border-radius: var(--multirow-button-radius);
+    box-shadow: var(--multirow-button-shadow);
+    transform: translateY(0);
+    transition-property: color, background-color, border-color, box-shadow, transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease;
+  }
+
+  .multirow [data-multirow-custom-button]::before,
+  .multirow [data-multirow-custom-button]::after {
+    content: none;
+    display: none;
+  }
+
+  .multirow [data-multirow-custom-button][aria-disabled='true'] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .multirow [data-multirow-custom-button]:not([aria-disabled='true']).multirow__button--hover-color:hover,
+  .multirow [data-multirow-custom-button]:not([aria-disabled='true']).multirow__button--hover-lift:hover {
+    color: var(--multirow-button-hover-text);
+    background-color: var(--multirow-button-hover-background);
+    border-color: var(--multirow-button-hover-border);
+  }
+
+  .multirow [data-multirow-custom-button]:not([aria-disabled='true']).multirow__button--hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .multirow [data-multirow-custom-button]:focus-visible {
+    outline: 0.2rem solid currentColor;
+    outline-offset: 0.3rem;
+    box-shadow: var(--multirow-button-shadow);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .multirow [data-multirow-custom-button] {
+      transition-duration: 0.01ms;
+    }
+
+    .multirow [data-multirow-custom-button]:not([aria-disabled='true']).multirow__button--hover-lift:hover {
+      transform: none;
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
@@ -645,6 +778,145 @@
           "type": "url",
           "id": "button_link",
           "label": "t:sections.multirow.blocks.row.settings.button_link.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "enable_custom_cta",
+          "label": "Enable custom button styling",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "cta_font_size",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Font size",
+          "default": 16
+        },
+        {
+          "type": "select",
+          "id": "cta_font_weight",
+          "label": "Font weight",
+          "options": [
+            { "value": "400", "label": "Regular" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semi bold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "600"
+        },
+        {
+          "type": "color",
+          "id": "cta_text_color",
+          "label": "Text color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "cta_hover_text_color",
+          "label": "Hover text color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "cta_background",
+          "label": "Background color (clear for transparent)",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "cta_hover_background",
+          "label": "Hover background (clear for transparent)",
+          "default": "#e9e9e9"
+        },
+        {
+          "type": "color",
+          "id": "cta_border_color",
+          "label": "Border color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "cta_hover_border_color",
+          "label": "Hover border color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "cta_border_width",
+          "min": 0,
+          "max": 6,
+          "step": 1,
+          "unit": "px",
+          "label": "Border thickness",
+          "default": 1
+        },
+        {
+          "type": "range",
+          "id": "cta_border_radius",
+          "min": 0,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Border radius",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "cta_padding_horizontal",
+          "min": 12,
+          "max": 48,
+          "step": 2,
+          "unit": "px",
+          "label": "Horizontal padding",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "cta_padding_vertical",
+          "min": 8,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Vertical padding",
+          "default": 12
+        },
+        {
+          "type": "select",
+          "id": "cta_shadow",
+          "label": "Shadow",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "subtle", "label": "Subtle" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "strong", "label": "Strong" }
+          ],
+          "default": "none"
+        },
+        {
+          "type": "select",
+          "id": "cta_hover_behavior",
+          "label": "Hover behavior",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "color", "label": "Color transition" },
+            { "value": "lift", "label": "Subtle lift" }
+          ],
+          "default": "color"
+        },
+        {
+          "type": "select",
+          "id": "cta_alignment",
+          "label": "Alignment and width",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" },
+            { "value": "full", "label": "Full width" }
+          ],
+          "default": "left"
         },
         {
           "type": "text",
