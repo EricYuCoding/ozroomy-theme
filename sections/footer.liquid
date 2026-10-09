@@ -57,7 +57,7 @@
           <div class="footer__blocks-wrapper grid">
             {%- for block in section.blocks -%}
               <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %} footer-block--desktop-{{ block.settings.width_desktop }} footer-block--mobile-{{ block.settings.width_mobile }} animate-item animate-item--child"
+                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if block.type == 'email_signup_advanced' %} footer-block--email-signup-advanced{% endif %} footer-block--desktop-{{ block.settings.width_desktop }} footer-block--mobile-{{ block.settings.width_mobile | default: '2' }} animate-item animate-item--child"
                 style="--index: {{ forloop.index0 }};" {{ block.shopify_attributes }}
               >
                 {%- if block.settings.heading != blank -%}
@@ -234,6 +234,146 @@
                           </h3>
                         {%- endif -%}
                       {%- endform -%}
+                    </div>
+                  {% when 'email_signup_advanced' %}
+                    {%- liquid
+                      assign advanced_form_id = 'ContactFooterAdvanced--' | append: section.id | append: '--' | append: block.id
+                      assign advanced_input_id = 'NewsletterFormAdvanced--' | append: section.id | append: '--' | append: block.id
+                      assign advanced_error_id = 'NewsletterErrorAdvanced--' | append: section.id | append: '--' | append: block.id
+                      assign advanced_success_id = 'NewsletterSuccessAdvanced--' | append: section.id | append: '--' | append: block.id
+                      assign advanced_button_id = 'SubscribeAdvanced--' | append: section.id | append: '--' | append: block.id
+                      assign advanced_email_label = block.settings.email_placeholder
+                      assign advanced_button_label = block.settings.button_label
+                      assign advanced_button_justify = 'center'
+
+                      if advanced_email_label == blank
+                        assign advanced_email_label = 'newsletter.label' | t
+                      endif
+
+                      if advanced_button_label == blank
+                        assign advanced_button_label = 'newsletter.button_label' | t
+                      endif
+
+                      if block.settings.button_text_alignment == 'left'
+                        assign advanced_button_justify = 'flex-start'
+                      elsif block.settings.button_text_alignment == 'right'
+                        assign advanced_button_justify = 'flex-end'
+                      endif
+                    -%}
+                    <div
+                      class="email-signup-advanced email-signup-advanced--background-{{ block.settings.background_mode }} email-signup-advanced--align-{{ block.settings.text_alignment }} email-signup-advanced--button-{{ block.settings.button_width_mode }}"
+                      style="
+                        --email-signup-advanced-background: {{ block.settings.custom_background }};
+                        --email-signup-advanced-heading-color: {{ block.settings.heading_color }};
+                        --email-signup-advanced-supporting-color: {{ block.settings.supporting_text_color }};
+                        --email-signup-advanced-input-background: {{ block.settings.input_background }};
+                        --email-signup-advanced-input-text: {{ block.settings.input_text_color }};
+                        --email-signup-advanced-input-border: {{ block.settings.input_border_color }};
+                        --email-signup-advanced-button-background: {{ block.settings.button_background }};
+                        --email-signup-advanced-button-text: {{ block.settings.button_text_color }};
+                        --email-signup-advanced-button-hover-background: {{ block.settings.button_hover_background }};
+                        --email-signup-advanced-button-hover-text: {{ block.settings.button_hover_text_color }};
+                        --email-signup-advanced-eyebrow-size: {{ block.settings.eyebrow_size }}px;
+                        --email-signup-advanced-heading-size: {{ block.settings.heading_size }}px;
+                        --email-signup-advanced-description-size: {{ block.settings.description_size }}px;
+                        --email-signup-advanced-microcopy-size: {{ block.settings.microcopy_size }}px;
+                        --email-signup-advanced-heading-weight: {% if block.settings.heading_weight == 'theme' %}var(--font-heading-weight){% else %}{{ block.settings.heading_weight }}{% endif %};
+                        --email-signup-advanced-input-height: {{ block.settings.input_height }}px;
+                        --email-signup-advanced-input-radius: {{ block.settings.input_border_radius }}px;
+                        --email-signup-advanced-input-border-width: {{ block.settings.input_border_width }}px;
+                        --email-signup-advanced-form-width: {{ block.settings.form_width }}%;
+                        --email-signup-advanced-form-gap: {{ block.settings.input_button_gap }}px;
+                        --email-signup-advanced-button-width: {{ block.settings.custom_button_width }}%;
+                        --email-signup-advanced-button-height: {{ block.settings.button_min_height }}px;
+                        --email-signup-advanced-button-radius: {{ block.settings.button_border_radius }}px;
+                        --email-signup-advanced-button-border-width: {{ block.settings.button_border_width }}px;
+                        --email-signup-advanced-button-justify: {{ advanced_button_justify }};
+                        --email-signup-advanced-padding-y: {{ block.settings.vertical_padding }}px;
+                        --email-signup-advanced-padding-x: {{ block.settings.horizontal_padding }}px;
+                        --email-signup-advanced-content-spacing: {{ block.settings.content_spacing }}px;
+                      "
+                    >
+                      <div class="email-signup-advanced__content">
+                        {%- if block.settings.show_eyebrow and block.settings.eyebrow != blank -%}
+                          <p class="email-signup-advanced__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+                        {%- endif -%}
+
+                        {%- if block.settings.title != blank -%}
+                          <h2 class="email-signup-advanced__title">{{ block.settings.title | escape }}</h2>
+                        {%- endif -%}
+
+                        {%- if block.settings.description != blank -%}
+                          <div class="email-signup-advanced__description rte">{{ block.settings.description }}</div>
+                        {%- endif -%}
+
+                        {%- form 'customer', id: advanced_form_id, class: 'email-signup-advanced__form' -%}
+                          <input type="hidden" name="contact[tags]" value="newsletter">
+                          <div class="email-signup-advanced__field">
+                            <label class="visually-hidden" for="{{ advanced_input_id }}">
+                              {{ advanced_email_label | escape }}
+                            </label>
+                            <input
+                              id="{{ advanced_input_id }}"
+                              class="email-signup-advanced__input"
+                              type="email"
+                              name="contact[email]"
+                              value="{{ form.email }}"
+                              aria-required="true"
+                              autocorrect="off"
+                              autocapitalize="off"
+                              autocomplete="email"
+                              {% if form.errors %}
+                                autofocus
+                                aria-invalid="true"
+                                aria-describedby="{{ advanced_error_id }}"
+                              {% elsif form.posted_successfully? %}
+                                aria-describedby="{{ advanced_success_id }}"
+                              {% endif %}
+                              placeholder="{{ advanced_email_label | escape }}"
+                              required
+                            >
+                          </div>
+
+                          {%- if form.errors -%}
+                            <small
+                              class="email-signup-advanced__message form__message"
+                              id="{{ advanced_error_id }}"
+                              role="alert"
+                            >
+                              {%- render 'icon-error' -%}
+                              {{- form.errors.translated_fields.email | capitalize }}
+                              {{ form.errors.messages.email -}}
+                            </small>
+                          {%- endif -%}
+
+                          <button
+                            type="submit"
+                            class="button email-signup-advanced__button"
+                            name="commit"
+                            id="{{ advanced_button_id }}"
+                          >
+                            <span>{{ advanced_button_label | escape }}</span>
+                          </button>
+
+                          {%- if form.posted_successfully? -%}
+                            <h3
+                              class="email-signup-advanced__message email-signup-advanced__message--success form__message"
+                              id="{{ advanced_success_id }}"
+                              role="status"
+                              aria-live="polite"
+                              tabindex="-1"
+                              autofocus
+                            >
+                              {% render 'icon-success' -%}
+                              {{- 'newsletter.success' | t }}
+                            </h3>
+                          {%- endif -%}
+                        {%- endform -%}
+
+                        {%- if block.settings.show_microcopy and block.settings.microcopy != blank -%}
+                          <p class="email-signup-advanced__microcopy">{{ block.settings.microcopy | escape }}</p>
+                        {%- endif -%}
+                      </div>
                     </div>
                 {%- endcase -%}
               </div>
@@ -453,6 +593,220 @@
     </div>
   </div>
 </footer>
+
+{% stylesheet %}
+  .footer-block--email-signup-advanced {
+    min-width: 0;
+  }
+
+  .email-signup-advanced {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: var(--email-signup-advanced-padding-y) var(--email-signup-advanced-padding-x);
+    color: var(--email-signup-advanced-supporting-color);
+    text-align: left;
+  }
+
+  .email-signup-advanced--background-custom {
+    background-color: var(--email-signup-advanced-background);
+  }
+
+  .email-signup-advanced--align-center {
+    text-align: center;
+  }
+
+  .email-signup-advanced--align-right {
+    text-align: right;
+  }
+
+  .email-signup-advanced__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--email-signup-advanced-content-spacing);
+    min-width: 0;
+  }
+
+  .email-signup-advanced__eyebrow,
+  .email-signup-advanced__title,
+  .email-signup-advanced__microcopy {
+    margin: 0;
+  }
+
+  .email-signup-advanced__eyebrow {
+    color: var(--email-signup-advanced-supporting-color);
+    font-size: var(--email-signup-advanced-eyebrow-size);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+
+  .email-signup-advanced__title {
+    color: var(--email-signup-advanced-heading-color);
+    font-family: var(--font-heading-family);
+    font-size: var(--email-signup-advanced-heading-size);
+    font-style: var(--font-heading-style);
+    font-weight: var(--email-signup-advanced-heading-weight);
+    letter-spacing: var(--font-heading-letter-spacing);
+    line-height: 1.15;
+  }
+
+  .email-signup-advanced__description {
+    color: var(--email-signup-advanced-supporting-color);
+    font-size: var(--email-signup-advanced-description-size);
+    line-height: 1.5;
+  }
+
+  .email-signup-advanced__description.rte p {
+    margin: 0;
+  }
+
+  .email-signup-advanced__description a {
+    color: inherit;
+  }
+
+  .email-signup-advanced__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--email-signup-advanced-form-gap);
+    width: var(--email-signup-advanced-form-width);
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .email-signup-advanced--align-center .email-signup-advanced__form {
+    align-items: center;
+    margin-inline: auto;
+  }
+
+  .email-signup-advanced--align-right .email-signup-advanced__form {
+    align-items: flex-end;
+    margin-left: auto;
+  }
+
+  .email-signup-advanced__field,
+  .email-signup-advanced__message {
+    width: 100%;
+  }
+
+  .email-signup-advanced__input {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: var(--email-signup-advanced-input-height);
+    padding: 0 1.6rem;
+    border: var(--email-signup-advanced-input-border-width) solid var(--email-signup-advanced-input-border);
+    border-radius: var(--email-signup-advanced-input-radius);
+    background-color: var(--email-signup-advanced-input-background);
+    color: var(--email-signup-advanced-input-text);
+    font: inherit;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    appearance: none;
+  }
+
+  .email-signup-advanced__input::placeholder {
+    color: var(--email-signup-advanced-input-text);
+    opacity: 0.7;
+  }
+
+  .email-signup-advanced__input:focus,
+  .email-signup-advanced__input:focus-visible {
+    outline: 0.2rem solid var(--email-signup-advanced-button-text);
+    outline-offset: 0.2rem;
+    box-shadow: none;
+  }
+
+  .footer-block--email-signup-advanced .email-signup-advanced__button {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: var(--email-signup-advanced-button-height);
+    padding: 1.2rem 2rem;
+    border: var(--email-signup-advanced-button-border-width) solid currentColor;
+    border-radius: var(--email-signup-advanced-button-radius);
+    background-color: var(--email-signup-advanced-button-background);
+    color: var(--email-signup-advanced-button-text);
+    box-shadow: none;
+    justify-content: var(--email-signup-advanced-button-justify);
+    text-align: inherit;
+    white-space: normal;
+  }
+
+  .footer-block--email-signup-advanced .email-signup-advanced__button::before,
+  .footer-block--email-signup-advanced .email-signup-advanced__button::after {
+    content: none;
+    box-shadow: none;
+  }
+
+  .footer-block--email-signup-advanced .email-signup-advanced__button:hover {
+    background-color: var(--email-signup-advanced-button-hover-background);
+    color: var(--email-signup-advanced-button-hover-text);
+  }
+
+  .footer-block--email-signup-advanced .email-signup-advanced__button:focus,
+  .footer-block--email-signup-advanced .email-signup-advanced__button:focus-visible {
+    outline: 0.2rem solid var(--email-signup-advanced-supporting-color);
+    outline-offset: 0.3rem;
+    box-shadow: none;
+  }
+
+  .email-signup-advanced--button-content .email-signup-advanced__button {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .email-signup-advanced--button-custom .email-signup-advanced__button {
+    width: var(--email-signup-advanced-button-width);
+    max-width: 100%;
+  }
+
+  .email-signup-advanced__message {
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+    color: var(--email-signup-advanced-supporting-color);
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+  .email-signup-advanced__message .icon {
+    flex: 0 0 auto;
+    margin-top: 0.2rem;
+  }
+
+  .email-signup-advanced__microcopy {
+    color: var(--email-signup-advanced-supporting-color);
+    font-size: var(--email-signup-advanced-microcopy-size);
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .footer__content-top .footer-block--email-signup-advanced.grid__item {
+      width: calc(100% - var(--grid-desktop-horizontal-spacing));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .email-signup-advanced__title {
+      font-size: max(22px, calc(var(--email-signup-advanced-heading-size) * 0.8));
+    }
+
+    .email-signup-advanced__form,
+    .email-signup-advanced--button-content .email-signup-advanced__button,
+    .email-signup-advanced--button-custom .email-signup-advanced__button {
+      width: 100%;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .email-signup-advanced__input,
+    .footer-block--email-signup-advanced .email-signup-advanced__button {
+      border: 1px solid CanvasText;
+    }
+  }
+{% endstylesheet %}
 
 {% javascript %}
   class LocalizationForm extends HTMLElement {
@@ -809,6 +1163,386 @@
           ],
           "default": "2",
           "label": "Column mobile width"
+        }
+      ]
+    },
+    {
+      "type": "email_signup_advanced",
+      "name": "Email Signup Advanced",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_eyebrow",
+          "default": true,
+          "label": "Show eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "default": "THE OZROOMY EDIT",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "A Little More Room to Live.",
+          "label": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "default": "<p>Good design, small-space living tips and a little something special. Straight to your inbox, occasionally.</p>",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "email_placeholder",
+          "default": "Your email address",
+          "label": "Email placeholder"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Keep Me in the Loop",
+          "label": "Button label"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_microcopy",
+          "default": true,
+          "label": "Show microcopy"
+        },
+        {
+          "type": "text",
+          "id": "microcopy",
+          "default": "Just the good stuff. Unsubscribe anytime.",
+          "label": "Microcopy"
+        },
+        {
+          "type": "header",
+          "content": "Typography"
+        },
+        {
+          "type": "range",
+          "id": "eyebrow_size",
+          "min": 10,
+          "max": 16,
+          "step": 1,
+          "unit": "px",
+          "default": 12,
+          "label": "Eyebrow size"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 24,
+          "max": 44,
+          "step": 1,
+          "unit": "px",
+          "default": 32,
+          "label": "Heading size"
+        },
+        {
+          "type": "range",
+          "id": "description_size",
+          "min": 13,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 16,
+          "label": "Description size"
+        },
+        {
+          "type": "range",
+          "id": "microcopy_size",
+          "min": 10,
+          "max": 16,
+          "step": 1,
+          "unit": "px",
+          "default": 12,
+          "label": "Microcopy size"
+        },
+        {
+          "type": "select",
+          "id": "heading_weight",
+          "options": [
+            {
+              "value": "theme",
+              "label": "Theme default"
+            },
+            {
+              "value": "500",
+              "label": "500"
+            },
+            {
+              "value": "600",
+              "label": "600"
+            },
+            {
+              "value": "700",
+              "label": "700"
+            }
+          ],
+          "default": "theme",
+          "label": "Heading weight"
+        },
+        {
+          "type": "text_alignment",
+          "id": "text_alignment",
+          "default": "left",
+          "label": "Text alignment"
+        },
+        {
+          "type": "header",
+          "content": "Colours"
+        },
+        {
+          "type": "select",
+          "id": "background_mode",
+          "options": [
+            {
+              "value": "inherit",
+              "label": "Inherit footer background"
+            },
+            {
+              "value": "custom",
+              "label": "Custom colour"
+            }
+          ],
+          "default": "inherit",
+          "label": "Background"
+        },
+        {
+          "type": "color",
+          "id": "custom_background",
+          "default": "#435743",
+          "label": "Custom background colour"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "default": "#FFFFFF",
+          "label": "Heading colour"
+        },
+        {
+          "type": "color",
+          "id": "supporting_text_color",
+          "default": "#F1F3EE",
+          "label": "Supporting text colour"
+        },
+        {
+          "type": "color",
+          "id": "input_background",
+          "default": "#FFFFFF",
+          "label": "Input background colour"
+        },
+        {
+          "type": "color",
+          "id": "input_text_color",
+          "default": "#2B2B2B",
+          "label": "Input text colour"
+        },
+        {
+          "type": "color",
+          "id": "input_border_color",
+          "default": "#D7DDD6",
+          "label": "Input border colour"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "default": "#F1EFE8",
+          "label": "Button background colour"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "default": "#405543",
+          "label": "Button text colour"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_background",
+          "default": "#FFFFFF",
+          "label": "Button hover background"
+        },
+        {
+          "type": "color",
+          "id": "button_hover_text_color",
+          "default": "#405543",
+          "label": "Button hover text colour"
+        },
+        {
+          "type": "header",
+          "content": "Input styling"
+        },
+        {
+          "type": "range",
+          "id": "input_height",
+          "min": 44,
+          "max": 64,
+          "step": 2,
+          "unit": "px",
+          "default": 52,
+          "label": "Input height"
+        },
+        {
+          "type": "range",
+          "id": "input_border_radius",
+          "min": 0,
+          "max": 24,
+          "step": 2,
+          "unit": "px",
+          "default": 6,
+          "label": "Input corner radius"
+        },
+        {
+          "type": "range",
+          "id": "input_border_width",
+          "min": 0,
+          "max": 3,
+          "step": 1,
+          "unit": "px",
+          "default": 1,
+          "label": "Input border width"
+        },
+        {
+          "type": "range",
+          "id": "form_width",
+          "min": 70,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 100,
+          "label": "Form width"
+        },
+        {
+          "type": "range",
+          "id": "input_button_gap",
+          "min": 8,
+          "max": 24,
+          "step": 2,
+          "unit": "px",
+          "default": 12,
+          "label": "Input and button gap"
+        },
+        {
+          "type": "header",
+          "content": "Button styling"
+        },
+        {
+          "type": "select",
+          "id": "button_width_mode",
+          "options": [
+            {
+              "value": "full",
+              "label": "Full width"
+            },
+            {
+              "value": "content",
+              "label": "Fit content"
+            },
+            {
+              "value": "custom",
+              "label": "Custom width"
+            }
+          ],
+          "default": "full",
+          "label": "Button width"
+        },
+        {
+          "type": "range",
+          "id": "custom_button_width",
+          "min": 50,
+          "max": 100,
+          "step": 5,
+          "unit": "%",
+          "default": 100,
+          "label": "Custom button width"
+        },
+        {
+          "type": "range",
+          "id": "button_min_height",
+          "min": 44,
+          "max": 64,
+          "step": 2,
+          "unit": "px",
+          "default": 52,
+          "label": "Button minimum height"
+        },
+        {
+          "type": "range",
+          "id": "button_border_radius",
+          "min": 0,
+          "max": 24,
+          "step": 2,
+          "unit": "px",
+          "default": 6,
+          "label": "Button corner radius"
+        },
+        {
+          "type": "range",
+          "id": "button_border_width",
+          "min": 0,
+          "max": 3,
+          "step": 1,
+          "unit": "px",
+          "default": 0,
+          "label": "Button border width"
+        },
+        {
+          "type": "text_alignment",
+          "id": "button_text_alignment",
+          "default": "center",
+          "label": "Button text alignment"
+        },
+        {
+          "type": "header",
+          "content": "Layout"
+        },
+        {
+          "type": "range",
+          "id": "vertical_padding",
+          "min": 0,
+          "max": 40,
+          "step": 4,
+          "unit": "px",
+          "default": 0,
+          "label": "Vertical padding"
+        },
+        {
+          "type": "range",
+          "id": "horizontal_padding",
+          "min": 0,
+          "max": 32,
+          "step": 4,
+          "unit": "px",
+          "default": 0,
+          "label": "Horizontal padding"
+        },
+        {
+          "type": "range",
+          "id": "content_spacing",
+          "min": 8,
+          "max": 32,
+          "step": 2,
+          "unit": "px",
+          "default": 16,
+          "label": "Content spacing"
+        },
+        {
+          "type": "range",
+          "id": "width_desktop",
+          "min": 3,
+          "max": 6,
+          "step": 1,
+          "default": 4,
+          "label": "Desktop column width"
         }
       ]
     },
