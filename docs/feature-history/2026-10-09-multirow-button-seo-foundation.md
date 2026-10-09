@@ -297,7 +297,45 @@ Post-upload Live control pull：`D:\work\ozroomy-backups\2026-10-09-postdraft-li
 - [ ] 回归 Contact 与 Shipping 页面链接、表单和 accordion。
 - [ ] 商家确认后再运行 Rich Results Test 与 mobile performance test；不要把本报告的 source validation 当作人工 QA。
 
-## J. Next Release Instructions
+## J. Stage 7 Final Local Closeout — 2026-10-09
+
+Merchant manual QA is complete and the approved result is **PASS**. The approved feature head remains `a80dbf4744cdfa6fd4ede8b8379985f3c51d449e`; correction commit `1029750bada618c3f5714f6d505700e3908d0e3d` is reachable from it.
+
+Local Git closeout evidence:
+
+- Pre-merge `dev`: `3743cdd4e9d974e5fad7489afd145bb6d021f1d8`.
+- Pre-merge `main`: `9ef08cb5042e36b043b2281ce6c718c9d3c5ea7a`.
+- Feature → `dev` no-fast-forward merge: `389d5c83dacdfb39d76af0be6f2335186a14b454`.
+- Local annotated recovery tag: `pre-stage7-closeout-2026-10-09`, targeting pre-merge `main` `9ef08cb5042e36b043b2281ce6c718c9d3c5ea7a`.
+- Existing recovery/release tags were preserved without replacement.
+- No squash, rebase, reset, force push or history rewrite was used.
+
+Post-merge `dev` validation matched the approved baseline:
+
+- JSON: 129/129 parsed.
+- JavaScript: 17/17 passed `node --check`.
+- Multirow schema: 29 section settings / 29 row settings.
+- Multirow acceptance assertions: 14/14.
+- Technical SEO source assertions: 6/6.
+- Theme Check: 83 errors / 174 warnings / 0 info, identical to baseline; no new offense.
+- `multirow.liquid`: one existing `UndefinedObject quantity_rule_soldout` warning and no error.
+- `git diff --check`: pass.
+
+Shopify safety state immediately before local closeout:
+
+- Live Theme `145531568362`, `OZROOMY Final Prelaunch QA - 2026-10-08`, role `MAIN`; unchanged timestamp `2026-10-08T22:52:17Z`.
+- Approved Draft `145537990890`, `OZROOMY Multirow Button Fix QA - 2026-10-09`, role `UNPUBLISHED`.
+- Previous QA Draft `145537368298`, role `UNPUBLISHED`, retained.
+- Approved Draft snapshot contains 347 theme files and matches the 348-file approved source tree except Shopify's known omission of empty `sections/header-group.context.eu.json`.
+- Pre/post Live snapshots contain 347 files each with zero normalized content differences.
+
+Production publication remains pending merchant action. Shopify's official GitHub Integration connection is still **UNKNOWN** because theme-card repository/branch metadata and authenticated GitHub App/hook data are unavailable. GitHub has zero Actions workflows, zero deployment records and zero open pull requests, but those facts do not prove that Shopify's GitHub App is disconnected. Therefore no remote `dev`/`main` push, tag push or remote branch deletion is authorized until the integration state is conclusively verified.
+
+Remaining Shopify Admin SEO backlog is unchanged: product vendor values showing `My Store`, missing meta descriptions, duplicate fallback descriptions, the 60-Day Trial duplicate H1, the legacy Instagram reference and the obsolete Shipping Process URL. None were modified during closeout.
+
+The final local `dev` documentation commit, `dev` → `main` merge and local Stage 7 release tag are recorded by the final closeout handoff because their hashes cannot be self-referentially embedded in this commit.
+
+## K. Next Release Instructions
 
 只有收到商家明确发布批准后，建议按以下顺序执行：
 
