@@ -1,0 +1,32 @@
+{% doc %}
+Returns the display-only inventory state for a product variant.
+
+@param {variant} variant - The variant to classify.
+@param {number} [low_stock_threshold] - Optional inclusive threshold for the low-stock sub-state.
+
+@example
+{% capture inventory_state %}
+  {% render 'inventory-display-state', variant: product.selected_or_first_available_variant, low_stock_threshold: 10 %}
+{% endcapture %}
+{% enddoc %}
+
+{%- liquid
+  assign inventory_state = 'untracked'
+
+  if variant == blank
+    assign inventory_state = 'missing'
+  elsif variant.inventory_management == blank
+    assign inventory_state = 'untracked'
+  elsif variant.inventory_quantity > 0
+    assign inventory_state = 'in_stock'
+    if low_stock_threshold != blank and variant.inventory_quantity <= low_stock_threshold
+      assign inventory_state = 'low_stock'
+    endif
+  elsif variant.inventory_policy == 'continue'
+    assign inventory_state = 'made_to_order'
+  else
+    assign inventory_state = 'out_of_stock'
+  endif
+
+  echo inventory_state
+-%}

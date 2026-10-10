@@ -8,6 +8,12 @@
  * ------------------------------------------------------------
  */
 {
+  "inventory_v2": {
+    "ready_to_ship": "Ready to ship",
+    "made_to_order": "Made to order",
+    "not_tracked": "Availability not tracked",
+    "combination_unavailable": "Unavailable combination"
+  },
   "general": {
     "password_page": {
       "login_form_heading": "Zadejte heslo, abyste mohli vstoupit do obchodu:",

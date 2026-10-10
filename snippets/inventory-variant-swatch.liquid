@@ -1,0 +1,107 @@
+{% doc %}
+Renders one existing product option value as an inventory-aware colour swatch.
+
+@param {product_option_value} value - The option value represented by the swatch.
+@param {product_option} option - The parent product option.
+@param {block} block - The variant picker block settings.
+@param {string} product_form_id - The associated native product form ID.
+@param {string} section_id - The section ID used for input and description IDs.
+@param {number} option_index - The original zero-based option-value index.
+@param {string} inventory_state - The display-only inventory state.
+@param {variant} [inventory_variant] - The exact variant for the current option combination.
+@param {variant} [swatch_variant] - The representative variant used for image fallbacks.
+@param {boolean} option_disabled - Whether Shopify marks the option unavailable.
+
+@example
+{% render 'inventory-variant-swatch', value: value, option: option, block: block, product_form_id: product_form_id, section_id: section.id, option_index: forloop.index0, inventory_state: 'in_stock', inventory_variant: variant, swatch_variant: variant, option_disabled: false %}
+{% enddoc %}
+
+{%- liquid
+  assign input_id = section_id | append: '-' | append: option.position | append: '-' | append: option_index
+  assign status_id = input_id | append: '-inventory-status'
+  assign custom_colors = block.settings.swatches_custom_colors_list | split: ','
+-%}
+
+<div
+  class="color-swatch"
+  data-inventory-swatch-index="{{ option_index }}"
+  data-inventory-state="{{ inventory_state }}"
+  {% if inventory_variant != blank %}
+    data-variant-id="{{ inventory_variant.id }}"
+  {% endif %}
+>
+  <input
+    type="radio"
+    id="{{ input_id }}"
+    name="{{ option.name }}"
+    value="{{ value | escape }}"
+    form="{{ product_form_id }}"
+    aria-describedby="{{ status_id }}"
+    {% if option.selected_value == value %}
+      checked
+    {% endif %}
+    {% if option_disabled %}
+      class="disabled"
+    {% endif %}
+  >
+  <div class="color-swatch__image">
+    {%- if block.settings.swatches_custom_colors == 'native' -%}
+      {%- if value.swatch.color != blank -%}
+        <div class="color-swatch__custom-color" style="--bg-color: {{ value.swatch.color }}">&nbsp;</div>
+      {%- elsif value.swatch.image != blank -%}
+        <img
+          src="{{ value.swatch.image | image_url: width: 200 }}"
+          alt="{{ value | escape }}"
+          width="auto"
+          height="auto"
+          loading="lazy"
+        >
+      {%- elsif swatch_variant.image -%}
+        <img
+          src="{{ swatch_variant.image | image_url: width: 200 }}"
+          alt="{{ value | escape }}"
+          width="auto"
+          height="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+    {%- elsif block.settings.swatches_custom_colors == 'disabled' -%}
+      {%- if swatch_variant.image -%}
+        <img
+          src="{{ swatch_variant.image | image_url: width: 200 }}"
+          alt="{{ value | escape }}"
+          width="auto"
+          height="auto"
+          loading="lazy"
+        >
+      {%- endif -%}
+    {%- else -%}
+      {%- liquid
+        if block.settings.swatches_custom_colors == 'image_alt'
+          assign custom_color = swatch_variant.image.alt
+        else
+          assign custom_color = custom_colors[option_index]
+        endif
+      -%}
+      <div class="color-swatch__custom-color" style="--bg-color: {{ custom_color }}">&nbsp;</div>
+    {%- endif -%}
+  </div>
+  <label class="color-swatch_hidden-label" for="{{ input_id }}">
+    <span class="visually-hidden">{{ option.name | escape }}: {{ value | escape }}</span>
+    <span class="visually-hidden" id="{{ status_id }}" data-inventory-swatch-status>
+      {%- case inventory_state -%}
+        {%- when 'in_stock', 'low_stock' -%}
+          {{- 'inventory_v2.ready_to_ship' | t -}}
+        {%- when 'made_to_order' -%}
+          {{- 'inventory_v2.made_to_order' | t -}}
+        {%- when 'out_of_stock' -%}
+          {{- 'products.product.inventory_out_of_stock' | t -}}
+        {%- when 'untracked' -%}
+          {{- 'inventory_v2.not_tracked' | t -}}
+        {%- else -%}
+          {{- 'inventory_v2.combination_unavailable' | t -}}
+      {%- endcase -%}
+    </span>
+  </label>
+  <span class="color-swatch__label">{{ value }}</span>
+</div>
