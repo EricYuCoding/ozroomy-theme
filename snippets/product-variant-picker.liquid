@@ -1,14 +1,17 @@
-{% comment %}
-  Renders product variant-picker
+{% doc %}
+Renders the native product variant picker.
 
-  Accepts:
-  - product: {Object} product object.
-  - block: {Object} passing the block information.
-  - product_form_id: {String} Id of the product form to which the variant picker is associated.
-  - update_url: {Boolean} whether or not to update url when changing variants. If false, the url isn't updated. Default: true (optional).
-  Usage:
-  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
-{% endcomment %}
+@param {product} product - The product being selected.
+@param {block} block - The variant picker block settings.
+@param {string} product_form_id - The associated native product form ID.
+@param {boolean} [update_url] - Whether variant selection updates the URL.
+@param {boolean} [has_filtering] - Whether variant filtering is active.
+@param {string} [sizing_chart_html] - Optional sizing chart markup.
+@param {string} [sizing_chart_append] - Optional sizing chart placement key.
+
+@example
+{% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+{% enddoc %}
 
 {%- unless product.has_only_default_variant -%}
   {% liquid
@@ -17,12 +20,17 @@
       assign types_string = 'pills,pills,pills'
     endif
     assign types_array = types_string | split: ','
+    assign inventory_grouping_supported = true
+    if product.variants_count > product.variants.size
+      assign inventory_grouping_supported = false
+    endif
   %}
   <variant-selects
     id="variant-selects-{{ section.id }}"
     class="no-js-hidden"
     data-section="{{ section.id }}"
     data-url="{{ product.url }}"
+    data-inventory-grouping-status="{% if inventory_grouping_supported %}complete{% else %}high-variant-fallback{% endif %}"
     {% if update_url == false %}
       data-update-url="false"
     {% endif %}
@@ -84,8 +92,25 @@
               {% render 'icon-caret' %}
             </div>
           {% when 'swatches' %}
-            <div class="color-swatches-container color-swatches-container--size-{{ block.settings.swatches_size }}" style='--border-radius:{{ block.settings.swatches_border_radius | divided_by: 2.0 }}%;'>
-              {% render 'product-variant-options', product: product, option: option, block: block, type: 'swatches' %}
+            <div
+              class="color-swatches-container color-swatches-container--size-{{ block.settings.swatches_size }}{% if inventory_grouping_supported %} color-swatches-container--inventory-grouped{% endif %}"
+              data-inventory-swatch-groups
+              data-inventory-grouping-status="{% if inventory_grouping_supported %}complete{% else %}high-variant-fallback{% endif %}"
+              data-option-position="{{ option.position }}"
+              data-label-ready-to-ship="{{ 'inventory_v2.ready_to_ship' | t | escape }}"
+              data-label-made-to-order="{{ 'inventory_v2.made_to_order' | t | escape }}"
+              data-label-out-of-stock="{{ 'products.product.inventory_out_of_stock' | t | escape }}"
+              data-label-untracked="{{ 'inventory_v2.not_tracked' | t | escape }}"
+              data-label-missing="{{ 'inventory_v2.combination_unavailable' | t | escape }}"
+              style="--border-radius: {{ block.settings.swatches_border_radius | divided_by: 2.0 }}%;"
+            >
+              {% render 'product-variant-options',
+                product: product,
+                option: option,
+                block: block,
+                type: 'swatches',
+                inventory_grouping_supported: inventory_grouping_supported
+              %}
             </div>
           {% when 'quantity-breaks' %}
             <div 
@@ -117,9 +142,21 @@
       </div>
     {%- endfor -%}
 
-    <script type="application/json">
+    <script type="application/json" data-product-variants>
       {{ product.variants | json }}
     </script>
+    {%- if inventory_grouping_supported -%}
+      <script type="application/json" data-inventory-variant-states>
+        {
+          {%- for variant in product.variants -%}
+            {%- capture variant_inventory_state -%}
+              {%- render 'inventory-display-state', variant: variant -%}
+            {%- endcapture -%}
+            "{{ variant.id }}": {{ variant_inventory_state | strip | json }}{% unless forloop.last %},{% endunless %}
+          {%- endfor -%}
+        }
+      </script>
+    {%- endif -%}
   </variant-selects>
 {%- endunless -%}
 

@@ -8034,6 +8034,28 @@ bundle-deals {
   row-gap: 1rem;
   padding-top: 0.2rem;
 }
+.color-swatches-container--inventory-grouped {
+  display: grid;
+  gap: 1.4rem;
+}
+.inventory-swatch-group[hidden] {
+  display: none;
+}
+.inventory-swatch-group__title {
+  margin: 0 0 0.6rem;
+  color: rgba(var(--color-foreground), 0.72);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.inventory-swatch-group__items {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+}
 .color-swatch {
   position: relative;
   border-radius: var(--border-radius);
@@ -8050,8 +8072,26 @@ bundle-deals {
   box-shadow: 0 0 0 var(--selected-border-size)
     rgba(var(--color-foreground), 0.3);
 }
+.color-swatch input:focus-visible + .color-swatch__image {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.65);
+  outline-offset: 0.2rem;
+}
 .color-swatch input.disabled + .color-swatch__image {
   opacity: 0.3;
+}
+.color-swatch[data-inventory-state="out_of_stock"] .color-swatch__image::after,
+.color-swatch[data-inventory-state="missing"] .color-swatch__image::after {
+  position: absolute;
+  inset: 50% -10%;
+  height: 0.1rem;
+  background: rgba(var(--color-foreground), 0.42);
+  content: "";
+  pointer-events: none;
+  transform: rotate(-36deg);
+}
+.color-swatch[data-inventory-state="out_of_stock"] input:checked + .color-swatch__image,
+.color-swatch[data-inventory-state="missing"] input:checked + .color-swatch__image {
+  opacity: 0.65;
 }
 .color-swatch__image img {
   position: absolute;
