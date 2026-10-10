@@ -265,6 +265,10 @@
               </p>
             {%- when 'inventory_advanced' -%}
               {%- assign current_variant = product.selected_or_first_available_variant -%}
+              {%- capture inventory_state -%}
+                {%- render 'inventory-display-state', variant: current_variant, low_stock_threshold: block.settings.inventory_threshold -%}
+              {%- endcapture -%}
+              {%- assign inventory_state = inventory_state | strip -%}
               <div
                 class="product__inventory-adv no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
                 {{ block.shopify_attributes }}
@@ -272,13 +276,13 @@
                 role="status"
                 style="--margin-top: {{ block.settings.margin_top | divided_by: 10.0 }}rem; --margin-bottom: {{ block.settings.margin_bottom | divided_by: 10.0 }}rem;"
               >
-                {%- if current_variant.inventory_management == 'shopify' -%}
+                {%- if inventory_state != 'untracked' and inventory_state != 'missing' -%}
                   {%- comment -%} 场景 A：Shopify 负责追踪库存 {%- endcomment -%}
 
-                  {%- if current_variant.inventory_quantity > 0 -%}
-                    {%- if current_variant.inventory_quantity <= block.settings.inventory_threshold -%}
+                  {%- if inventory_state == 'in_stock' or inventory_state == 'low_stock' -%}
+                    {%- if inventory_state == 'low_stock' -%}
                       {%- comment -%} 低库存状态 {%- endcomment -%}
-                      <span class="inventory-advanced__badge inventory-advanced__badge--low">
+                      <span class="inventory-advanced__badge inventory-advanced__badge--low" data-inventory-state="low_stock">
                         <svg width="15" height="15" aria-hidden="true">
                           <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(238,148,65, 0.3)"/>
                           <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238,148,65)"/>
@@ -290,7 +294,7 @@
                       </span>
                     {%- else -%}
                       {%- comment -%} 正常库存状态 {%- endcomment -%}
-                      <span class="inventory-advanced__badge inventory-advanced__badge--in-stock">
+                      <span class="inventory-advanced__badge inventory-advanced__badge--in-stock" data-inventory-state="in_stock">
                         <svg width="15" height="15" aria-hidden="true">
                           <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
                           <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
@@ -305,9 +309,9 @@
                   {%- else -%}
                     {%- comment -%} 此时库存数量 <= 0 {%- endcomment -%}
                     
-                    {%- if current_variant.inventory_policy == 'continue' -%}
+                    {%- if inventory_state == 'made_to_order' -%}
                       {%- comment -%} 可继续销售（视同有货） {%- endcomment -%}
-                      <span class="inventory-advanced__badge inventory-advanced__badge--pre-order">
+                      <span class="inventory-advanced__badge inventory-advanced__badge--pre-order" data-inventory-state="made_to_order">
                         <svg width="15" height="15" aria-hidden="true">
                           <circle cx="7.5" cy="7.5" r="7.5" fill="rgba(238, 148, 65, 0.3)"/>
                           <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(238, 148, 65)"/>
@@ -316,7 +320,7 @@
                     </span>
                     {%- else -%}
                       {%- comment -%} 真正断货状态 {%- endcomment -%}
-                      <span class="inventory-advanced__badge inventory-advanced__badge--out-of-stock">
+                      <span class="inventory-advanced__badge inventory-advanced__badge--out-of-stock" data-inventory-state="out_of_stock">
                         <svg width="15" height="15" aria-hidden="true">
                           <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(200,200,200, 0.3)"/>
                           <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(200,200,200)"/>
@@ -332,7 +336,7 @@
 
                 {%- else -%}
                   {%- comment -%} 场景 B：Inventory not tracked (不追踪库存，默认当做有货) {%- endcomment -%}
-                  <span class="inventory-advanced__badge inventory-advanced__badge--in-stock">
+                  <span class="inventory-advanced__badge inventory-advanced__badge--in-stock" data-inventory-state="untracked">
                     <svg width="15" height="15" aria-hidden="true">
                       <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
                       <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>

@@ -1,21 +1,15 @@
-{% comment %}
-  Renders product variant options
+{% doc %}
+Renders product variant option values using the configured picker type.
 
-  Accepts:
-  - product: {Object} product object.
-  - option: {Object} current product_option object.
-  - block: {Object} block object.
-  - type: {String}
+@param {product} product - The product being selected.
+@param {product_option} option - The current product option.
+@param {block} block - The variant picker block settings.
+@param {string} type - The configured picker type.
+@param {boolean} [inventory_grouping_supported] - Whether a complete variant set is available for inventory grouping.
 
-
-  Usage:
-  {% render 'product-variant-options',
-    product: product,
-    option: option,
-    block: block,
-    type: type
-  %}
-{% endcomment %}
+@example
+{% render 'product-variant-options', product: product, option: option, block: block, type: 'swatches', inventory_grouping_supported: true %}
+{% enddoc %}
 {%- liquid
   assign variants_available_arr = product.variants | map: 'available'
   assign variants_option1_arr = product.variants | map: 'option1'
@@ -24,7 +18,12 @@
 
   assign product_form_id = 'product-form-' | append: section.id
 
-  assign custom_colors_arr = block.settings.swatches_custom_colors_list | split: ','
+  assign ready_to_ship_swatches = ''
+  assign made_to_order_swatches = ''
+  assign out_of_stock_swatches = ''
+  assign untracked_swatches = ''
+  assign missing_swatches = ''
+  assign ungrouped_swatches = ''
 
   if type == 'quantity-breaks'
     assign badges = block.settings.breaks_badges | split: ','
@@ -43,6 +42,7 @@
   {%- liquid
     assign option_disabled = true
     assign option_index = forloop.index0
+    assign option_value_name = value | append: ''
 
     for option1_name in variants_option1_arr
       case option.position
@@ -61,27 +61,51 @@
       endcase
     endfor
      
-    assign currentVariant = nil
+    assign current_variant = nil
 
-    for variant in product.variants
+    if type == 'swatches' and inventory_grouping_supported
+      assign candidate_option1 = product.selected_or_first_available_variant.option1
+      assign candidate_option2 = product.selected_or_first_available_variant.option2
+      assign candidate_option3 = product.selected_or_first_available_variant.option3
+
       case option.position
         when 1
-          if variant.option1 == value
-            assign currentVariant = variant
-            break
-          endif
+          assign candidate_option1 = option_value_name
         when 2
-          if variant.option1 == product.selected_or_first_available_variant.option1 and variant.option2 == value
-            assign currentVariant = variant
-            break
-          endif
+          assign candidate_option2 = option_value_name
         when 3
-          if variant.option1 == product.selected_or_first_available_variant.option1 and variant.option2 == product.selected_or_first_available_variant.option2 and variant.option3 == value
-            assign currentVariant = variant
-            break
-          endif
+          assign candidate_option3 = option_value_name
       endcase
-    endfor
+
+      assign matching_variants = product.variants | where: 'option1', candidate_option1
+      if candidate_option2 != blank
+        assign matching_variants = matching_variants | where: 'option2', candidate_option2
+      endif
+      if candidate_option3 != blank
+        assign matching_variants = matching_variants | where: 'option3', candidate_option3
+      endif
+      assign current_variant = matching_variants | first
+    else
+      for variant in product.variants
+        case option.position
+          when 1
+            if variant.option1 == value
+              assign current_variant = variant
+              break
+            endif
+          when 2
+            if variant.option1 == product.selected_or_first_available_variant.option1 and variant.option2 == value
+              assign current_variant = variant
+              break
+            endif
+          when 3
+            if variant.option1 == product.selected_or_first_available_variant.option1 and variant.option2 == product.selected_or_first_available_variant.option2 and variant.option3 == value
+              assign current_variant = variant
+              break
+            endif
+        endcase
+      endfor
+    endif
   -%}
 
   {% case type %}
@@ -100,8 +124,8 @@
         {% endif %}
       >
       {% liquid
-        assign price = currentVariant.price
-        assign compare_price = currentVariant.compare_at_price
+        assign price = current_variant.price
+        assign compare_price = current_variant.compare_at_price
         assign price_difference = compare_price | minus: price
         assign price_difference_rounded = price_difference | divided_by: 100.00 | round | times: 100
         
@@ -128,7 +152,7 @@
         {% if block.settings.breaks_style == 'vertical' and block.settings.breaks_displayed_images != 'none' %}
           {% liquid
             if block.settings.breaks_displayed_images == 'variant_images'
-              assign image_url = currentVariant.featured_image | image_url
+              assign image_url = current_variant.featured_image | image_url
             else 
              assign image_url = custom_images[forloop.index0]
             endif
@@ -215,78 +239,50 @@
         </div>
       </label>
     {%- when 'swatches' -%}
-      <div class="color-swatch">
-        <input
-          type="radio"
-          id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
-          name="{{ option.name }}"
-          value="{{ value | escape }}"
-          form="{{ product_form_id }}"
-          {% if option.selected_value == value %}
-            checked
-          {% endif %}
-          {% if option_disabled %}
-            class="disabled"
-          {% endif %}
-        >
-        <div class="color-swatch__image">
-          {% for variant in product.variants %}
-            {%- capture variant_option_key -%}
-              option{{- option.position -}}
-            {%- endcapture -%}
+      {%- capture variant_option_key -%}option{{- option.position -}}{%- endcapture -%}
+      {%- assign swatch_variants = product.variants | where: variant_option_key, option_value_name -%}
+      {%- assign swatch_variant = swatch_variants | first -%}
 
-            {% assign variant_option_val = variant[variant_option_key] %}
+      {%- if inventory_grouping_supported -%}
+        {%- capture inventory_state -%}
+          {%- render 'inventory-display-state', variant: current_variant -%}
+        {%- endcapture -%}
+        {%- assign inventory_state = inventory_state | strip -%}
+      {%- else -%}
+        {%- assign inventory_state = 'ungrouped' -%}
+      {%- endif -%}
 
-            {% if variant_option_val == value %}
-              {% if block.settings.swatches_custom_colors == 'native' %}
-                {% if value.swatch.color != blank %}
-                  <div class="color-swatch__custom-color" style="--bg-color: {{ value.swatch.color }}">&nbsp</div>
-                {% elsif value.swatch.image != blank %}
-                  <img
-                    src="{{ value.swatch.image | image_url: width: 200 }}"
-                    alt="{{ variant_option_val }}"
-                    width="auto"
-                    height="auto"
-                    loading="lazy"
-                  >
-                {% elsif variant.image %}
-                  <img
-                    src="{{ variant.image | image_url: width: 200 }}"
-                    alt="{{ variant_option_val }}"
-                    width="auto"
-                    height="auto"
-                    loading="lazy"
-                  >
-                {% endif %}
-              {% elsif block.settings.swatches_custom_colors == 'disabled' %}
-                {% if variant.image %}
-                  <img
-                    src="{{ variant.image | image_url: width: 200 }}"
-                    alt="{{ variant_option_val }}"
-                    width="auto"
-                    height="auto"
-                    loading="lazy"
-                  >
-                {% endif %}
-              {% else %}
-                {% liquid
-                  if block.settings.swatches_custom_colors == 'image_alt'
-                    assign custom_color = variant.image.alt
-                  else
-                    assign custom_color = custom_colors_arr[option_index]
-                  endif
-                %}
-                <div class="color-swatch__custom-color" style="--bg-color: {{ custom_color }}">&nbsp</div>
-              {% endif %}
-              {% break %}
-            {% endif %}
-          {% endfor %}
-        </div>
-        <label class="color-swatch_hidden-label" for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
-          <span class="visually-hidden">{{ option.name | escape }}: {{ value | escape }}</span>
-        </label>
-        <span class="color-swatch__label">{{ value }}</span>
-      </div>
+      {%- capture swatch_markup -%}
+        {%- render 'inventory-variant-swatch',
+          value: value,
+          option: option,
+          block: block,
+          product_form_id: product_form_id,
+          section_id: section.id,
+          option_index: option_index,
+          inventory_state: inventory_state,
+          inventory_variant: current_variant,
+          swatch_variant: swatch_variant,
+          option_disabled: option_disabled
+        -%}
+      {%- endcapture -%}
+
+      {%- if inventory_grouping_supported -%}
+        {%- case inventory_state -%}
+          {%- when 'in_stock', 'low_stock' -%}
+            {%- assign ready_to_ship_swatches = ready_to_ship_swatches | append: swatch_markup -%}
+          {%- when 'made_to_order' -%}
+            {%- assign made_to_order_swatches = made_to_order_swatches | append: swatch_markup -%}
+          {%- when 'out_of_stock' -%}
+            {%- assign out_of_stock_swatches = out_of_stock_swatches | append: swatch_markup -%}
+          {%- when 'untracked' -%}
+            {%- assign untracked_swatches = untracked_swatches | append: swatch_markup -%}
+          {%- else -%}
+            {%- assign missing_swatches = missing_swatches | append: swatch_markup -%}
+        {%- endcase -%}
+      {%- else -%}
+        {%- assign ungrouped_swatches = ungrouped_swatches | append: swatch_markup -%}
+      {%- endif -%}
     {%- when 'pills' -%}
       <input
         type="radio"
@@ -320,3 +316,90 @@
       </option>
   {% endcase %}
 {%- endfor -%}
+
+{%- if type == 'swatches' -%}
+  {%- if inventory_grouping_supported -%}
+    <div
+      class="inventory-swatch-group inventory-swatch-group--ready"
+      data-inventory-swatch-group="ready_to_ship"
+      role="group"
+      aria-labelledby="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-ready"
+      {% if ready_to_ship_swatches == blank %}
+        hidden
+      {% endif %}
+    >
+      <p class="inventory-swatch-group__title" id="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-ready">
+        {{- 'inventory_v2.ready_to_ship' | t -}}
+      </p>
+      <div class="inventory-swatch-group__items" data-inventory-swatch-group-items>
+        {{- ready_to_ship_swatches -}}
+      </div>
+    </div>
+    <div
+      class="inventory-swatch-group inventory-swatch-group--made-to-order"
+      data-inventory-swatch-group="made_to_order"
+      role="group"
+      aria-labelledby="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-made-to-order"
+      {% if made_to_order_swatches == blank %}
+        hidden
+      {% endif %}
+    >
+      <p class="inventory-swatch-group__title" id="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-made-to-order">
+        {{- 'inventory_v2.made_to_order' | t -}}
+      </p>
+      <div class="inventory-swatch-group__items" data-inventory-swatch-group-items>
+        {{- made_to_order_swatches -}}
+      </div>
+    </div>
+    <div
+      class="inventory-swatch-group inventory-swatch-group--out-of-stock"
+      data-inventory-swatch-group="out_of_stock"
+      role="group"
+      aria-labelledby="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-out-of-stock"
+      {% if out_of_stock_swatches == blank %}
+        hidden
+      {% endif %}
+    >
+      <p class="inventory-swatch-group__title" id="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-out-of-stock">
+        {{- 'products.product.inventory_out_of_stock' | t -}}
+      </p>
+      <div class="inventory-swatch-group__items" data-inventory-swatch-group-items>
+        {{- out_of_stock_swatches -}}
+      </div>
+    </div>
+    <div
+      class="inventory-swatch-group inventory-swatch-group--untracked"
+      data-inventory-swatch-group="untracked"
+      role="group"
+      aria-labelledby="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-untracked"
+      {% if untracked_swatches == blank %}
+        hidden
+      {% endif %}
+    >
+      <p class="inventory-swatch-group__title" id="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-untracked">
+        {{- 'inventory_v2.not_tracked' | t -}}
+      </p>
+      <div class="inventory-swatch-group__items" data-inventory-swatch-group-items>
+        {{- untracked_swatches -}}
+      </div>
+    </div>
+    <div
+      class="inventory-swatch-group inventory-swatch-group--missing"
+      data-inventory-swatch-group="missing"
+      role="group"
+      aria-labelledby="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-missing"
+      {% if missing_swatches == blank %}
+        hidden
+      {% endif %}
+    >
+      <p class="inventory-swatch-group__title" id="InventorySwatchGroup-{{ section.id }}-{{ option.position }}-missing">
+        {{- 'inventory_v2.combination_unavailable' | t -}}
+      </p>
+      <div class="inventory-swatch-group__items" data-inventory-swatch-group-items>
+        {{- missing_swatches -}}
+      </div>
+    </div>
+  {%- else -%}
+    {{- ungrouped_swatches -}}
+  {%- endif -%}
+{%- endif -%}
