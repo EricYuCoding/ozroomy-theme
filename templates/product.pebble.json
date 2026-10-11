@@ -976,59 +976,47 @@
         "custom_colors_text": "#121212"
       }
     },
-    "image_with_text_eTgN4Y": {
-      "type": "image-with-text",
-      "blocks": {
-        "text_hnK6KT": {
-          "type": "text",
-          "settings": {
-            "text": "<p></p>{{ product.metafields.custom.feature2 | metafield_tag }}",
-            "text_style": "body"
-          }
-        }
-      },
-      "block_order": [
-        "text_hnK6KT"
-      ],
-      "settings": {
-        "display_id": false,
-        "show_media_only": false,
-        "media_max_width": 3456,
-        "visibility": "always-display",
-        "video": "{{ product.metafields.custom.product_page_video3.value }}",
-        "height": "medium",
-        "content_layout": "no-overlap",
-        "color_scheme": "background-1",
-        "section_color_scheme": "background-1",
-        "desktop_image_width": "medium",
-        "layout": "text_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_full_media_width": false,
-        "mobile_direction": "normal",
-        "mobile_image_quanlity": "2",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "custom_colors_background": "#2e2a39",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#ffffff",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff",
-        "custom_colors_outline_button": "#dd1d1d",
-        "custom_section_colors_background": "#ffffff",
-        "custom_section_gradient_background": ""
-      }
-    },
     "multirow_DNeDPd": {
       "type": "multirow",
       "blocks": {
         "row_GYrKUh": {
           "type": "row",
           "settings": {
+            "video": "{{ block.settings.atc_product.metafields.custom.product_page_video3.value }}",
+            "caption": "Soft Comfort. Easy Care.",
+            "title": "Soft Comfort. Easy Care.&nbsp;",
+            "title_highlight_color": "#6d388b",
+            "heading_tag": "h2",
+            "text": "<p>Pebble pairs a supportive foam core with an extra down-and-foam comfort layer for a softer, more relaxed feel.<br/><br/>And with fully removable, washable covers, keeping your sofa fresh is just as easy as getting comfortable.</p>",
+            "button_label": "",
+            "button_link": "",
+            "enable_custom_cta": false,
+            "cta_font_size": 16,
+            "cta_font_weight": "600",
+            "cta_text_color": "#000000",
+            "cta_hover_text_color": "#000000",
+            "cta_background": "#ffffff",
+            "cta_hover_background": "#e9e9e9",
+            "cta_border_color": "#000000",
+            "cta_hover_border_color": "#000000",
+            "cta_border_width": 1,
+            "cta_border_radius": 0,
+            "cta_padding_horizontal": 24,
+            "cta_padding_vertical": 12,
+            "cta_shadow": "none",
+            "cta_hover_behavior": "color",
+            "cta_alignment": "left",
+            "atc_button_label": "",
+            "atc_product": "pebble-sofa-bed",
+            "atc_skip_cart": false
+          }
+        },
+        "row_K7deUT": {
+          "type": "row",
+          "settings": {
             "image": "shopify://shop_images/pebble-foam-display.webp",
             "caption": "DESIGNED FOR SITTING AND SLEEPING",
-            "title": "&nbsp;Soft Meets Support&nbsp;",
+            "title": "Soft Meets Support&nbsp;",
             "title_highlight_color": "#6d388b",
             "heading_tag": "h2",
             "text": "<p><br/>After testing more than a dozen foam combinations, we landed on a two-layer build that feels right in real life. The upper Plush Comfort Foam brings a softer, more relaxed feel for sleep, while the lower SupportCore Medium-Firm Foam provides the stable support you want for everyday seating.<br/><br/></p>",
@@ -1058,12 +1046,12 @@
         "row_9Vd46i": {
           "type": "row",
           "settings": {
-            "video": "{{ block.settings.atc_product.metafields.custom.product_page_video3.value }}",
+            "image": "{{ block.settings.atc_product.metafields.custom.product_page_image5.value }}",
             "caption": "",
-            "title": "Removable, Washable Covers.&nbsp;",
+            "title": "A Sofa in a Box. Ready in Minutes.&nbsp;",
             "title_highlight_color": "#6d388b",
             "heading_tag": "h2",
-            "text": "<p>Fully removable covers make everyday marks, spills and seasonal refreshes easier to manage.</p>",
+            "text": "<p>Big comfort, small on hassle. Pebble arrives compactly packed in boxes, making delivery and moving through doorways easier. No tools, no complicated assembly. Just unbox, let it expand, and make yourself at home.</p>",
             "button_label": "",
             "button_link": "",
             "enable_custom_cta": false,
@@ -1083,7 +1071,7 @@
             "cta_hover_behavior": "color",
             "cta_alignment": "left",
             "atc_button_label": "",
-            "atc_product": "pebble-sofa",
+            "atc_product": "pebble-sofa-bed",
             "atc_skip_cart": false
           }
         },
@@ -1123,11 +1111,11 @@
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/pebble-mattress-image_122adc98-da37-4b59-bee5-a507848d4563.webp",
-            "caption": "NEW SLEEP+ OPTION",
+            "caption": "NOW UPGRADED",
             "title": "Made for sleep.&nbsp;",
             "title_highlight_color": "#6d388b",
             "heading_tag": "h2",
-            "text": "<p>A breathable mattress-style fabric on the sleep side gives Pebble a more bed-like feel at night, while the sofa side keeps its original upholstered finish.</p>",
+            "text": "<p>Pebble now features a breathable, mattress-style fabric on one side for a more comfortable night's sleep, while the other keeps its original soft, upholstered sofa feel.</p>",
             "button_label": "",
             "button_link": "",
             "enable_custom_cta": false,
@@ -1154,6 +1142,7 @@
       },
       "block_order": [
         "row_GYrKUh",
+        "row_K7deUT",
         "row_9Vd46i",
         "row_w66BqA",
         "row_MbxHYF"
@@ -1220,7 +1209,6 @@
     "featured_collection_ky7e7q",
     "rich_text_E3jmeW",
     "image_slider_jgNKkU",
-    "image_with_text_eTgN4Y",
     "multirow_DNeDPd",
     "173381352079f37fbd",
     "b321ab88-2b59-4dba-bade-54885c874ca5"

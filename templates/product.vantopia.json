@@ -244,7 +244,7 @@
             "margin_bottom": 15,
             "in_stock_text": "<p>In stock, leaves our warehouse in 1-2 days</p>",
             "low_stock_text": "<p>Limited stock, ready to ship in 1-2 days</p>",
-            "pre_order_text": "<p>Made to order for you, with delivery in 5–7 weeks.</p>",
+            "pre_order_text": "<p>Made to order for you, with delivery in 3–4 weeks.</p>",
             "enable_custom_out_of_stock": false,
             "custom_out_of_stock_text": "Contact us for restock dates"
           }
@@ -780,11 +780,11 @@
           "type": "row",
           "settings": {
             "image": "{{ block.settings.atc_product.metafields.custom.product_page_image2.value }}",
-            "caption": "SOFA FIRST. GUEST BED WHEN NEEDED.",
-            "title": "A Sofa Bed That Doesn’t Look Like One&nbsp;",
+            "caption": "BIG COMFORT. SMALL BOX.",
+            "title": "A Sofa in a Box. Ready in Minutes.&nbsp;",
             "title_highlight_color": "#6d388b",
             "heading_tag": "h2",
-            "text": "<p>With its low profile, soft curves and oversized bolsters, Loopa feels at home in the living room, not hidden away in the spare room. When guests stay over, the modular seats open into a generous 200 × 200 cm bed, with no metal frame or pull-out mechanism.</p>",
+            "text": "<p>Big on comfort, small on hassle. Your sofa arrives compactly packed in boxes, making delivery and moving through doorways easier. No tools, no complicated assembly. Just unbox, let it expand, and make yourself at home.</p>",
             "button_label": "",
             "button_link": "",
             "enable_custom_cta": false,
@@ -875,8 +875,8 @@
       },
       "block_order": [
         "row_GYrKUh",
-        "row_9Vd46i",
         "row_w66BqA",
+        "row_9Vd46i",
         "row_MbxHYF"
       ],
       "settings": {
