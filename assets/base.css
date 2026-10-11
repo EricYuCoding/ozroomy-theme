@@ -8038,34 +8038,27 @@ bundle-deals {
   display: grid;
   gap: 1.4rem;
 }
-.main-product__info-container .color-swatches-container--inventory-grouped {
-  gap: 1.2rem;
-}
-.main-product__info-container .inventory-swatch-group--ready,
-.main-product__info-container .inventory-swatch-group--made-to-order {
-  padding: 1rem;
-  border: 0.1rem solid;
-  border-radius: 0.8rem;
-}
-.main-product__info-container .inventory-swatch-group--ready {
-  background-color: #edf2ea;
-  border-color: #dfe7db;
-}
-.main-product__info-container .inventory-swatch-group--made-to-order {
-  background-color: #f5f3ef;
-  border-color: #eae6df;
+.main-product__info-container .inventory-swatch-group--ready .inventory-swatch-group__title,
+.main-product__info-container .inventory-swatch-group--made-to-order .inventory-swatch-group__title {
+  display: flex;
+  align-items: center;
+  column-gap: 0.8rem;
 }
 .main-product__info-container .inventory-swatch-group--ready .inventory-swatch-group__title::before,
-.main-product__info-container .inventory-swatch-group--ready .inventory-swatch-group__title::after,
-.main-product__info-container .inventory-swatch-group--made-to-order .inventory-swatch-group__title::before,
-.main-product__info-container .inventory-swatch-group--made-to-order .inventory-swatch-group__title::after {
-  content: none;
+.main-product__info-container .inventory-swatch-group--made-to-order .inventory-swatch-group__title::before {
+  content: "";
+  width: 1.6rem;
+  height: 1.6rem;
+  flex: 0 0 1.6rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-@media screen and (min-width: 750px) {
-  .main-product__info-container .inventory-swatch-group--ready,
-  .main-product__info-container .inventory-swatch-group--made-to-order {
-    padding: 1.2rem;
-  }
+.main-product__info-container .inventory-swatch-group--ready .inventory-swatch-group__title::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232D8A56' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='m8 12 2.5 2.5L16 9'/%3E%3C/svg%3E");
+}
+.main-product__info-container .inventory-swatch-group--made-to-order .inventory-swatch-group__title::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666666' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7v5l3 2'/%3E%3C/svg%3E");
 }
 .inventory-swatch-group[hidden] {
   display: none;
