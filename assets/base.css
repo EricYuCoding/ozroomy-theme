@@ -8038,6 +8038,35 @@ bundle-deals {
   display: grid;
   gap: 1.4rem;
 }
+.main-product__info-container .color-swatches-container--inventory-grouped {
+  gap: 1.2rem;
+}
+.main-product__info-container .inventory-swatch-group--ready,
+.main-product__info-container .inventory-swatch-group--made-to-order {
+  padding: 1rem;
+  border: 0.1rem solid;
+  border-radius: 0.8rem;
+}
+.main-product__info-container .inventory-swatch-group--ready {
+  background-color: #edf2ea;
+  border-color: #dfe7db;
+}
+.main-product__info-container .inventory-swatch-group--made-to-order {
+  background-color: #f5f3ef;
+  border-color: #eae6df;
+}
+.main-product__info-container .inventory-swatch-group--ready .inventory-swatch-group__title::before,
+.main-product__info-container .inventory-swatch-group--ready .inventory-swatch-group__title::after,
+.main-product__info-container .inventory-swatch-group--made-to-order .inventory-swatch-group__title::before,
+.main-product__info-container .inventory-swatch-group--made-to-order .inventory-swatch-group__title::after {
+  content: none;
+}
+@media screen and (min-width: 750px) {
+  .main-product__info-container .inventory-swatch-group--ready,
+  .main-product__info-container .inventory-swatch-group--made-to-order {
+    padding: 1.2rem;
+  }
+}
 .inventory-swatch-group[hidden] {
   display: none;
 }
