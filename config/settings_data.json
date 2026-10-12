@@ -366,12 +366,9 @@
             "type": "product_specific_upsells",
             "settings": {
               "heading": "Complete with",
-              "options_button_label": "Choose options",
-              "fallback_products": [
-                "roomy-maxi-cushion",
-                "roomy-pillows"
-              ],
-              "max_visible": 2,
+              "options_button_label": "Add",
+              "fallback_products": [],
+              "max_visible": 3,
               "show_short_description": false,
               "button_radius": 6
             }

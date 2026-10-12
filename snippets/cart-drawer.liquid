@@ -235,15 +235,14 @@ Renders the cart drawer.
     width: 100%;
   }
 
-  .cart-upsell-options__submit {
+  .cart-upsell-options__actions .cart-upsell-options__submit,
+  .cart-upsell-options__actions .cart-upsell-options__details-link {
     --buttons-radius: var(--cart-upsell-button-radius, 6px);
     --buttons-radius-outset: var(--cart-upsell-button-radius, 6px);
-    min-height: 4.8rem;
-  }
-
-  .cart-upsell-options__details-link {
-    --buttons-radius: var(--cart-upsell-button-radius, 6px);
-    --buttons-radius-outset: var(--cart-upsell-button-radius, 6px);
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    line-height: calc(1 + 0.2 / var(--font-body-scale));
+    margin: 0;
     min-height: 4.8rem;
     width: 100%;
   }
