@@ -30,6 +30,17 @@
       if request.page_type == 'index' and localization.country.iso_code == 'AU'
         assign seo_page_title = 'Sofa Beds Australia | Comfortable Sofa Beds | OZROOMY'
         assign seo_page_description = 'Shop comfortable OZROOMY sofa beds in Australia for everyday seating and sleeping. Explore modular sofa-in-a-box options made for compact living.'
+      elsif request.page_type == 'page' and localization.country.iso_code == 'AU'
+        case page.handle
+          when 'contact'
+            assign seo_page_description = 'Contact OZROOMY Australia for help with sofa beds, product questions and existing orders. Find customer service details and our enquiry form.'
+          when 'why-ozroomy'
+            assign seo_page_description = 'Learn the story behind OZROOMY, a Melbourne-founded sofa-bed brand focused on comfortable everyday seating and sleeping for modern homes.'
+          when 'returns-refunds'
+            assign seo_page_description = 'Read OZROOMY returns and refunds information for eligible sofa-bed and accessory purchases in Australia, including how to request support.'
+          when 'warranty'
+            assign seo_page_description = 'Read OZROOMY warranty information for sofa beds and accessories, including coverage guidance and how to contact our Australian support team.'
+        endcase
       endif
     -%}
 
