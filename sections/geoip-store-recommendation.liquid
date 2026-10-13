@@ -1,0 +1,252 @@
+{%- liquid
+  assign eligible_page = false
+  case request.page_type
+    when 'index', 'collection', 'product', 'page', 'blog', 'article', 'search'
+      assign eligible_page = true
+  endcase
+
+  assign render_dialog = false
+  if section.settings.enabled and eligible_page
+    assign render_dialog = true
+  endif
+  if request.design_mode and section.settings.theme_editor_test_country != 'off'
+    assign render_dialog = true
+  endif
+
+  assign display_delay_ms = section.settings.display_delay | times: 1000
+  assign backdrop_opacity = section.settings.backdrop_opacity | divided_by: 100.0
+-%}
+
+{%- if render_dialog -%}
+  {{ 'geoip-store-recommendation.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+<geoip-store-recommendation
+  data-enabled="{{ section.settings.enabled }}"
+  data-store-profile="{{ section.settings.store_profile }}"
+  data-target-url="{{ section.settings.target_url | escape }}"
+  data-page-type="{{ request.page_type | escape }}"
+  data-page-path="{{ request.path | escape }}"
+  data-display-delay-ms="{{ display_delay_ms }}"
+  data-dismiss-days="{{ section.settings.dismissal_cooldown }}"
+  data-test-country="{{ section.settings.theme_editor_test_country }}"
+>
+  {%- if render_dialog -%}
+    <dialog
+      class="geoip-store-recommendation__dialog"
+      aria-labelledby="GeoIPRecommendationHeading-{{ section.id }}"
+      aria-describedby="GeoIPRecommendationDescription-{{ section.id }}"
+      style="--geoip-popup-background: {{ section.settings.popup_background }}; --geoip-popup-text: {{ section.settings.text_color }}; --geoip-popup-button: {{ section.settings.button_color }}; --geoip-popup-button-text: {{ section.settings.button_text_color }}; --geoip-popup-radius: {{ section.settings.border_radius }}px; --geoip-backdrop-opacity: {{ backdrop_opacity }};"
+      hidden
+    >
+      <div class="geoip-store-recommendation__panel">
+        <button
+          type="button"
+          class="geoip-store-recommendation__close"
+          data-geoip-close
+          aria-label="{{ section.settings.close_button_label | escape }}"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="geoip-store-recommendation__flag" aria-hidden="true">
+          <span data-geoip-country-flag="AU" hidden>🇦🇺</span>
+          <span data-geoip-country-flag="GB" hidden>🇬🇧</span>
+        </div>
+
+        <h2
+          id="GeoIPRecommendationHeading-{{ section.id }}"
+          class="geoip-store-recommendation__heading"
+          tabindex="-1"
+        >
+          {{ section.settings.heading | escape }}
+        </h2>
+
+        <p
+          id="GeoIPRecommendationDescription-{{ section.id }}"
+          class="geoip-store-recommendation__description"
+        >
+          {{ section.settings.description | escape | newline_to_br }}
+        </p>
+
+        <div class="geoip-store-recommendation__actions">
+          <a
+            class="geoip-store-recommendation__primary"
+            href="#"
+            data-geoip-store-recommendation-cta
+          >
+            {{ section.settings.primary_cta_text | escape }}
+          </a>
+          <button
+            type="button"
+            class="geoip-store-recommendation__continue"
+            data-geoip-continue
+          >
+            {{ section.settings.continue_text | escape }}
+          </button>
+        </div>
+      </div>
+    </dialog>
+  {%- endif -%}
+</geoip-store-recommendation>
+
+<script src="{{ 'geoip-store-recommendation.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Store recommendation",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enabled",
+      "label": "Enable popup",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "store_profile",
+      "label": "Store profile",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Determine from hostname"
+        },
+        {
+          "value": "ozdesignsofa",
+          "label": "OZDESIGN SOFA"
+        },
+        {
+          "value": "ozroomy",
+          "label": "OZROOMY Australia"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop your local store"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Visit the store recommended for your location."
+    },
+    {
+      "type": "text",
+      "id": "primary_cta_text",
+      "label": "Primary CTA text",
+      "default": "Visit Local Store"
+    },
+    {
+      "type": "url",
+      "id": "target_url",
+      "label": "Target URL"
+    },
+    {
+      "type": "text",
+      "id": "continue_text",
+      "label": "Continue shopping text",
+      "default": "Continue Shopping"
+    },
+    {
+      "type": "text",
+      "id": "close_button_label",
+      "label": "Close button label",
+      "default": "Close store recommendation"
+    },
+    {
+      "type": "color",
+      "id": "popup_background",
+      "label": "Popup background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#2e2a39"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#6d388b"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "backdrop_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Backdrop opacity",
+      "default": 55
+    },
+    {
+      "type": "range",
+      "id": "display_delay",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Display delay",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "dismissal_cooldown",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "unit": "day",
+      "label": "Close-button cooldown",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "theme_editor_test_country",
+      "label": "Theme Editor test country",
+      "info": "Mocked preview only. Off uses genuine Shopify detection outside the Theme Editor.",
+      "options": [
+        {
+          "value": "off",
+          "label": "Off"
+        },
+        {
+          "value": "AU",
+          "label": "Australia"
+        },
+        {
+          "value": "GB",
+          "label": "United Kingdom"
+        },
+        {
+          "value": "US",
+          "label": "United States"
+        }
+      ],
+      "default": "off"
+    }
+  ]
+}
+{% endschema %}
