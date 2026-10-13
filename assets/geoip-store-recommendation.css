@@ -84,11 +84,36 @@ geoip-store-recommendation {
   outline-offset: 0.3rem;
 }
 
-.geoip-store-recommendation__flag {
-  font-size: 4.4rem;
-  line-height: 1;
-  margin-block-end: 2rem;
-  min-height: 4.4rem;
+.geoip-store-recommendation__top-content {
+  margin: 0 auto var(--geoip-top-content-spacing);
+  max-width: min(100%, var(--geoip-top-content-max-width));
+}
+
+.geoip-store-recommendation__top-content[hidden] {
+  display: none;
+}
+
+.geoip-store-recommendation__top-content--image {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.geoip-store-recommendation__top-image {
+  display: block;
+  height: auto;
+  max-height: 10rem;
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
+}
+
+.geoip-store-recommendation__top-content--text {
+  color: var(--geoip-top-content-text-color);
+  font-size: var(--geoip-top-content-font-size);
+  font-weight: var(--geoip-top-content-font-weight);
+  line-height: 1.1;
+  overflow-wrap: anywhere;
 }
 
 .geoip-store-recommendation__heading {
@@ -107,6 +132,7 @@ geoip-store-recommendation {
   margin: 1.6rem auto 0;
   max-width: 44rem;
   opacity: 0.82;
+  white-space: pre-line;
 }
 
 .geoip-store-recommendation__actions {
@@ -166,10 +192,8 @@ body.geoip-store-recommendation-open {
     padding: 4rem 2.4rem 2.4rem;
   }
 
-  .geoip-store-recommendation__flag {
-    font-size: 3.8rem;
-    margin-block-end: 1.6rem;
-    min-height: 3.8rem;
+  .geoip-store-recommendation__top-image {
+    max-height: 8rem;
   }
 
   .geoip-store-recommendation__heading {

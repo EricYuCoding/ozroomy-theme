@@ -56,6 +56,61 @@
     return country === 'AU' || country === 'GB' ? country : '';
   }
 
+  function getEditorPreviewState(element, win) {
+    const dataset = element && element.dataset ? element.dataset : {};
+    const liquidDesignMode = dataset.designMode === 'true';
+    const javascriptDesignMode = Boolean(win && win.Shopify && win.Shopify.designMode);
+    const active = liquidDesignMode && javascriptDesignMode;
+    const requestedMode = active && typeof dataset.editorPreviewMode === 'string'
+      ? dataset.editorPreviewMode.trim().toLowerCase()
+      : 'automatic';
+    const mode = ['automatic', 'show', 'hide'].includes(requestedMode) ? requestedMode : 'automatic';
+    const requestedCountry = normalizeCountryCode(dataset.editorPreviewCountry);
+    const country = requestedCountry === 'GB' ? 'GB' : 'AU';
+
+    return Object.freeze({
+      active: active,
+      mode: mode,
+      country: country,
+      forcedVisible: active && mode === 'show',
+      forcedHidden: active && mode === 'hide',
+    });
+  }
+
+  function resolvePreviewRoute(country) {
+    const normalizedCountry = normalizeCountryCode(country);
+    return ROUTES.find(function (route) {
+      return route.triggerCountry === normalizedCountry;
+    }) || null;
+  }
+
+  function getRecommendationContent(element, country) {
+    const normalizedCountry = normalizeCountryCode(country) === 'GB' ? 'gb' : 'au';
+    const dataset = element && element.dataset ? element.dataset : {};
+    return Object.freeze({
+      heading: dataset[normalizedCountry + 'Heading'] || '',
+      description: dataset[normalizedCountry + 'Description'] || '',
+      ctaText: dataset[normalizedCountry + 'CtaText'] || '',
+    });
+  }
+
+  function updateTopContent(element, country) {
+    const topContent = element.querySelector('[data-geoip-top-content]');
+    if (!topContent) return;
+
+    const textOptions = Array.from(topContent.querySelectorAll('[data-geoip-top-text]'));
+    if (textOptions.length === 0) return;
+
+    let hasVisibleText = false;
+    textOptions.forEach(function (option) {
+      const matchesCountry = option.dataset.geoipTopText === country;
+      const hasText = option.textContent.trim() !== '';
+      option.hidden = !matchesCountry || !hasText;
+      if (!option.hidden) hasVisibleText = true;
+    });
+    topContent.hidden = !hasVisibleText;
+  }
+
   function resolveRoute(profile, hostname) {
     const normalizedProfile = typeof profile === 'string' ? profile.trim().toLowerCase() : '';
     const host = normalizeHost(hostname);
@@ -351,23 +406,28 @@
     });
   }
 
-  function showRecommendation(element, win, storage, route, country) {
+  function showRecommendation(element, win, storage, route, country, options) {
+    const settings = options || {};
+    const editorPreview = settings.editorPreview === true;
     const dialog = element.querySelector('.geoip-store-recommendation__dialog');
     const heading = element.querySelector('.geoip-store-recommendation__heading');
+    const description = element.querySelector('.geoip-store-recommendation__description');
     const cta = element.querySelector('[data-geoip-store-recommendation-cta]');
     const closeButton = element.querySelector('[data-geoip-close]');
     const continueButton = element.querySelector('[data-geoip-continue]');
-    const flags = element.querySelectorAll('[data-geoip-country-flag]');
 
-    if (!dialog || !heading || !cta || !closeButton || !continueButton) return null;
+    if (!dialog || !heading || !description || !cta || !closeButton || !continueButton) return null;
 
+    const content = getRecommendationContent(element, country);
     const destination = buildDestinationUrl(element.dataset.targetUrl, route, win.location.href);
+    heading.textContent = content.heading;
+    description.textContent = content.description;
+    cta.textContent = content.ctaText;
+    updateTopContent(element, country);
     cta.href = destination;
     cta.target = '_self';
     cta.removeAttribute('rel');
-    flags.forEach(function (flag) {
-      flag.hidden = flag.dataset.geoipCountryFlag !== country;
-    });
+    if (editorPreview) cta.setAttribute('data-editor-preview', 'true');
 
     let open = true;
     const previousFocus = win.document.activeElement;
@@ -378,9 +438,9 @@
       open = false;
       const now = Date.now();
 
-      if (reason === 'dismiss') {
+      if (!editorPreview && reason === 'dismiss') {
         writePreference(storage, { dismissedUntil: now + dismissDays * DAY_MS }, now);
-      } else if (reason === 'stay') {
+      } else if (!editorPreview && reason === 'stay') {
         writePreference(storage, { stayUntil: now + STAY_DAYS * DAY_MS }, now);
       }
 
@@ -440,7 +500,11 @@
       close('stay');
     }, { once: true });
 
-    cta.addEventListener('click', function () {
+    cta.addEventListener('click', function (event) {
+      if (editorPreview) {
+        event.preventDefault();
+        return;
+      }
       const now = Date.now();
       writePreference(storage, {
         stayUntil: now + STAY_DAYS * DAY_MS,
@@ -474,18 +538,30 @@
     }
 
     heading.focus({ preventScroll: true });
-    return { close: close };
+    return { close: close, element: element, editorPreview: editorPreview };
   }
 
   async function initializeElement(element, win, storage) {
     if (!element || element.dataset.initialized === 'true') return false;
     element.dataset.initialized = 'true';
 
-    if (!storage || element.dataset.enabled !== 'true') return false;
+    const editorPreview = getEditorPreviewState(element, win);
+    if (editorPreview.forcedHidden) {
+      if (win.__ozGeoIPActiveController) win.__ozGeoIPActiveController.close('replace');
+      return false;
+    }
 
-    const designMode = Boolean(win.Shopify && win.Shopify.designMode);
-    const testCountry = normalizeCountryCode(element.dataset.testCountry);
-    if (designMode && !testCountry) return false;
+    if (editorPreview.forcedVisible) {
+      const previewRoute = resolvePreviewRoute(editorPreview.country);
+      if (!previewRoute) return false;
+      if (win.__ozGeoIPActiveController) win.__ozGeoIPActiveController.close('replace');
+      const previewController = showRecommendation(element, win, null, previewRoute, editorPreview.country, { editorPreview: true });
+      if (!previewController) return false;
+      win.__ozGeoIPActiveController = previewController;
+      return true;
+    }
+
+    if (!storage || element.dataset.enabled !== 'true') return false;
 
     if (!isEligiblePage(element.dataset.pageType, element.dataset.pagePath || win.location.pathname)) return false;
 
@@ -496,9 +572,7 @@
     if (isSuppressed(readPreference(storage, now), now)) return false;
 
     const delayMs = Math.max(0, Math.min(10000, Number(element.dataset.displayDelayMs) || 0));
-    const countryPromise = designMode && testCountry
-      ? Promise.resolve(testCountry)
-      : requestDetectedCountry({ window: win });
+    const countryPromise = requestDetectedCountry({ window: win });
     const delayPromise = new Promise(function (resolve) {
       win.setTimeout(resolve, delayMs);
     });
@@ -509,6 +583,7 @@
     const currentTime = Date.now();
     if (isSuppressed(readPreference(storage, currentTime), currentTime)) return false;
     if (hasCompetingModal(win.document)) return false;
+    if ('isConnected' in element && !element.isConnected) return false;
 
     const controller = showRecommendation(element, win, storage, route, country);
     if (!controller) return false;
@@ -537,7 +612,28 @@
         const element = event.target.matches && event.target.matches('geoip-store-recommendation')
           ? event.target
           : event.target.querySelector && event.target.querySelector('geoip-store-recommendation');
-        if (element) initializeElement(element, win, storage);
+        if (!element) return;
+        if (win.__ozGeoIPActiveController) win.__ozGeoIPActiveController.close('replace');
+        element.dataset.initialized = 'false';
+        initializeElement(element, win, storage);
+      });
+
+      win.document.addEventListener('shopify:section:select', function (event) {
+        const element = event.target.matches && event.target.matches('geoip-store-recommendation')
+          ? event.target
+          : event.target.querySelector && event.target.querySelector('geoip-store-recommendation');
+        if (!element || !getEditorPreviewState(element, win).forcedVisible) return;
+        if (win.__ozGeoIPActiveController) win.__ozGeoIPActiveController.close('replace');
+        element.dataset.initialized = 'false';
+        initializeElement(element, win, storage);
+      });
+
+      win.document.addEventListener('shopify:section:unload', function (event) {
+        const controller = win.__ozGeoIPActiveController;
+        if (!controller || !controller.element) return;
+        const containsController = event.target === controller.element
+          || (event.target.contains && event.target.contains(controller.element));
+        if (containsController) controller.close('replace');
       });
     };
 
@@ -559,6 +655,8 @@
     createStorage: createStorage,
     emptyPreference: emptyPreference,
     extractManualCountry: extractManualCountry,
+    getEditorPreviewState: getEditorPreviewState,
+    getRecommendationContent: getRecommendationContent,
     initializeElement: initializeElement,
     isEligiblePage: isEligiblePage,
     isSuppressed: isSuppressed,
@@ -566,6 +664,7 @@
     readDetectedCountry: readDetectedCountry,
     readPreference: readPreference,
     requestDetectedCountry: requestDetectedCountry,
+    resolvePreviewRoute: resolvePreviewRoute,
     resolveRoute: resolveRoute,
     validateDestination: validateDestination,
     writePreference: writePreference,

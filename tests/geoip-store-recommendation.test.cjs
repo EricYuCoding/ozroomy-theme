@@ -71,6 +71,97 @@ function requestWindow(fetchImpl) {
   };
 }
 
+function readSectionSource() {
+  return fs.readFileSync(path.resolve(__dirname, '..', 'sections', 'geoip-store-recommendation.liquid'), 'utf8');
+}
+
+function readSectionSchema() {
+  const source = readSectionSource();
+  const match = source.match(/{% schema %}([\s\S]*?){% endschema %}/);
+  assert.ok(match);
+  return JSON.parse(match[1]);
+}
+
+function editorFixture(overrides = {}) {
+  const topText = {
+    AU: { dataset: { geoipTopText: 'AU' }, textContent: 'AU', hidden: true },
+    GB: { dataset: { geoipTopText: 'GB' }, textContent: 'UK', hidden: true },
+  };
+  const topContent = {
+    hidden: false,
+    querySelectorAll: () => [topText.AU, topText.GB],
+  };
+  const dialog = {
+    hidden: true,
+    open: false,
+    attributes: new Map(),
+    addEventListener() {},
+    querySelectorAll: () => [],
+    showModal() { this.open = true; },
+    close() { this.open = false; },
+    setAttribute(name, value) { this.attributes.set(name, value); },
+    removeAttribute(name) { this.attributes.delete(name); },
+  };
+  const heading = { textContent: '', focus() {} };
+  const description = { textContent: '' };
+  const cta = {
+    textContent: '',
+    attributes: new Map(),
+    addEventListener() {},
+    setAttribute(name, value) { this.attributes.set(name, value); },
+    removeAttribute(name) { this.attributes.delete(name); },
+  };
+  const button = { addEventListener() {} };
+  const selectors = new Map([
+    ['.geoip-store-recommendation__dialog', dialog],
+    ['.geoip-store-recommendation__heading', heading],
+    ['.geoip-store-recommendation__description', description],
+    ['[data-geoip-store-recommendation-cta]', cta],
+    ['[data-geoip-close]', button],
+    ['[data-geoip-continue]', button],
+    ['[data-geoip-top-content]', topContent],
+  ]);
+  const element = {
+    dataset: Object.assign({
+      initialized: 'false',
+      enabled: 'false',
+      designMode: 'true',
+      editorPreviewMode: 'show',
+      editorPreviewCountry: 'AU',
+      storeProfile: 'ozroomy',
+      targetUrl: 'https://www.ozdesignsofa.com',
+      pageType: 'cart',
+      pagePath: '/cart',
+      dismissDays: '14',
+      auHeading: "Looks like you're visiting from Australia",
+      auDescription: 'Australian description',
+      auCtaText: 'Visit Our Australian Store',
+      gbHeading: "Looks like you're visiting from the UK",
+      gbDescription: 'UK description',
+      gbCtaText: 'Visit Our UK Store',
+    }, overrides),
+    isConnected: true,
+    querySelector: (selector) => selectors.get(selector) || null,
+  };
+  const bodyClasses = new Set();
+  const win = {
+    Shopify: { designMode: true },
+    location: new URL('https://preview.example.com/cart'),
+    document: {
+      activeElement: { isConnected: false },
+      body: {
+        classList: {
+          add: (value) => bodyClasses.add(value),
+          remove: (value) => bodyClasses.delete(value),
+        },
+      },
+      addEventListener() {},
+      removeEventListener() {},
+    },
+  };
+  return { element, win, dialog, heading, description, cta, topText, topContent };
+}
+
 test('AU on OZDESIGN recommends OZROOMY', () => {
   assert.equal(shouldRecommend('ozdesignsofa', 'www.ozdesignsofa.com', 'AU'), true);
 });
@@ -88,7 +179,7 @@ test('GB on OZDESIGN does not recommend another store', () => {
 });
 
 test('US and other countries never trigger either route', () => {
-  for (const country of ['US', 'DE', 'FR', 'JP']) {
+  for (const country of ['US', 'DE', 'FR', 'NL', 'ES', 'IT', 'JP']) {
     assert.equal(shouldRecommend('ozdesignsofa', 'ozdesignsofa.com', country), false);
     assert.equal(shouldRecommend('ozroomy', 'ozroomy.com.au', country), false);
   }
@@ -287,6 +378,137 @@ test('disabled popup setting prevents initialization', async () => {
   const element = { dataset: { initialized: 'false', enabled: 'false' } };
   assert.equal(await api.initializeElement(element, {}, wrapperStorage()), false);
   assert.equal(element.dataset.initialized, 'true');
+});
+
+test('Theme Editor forced preview bypasses disabled state, storage, hostname, page and cooldown gates', async () => {
+  const fixture = editorFixture();
+  assert.equal(await api.initializeElement(fixture.element, fixture.win, null), true);
+  assert.equal(fixture.dialog.open, true);
+  assert.equal(fixture.dialog.hidden, false);
+  assert.equal(fixture.heading.textContent, "Looks like you're visiting from Australia");
+  assert.equal(fixture.description.textContent, 'Australian description');
+  assert.equal(fixture.cta.textContent, 'Visit Our Australian Store');
+  assert.equal(fixture.cta.attributes.get('data-editor-preview'), 'true');
+  assert.equal(fixture.topText.AU.hidden, false);
+  assert.equal(fixture.topText.GB.hidden, true);
+});
+
+test('Theme Editor forced hidden mode never initializes the popup', async () => {
+  const fixture = editorFixture({ editorPreviewMode: 'hide' });
+  assert.equal(await api.initializeElement(fixture.element, fixture.win, null), false);
+  assert.equal(fixture.dialog.open, false);
+});
+
+test('Theme Editor forced preview ignores an existing customer cooldown', async () => {
+  const fixture = editorFixture();
+  const storage = wrapperStorage();
+  const now = Date.now();
+  api.writePreference(storage, { dismissedUntil: now + 14 * api.DAY_MS }, now);
+  assert.equal(api.isSuppressed(api.readPreference(storage, now), now), true);
+  assert.equal(await api.initializeElement(fixture.element, fixture.win, storage), true);
+});
+
+test('Theme Editor preview switches to United Kingdom content independently of production routing', async () => {
+  const fixture = editorFixture({ editorPreviewCountry: 'GB', storeProfile: 'ozdesignsofa' });
+  assert.equal(await api.initializeElement(fixture.element, fixture.win, null), true);
+  assert.equal(fixture.heading.textContent, "Looks like you're visiting from the UK");
+  assert.equal(fixture.description.textContent, 'UK description');
+  assert.equal(fixture.cta.textContent, 'Visit Our UK Store');
+  assert.equal(fixture.topText.AU.hidden, true);
+  assert.equal(fixture.topText.GB.hidden, false);
+});
+
+test('public Draft and production contexts ignore editor preview settings', () => {
+  const element = { dataset: { designMode: 'true', editorPreviewMode: 'show', editorPreviewCountry: 'GB' } };
+  const state = api.getEditorPreviewState(element, { Shopify: {} });
+  assert.equal(state.active, false);
+  assert.equal(state.forcedVisible, false);
+  assert.equal(state.mode, 'automatic');
+});
+
+test('editor preview requires both verified Liquid and JavaScript design-mode signals', () => {
+  const missingLiquid = api.getEditorPreviewState(
+    { dataset: { designMode: 'false', editorPreviewMode: 'show', editorPreviewCountry: 'AU' } },
+    { Shopify: { designMode: true } },
+  );
+  const missingJavaScript = api.getEditorPreviewState(
+    { dataset: { designMode: 'true', editorPreviewMode: 'show', editorPreviewCountry: 'AU' } },
+    { Shopify: {} },
+  );
+  assert.equal(missingLiquid.forcedVisible, false);
+  assert.equal(missingJavaScript.forcedVisible, false);
+});
+
+test('editor initialization prevents duplicate popup instances on the same rendered section', async () => {
+  const fixture = editorFixture();
+  assert.equal(await api.initializeElement(fixture.element, fixture.win, null), true);
+  assert.equal(await api.initializeElement(fixture.element, fixture.win, null), false);
+});
+
+test('section schema exposes Automatic, Show popup and Hide popup editor modes', () => {
+  const schema = readSectionSchema();
+  const setting = schema.settings.find((item) => item.id === 'editor_preview_mode');
+  assert.deepEqual(setting.options.map((option) => option.value), ['automatic', 'show', 'hide']);
+});
+
+test('section schema exposes independent Australia and United Kingdom preview content', () => {
+  const schema = readSectionSchema();
+  const country = schema.settings.find((item) => item.id === 'editor_preview_country');
+  assert.deepEqual(country.options.map((option) => option.value), ['AU', 'GB']);
+  for (const id of ['au_heading', 'au_description', 'au_cta_text', 'gb_heading', 'gb_description', 'gb_cta_text']) {
+    assert.ok(schema.settings.some((item) => item.id === id));
+  }
+});
+
+test('Theme Editor section reload, select and unload lifecycle hooks are installed', () => {
+  const js = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'geoip-store-recommendation.js'), 'utf8');
+  assert.match(js, /shopify:section:load/);
+  assert.match(js, /shopify:section:select/);
+  assert.match(js, /shopify:section:unload/);
+  assert.match(js, /close\('replace'\)/);
+});
+
+test('branding selector provides mutually exclusive Logo, Text and Image modes', () => {
+  const schema = readSectionSchema();
+  const setting = schema.settings.find((item) => item.id === 'top_content_type');
+  assert.deepEqual(setting.options.map((option) => option.value), ['logo', 'text', 'image']);
+  assert.equal(setting.default, 'logo');
+  assert.match(readSectionSource(), /case section\.settings\.top_content_type/);
+});
+
+test('logo and uploaded image modes use responsive uncropped images with accessible alternatives', () => {
+  const section = readSectionSource();
+  const css = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'geoip-store-recommendation.css'), 'utf8');
+  const schema = readSectionSchema();
+  assert.ok(schema.settings.some((item) => item.id === 'popup_logo' && item.type === 'image_picker'));
+  assert.ok(schema.settings.some((item) => item.id === 'popup_image' && item.type === 'image_picker'));
+  assert.match(section, /popup_logo_alt/);
+  assert.match(section, /popup_image_alt/);
+  assert.match(section, /settings\.logo/);
+  assert.match(section, /image_tag/);
+  assert.match(css, /object-fit: contain/);
+  assert.match(css, /height: auto/);
+});
+
+test('missing branding images fail gracefully without restoring the old country label', () => {
+  const section = readSectionSource();
+  assert.match(section, /section\.settings\.popup_logo \| default: settings\.logo/);
+  assert.match(section, /if popup_logo != blank/);
+  assert.match(section, /if section\.settings\.popup_image != blank/);
+  assert.doesNotMatch(section, /data-geoip-country-flag/);
+});
+
+test('empty text top content is hidden and the old hardcoded country flag is removed', () => {
+  const section = readSectionSource();
+  const js = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'geoip-store-recommendation.js'), 'utf8');
+  assert.doesNotMatch(section, /data-geoip-country-flag|geoip-store-recommendation__flag/);
+  assert.match(js, /option\.textContent\.trim\(\) !== ''/);
+  assert.match(js, /topContent\.hidden = !hasVisibleText/);
+});
+
+test('component emits no tracking or analytics events', () => {
+  const js = fs.readFileSync(path.resolve(__dirname, '..', 'assets', 'geoip-store-recommendation.js'), 'utf8');
+  assert.doesNotMatch(js, /dataLayer\.push|\bgtag\s*\(|\bfbq\s*\(|dispatchEvent\s*\(/);
 });
 
 test('CTA is a same-tab anchor exempted only from the existing external-link rule', () => {

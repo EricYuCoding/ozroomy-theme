@@ -9,8 +9,13 @@
   if section.settings.enabled and eligible_page
     assign render_dialog = true
   endif
-  if request.design_mode and section.settings.theme_editor_test_country != 'off'
-    assign render_dialog = true
+  if request.design_mode
+    case section.settings.editor_preview_mode
+      when 'show'
+        assign render_dialog = true
+      when 'hide'
+        assign render_dialog = false
+    endcase
   endif
 
   assign display_delay_ms = section.settings.display_delay | times: 1000
@@ -29,7 +34,15 @@
   data-page-path="{{ request.path | escape }}"
   data-display-delay-ms="{{ display_delay_ms }}"
   data-dismiss-days="{{ section.settings.dismissal_cooldown }}"
-  data-test-country="{{ section.settings.theme_editor_test_country }}"
+  data-design-mode="{{ request.design_mode }}"
+  data-editor-preview-mode="{% if request.design_mode %}{{ section.settings.editor_preview_mode }}{% else %}automatic{% endif %}"
+  data-editor-preview-country="{% if request.design_mode %}{{ section.settings.editor_preview_country }}{% endif %}"
+  data-au-heading="{{ section.settings.au_heading | escape }}"
+  data-au-description="{{ section.settings.au_description | escape }}"
+  data-au-cta-text="{{ section.settings.au_cta_text | escape }}"
+  data-gb-heading="{{ section.settings.gb_heading | escape }}"
+  data-gb-description="{{ section.settings.gb_description | escape }}"
+  data-gb-cta-text="{{ section.settings.gb_cta_text | escape }}"
 >
   {%- if render_dialog -%}
     <dialog
@@ -49,24 +62,78 @@
           <span aria-hidden="true">&times;</span>
         </button>
 
-        <div class="geoip-store-recommendation__flag" aria-hidden="true">
-          <span data-geoip-country-flag="AU" hidden>🇦🇺</span>
-          <span data-geoip-country-flag="GB" hidden>🇬🇧</span>
-        </div>
+        {%- case section.settings.top_content_type -%}
+          {%- when 'logo' -%}
+            {%- assign popup_logo = section.settings.popup_logo | default: settings.logo -%}
+            {%- if popup_logo != blank -%}
+              {%- assign popup_logo_alt = section.settings.popup_logo_alt | default: popup_logo.alt | default: shop.name -%}
+              {%- assign popup_logo_height = 560 | divided_by: popup_logo.aspect_ratio | round -%}
+              <div
+                class="geoip-store-recommendation__top-content geoip-store-recommendation__top-content--image"
+                style="--geoip-top-content-max-width: {{ section.settings.top_content_max_width }}px; --geoip-top-content-spacing: {{ section.settings.top_content_spacing }}px;"
+                data-geoip-top-content
+              >
+                {{
+                  popup_logo
+                  | image_url: width: 560
+                  | image_tag:
+                    class: 'geoip-store-recommendation__top-image',
+                    widths: '80, 120, 160, 240, 320, 480, 560',
+                    sizes: '(max-width: 749px) 50vw, 280px',
+                    width: 560,
+                    height: popup_logo_height,
+                    loading: 'lazy',
+                    alt: popup_logo_alt
+                }}
+              </div>
+            {%- endif -%}
+          {%- when 'text' -%}
+            <div
+              class="geoip-store-recommendation__top-content geoip-store-recommendation__top-content--text"
+              style="--geoip-top-content-max-width: {{ section.settings.top_content_max_width }}px; --geoip-top-content-spacing: {{ section.settings.top_content_spacing }}px; --geoip-top-content-font-size: {{ section.settings.top_content_font_size }}px; --geoip-top-content-font-weight: {{ section.settings.top_content_font_weight }}; --geoip-top-content-text-color: {{ section.settings.top_content_text_color }};"
+              data-geoip-top-content
+            >
+              <span data-geoip-top-text="AU" hidden>{{ section.settings.au_top_content_text | escape }}</span>
+              <span data-geoip-top-text="GB" hidden>{{ section.settings.gb_top_content_text | escape }}</span>
+            </div>
+          {%- when 'image' -%}
+            {%- if section.settings.popup_image != blank -%}
+              {%- assign popup_image_alt = section.settings.popup_image_alt | default: section.settings.popup_image.alt | default: shop.name -%}
+              {%- assign popup_image_height = 560 | divided_by: section.settings.popup_image.aspect_ratio | round -%}
+              <div
+                class="geoip-store-recommendation__top-content geoip-store-recommendation__top-content--image"
+                style="--geoip-top-content-max-width: {{ section.settings.top_content_max_width }}px; --geoip-top-content-spacing: {{ section.settings.top_content_spacing }}px;"
+                data-geoip-top-content
+              >
+                {{
+                  section.settings.popup_image
+                  | image_url: width: 560
+                  | image_tag:
+                    class: 'geoip-store-recommendation__top-image',
+                    widths: '80, 120, 160, 240, 320, 480, 560',
+                    sizes: '(max-width: 749px) 50vw, 280px',
+                    width: 560,
+                    height: popup_image_height,
+                    loading: 'lazy',
+                    alt: popup_image_alt
+                }}
+              </div>
+            {%- endif -%}
+        {%- endcase -%}
 
         <h2
           id="GeoIPRecommendationHeading-{{ section.id }}"
           class="geoip-store-recommendation__heading"
           tabindex="-1"
         >
-          {{ section.settings.heading | escape }}
+          {{ section.settings.au_heading | escape }}
         </h2>
 
         <p
           id="GeoIPRecommendationDescription-{{ section.id }}"
           class="geoip-store-recommendation__description"
         >
-          {{ section.settings.description | escape | newline_to_br }}
+          {{ section.settings.au_description | escape }}
         </p>
 
         <div class="geoip-store-recommendation__actions">
@@ -75,7 +142,7 @@
             href="#"
             data-geoip-store-recommendation-cta
           >
-            {{ section.settings.primary_cta_text | escape }}
+            {{ section.settings.au_cta_text | escape }}
           </a>
           <button
             type="button"
@@ -124,22 +191,101 @@
       "default": "auto"
     },
     {
+      "type": "header",
+      "content": "Theme Editor preview"
+    },
+    {
+      "type": "select",
+      "id": "editor_preview_mode",
+      "label": "Preview mode",
+      "info": "Only affects the Shopify Theme Editor. Show popup bypasses customer routing and cooldowns.",
+      "options": [
+        {
+          "value": "automatic",
+          "label": "Automatic"
+        },
+        {
+          "value": "show",
+          "label": "Show popup"
+        },
+        {
+          "value": "hide",
+          "label": "Hide popup"
+        }
+      ],
+      "default": "automatic"
+    },
+    {
+      "type": "select",
+      "id": "editor_preview_country",
+      "label": "Preview content",
+      "options": [
+        {
+          "value": "AU",
+          "label": "Australia"
+        },
+        {
+          "value": "GB",
+          "label": "United Kingdom"
+        }
+      ],
+      "default": "AU"
+    },
+    {
+      "type": "header",
+      "content": "Australian recommendation"
+    },
+    {
       "type": "text",
-      "id": "heading",
+      "id": "au_heading",
       "label": "Heading",
-      "default": "Shop your local store"
+      "default": "Looks like you're visiting from Australia"
     },
     {
       "type": "textarea",
-      "id": "description",
+      "id": "au_description",
       "label": "Description",
-      "default": "Visit the store recommended for your location."
+      "default": "We have a local store just for you, with Australian pricing and delivery."
     },
     {
       "type": "text",
-      "id": "primary_cta_text",
+      "id": "au_cta_text",
       "label": "Primary CTA text",
-      "default": "Visit Local Store"
+      "default": "Visit Our Australian Store"
+    },
+    {
+      "type": "text",
+      "id": "au_top_content_text",
+      "label": "Top text",
+      "default": "AU"
+    },
+    {
+      "type": "header",
+      "content": "United Kingdom recommendation"
+    },
+    {
+      "type": "text",
+      "id": "gb_heading",
+      "label": "Heading",
+      "default": "Looks like you're visiting from the UK"
+    },
+    {
+      "type": "textarea",
+      "id": "gb_description",
+      "label": "Description",
+      "default": "Shop our UK store for local pricing, delivery and product availability."
+    },
+    {
+      "type": "text",
+      "id": "gb_cta_text",
+      "label": "Primary CTA text",
+      "default": "Visit Our UK Store"
+    },
+    {
+      "type": "text",
+      "id": "gb_top_content_text",
+      "label": "Top text",
+      "default": "UK"
     },
     {
       "type": "url",
@@ -157,6 +303,111 @@
       "id": "close_button_label",
       "label": "Close button label",
       "default": "Close store recommendation"
+    },
+    {
+      "type": "header",
+      "content": "Popup top content"
+    },
+    {
+      "type": "select",
+      "id": "top_content_type",
+      "label": "Popup top content type",
+      "options": [
+        {
+          "value": "logo",
+          "label": "Logo"
+        },
+        {
+          "value": "text",
+          "label": "Text"
+        },
+        {
+          "value": "image",
+          "label": "Image"
+        }
+      ],
+      "default": "logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "popup_logo",
+      "label": "Logo",
+      "info": "Uses the store logo when no separate logo is selected."
+    },
+    {
+      "type": "text",
+      "id": "popup_logo_alt",
+      "label": "Logo alternative text"
+    },
+    {
+      "type": "image_picker",
+      "id": "popup_image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "popup_image_alt",
+      "label": "Image alternative text"
+    },
+    {
+      "type": "range",
+      "id": "top_content_max_width",
+      "min": 60,
+      "max": 280,
+      "step": 10,
+      "unit": "px",
+      "label": "Top content max width",
+      "default": 160
+    },
+    {
+      "type": "range",
+      "id": "top_content_spacing",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Space below top content",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "top_content_font_size",
+      "min": 16,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Top text size",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "top_content_font_weight",
+      "label": "Top text weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Regular"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "color",
+      "id": "top_content_text_color",
+      "label": "Top text color",
+      "default": "#2e2a39"
     },
     {
       "type": "color",
@@ -221,31 +472,6 @@
       "unit": "day",
       "label": "Close-button cooldown",
       "default": 14
-    },
-    {
-      "type": "select",
-      "id": "theme_editor_test_country",
-      "label": "Theme Editor test country",
-      "info": "Mocked preview only. Off uses genuine Shopify detection outside the Theme Editor.",
-      "options": [
-        {
-          "value": "off",
-          "label": "Off"
-        },
-        {
-          "value": "AU",
-          "label": "Australia"
-        },
-        {
-          "value": "GB",
-          "label": "United Kingdom"
-        },
-        {
-          "value": "US",
-          "label": "United States"
-        }
-      ],
-      "default": "off"
     }
   ]
 }
