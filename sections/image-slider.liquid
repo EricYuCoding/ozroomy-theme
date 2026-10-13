@@ -87,7 +87,8 @@
           <ul class="splide__list">
             {%- for block in section.blocks -%}
               {%- liquid
-                assign image_link_label = block.settings.image.alt
+                assign image_alt = block.settings.image_alt | default: block.settings.image.alt | strip
+                assign image_link_label = image_alt
                 if image_link_label == blank
                   assign image_link_label = block.settings.description | strip_html
                 endif
@@ -143,7 +144,7 @@
                           {{
                             block.settings.image
                             | image_url: width: 3840
-                            | image_tag: loading: 'lazy', height: image_height, sizes: sizes, widths: widths
+                            | image_tag: alt: image_alt, loading: 'lazy', height: image_height, sizes: sizes, widths: widths
                           }}
                         {% elsif has_video %}
                           {% liquid
@@ -705,6 +706,12 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text",
+          "info": "Describe meaningful images. Leave blank for decorative images."
         },
         {
           "type": "url",

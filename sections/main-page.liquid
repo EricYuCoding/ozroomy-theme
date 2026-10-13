@@ -16,8 +16,15 @@
   <h1 class="main-page-title page-title h0">
     {{ page.title | escape }}
   </h1>
+  {%- liquid
+    assign page_content = page.content
+    if page.handle == 'try-it-at-home-for-60-days' and page_content contains '<h1>'
+      assign page_content = page_content | replace_first: '<h1>', '<h2 class="h1">'
+      assign page_content = page_content | replace_first: '</h1>', '</h2>'
+    endif
+  -%}
   <div class="rte">
-    {{ page.content }}
+    {{ page_content }}
   </div>
 </div>
 

@@ -1073,6 +1073,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/Amber-Loopa-image_landing.webp",
+            "image_alt": "Couple relaxing on a Loopa sofa in their home",
             "link": "https://www.instagram.com/p/DXMMenNkwPM/",
             "description": "",
             "desc_alignment": "center",
@@ -1083,6 +1084,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/ins-4.webp",
+            "image_alt": "Person resting on an unfolded sofa bed at home",
             "link": "https://www.instagram.com/p/DRzAy2ZigRR/",
             "description": "",
             "desc_alignment": "center",
@@ -1093,6 +1095,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/ins-2.webp",
+            "image_alt": "Two people relaxing with a Pebble sofa at home",
             "link": "",
             "description": "",
             "desc_alignment": "center",
@@ -1103,6 +1106,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/KOL-Jeff.webp",
+            "image_alt": "Person reclining on a sofa bed",
             "link": "https://www.instagram.com/p/DWOU-fbCvy4/",
             "description": "",
             "desc_alignment": "center",
@@ -1113,6 +1117,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/KOL-UK-JOEL.webp",
+            "image_alt": "Person relaxing on a modular sofa at home",
             "link": "https://www.instagram.com/p/DWsGc6QD1rv/",
             "description": "",
             "desc_alignment": "center",
@@ -1123,6 +1128,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/ins-1.webp",
+            "image_alt": "Customer standing behind three sofa delivery boxes",
             "link": "https://www.instagram.com/p/DVkUjFFigVF/",
             "description": "",
             "desc_alignment": "center",
@@ -1133,6 +1139,7 @@
           "type": "image_slide",
           "settings": {
             "image": "shopify://shop_images/ins-3.webp",
+            "image_alt": "Person using a laptop on an unfolded sofa bed",
             "link": "",
             "description": "",
             "desc_alignment": "center",
