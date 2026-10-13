@@ -212,7 +212,7 @@
             "margin_bottom": 15,
             "in_stock_text": "<p><strong>In stock</strong>, leaves our warehouse in business 1-2 days</p>",
             "low_stock_text": "<p>Limited stock, ready to ship in 1-2 business days</p>",
-            "pre_order_text": "<p><strong>Pre-order Now</strong>| Estimated arrival:7-9 weeks</p>",
+            "pre_order_text": "<p><strong>Pre-order Now</strong>| Estimated arrival:5-8 weeks</p>",
             "enable_custom_out_of_stock": false,
             "custom_out_of_stock_text": "Contact us for restock dates"
           }

@@ -1262,6 +1262,11 @@
     else
       assign seo_media = product.featured_media
     endif
+
+    assign schema_brand = product.vendor
+    if localization.country.iso_code == 'AU'
+      assign schema_brand = 'OZROOMY'
+    endif
   -%}
   {% assign days_to_add = 5 %}
   {% capture new_date %}{{ 'now' | date: '%s' | plus: days_to_add | times: 86400 | date: '%FT%T%:z' }}{% endcapture %}
@@ -1283,7 +1288,7 @@
       {%- endif %}
       "brand": {
         "@type": "Brand",
-        "name": {{ product.vendor | json }}
+        "name": {{ schema_brand | json }}
       },
       "offers": [
         {%- for variant in product.variants -%}
@@ -1304,6 +1309,7 @@
             "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
             "price" : {{ variant.price | divided_by: 100.00 | json }},
             "priceCurrency" : {{ cart.currency.iso_code | json }},
+            {%- unless localization.country.iso_code == 'AU' %}
             "hasMerchantReturnPolicy": [
             {
                 "@type": "MerchantReturnPolicy",
@@ -1587,6 +1593,7 @@
                 }
             }],
             "priceValidUntil": "{{ new_date }}",    
+            {%- endunless %}
             "url" : {{ request.origin | append: variant.url | json }}
           }{% unless forloop.last %},{% endunless %}
         {%- endfor -%}
